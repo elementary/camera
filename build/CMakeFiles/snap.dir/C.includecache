@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mefrio/Scrivania/snap/build/src/SnapWindow.c
+glib.h
+-
+glib-object.h
+-
+gtk/gtk.h
+-
+granite.h
+-
+gst/gst.h
+-
+stdlib.h
+-
+string.h
+-
+gst/interfaces/xoverlay.h
+-
+gdk/gdkx.h
+-
+

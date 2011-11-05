@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+6efa519980cb3c6564912f287c32246a po/CMakeFiles/i18n
+6efa519980cb3c6564912f287c32246a po/CMakeFiles/pot
+9960c07bdb1e8a3bea3bbcfb291e2acd src/SnapWindow.c
