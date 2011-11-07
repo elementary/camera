@@ -21,6 +21,8 @@
 using Gtk;
 using Gst;
 
+using Snap.Widgets;
+
 namespace Snap {
 	
 	public class SnapWindow : Gtk.Window {
@@ -28,9 +30,13 @@ namespace Snap {
 		private const string TITLE = "Snap";
 		public Snap.SnapApp snap_app;
 		
-		//widgets and instruments for windo and gstreamer
+		//widgets
 		DrawingArea drawing_area;	
-
+        SnapToolbar toolbar;
+        SnapStatic staticn;
+        SnapStatusbar statusbar;
+        
+        //gst objects
 	    Pipeline pipeline;
         Element src;
         Element sink;
@@ -44,33 +50,36 @@ namespace Snap {
 		    
 		    setup_window ();
 		    setup_gst_pipeline ();
+		    
+		    on_play ();
 		        
 		}
 		
 		void setup_window () {
-		
-			var vbox = new Box (Orientation.VERTICAL, 0);
-		    this.drawing_area = new DrawingArea ();
-		    this.drawing_area.set_size_request (450, 250);
-		    vbox.pack_start (this.drawing_area, true, true, 0);
-
-		    var play_button = new Button.from_stock (Stock.MEDIA_PLAY);
-		    play_button.clicked.connect (on_play);
-		    var stop_button = new Button.from_stock (Stock.MEDIA_STOP);
-		    stop_button.clicked.connect (on_stop);
-		    var quit_button = new Button.from_stock (Stock.QUIT);
-		    quit_button.clicked.connect (Gtk.main_quit);
-
-		    var bb = new ButtonBox (Orientation.HORIZONTAL);
-		    bb.add (play_button);
-		    bb.add (stop_button);
-		    bb.add (quit_button);
-		    vbox.pack_start (bb, false, true, 0);
-
+		    
+		    var vbox = new Box (Orientation.VERTICAL, 0);
+		    var hbox = new Box (Orientation.HORIZONTAL, 0);
+		    
+		    toolbar = new SnapToolbar (this);
+		    vbox.pack_start (toolbar, false, false, 0);
+		    
+		    drawing_area = new DrawingArea ();
+		    drawing_area.set_size_request (450, 250);
+		    hbox.pack_start (drawing_area, true, true, 30);
+		    vbox.pack_start (hbox, true, true, 30);
+            
+            staticn = new SnapStatic ();
+            vbox.pack_start (staticn, false, true, 0);
+            
+            statusbar = new SnapStatusbar ();
+            vbox.pack_start (statusbar, false, false, 0);
+            
 		    add (vbox);
 		    
 		    show_all ();
-		
+		    
+		    
+		    
 		}
 		
 		private void on_play () {

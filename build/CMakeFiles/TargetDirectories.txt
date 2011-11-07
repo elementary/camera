@@ -1,3 +1,0 @@
-/home/mefrio/Scrivania/snap/build/po/CMakeFiles/i18n.dir
-/home/mefrio/Scrivania/snap/build/po/CMakeFiles/pot.dir
-/home/mefrio/Scrivania/snap/build/CMakeFiles/snap.dir

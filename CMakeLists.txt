@@ -20,7 +20,7 @@ add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 install (FILES ${CMAKE_BINARY_DIR}/src/snap.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
 # snap
 
-set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0")
+set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0")
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
@@ -43,7 +43,10 @@ vala_precompile (VALA_C
 	src/SnapWindow.vala
     src/Snap.vala
     src/config.vala
-
+    src/Widgets/SnapToolbar.vala
+    src/Widgets/SnapStatic.vala
+    src/Widgets/SnapStatusbar.vala
+    src/Widgets/SnapAppMenu.vala
 PACKAGES
 	${SNAP_DEPS}
 )
