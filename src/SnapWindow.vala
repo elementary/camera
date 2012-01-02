@@ -19,9 +19,7 @@
 ***/
 
 using Gtk;
-using Gst;
-
-using Snap.Widgets;
+using Granite.Widgets;
 
 namespace Snap {
 	
@@ -31,15 +29,18 @@ namespace Snap {
 		public Snap.SnapApp snap_app;
 		
 		//widgets
-		DrawingArea drawing_area;	
-        SnapToolbar toolbar;
-        SnapStatic staticn;
-        SnapStatusbar statusbar;
+		public DrawingArea drawing_area;	
+        Gtk.Toolbar toolbar;
+        Button take_button;
+        StaticNotebook viewer;
+        Statusbar statusbar;
+        
+        // CSS styling
+        Gtk.StyleContext context;
+        Gtk.CssProvider css;
         
         //gst objects
-	    Pipeline pipeline;
-        Element src;
-        Element sink;
+        public SnapPipelines pipeline;
 		
 		public SnapWindow (Snap.SnapApp snap_app) {
 		    
@@ -48,11 +49,22 @@ namespace Snap {
 		    
 		    this.title = TITLE;
 		    
-		    setup_window ();
-		    setup_gst_pipeline ();
+		    this.destroy.connect (Gtk.main_quit);
 		    
-		    on_play ();
-		        
+		    css = new Gtk.CssProvider ();
+            try {
+                css.load_from_path ("Snap.css"); 
+            } catch (Error e) {
+                warning ("%s", e.message);
+            }
+            context = new Gtk.StyleContext ();
+            context.add_provider_for_screen (get_screen (), css, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+		    
+		    setup_window ();
+		    setup_pipeline ();
+            
+            take_button.clicked.connect (pipeline.take_photo);
+            
 		}
 		
 		void setup_window () {
@@ -60,46 +72,76 @@ namespace Snap {
 		    var vbox = new Box (Orientation.VERTICAL, 0);
 		    var hbox = new Box (Orientation.HORIZONTAL, 0);
 		    
-		    toolbar = new SnapToolbar (this);
+		    // Setup toolbar
+		    toolbar = new Gtk.Toolbar ();
+		    toolbar.get_style_context ().add_class ("primary-toolbar");
+		    
+		    var mode_button = new ModeButton ();
+            mode_button.valign = Gtk.Align.CENTER;
+            mode_button.halign = Gtk.Align.CENTER;
+            mode_button.append(new Gtk.Label("Photo"));
+            mode_button.append(new Gtk.Label("Video"));
+            var mode_tool = new ToolItem ();
+            mode_tool.add (mode_button);
+            mode_tool.set_expand (false);
+            toolbar.add (mode_tool);
+		    
+		    var spacer = new ToolItem ();
+			spacer.set_expand (true);
+			toolbar.add (spacer);
+		    
+		    this.take_button = new Button.with_label ("Take a photo");
+		    this.take_button.get_style_context ().add_provider (css, 600);
+		    this.take_button.get_style_context ().add_class ("take-button");
+		    var take_tool = new ToolItem ();
+		    take_tool.add (take_button);
+		    take_tool.set_expand (false);
+		    toolbar.add (take_tool);
+		    
+		    spacer = new ToolItem ();
+			spacer.set_expand (true);
+			toolbar.add (spacer);
+		    
+		    var app_menu = (this.get_application() as Granite.Application).create_appmenu(new Gtk.Menu ());
+		    toolbar.add (app_menu);
+		    
 		    vbox.pack_start (toolbar, false, false, 0);
 		    
+		    // Setup drawing area
 		    drawing_area = new DrawingArea ();
 		    drawing_area.set_size_request (450, 250);
 		    hbox.pack_start (drawing_area, true, true, 30);
 		    vbox.pack_start (hbox, true, true, 30);
             
-            staticn = new SnapStatic ();
-            vbox.pack_start (staticn, false, true, 0);
+            // Setup the photo/video viewer
+            var box = new Box (Orientation.VERTICAL, 0);
             
-            statusbar = new SnapStatusbar ();
-            vbox.pack_start (statusbar, false, false, 0);
+            viewer = new StaticNotebook ();
+            
+            viewer.append_page (new VBox (false, 0), new Label ("All"));
+            viewer.append_page (new VBox (false, 0), new Label ("Photo"));  
+            viewer.append_page (new VBox (false, 0), new Label ("Video"));   
+            
+            box.pack_start (viewer, true, true, 0);
+            
+            statusbar = new Statusbar ();
+            statusbar.push (0, "0 photos and 0 videos");
+            
+            box.pack_start (statusbar, true, true, 0);
+            
+            vbox.pack_start (box, false, true, 0);
             
 		    add (vbox);
 		    
-		    show_all ();
-		    
-		    
+		    show_all (); 
 		    
 		}
-		
-		private void on_play () {
-            var xoverlay = this.sink as XOverlay;
-            xoverlay.set_xwindow_id (Gdk.X11Window.get_xid (this.drawing_area.get_window ()));
-            this.pipeline.set_state (State.PLAYING);
+
+	    void setup_pipeline () {
+            this.pipeline = new SnapPipelines (drawing_area);
+            pipeline.play ();
         }
 
-        private void on_stop () {
-            this.pipeline.set_state (State.READY);
-        }
-	
-	    void setup_gst_pipeline () {
-            this.pipeline = new Pipeline ("mypipeline");
-		    this.src = ElementFactory.make ("v4l2src", "video");
-            this.sink = ElementFactory.make ("xvimagesink", "sink");
-            this.pipeline.add_many (this.src, this.sink);
-            this.src.link (this.sink);
-        }	
-		
 	}	
 	
 }

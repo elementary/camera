@@ -1,4 +1,3 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
 	
@@ -18,20 +17,27 @@
   END LICENSE	
 ***/
 
-using Gtk;
-
-namespace Snap.Widgets {
+.take-button {
     
-    public class SnapAppMenu : Gtk.Menu {
-        
-        public SnapAppMenu () {
-            setup_menu ();
-        }
-        
-        void setup_menu () {
+    border-style: outset;
+    
+    background-color: red;
+    border-color: shade (mix (rgb (34, 255, 120), #fff, 0.5), 0.9);
+    
+    border-radius: 40 40 40 40;
+    
+}
 
-        }  
-        
-    }
+.take-button:active,
+.take-button:hover {
+    
+    transition: 100ms linear;
+    
+    border-style: inset;
+    
+    background-image: -gtk-gradient (linear,
+                                   left top, left bottom,
+                                   from (@selected_bg_color),
+                                   to (shade (@selected_bg_color, 1.4)));
     
 }

@@ -42,11 +42,8 @@ include (ValaPrecompile)
 vala_precompile (VALA_C
 	src/SnapWindow.vala
     src/Snap.vala
+    src/SnapPipelines.vala
     src/config.vala
-    src/Widgets/SnapToolbar.vala
-    src/Widgets/SnapStatic.vala
-    src/Widgets/SnapStatusbar.vala
-    src/Widgets/SnapAppMenu.vala
 PACKAGES
 	${SNAP_DEPS}
 )
