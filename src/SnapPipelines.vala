@@ -74,7 +74,7 @@ namespace Snap {
 		    debug ("Taking a photo...");
 
             this.src.set_state (State.NULL);
-
+            
             var pip = new Pipeline ("pip");
             var v4l2 = ElementFactory.make ("v4l2src", "v");
             var ffmpeg = ElementFactory.make ("ffmpegcolorspace", "ffmpeg");
@@ -85,30 +85,64 @@ namespace Snap {
             v4l2.link_many (ffmpeg, png, file);
             pip.set_state (State.PLAYING);
             
-            //this.src.set_state (State.PLAYING);
-            //play ();
-
+            Timeout.add (500, () => { pip.set_state (State.NULL);
+                this.src.set_state (State.PLAYING);
+                this.src.link (this.sink);
+                play ();
+                var xoverlay = this.sink as XOverlay;
+                xoverlay.set_xwindow_id (Gdk.X11Window.get_xid (this.drawing_area.get_window ()));
+            return false;});
         }
         
         public void take_video () {
             debug ("Taking a video...");
             
             this.src.set_state (State.NULL);
-
+            this.sink.set_state (State.NULL);
+            
+            var pip = new Pipeline ("pip");
+            var cb = ElementFactory.make ("camerabin", "c");
+            pip.add_many (cb);
+            pip.set_state (State.PLAYING);        
+/*           
             var pip = new Pipeline ("pip");
             var v4l2 = ElementFactory.make ("v4l2src", "v");
+            var vcaps = new Caps.simple ("video/x-raw-yuv,width=640,height=480,framerate=30/1", "c");
+            var cfilt = ElementFactory.make ("capsfilter", "cf");
+            cfilt.set_property ("caps", vcaps);
             var tee = ElementFactory.make ("tee", "t");
+            tee.set_property ("name", "t_vid");
 		    var queue = ElementFactory.make ("queue", "q");
+		    var xv = ElementFactory.make ("xvimagesink", "x");
+		    var tq = ElementFactory.make ("queue", "tq");
 		    var videorate = ElementFactory.make ("videorate", "vi");
+		    var vicaps = new Caps.simple ("video/x-raw-yuv,framerate=30/1", "c");
+            var vifilt = ElementFactory.make ("capsfilter", "vifilt");
+            vifilt.set_property ("caps", vicaps);
 		    var theoraenc = ElementFactory.make ("theoraenc", "t");
+		    var queue1 = ElementFactory.make ("queue", "q1");
+		    var asrc = ElementFactory.make ("alsasrc", "asrc");
+		    asrc.set_property ("device", "hw:1,0");
+		    var acaps = new Caps.simple ("video/x-raw-yuv,framerate=30/1", "c");
+            var afilt = ElementFactory.make ("capsfilter", "afilt");
+            afilt.set_property ("caps", acaps);
+            var queue2 = ElementFactory.make ("queue", "q2");
 		    var audioconvert = ElementFactory.make ("audioconvert", "a");
+		    var queue3 = ElementFactory.make ("queue", "q3");
 		    var vorbisenc = ElementFactory.make ("vorbisenc", "vo");
+		    var queue4 = ElementFactory.make ("queue", "q4");
 		    var oggmux = ElementFactory.make ("oggmux", "o");
+		    oggmux.set_property ("name", "mux");
 		    var file = ElementFactory.make ("filesink", "file");
             file.set_property ("location", dir + "/foo.ogg");
             
-            pip.add_many (v4l2, tee, queue, videorate, theoraenc, audioconvert, vorbisenc, oggmux, file);
-            
+            pip.add_many (v4l2, cfilt, tee, queue, xv, videorate, tq, vifilt, theoraenc, queue1, asrc, afilt, queue2, audioconvert, queue3, vorbisenc, queue4, oggmux, file);
+            v4l2.link_many (cfilt, queue, xv);
+            tee.link_many (tq, videorate, vifilt, theoraenc, queue1, oggmux, file);
+            asrc.link_many (afilt, queue2, audioconvert, vorbisenc, queue4, oggmux);
+            pip.set_state (State.PLAYING);           
+          GLib.Process.spawn_command_line_async ("gst-launch oggmux name=mux ! filesink location=output.ogg { v4l2src ! tee name=t ! {queue ! ffmpegcolorspace ! theoraenc ! queue ! mux. }");  
+*/
         }
         
         public void take_video_stop () {
