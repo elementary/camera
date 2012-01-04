@@ -71,12 +71,12 @@ namespace Snap {
             }
             else if (mode_button.selected == 1) { 
                 if (video_start) {
-                    take_button.set_label ("Stop taking video");
+                    take_button.set_image (new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", IconSize.BUTTON));
                     pipeline.take_video ();
                     video_start = false;
                 }
                 else {
-                    take_button.set_label ("Take video");
+                    take_button.set_image (new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
                     pipeline.take_video_stop ();
                     video_start = true;
                 }
@@ -104,8 +104,8 @@ namespace Snap {
 		    this.mode_button = new ModeButton ();
             mode_button.valign = Gtk.Align.CENTER;
             mode_button.halign = Gtk.Align.CENTER;
-            mode_button.append(new Gtk.Label("Photo"));
-            mode_button.append(new Gtk.Label("Video"));
+            mode_button.append(new Gtk.Image.from_icon_name ("camera-photo-symbolic", IconSize.BUTTON));
+            mode_button.append(new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
             mode_button.mode_changed.connect (on_mode_changed);
             mode_button.set_active (0);
             var mode_tool = new ToolItem ();
@@ -117,9 +117,10 @@ namespace Snap {
 			spacer.set_expand (true);
 			toolbar.add (spacer);
 		    
-		    this.take_button = new Button.with_label ("Take a photo");
+		    this.take_button = new Button ();
 		    this.take_button.get_style_context ().add_provider (css, 600);
 		    this.take_button.get_style_context ().add_class ("take-button");
+		    take_button.set_image (new Gtk.Image.from_icon_name ("camera-photo-symbolic", IconSize.BUTTON));
 		    var take_tool = new ToolItem ();
 		    take_tool.add (take_button);
 		    take_tool.set_expand (false);
@@ -175,8 +176,8 @@ namespace Snap {
         }
         
         void on_mode_changed (Widget widget) {
-            if (mode_button.selected == 0) take_button.set_label ("Take photo");
-            else take_button.set_label ("Take video");
+            if (mode_button.selected == 0) take_button.set_image (new Gtk.Image.from_icon_name ("camera-photo-symbolic", IconSize.BUTTON));
+            else take_button.set_image (new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
             pipeline.switch_mode (mode_button.selected);
         }
         

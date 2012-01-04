@@ -50,7 +50,7 @@ namespace Snap {
 		    translate_url = "https://translations.launchpad.net/snap";
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>", null };
 		    //about_documenters = {"",""};
-		    //about_artists = { null };
+		    about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
 		    //about_translators = "Launchpad Translators";
 		    about_license_type = License.GPL_3_0;
 		    
