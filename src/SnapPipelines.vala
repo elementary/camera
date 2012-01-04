@@ -58,15 +58,7 @@ namespace Snap {
         }
 		
 		public void switch_mode (int mode) {
-		    /*switch (mode) {
-		        case "photo":
-		            this.camerabin.set_property ("mode", 0);
-		        break;
-		        
-		        case "video":
-		            this.camerabin.set_property ("mode", 1);
-		        break;
-		    }*/this.camerabin.set_property ("mode", mode);
+		    this.camerabin.set_property ("mode", mode);
 		}
 		
 		public void play () {
@@ -83,8 +75,17 @@ namespace Snap {
         
         public void take_photo () {
 		    debug ("Taking a photo...");
-
-            camerabin.set_property ("filename", dir + "/test.jpg");
+            
+            int n = 0;
+            string filename = null;
+            
+            while (true) { 
+                filename = dir + "/Snap_picture_" + n.to_string () + ".jpg";
+                if (FileUtils.test (filename, FileTest.EXISTS)) n++;
+                else break;
+            }
+            debug ("%s", filename);
+            camerabin.set_property ("filename", filename);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
 
         }
@@ -92,7 +93,16 @@ namespace Snap {
         public void take_video () {
             debug ("Taking a video...");
             
-            camerabin.set_property ("filename", dir + "/test.ogg");
+            int n = 0;
+            string filename = null;
+            
+            while (true) { 
+                filename = dir + "/Snap_video_" + n.to_string () + ".ogg";
+                if (FileUtils.test (filename, FileTest.EXISTS)) n++;
+                else break;
+            }
+            
+            camerabin.set_property ("filename", filename);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
             
         }
