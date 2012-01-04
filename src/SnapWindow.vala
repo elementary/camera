@@ -27,10 +27,12 @@ namespace Snap {
 		
 		private const string TITLE = "Snap";
 		public Snap.SnapApp snap_app;
+		bool video_start = true;
 		
 		//widgets
 		public DrawingArea drawing_area;	
         Gtk.Toolbar toolbar;
+        ModeButton mode_button;
         Button take_button;
         StaticNotebook viewer;
         Statusbar statusbar;
@@ -53,7 +55,7 @@ namespace Snap {
 		    
 		    css = new Gtk.CssProvider ();
             try {
-                css.load_from_path ("Snap.css"); 
+                css.load_from_path (Constants.DATADIR + "/snap/Snap.css"); 
             } catch (Error e) {
                 warning ("%s", e.message);
             }
@@ -63,7 +65,22 @@ namespace Snap {
 		    setup_window ();
 		    setup_pipeline ();
             
-            take_button.clicked.connect (pipeline.take_photo);
+            take_button.clicked.connect (() => {
+            if (mode_button.selected == 0) { 
+                pipeline.take_photo ();
+            }
+            else if (mode_button.selected == 1) { 
+                if (video_start) {
+                    take_button.set_label ("Stop taking video");
+                    pipeline.take_video ();
+                    video_start = false;
+                }
+                else {
+                    take_button.set_label ("Take video");
+                    pipeline.take_video_stop ();
+                    video_start = true;
+                }
+            }});
             
 		}
 		
@@ -74,13 +91,23 @@ namespace Snap {
 		    
 		    // Setup toolbar
 		    toolbar = new Gtk.Toolbar ();
-		    toolbar.get_style_context ().add_class ("primary-toolbar");
-		    
-		    var mode_button = new ModeButton ();
+  		    toolbar.get_style_context ().add_class ("primary-toolbar");
+	        
+	        var effects_button = new Button.with_label (_("Effects"));
+	        effects_button.set_sensitive (false);
+		    var effects_tool = new ToolItem ();
+		    effects_tool.add (effects_button);
+		    effects_tool.set_expand (false);
+		    effects_button.set_relief (ReliefStyle.NORMAL);
+		    toolbar.add (effects_tool);        
+	        	    
+		    this.mode_button = new ModeButton ();
             mode_button.valign = Gtk.Align.CENTER;
             mode_button.halign = Gtk.Align.CENTER;
             mode_button.append(new Gtk.Label("Photo"));
             mode_button.append(new Gtk.Label("Video"));
+            mode_button.mode_changed.connect (on_mode_changed);
+            mode_button.set_active (0);
             var mode_tool = new ToolItem ();
             mode_tool.add (mode_button);
             mode_tool.set_expand (false);
@@ -96,11 +123,16 @@ namespace Snap {
 		    var take_tool = new ToolItem ();
 		    take_tool.add (take_button);
 		    take_tool.set_expand (false);
+		    take_button.set_relief (ReliefStyle.NORMAL);
 		    toolbar.add (take_tool);
 		    
 		    spacer = new ToolItem ();
 			spacer.set_expand (true);
 			toolbar.add (spacer);
+		    
+		    var share_app_menu = new ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", new Gtk.Menu ());
+		    share_app_menu.set_sensitive (false);
+		    toolbar.add (share_app_menu);
 		    
 		    var app_menu = (this.get_application() as Granite.Application).create_appmenu(new Gtk.Menu ());
 		    toolbar.add (app_menu);
@@ -118,9 +150,9 @@ namespace Snap {
             
             viewer = new StaticNotebook ();
             
-            viewer.append_page (new VBox (false, 0), new Label ("All"));
-            viewer.append_page (new VBox (false, 0), new Label ("Photo"));  
-            viewer.append_page (new VBox (false, 0), new Label ("Video"));   
+            viewer.append_page (new VBox (false, 0), new Label (_("All")));
+            viewer.append_page (new VBox (false, 0), new Label (_("Photo")));  
+            viewer.append_page (new VBox (false, 0), new Label (_("Video")));   
             
             box.pack_start (viewer, true, true, 0);
             
@@ -141,7 +173,13 @@ namespace Snap {
             this.pipeline = new SnapPipelines (drawing_area);
             pipeline.play ();
         }
-
+        
+        void on_mode_changed (Widget widget) {
+            if (mode_button.selected == 0) take_button.set_label ("Take photo");
+            else take_button.set_label ("Take video");
+            pipeline.switch_mode (mode_button.selected);
+        }
+        
 	}	
 	
 }
