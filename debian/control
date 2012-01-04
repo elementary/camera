@@ -1,0 +1,22 @@
+Source: snap
+Section: x11
+Priority: extra
+Maintainer: Mario Guerriero <mefrio.g@gmail.com>
+Build-Depends: debhelper (>= 7), 
+    cmake,
+    pkg-config,
+    valac-0.14,
+    libgtk-3-dev,
+    libgranite-dev,
+    libgstreamer0.10-dev,
+    libgstreamer-plugins-base0.10-dev,
+Standards-Version: 3.9.1
+Homepage: http://launchpad.net/snap
+
+Package: snap
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
+Description: Snap webcam viewer
+ Get your photos and videos from your webcam in elementary style
+
