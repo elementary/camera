@@ -20,14 +20,13 @@ add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 
 # snap
 
-set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0")
+set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0")
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
 pkg_check_modules (GIO REQUIRED "gio-2.0 >= 2.26.0")
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.2")
 pkg_check_modules (LIBGRANITE REQUIRED "granite")
-pkg_check_modules (GCONF REQUIRED "gconf-2.0 >= 2.31.91")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gstreamer-0.10 >= 0.10")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gstreamer-interfaces-0.10 >= 0.10")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gdk-x11-3.0 >= 3.0")
