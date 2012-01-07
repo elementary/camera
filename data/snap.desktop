@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=0.1
+Name=Snap
+Comment=The photoboot app for elementary
+GenericName=Photoboot
+Exec=snap
+Icon=snap
+Terminal=false
+Categories=GNOME;AudioVideo;
+StartupNotify=true

@@ -79,7 +79,6 @@ namespace Snap {
 		
 			app_cmd_name = "Snap";
 			            
-            Gtk.init (ref args);
             Gst.init (ref args);
             
             var app = new SnapApp ();

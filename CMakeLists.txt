@@ -13,7 +13,7 @@ set (CMAKE_C_FLAGS "-ggdb")
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DOLLAR "$")
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-# Configure file
+# Configure file  
 
 configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
@@ -30,7 +30,7 @@ pkg_check_modules (LIBGRANITE REQUIRED "granite")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gstreamer-0.10 >= 0.10")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gstreamer-interfaces-0.10 >= 0.10")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gdk-x11-3.0 >= 3.0")
-pkg_check_modules (DEPS REQUIRED ${SNAP_DEPS})
+pkg_check_modules (DEPS REQUIRED ${SNAP_DEPS} gthread-2.0)
 add_definitions (${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
 link_libraries (${DEPS_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})
@@ -57,8 +57,9 @@ target_link_libraries (snap)
 #TODO: Installation
 
 install (TARGETS snap RUNTIME DESTINATION bin)
-#install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.svg DESTINATION share/icons/hicolor/scalable/apps)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/Snap.css DESTINATION share/snap)
+#install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.svg DESTINATION share/icons/hicolor/scalable/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.desktop DESTINATION share/applications)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/Snap.css DESTINATION share/snap)
 
 include(GSettings)
 add_schema("org.elementary.snap.gschema.xml")
