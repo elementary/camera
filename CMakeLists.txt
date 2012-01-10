@@ -43,6 +43,7 @@ vala_precompile (VALA_C
     src/Snap.vala
     src/SnapPipelines.vala
     src/config.vala
+    src/Widgets/Countdown.vala
 PACKAGES
 	${SNAP_DEPS}
 )

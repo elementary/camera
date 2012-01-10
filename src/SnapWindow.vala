@@ -21,6 +21,8 @@
 using Gtk;
 using Granite.Widgets;
 
+using Snap.Widgets;
+
 namespace Snap {
 	
 	public class SnapWindow : Gtk.Window {
@@ -42,7 +44,7 @@ namespace Snap {
         Gtk.CssProvider css;
         
         //gst objects
-        public SnapPipelines pipeline;
+        public Pipelines pipeline;
 		
 		public SnapWindow (Snap.SnapApp snap_app) {
 		    
@@ -66,13 +68,16 @@ namespace Snap {
 		    setup_pipeline ();
             
             take_button.clicked.connect (() => {
+            var count = new Snap.Widgets.Countdown (this, pipeline);
+            
             if (mode_button.selected == 0) { 
-                pipeline.take_photo ();
+                count.start (CountdownAction.PHOTO);
             }
+            
             else if (mode_button.selected == 1) { 
                 if (video_start) {
                     take_button.set_image (new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", IconSize.BUTTON));
-                    pipeline.take_video ();
+                    count.start (CountdownAction.VIDEO);
                     video_start = false;
                 }
                 else {
@@ -171,14 +176,13 @@ namespace Snap {
 		}
 
 	    void setup_pipeline () {
-            this.pipeline = new SnapPipelines (drawing_area);
+            this.pipeline = new Pipelines (drawing_area);
             pipeline.play ();
         }
         
         void on_mode_changed (Widget widget) {
             if (mode_button.selected == 0) take_button.set_image (new Gtk.Image.from_icon_name ("camera-photo-symbolic", IconSize.BUTTON));
             else take_button.set_image (new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
-            pipeline.switch_mode (mode_button.selected);
         }
         
 	}	

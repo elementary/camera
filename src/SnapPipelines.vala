@@ -23,7 +23,7 @@ using Gst;
 
 namespace Snap {
 	
-	public class SnapPipelines : GLib.Object {
+	public class Pipelines : GLib.Object {
 		
 		// Path to save photos and videos
 		string dir = GLib.Environment.get_home_dir () + "/Snap";
@@ -32,7 +32,7 @@ namespace Snap {
 		DrawingArea drawing_area;	
         Element camerabin;
 		
-		public SnapPipelines (Gtk.DrawingArea area) {
+		public Pipelines (Gtk.DrawingArea area) {
 
 		    this.drawing_area = area;
 		    
@@ -79,12 +79,16 @@ namespace Snap {
             int n = 0;
             string filename = null;
             
+            this.camerabin.set_property ("mode", 0);
+            
             while (true) { 
                 filename = dir + "/Snap_picture_" + n.to_string () + ".jpg";
                 if (FileUtils.test (filename, FileTest.EXISTS)) n++;
                 else break;
             }
+            
             debug ("%s", filename);
+            
             camerabin.set_property ("filename", filename);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
 
@@ -96,11 +100,15 @@ namespace Snap {
             int n = 0;
             string filename = null;
             
+            this.camerabin.set_property ("mode", 1);
+            
             while (true) { 
                 filename = dir + "/Snap_video_" + n.to_string () + ".ogg";
                 if (FileUtils.test (filename, FileTest.EXISTS)) n++;
                 else break;
             }
+            
+            debug ("%s", filename);
             
             camerabin.set_property ("filename", filename);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
@@ -110,7 +118,7 @@ namespace Snap {
         public void take_video_stop () {
             debug ("Video taking finish...");            
             
-            GLib.Signal.emit_by_name (camerabin, "capture-start");
+            GLib.Signal.emit_by_name (camerabin, "capture-stop");
             
         }
 		
