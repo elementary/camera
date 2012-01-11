@@ -25,6 +25,8 @@ using Granite.Services;
 
 namespace Snap {
 	
+	public Snap.Services.Settings settings;
+	
 	public class SnapApp : Granite.Application {
 		
 		public SnapWindow window = null;
@@ -60,7 +62,9 @@ namespace Snap {
 			
 			Logger.initialize ("Snap");
 			Logger.DisplayLevel = LogLevel.DEBUG;
-						
+	        
+	        settings = new Snap.Services.Settings ();        
+	        
 		}
 		
         protected override void activate () {

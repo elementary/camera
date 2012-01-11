@@ -44,6 +44,9 @@ vala_precompile (VALA_C
     src/SnapPipelines.vala
     src/config.vala
     src/Widgets/Countdown.vala
+    src/Widgets/MediaViewer.vala
+    src/Dialogs/Preferences.vala
+    src/Services/Settings.vala
 PACKAGES
 	${SNAP_DEPS}
 )

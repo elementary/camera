@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 11:25+0100\n"
+"POT-Creation-Date: 2012-01-11 18:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mefrio/snap-test/po/../src/SnapWindow.vala:96
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:139
 msgid "Effects"
 msgstr ""
 
-#: /home/mefrio/snap-test/po/../src/SnapWindow.vala:153
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:199
 msgid "All"
 msgstr ""
 
-#: /home/mefrio/snap-test/po/../src/SnapWindow.vala:154
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:200
 msgid "Photo"
 msgstr ""
 
-#: /home/mefrio/snap-test/po/../src/SnapWindow.vala:155
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:201
 msgid "Video"
+msgstr ""
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:268
+msgid "Preferences"
+msgstr ""
+
+#: /home/mefrio/snap/po/../src/Widgets/Countdown.vala:56
+msgid "Recording starts in"
 msgstr ""

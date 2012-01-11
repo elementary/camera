@@ -31,6 +31,21 @@ namespace Snap {
 		public Snap.SnapApp snap_app;
 		bool video_start = true;
 		
+		const string ui_string = """
+            <ui>
+            <popup name="Actions">
+                <menuitem name="Quit" action="Quit"/>
+            </popup>
+
+            <popup name="AppMenu">
+                <menuitem action="Preferences" />
+            </popup>
+            </ui>
+        """;
+
+        public Gtk.ActionGroup main_actions;
+        Gtk.UIManager ui;
+		
 		//widgets
 		public DrawingArea drawing_area;	
         Gtk.Toolbar toolbar;
@@ -52,8 +67,30 @@ namespace Snap {
 		    set_application (this.snap_app);
 		    
 		    this.title = TITLE;
+		    this.window_position = WindowPosition.CENTER;
+		    this.resizable = false;
 		    
-		    this.destroy.connect (Gtk.main_quit);
+		    // Setup the actions
+		    main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
+            main_actions.set_translation_domain ("snap");
+            main_actions.add_actions (main_entries, this);
+            
+            ui = new Gtk.UIManager ();
+
+            try {
+                ui.add_ui_from_string (ui_string, -1);
+            }
+            catch(Error e) {
+                error ("Couldn't load the UI: %s", e.message);
+            }
+
+            Gtk.AccelGroup accel_group = ui.get_accel_group();
+            add_accel_group (accel_group);
+
+            ui.insert_action_group (main_actions, 0);
+            ui.ensure_update ();
+		    
+		    this.destroy.connect (action_quit);
 		    
 		    css = new Gtk.CssProvider ();
             try {
@@ -68,24 +105,25 @@ namespace Snap {
 		    setup_pipeline ();
             
             take_button.clicked.connect (() => {
-            var count = new Snap.Widgets.Countdown (this, pipeline);
-            
-            if (mode_button.selected == 0) { 
-                count.start (CountdownAction.PHOTO);
-            }
-            
-            else if (mode_button.selected == 1) { 
-                if (video_start) {
-                    take_button.set_image (new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", IconSize.BUTTON));
-                    count.start (CountdownAction.VIDEO);
-                    video_start = false;
+                var count = new Snap.Widgets.Countdown (this, pipeline);
+                
+                if (mode_button.selected == 0) { 
+                    count.start (CountdownAction.PHOTO);
                 }
-                else {
-                    take_button.set_image (new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
-                    pipeline.take_video_stop ();
-                    video_start = true;
+                
+                else if (mode_button.selected == 1) { 
+                    if (video_start) {
+                        take_button.set_image (new Gtk.Image.from_icon_name ("media-playback-stop-symbolic", IconSize.BUTTON));
+                        count.start (CountdownAction.VIDEO);
+                        video_start = false;
+                    }
+                    else {
+                        take_button.set_image (new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
+                        count.destroy ();
+                        video_start = true;
+                    }
                 }
-            }});
+            });
             
 		}
 		
@@ -136,11 +174,13 @@ namespace Snap {
 			spacer.set_expand (true);
 			toolbar.add (spacer);
 		    
-		    var share_app_menu = new ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", new Gtk.Menu ());
-		    share_app_menu.set_sensitive (false);
+		    var share_menu = new Gtk.Menu ();
+		    populate_with_contractor (share_menu);
+		    var share_app_menu = new ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", share_menu);
 		    toolbar.add (share_app_menu);
 		    
-		    var app_menu = (this.get_application() as Granite.Application).create_appmenu(new Gtk.Menu ());
+		    var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
+		    var app_menu = (this.get_application() as Granite.Application).create_appmenu (menu);
 		    toolbar.add (app_menu);
 		    
 		    vbox.pack_start (toolbar, false, false, 0);
@@ -174,7 +214,42 @@ namespace Snap {
 		    show_all (); 
 		    
 		}
-
+        
+        void populate_with_contractor (Gtk.Menu menu) {
+            var list  = new List<Gtk.MenuItem>();
+            
+            foreach (var contract in Granite.Services.Contractor.get_contract("file:///" + "", "image/*")) {
+                var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
+                string exec = contract["Exec"];
+                menuitem.activate.connect( () => {
+                    try {
+                        GLib.Process.spawn_command_line_async(exec);
+                    } catch (SpawnError e) {
+                        stderr.printf ("error spawn command line %s: %s", exec, e.message);
+                    }
+                });
+                menu.append (menuitem);
+                menu.show_all ();
+                list.append(menuitem);
+            }
+            
+            foreach (var contract in Granite.Services.Contractor.get_contract ("file:///" + "", "video/*")) {
+                var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
+                string exec = contract["Exec"];
+                menuitem.activate.connect( () => {
+                    try {
+                        GLib.Process.spawn_command_line_async(exec);
+                    } catch (SpawnError e) {
+                        stderr.printf ("error spawn command line %s: %s", exec, e.message);
+                    }
+                });
+                menu.append (menuitem);
+                menu.show_all ();
+                list.append(menuitem);
+            }
+            
+        }
+        
 	    void setup_pipeline () {
             this.pipeline = new Pipelines (drawing_area);
             pipeline.play ();
@@ -184,6 +259,27 @@ namespace Snap {
             if (mode_button.selected == 0) take_button.set_image (new Gtk.Image.from_icon_name ("camera-photo-symbolic", IconSize.BUTTON));
             else take_button.set_image (new Gtk.Image.from_icon_name ("camera-video-symbolic", IconSize.BUTTON));
         }
+        
+        void action_quit () {
+            Gtk.main_quit ();        
+        }
+        
+        void action_preferences () {
+            var dialog = new Snap.Dialogs.Preferences (_("Preferences"), this);
+            dialog.run ();
+            dialog.destroy ();
+        }
+        
+        static const Gtk.ActionEntry[] main_entries = {
+           { "Quit", Gtk.Stock.QUIT,
+          /* label, accelerator */       N_("Quit"), "<Control>q",
+          /* tooltip */                  N_("Quit"),
+                                         action_quit },
+           { "Preferences", Gtk.Stock.PREFERENCES,
+          /* label, accelerator */       N_("Preferences"), null,
+          /* tooltip */                  N_("Change Scratch settings"),
+                                         action_preferences }
+        };
         
 	}	
 	

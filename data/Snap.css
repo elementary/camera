@@ -21,6 +21,7 @@
     
     border-style: outset;
     
+    color: red;
     background-color: red;
     border-color: shade (mix (rgb (34, 255, 120), #fff, 0.5), 0.9);
     
@@ -35,6 +36,7 @@
     
     border-style: inset;
     
+    background-color: red;
     background-image: -gtk-gradient (linear,
                                    left top, left bottom,
                                    from (@selected_bg_color),
