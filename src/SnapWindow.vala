@@ -51,7 +51,7 @@ namespace Snap {
         Gtk.Toolbar toolbar;
         ModeButton mode_button;
         Button take_button;
-        StaticNotebook viewer;
+        MediaViewer viewer;
         Statusbar statusbar;
         
         // CSS styling
@@ -194,12 +194,8 @@ namespace Snap {
             // Setup the photo/video viewer
             var box = new Box (Orientation.VERTICAL, 0);
             
-            viewer = new StaticNotebook ();
-            
-            viewer.append_page (new VBox (false, 0), new Label (_("All")));
-            viewer.append_page (new VBox (false, 0), new Label (_("Photo")));  
-            viewer.append_page (new VBox (false, 0), new Label (_("Video")));   
-            
+            viewer = new MediaViewer (GLib.Environment.get_home_dir () + "/Snap/");
+
             box.pack_start (viewer, true, true, 0);
             
             statusbar = new Statusbar ();
@@ -218,7 +214,7 @@ namespace Snap {
         void populate_with_contractor (Gtk.Menu menu) {
             var list  = new List<Gtk.MenuItem>();
             
-            foreach (var contract in Granite.Services.Contractor.get_contract("file:///" + "", "image/*")) {
+            foreach (var contract in Granite.Services.Contractor.get_contract("file://" + "", "image/*")) {
                 var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
                 string exec = contract["Exec"];
                 menuitem.activate.connect( () => {
