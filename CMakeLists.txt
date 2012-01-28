@@ -49,6 +49,11 @@ vala_precompile (VALA_C
     src/Services/Settings.vala
 PACKAGES
 	${SNAP_DEPS}
+OPTIONS
+    --thread
+    --vapidir=${CMAKE_CURRENT_SOURCE_DIR}/vapi/
+CUSTOM_VAPIS
+    vapi/custom.vapi
 )
 # tranlation stuff
 
