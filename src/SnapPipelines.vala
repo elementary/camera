@@ -26,7 +26,8 @@ namespace Snap {
 	public class Pipelines : GLib.Object {
 		
 		// Path to save photos and videos
-		string dir = GLib.Environment.get_home_dir () + "/Snap";
+		string photo_dir = GLib.Environment.get_user_special_dir (UserDirectory.PICTURES) + "/Snap";
+		string video_dir = GLib.Environment.get_user_special_dir (UserDirectory.VIDEOS) + "/Snap";
 		
 		// Main elements
 		DrawingArea drawing_area;	
@@ -36,8 +37,9 @@ namespace Snap {
 
 		    this.drawing_area = area;
 		    
-		    // Create Snap dir
-		    GLib.DirUtils.create (dir, 0755);
+		    // Create Snap dirs
+		    GLib.DirUtils.create (photo_dir, 0755);
+		    GLib.DirUtils.create (video_dir, 0755);
 		    
 		    // Main elements to show the webcam stream
 		    this.camerabin = ElementFactory.make ("camerabin", "video");
@@ -97,7 +99,7 @@ namespace Snap {
             this.camerabin.set_property ("mode", 0);
             
             while (true) { 
-                filename = dir + "/Snap_picture_" + n.to_string () + ".jpg";
+                filename = photo_dir + "/Snap_picture_" + n.to_string () + ".jpg";
                 if (FileUtils.test (filename, FileTest.EXISTS)) n++;
                 else break;
             }
@@ -118,7 +120,7 @@ namespace Snap {
             this.camerabin.set_property ("mode", 1);
             
             while (true) { 
-                filename = dir + "/Snap_video_" + n.to_string () + ".ogg";
+                filename = video_dir + "/Snap_video_" + n.to_string () + ".ogg";
                 if (FileUtils.test (filename, FileTest.EXISTS)) n++;
                 else break;
             }
