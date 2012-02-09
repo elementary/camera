@@ -27,7 +27,7 @@ namespace Snap.Widgets {
     
     public class MediaViewer : Granite.Widgets.StaticNotebook {
         
-        string directory;
+        string directory = GLib.Environment.get_user_special_dir (UserDirectory.PICTURES) + "/Snap";
         public string selected;
         
         GLib.List<string> id_list;

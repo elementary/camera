@@ -45,11 +45,11 @@ namespace Snap {
 		    app_years = "2011";
 		    app_icon = "";
 		    app_launcher = "snap.desktop";
-		    application_id = "net.launchpad.snap";
-		    main_url = "https://launchpad.net/snap";
-		    bug_url = "https://bugs.launchpad.net/snap";
-		    help_url = "https://answers.launchpad.net/snap";
-		    translate_url = "https://translations.launchpad.net/snap";
+		    application_id = "net.launchpad.snap-elementary";
+		    main_url = "https://launchpad.net/snap-elementary";
+		    bug_url = "https://bugs.launchpad.net/snap-elementary";
+		    help_url = "https://answers.launchpad.net/snap-elementary";
+		    translate_url = "https://translations.launchpad.net/snap-elementary";
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>", null };
 		    //about_documenters = {"",""};
 		    about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
@@ -86,7 +86,7 @@ namespace Snap {
             Gst.init (ref args);
             
             var app = new SnapApp ();
-            
+
 		    return app.run (args);
 			
 		}
