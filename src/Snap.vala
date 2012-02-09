@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 	
-  Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
   This program is free software: you can redistribute it and/or modify it	
   under the terms of the GNU Lesser General Public License version 3, as
   published	by the Free Software Foundation.
@@ -42,8 +42,8 @@ namespace Snap {
 			
             program_name = app_cmd_name;
 		    exec_name = app_cmd_name.down();
-		    app_years = "2011";
-		    app_icon = "";
+		    app_years = "2011-2012";
+		    app_icon = "snap";
 		    app_launcher = "snap.desktop";
 		    application_id = "net.launchpad.snap-elementary";
 		    main_url = "https://launchpad.net/snap-elementary";
