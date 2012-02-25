@@ -66,7 +66,7 @@ namespace Snap {
                 xoverlay.set_xwindow_id (Gdk.X11Window.get_xid (this.drawing_area.get_window ()));
                 return Gst.BusSyncReply.DROP;
             }
-            return Gst.BusSyncReply.PASS;
+            else return Gst.BusSyncReply.PASS;
             
         }
 
@@ -83,7 +83,10 @@ namespace Snap {
         }
 
         public void stop () {
+            this.camerabin.abort_state ();
             this.camerabin.set_state (State.NULL);
+            this.camerabin.unref ();
+            Gst.deinit ();
         }
 
         public void take_photo () {

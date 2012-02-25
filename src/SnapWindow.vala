@@ -306,6 +306,7 @@ namespace Snap {
 
         void action_quit () {
             Gtk.main_quit ();
+            recorder.pipeline.stop ();
         }
 
         void action_preferences () {
