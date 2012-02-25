@@ -19,7 +19,7 @@ configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/sr
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 # snap
 
-set (SNAP_DEPS "gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0")
+set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0")
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
@@ -38,11 +38,14 @@ include (ValaVersion)
 ensure_vala_version ("0.12.0" MINIMUM)
 include (ValaPrecompile)
 vala_precompile(VALA_C
-    	src/SnapWindow.vala
+    src/Resources.vala
+    src/SnapWindow.vala
     src/Snap.vala
     src/SnapPipelines.vala
+    src/Recorder.vala
     src/config.vala
     src/Widgets/Countdown.vala
+    src/Widgets/MediaBin.vala
     src/Widgets/MediaViewer.vala
     src/Dialogs/Preferences.vala
     src/Services/Settings.vala
@@ -67,6 +70,5 @@ target_link_libraries (snap)
 install (TARGETS snap RUNTIME DESTINATION bin)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.png DESTINATION share/icons/hicolor/scalable/apps)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.desktop DESTINATION share/applications)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/Snap.css DESTINATION share/snap)
 include(GSettings)
 add_schema("org.elementary.snap.gschema.xml")

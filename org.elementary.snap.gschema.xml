@@ -1,14 +1,14 @@
 <schemalist>
     <schema path="/apps/snap/settings/" id="org.elementary.Snap.Settings" gettext-domain="snap">
-		<key name="countdown-time" type="i">
-			<default>5</default>
-			<summary>The time for the countdown.</summary>
-			<description>The time for the countdown.</description>
-		</key>
-		<key name="countdown" type="b">
-			<default>true</default>
-			<summary>Use or not the countdown.</summary>
-			<description>Use or not the countdown.</description>
-		</key>
-	</schema>
+        <key name="countdown-time" type="i">
+        <default>5</default>
+            <summary>The time for the countdown.</summary>
+            <description>The time for the countdown.</description>
+        </key>
+        <key name="countdown" type="b">
+            <default>true</default>
+            <summary>Use or not the countdown.</summary>
+            <description>Use or not the countdown.</description>
+        </key>
+    </schema>
 </schemalist>
