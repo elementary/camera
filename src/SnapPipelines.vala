@@ -66,7 +66,9 @@ namespace Snap {
         }
         
         Gst.BusSyncReply on_bus_callback (Gst.Bus bus, Gst.Message message) {
-            if (message.get_structure () != null && message.get_structure().has_name("prepare-xwindow-id")) {
+            if (message.get_structure () != null && message.get_structure().has_name("prepare-xwindow-id") &&
+                this.drawing_area.get_window () != null) 
+            {
                 var xoverlay = message.src as XOverlay;
                 xoverlay.set_xwindow_id (Gdk.X11Window.get_xid (this.drawing_area.get_window ()));
                 return Gst.BusSyncReply.DROP;
