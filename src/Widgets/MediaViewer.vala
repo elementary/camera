@@ -28,21 +28,29 @@ using Resources;
 namespace Snap.Widgets {
 
     public class MediaViewer : Granite.Widgets.StaticNotebook {
-
+        
+        public int photos;
+        public int videos;
+        
         private MediaViewerPage all_viewer;
         private MediaViewerPage photo_viewer;
         private MediaViewerPage video_viewer;
-
+        
+        public signal void selection_changed (string path, MediaType media_type);
+        
         public MediaViewer () {
 
             all_viewer = new MediaViewerPage (null);
             photo_viewer = new MediaViewerPage (MediaType.PHOTO);
             video_viewer = new MediaViewerPage (MediaType.VIDEO);
-
+            
+            photos = photo_viewer.counter;
+            videos = video_viewer.counter;
+            
             append_page (all_viewer, new Label (_("All")));
             append_page (photo_viewer, new Label (_("Photo")));
             append_page (video_viewer, new Label (_("Video")));
-
+        
             show_all ();
         }
 
@@ -60,6 +68,7 @@ namespace Snap.Widgets {
             else if (media_type == MediaType.VIDEO)
                 video_viewer.update_items ();
         }
+        
     }
 
     private class MediaViewerPage : ScrolledWindow {
@@ -73,9 +82,10 @@ namespace Snap.Widgets {
         //Gnome.DesktopThumbnailFactory thumbnail_factory;
 
         public string selected {get; private set;}
-
+        
         private MediaType? media_type;
-
+        public int counter = 0;
+        
         private Gee.HashMap<string, int> items_map;
 
         private ListStore store;
@@ -83,7 +93,6 @@ namespace Snap.Widgets {
 
         public MediaViewerPage (MediaType? media_type = null) {
             this.media_type = media_type;
-
             //this.thumbnail_factory = new Gnome.DesktopThumbnailFactory (Gnome.ThumbnailSize.NORMAL);
 
             items_map = new Gee.HashMap<string, int> ();
@@ -137,6 +146,12 @@ namespace Snap.Widgets {
 
                 var path = GLib.File.new_for_path(background).get_path();
                 this.selected = path;
+                
+                /**
+                 * selection-changed signal for the MediaViewer
+                 */
+                var mw = get_parent ().get_parent () as MediaViewer;
+                mw.selection_changed (path, media_type);
             }
         }
 
@@ -195,6 +210,7 @@ namespace Snap.Widgets {
                         pix = MEDIA_VIDEO_ICON.render (null, null, 64);
 
                     this.store.set (iter, 0, pix, 1, filename);
+                    counter++;
                 }
 
                 // asynchronous call, with callback, to get any more entries

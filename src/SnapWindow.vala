@@ -89,8 +89,6 @@ namespace Snap {
             ui.insert_action_group (main_actions, 0);
             ui.ensure_update ();
 
-            this.destroy.connect (action_quit);
-
             // Load icon information
             load_icons ();
 
@@ -219,9 +217,9 @@ namespace Snap {
             spacer.margin_left = 0;
             spacer.margin_right = 72;
 
-            var share_menu = new Gtk.Menu ();
-            populate_with_contractor (share_menu);
+            var share_menu = new Gtk.Menu ();       
             var share_app_menu = new ToolButtonWithMenu (EXPORT_ICON.render_image(IconSize.LARGE_TOOLBAR), "Share", share_menu);
+            share_app_menu.set_sensitive (false);
             toolbar.add (share_app_menu);
 
             var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
@@ -242,14 +240,18 @@ namespace Snap {
             var viewer_box = new Box (Orientation.VERTICAL, 0);
 
             viewer = new MediaViewer ();
-
+            viewer.selection_changed.connect ((path, type) => {
+                share_app_menu.set_sensitive (true);
+                populate_with_contractor (share_menu, path, type);
+            });
+            
             viewer_box.margin_top = 6;
             viewer_box.margin_right = 12;
             viewer_box.margin_left = 12;
             viewer_box.pack_start (viewer, true, true, 0);
 
             statusbar = new Statusbar ();
-            statusbar.push (0, "0 photos and 0 videos");
+            statusbar.push (0, viewer.photos.to_string () + _(" photos and ") + viewer.videos.to_string () + _(" videos"));
 
             viewer_box.pack_start (statusbar, false, true, 0);
 
@@ -259,39 +261,51 @@ namespace Snap {
             show_all ();
         }
 
-        void populate_with_contractor (Gtk.Menu menu) {
-            var list  = new List<Gtk.MenuItem>();
-
-            foreach (var contract in Granite.Services.Contractor.get_contract("file://" + "", "image/*")) {
-                var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
-                string exec = contract["Exec"];
-                menuitem.activate.connect( () => {
-                    try {
-                        GLib.Process.spawn_command_line_async(exec);
-                    } catch (SpawnError e) {
-                        stderr.printf ("error spawn command line %s: %s", exec, e.message);
-                    }
-                });
-                menu.append (menuitem);
-                menu.show_all ();
-                list.append(menuitem);
+        void populate_with_contractor (Gtk.Menu menu, string path, MediaType? media_type) {
+            /**
+             *  Free the menu
+             */
+            var list  = menu.get_children ();
+            foreach (var item in list)           
+                item.destroy ();
+            
+            /*
+             * Add contracts for image files
+             */
+            if (media_type == MediaType.PHOTO || media_type == null) {
+                foreach (var contract in Granite.Services.Contractor.get_contract("file://" + path, "image/*")) {
+                    var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
+                    string exec = contract["Exec"];
+                    menuitem.activate.connect( () => {
+                        try {
+                            GLib.Process.spawn_command_line_async(exec);
+                        } catch (SpawnError e) {
+                            stderr.printf ("error spawn command line %s: %s", exec, e.message);
+                        }
+                    });
+                    menu.append (menuitem);
+                    menu.show_all ();
+                }
             }
-
-            foreach (var contract in Granite.Services.Contractor.get_contract ("file:///" + "", "video/*")) {
-                var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
-                string exec = contract["Exec"];
-                menuitem.activate.connect( () => {
-                    try {
-                        GLib.Process.spawn_command_line_async(exec);
-                    } catch (SpawnError e) {
-                        stderr.printf ("error spawn command line %s: %s", exec, e.message);
-                    }
-                });
-                menu.append (menuitem);
-                menu.show_all ();
-                list.append(menuitem);
+            
+            /*
+             * Add contracts for videos
+             */ 
+            if (media_type == MediaType.VIDEO || media_type == null) {
+                foreach (var contract in Granite.Services.Contractor.get_contract ("file:///" + path, "video/*")) {
+                    var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
+                    string exec = contract["Exec"];
+                    menuitem.activate.connect( () => {
+                        try {
+                            GLib.Process.spawn_command_line_async(exec);
+                        } catch (SpawnError e) {
+                            stderr.printf ("error spawn command line %s: %s", exec, e.message);
+                        }
+                    });
+                    menu.append (menuitem);
+                    menu.show_all ();
+                }
             }
-
         }
 
         void on_mode_changed (Widget widget) {
@@ -303,9 +317,15 @@ namespace Snap {
             else
                 take_button.set_image (VIDEO_ICON_SYMBOLIC.render_image(IconSize.SMALL_TOOLBAR));
         }
+        
+        protected override bool delete_event (Gdk.EventAny event) {
+
+            action_quit ();
+            return false;
+
+        }
 
         void action_quit () {
-            Gtk.main_quit ();
             recorder.pipeline.stop ();
         }
 
@@ -317,7 +337,7 @@ namespace Snap {
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Quit", Gtk.Stock.QUIT,
-          /* label, accelerator */       N_("Quit"), "<Control>q",
+          /* label, accelerator */       N_("Quit"), null,
           /* tooltip */                  N_("Quit"),
                                          action_quit },
            { "Preferences", Gtk.Stock.PREFERENCES,

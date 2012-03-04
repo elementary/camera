@@ -79,7 +79,7 @@ namespace Snap {
         }
 
         protected override void activate () {
-
+            
             if (get_windows () == null) {
                 window = new SnapWindow (this);
                 window.show ();
