@@ -35,8 +35,8 @@ namespace Snap {
 
             // Main elements to show the webcam stream
             this.camerabin = ElementFactory.make ("camerabin", "video");
-/*
-            I am already testing the effects
+
+//            I am already testing the effects
 
             var p = new Pipeline ("effect");
             var jj = ElementFactory.make ("jpegdec", "jj");
@@ -49,9 +49,13 @@ namespace Snap {
             var j = ElementFactory.make ("jpegenc", "j");
 
             p.add_many (jj, ff, e, f, j);
+            p.set_state (State.PLAYING);
+            
+            //this.camerabin.set_state (State.NULL);
+            var caps = Gst.Caps.from_string ("video/x-raw-yuv, width=600, height=600");
+            camerabin.set_property ("filter-caps", caps);
+            //camerabin.set_property ("video-encoder", ((Element)p));
 
-            camerabin.set_property ("video-source", p);
-*/
             var bus = this.camerabin.get_bus ();
             bus.set_sync_handler (on_bus_callback);
 

@@ -2,8 +2,8 @@
 Type=Application
 Version=0.1
 Name=Snap
-Comment=The photoboot app for elementary
-GenericName=Photoboot
+Comment=The photobooth app for elementary
+GenericName=Photobooth
 Exec=snap
 Icon=snap
 Terminal=false

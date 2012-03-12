@@ -40,9 +40,9 @@ namespace Snap.Widgets {
         
         public MediaViewer () {
 
-            all_viewer = new MediaViewerPage (null);
-            photo_viewer = new MediaViewerPage (MediaType.PHOTO);
-            video_viewer = new MediaViewerPage (MediaType.VIDEO);
+            all_viewer = new MediaViewerPage (this, null);
+            photo_viewer = new MediaViewerPage (this, MediaType.PHOTO);
+            video_viewer = new MediaViewerPage (this, MediaType.VIDEO);
             
             photos = photo_viewer.counter;
             videos = video_viewer.counter;
@@ -83,6 +83,7 @@ namespace Snap.Widgets {
 
         public string selected {get; private set;}
         
+        MediaViewer parent;
         private MediaType? media_type;
         public int counter = 0;
         
@@ -91,7 +92,8 @@ namespace Snap.Widgets {
         private ListStore store;
         private IconView icon_view;
 
-        public MediaViewerPage (MediaType? media_type = null) {
+        public MediaViewerPage (MediaViewer parent, MediaType? media_type = null) {
+            this.parent = parent;
             this.media_type = media_type;
             //this.thumbnail_factory = new Gnome.DesktopThumbnailFactory (Gnome.ThumbnailSize.NORMAL);
 
@@ -146,12 +148,7 @@ namespace Snap.Widgets {
 
                 var path = GLib.File.new_for_path(background).get_path();
                 this.selected = path;
-                
-                /**
-                 * selection-changed signal for the MediaViewer
-                 */
-                var mw = get_parent ().get_parent () as MediaViewer;
-                mw.selection_changed (path, media_type);
+                parent.selection_changed (path, media_type);
             }
         }
 
