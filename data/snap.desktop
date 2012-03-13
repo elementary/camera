@@ -2,8 +2,8 @@
 Type=Application
 Version=0.1
 Name=Snap
-Comment=The photobooth app for elementary
-GenericName=Photobooth
+Comment=Take photos with your web cam
+GenericName=Photo Booth
 Exec=snap
 Icon=snap
 Terminal=false
