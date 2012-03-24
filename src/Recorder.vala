@@ -25,15 +25,17 @@ namespace Snap {
     public class Recorder {
 
         //gst objects
-        public Pipelines pipeline {get; private set;}
+        public Snap.Pipelines pipeline {get; private set;}
 
         public bool recording {get; private set;}
 
         public int photo_timeout {get; private set;}
         public int video_timeout {get; private set;}
 
-        public Widgets.Countdown countdown_window {get; private set;}
-        public Widgets.MediaBin media_bin {get; private set;}
+        public Snap.Widgets.Countdown countdown_window {get; private set;}
+        public Snap.Widgets.MediaBin media_bin {get; private set;}
+
+        public signal void media_saved ();
 
         public Recorder (Widgets.MediaBin media_bin) {
             this.media_bin = media_bin;
@@ -67,13 +69,22 @@ namespace Snap {
             countdown_window = new Snap.Widgets.Countdown (media_type);
             countdown_window.start (secs);
 
-            countdown_window.time_elapsed.connect ( () => {
-                if (media_type == MediaType.PHOTO)
+            countdown_window.time_elapsed.connect (() => {
+                if (media_type == MediaType.PHOTO) {
                     pipeline.take_photo ();
+                    pipeline.mediasaved.connect(on_media_saved);
+                }
                 else if (media_type == MediaType.VIDEO)
                     pipeline.take_video ();
+                    pipeline.mediasaved.connect(on_media_saved);
                 recording = false;
             });
+        }
+
+        void on_media_saved () {
+
+            media_saved();
+            pipeline.mediasaved.disconnect(on_media_saved);
         }
 
         public void stop () {
@@ -84,7 +95,6 @@ namespace Snap {
                 countdown_window.destroy ();
 
             pipeline.take_video_stop ();
-
             recording = false;
         }
     }

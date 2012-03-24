@@ -44,6 +44,7 @@ vala_precompile(VALA_C
     src/SnapPipelines.vala
     src/Recorder.vala
     src/config.vala
+    src/Widgets/EffectPopOver.vala
     src/Widgets/Countdown.vala
     src/Widgets/MediaBin.vala
     src/Widgets/MediaViewer.vala

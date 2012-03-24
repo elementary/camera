@@ -188,7 +188,7 @@ namespace Snap.Widgets {
 
                 foreach (FileInfo info in list) {
                     string filename = build_media_filename (info.get_name (), media_type);
-
+                    warning (filename);
                     if (items_map.has_key (filename))
                         continue;
 

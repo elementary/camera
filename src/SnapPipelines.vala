@@ -28,6 +28,9 @@ namespace Snap {
         // Main elements
         DrawingArea drawing_area;
         Element camerabin;
+        Gst.Bus bus;
+
+        public signal void mediasaved ();
 
         public Pipelines (Gtk.DrawingArea area) {
 
@@ -56,8 +59,9 @@ namespace Snap {
             camerabin.set_property ("filter-caps", caps);
             //camerabin.set_property ("video-encoder", ((Element)p));
 
-            var bus = this.camerabin.get_bus ();
+            bus = this.camerabin.get_bus ();
             bus.set_sync_handler (on_bus_callback);
+            bus.add_signal_watch();
 
         }
 
@@ -103,6 +107,7 @@ namespace Snap {
             debug ("%s", filename);
 
             camerabin.set_property ("filename", filename);
+            bus.message.connect(on_media_saved);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
 
         }
@@ -117,6 +122,7 @@ namespace Snap {
             debug ("%s", filename);
 
             camerabin.set_property ("filename", filename);
+            bus.message.connect(on_media_saved);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
 
         }
@@ -125,6 +131,14 @@ namespace Snap {
             debug ("Video taking finish...");
 
             GLib.Signal.emit_by_name (camerabin, "capture-stop");
+        }
+
+        public void on_media_saved (Gst.Bus bus, Gst.Message msg) {
+            string msgtype = msg.get_structure().get_name();
+            if(msgtype == "image-captured") {
+                mediasaved();
+                bus.message.disconnect(on_media_saved);
+            }
         }
 
     }
