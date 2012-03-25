@@ -69,7 +69,8 @@ target_link_libraries (snap)
 #TODO: Installation
 
 install (TARGETS snap RUNTIME DESTINATION bin)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.png DESTINATION share/icons/hicolor/scalable/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.svg DESTINATION share/icons/hicolor/scalable/apps)
+install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.desktop DESTINATION share/applications)
 include(GSettings)
 add_schema("org.elementary.snap.gschema.xml")
