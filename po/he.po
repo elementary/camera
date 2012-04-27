@@ -1,0 +1,42 @@
+# Hebrew translation for snap-elementary
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the snap-elementary package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: snap-elementary\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-01-11 18:37+0100\n"
+"PO-Revision-Date: 2012-04-26 21:28+0000\n"
+"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <he@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-04-27 05:08+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:139
+msgid "Effects"
+msgstr "אפקטים"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:199
+msgid "All"
+msgstr "הכול"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:200
+msgid "Photo"
+msgstr "תמונה"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:201
+msgid "Video"
+msgstr "וידאו"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:268
+msgid "Preferences"
+msgstr "העדפות"
+
+#: /home/mefrio/snap/po/../src/Widgets/Countdown.vala:56
+msgid "Recording starts in"
+msgstr "ההקלטה תתחיל בעוד"
