@@ -1,0 +1,42 @@
+# Slovenian translation for snap-elementary
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the snap-elementary package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: snap-elementary\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-01-11 18:37+0100\n"
+"PO-Revision-Date: 2012-05-11 21:06+0000\n"
+"Last-Translator: Marko Gajšt <Unknown>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-12 06:22+0000\n"
+"X-Generator: Launchpad (build 15225)\n"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:139
+msgid "Effects"
+msgstr "Učinki"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:199
+msgid "All"
+msgstr "Vse"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:200
+msgid "Photo"
+msgstr "Fotografije"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:201
+msgid "Video"
+msgstr "Video"
+
+#: /home/mefrio/snap/po/../src/SnapWindow.vala:268
+msgid "Preferences"
+msgstr "Nastavitve"
+
+#: /home/mefrio/snap/po/../src/Widgets/Countdown.vala:56
+msgid "Recording starts in"
+msgstr ""
