@@ -73,4 +73,4 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.svg DESTINATION share/icons
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.desktop DESTINATION share/applications)
 include(GSettings)
-add_schema("org.elementary.snap.gschema.xml")
+add_schema("org.pantheon.snap.gschema.xml")
