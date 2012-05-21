@@ -122,7 +122,8 @@ namespace Snap.Widgets {
             icon_view.column_spacing = 6;
 
             icon_view.selection_changed.connect (on_selection_changed);
-
+            icon_view.item_activated.connect (on_item_activated);
+            
             update_items ();
 
             this.vscrollbar_policy = PolicyType.NEVER;
@@ -151,7 +152,16 @@ namespace Snap.Widgets {
                 parent.selection_changed (path, media_type);
             }
         }
-
+        
+        private void on_item_activated () {
+            try {
+                string path = selected.replace (" ", "\\ ");
+                GLib.Process.spawn_command_line_async ("xdg-open " + path);
+            } catch (SpawnError e) {
+                warning (e.message);
+            }
+        }
+        
         /**
          * Function used to scan the media folder
          **/

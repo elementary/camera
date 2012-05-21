@@ -113,6 +113,7 @@ namespace Snap {
             var effects_button = new Gtk.Button.with_label (_("Effects"));
             effects_button.get_style_context ().add_class ("raised");
             effects_button.margin_right = 12;
+            effects_button.sensitive = false;
 
             var effects_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
     	    effects_button_box.set_layout (Gtk.ButtonBoxStyle.START);

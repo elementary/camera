@@ -56,13 +56,7 @@ namespace Snap.Widgets {
 
             box.pack_start (title_label);
             box.pack_start (count_label);
-            box.pack_start (new Gtk.Entry ());
-            
-            var b = new Button.with_label ("Click");
-            b.set_relief (ReliefStyle.NONE);
-            //b.
-            box.pack_start (b);
-            
+
             this.add (box);
 
             string media_text = "";
