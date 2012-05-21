@@ -27,7 +27,7 @@ namespace Snap.Services {
         public int countdown_time { get; set; }
 
         public Settings ()  {
-            base ("org.elementary.Snap.Settings");
+            base ("org.pantheon.snap.settings");
         }
 
     }

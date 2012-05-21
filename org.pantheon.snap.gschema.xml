@@ -1,5 +1,5 @@
 <schemalist>
-    <schema path="/apps/snap/settings/" id="org.elementary.Snap.Settings" gettext-domain="snap">
+    <schema path="/org/pantheon/snap/settings/" id="org.pantheon.snap.settings" gettext-domain="snap">
         <key name="countdown-time" type="i">
         <default>5</default>
             <summary>The time for the countdown.</summary>
