@@ -7,36 +7,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-01-11 18:37+0100\n"
+"POT-Creation-Date: 2012-05-25 16:59+0200\n"
 "PO-Revision-Date: 2012-04-02 07:16+0000\n"
 "Last-Translator: Abhijeet Kumar Singh <neo.1in@gmail.com>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-03 05:37+0000\n"
-"X-Generator: Launchpad (build 15052)\n"
+"X-Launchpad-Export-Date: 2012-05-26 05:53+0000\n"
+"X-Generator: Launchpad (build 15288)\n"
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:139
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
 msgstr "नियोजन"
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:199
-msgid "All"
-msgstr "सभी"
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
+msgid "Share"
+msgstr ""
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:200
-msgid "Photo"
-msgstr "तसवीर"
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
+msgid "photos and"
+msgstr ""
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:201
-msgid "Video"
-msgstr "वीडियो"
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
+msgid "videos"
+msgstr ""
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:268
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
 msgid "Preferences"
 msgstr "पसंद"
 
-#: /home/mefrio/snap/po/../src/Widgets/Countdown.vala:56
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
+msgid "Quit"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
+msgid "Change Scratch settings"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
+msgid "Photo Booth"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
+msgid "All"
+msgstr "सभी"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
+msgid "Photo"
+msgstr "तसवीर"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
+msgid "Video"
+msgstr "वीडियो"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
+msgid "Taking photo in"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
 msgstr "रिकार्डिंग शुरु हो रहा है"

@@ -7,36 +7,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-01-11 18:37+0100\n"
+"POT-Creation-Date: 2012-05-25 16:59+0200\n"
 "PO-Revision-Date: 2012-02-11 22:44+0000\n"
 "Last-Translator: Adrien Touminet <worldmania@free.fr>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-13 05:34+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-05-26 05:53+0000\n"
+"X-Generator: Launchpad (build 15288)\n"
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:139
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
 msgstr "Effets"
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:199
-msgid "All"
-msgstr "Tous"
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
+msgid "Share"
+msgstr ""
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:200
-msgid "Photo"
-msgstr "Photo"
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
+msgid "photos and"
+msgstr ""
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:201
-msgid "Video"
-msgstr "Vidéo"
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
+msgid "videos"
+msgstr ""
 
-#: /home/mefrio/snap/po/../src/SnapWindow.vala:268
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
 msgid "Preferences"
 msgstr "Préférences"
 
-#: /home/mefrio/snap/po/../src/Widgets/Countdown.vala:56
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
+msgid "Quit"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
+msgid "Change Scratch settings"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
+msgid "Photo Booth"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
+msgid "All"
+msgstr "Tous"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
+msgid "Photo"
+msgstr "Photo"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
+msgid "Video"
+msgstr "Vidéo"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
+msgid "Taking photo in"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
 msgstr "L'enregistrement commence dans"
