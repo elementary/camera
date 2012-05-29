@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-01-14 15:39+0000\n"
-"Last-Translator: Thomas Pitlik <Unknown>\n"
+"PO-Revision-Date: 2012-05-28 08:13+0000\n"
+"Last-Translator: Eduard Gotwig <eduardgotwig@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-26 05:53+0000\n"
-"X-Generator: Launchpad (build 15288)\n"
+"X-Launchpad-Export-Date: 2012-05-29 05:04+0000\n"
+"X-Generator: Launchpad (build 15316)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -23,15 +23,15 @@ msgstr "Effekte"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
 msgid "Share"
-msgstr ""
+msgstr "Teilen"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "photos and"
-msgstr ""
+msgstr "Fotos und"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "videos"
-msgstr ""
+msgstr "Videos"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
@@ -41,19 +41,19 @@ msgstr "Einstellungen"
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
 msgid "Quit"
-msgstr ""
+msgstr "Schließen"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Ändere die Scratch Einstellungen"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr ""
+msgstr "Nehmen Sie Fotos mit Ihrer Webcam auf"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr ""
+msgstr "Photo Booth"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
@@ -69,7 +69,7 @@ msgstr "Video"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
-msgstr ""
+msgstr "Aufnehmen des Fotos in"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
