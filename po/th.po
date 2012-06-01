@@ -1,4 +1,4 @@
-# English (United Kingdom) translation for snap-elementary
+# Thai translation for snap-elementary
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the snap-elementary package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-05-31 15:53+0000\n"
-"Last-Translator: Alfredo Hernández <Unknown>\n"
-"Language-Team: English (United Kingdom) <en_GB@li.org>\n"
+"PO-Revision-Date: 2012-05-31 11:18+0000\n"
+"Last-Translator: Sitdhi <gvdosk124@gmail.com>\n"
+"Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,58 +19,58 @@ msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
-msgstr "Effects"
+msgstr "ลูกเล่น"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
 msgid "Share"
-msgstr "Share"
+msgstr "แบ่งปัน"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "photos and"
-msgstr "photos and"
+msgstr "รูปภาพ และ"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "videos"
-msgstr "videos"
+msgstr "วีดีโอ"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
 msgid "Preferences"
-msgstr "Preferences"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
 msgid "Quit"
-msgstr "Quit"
+msgstr "ออกจากโปรแกรม"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
 msgid "Change Scratch settings"
-msgstr "Change Scratch settings"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Take photos with your web cam"
+msgstr "ถ่ายรูปด้วยกล้องเว็บแคม"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr "Photo Booth"
+msgstr "ตู้ถ่ายรูป"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
-msgstr "All"
+msgstr "ทั้งหมด"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
 msgid "Photo"
-msgstr "Photo"
+msgstr "รูป"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
 msgid "Video"
-msgstr "Video"
+msgstr "วีดีโอ"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
-msgstr "Taking photo in"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
-msgstr "Recording starts in"
+msgstr "เริ่มการบันทึกใน"
