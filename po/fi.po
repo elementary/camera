@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-02-25 13:39+0000\n"
-"Last-Translator: Erkka Juhaninmäki <Unknown>\n"
+"PO-Revision-Date: 2012-06-02 17:50+0000\n"
+"Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-26 05:53+0000\n"
-"X-Generator: Launchpad (build 15288)\n"
+"X-Launchpad-Export-Date: 2012-06-03 05:17+0000\n"
+"X-Generator: Launchpad (build 15342)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -23,7 +23,7 @@ msgstr "Tehosteet"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
 msgid "Share"
-msgstr ""
+msgstr "Jaa"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "photos and"
@@ -41,15 +41,15 @@ msgstr "Asetukset"
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
 msgid "Quit"
-msgstr ""
+msgstr "Lopeta"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Muuta Scratchin asetuksia"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr ""
+msgstr "Ota valokuvia verkkokamerallasi"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
@@ -69,7 +69,7 @@ msgstr "Video"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
-msgstr ""
+msgstr "Otetaan kuva"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
