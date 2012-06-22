@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-06-16 10:19+0000\n"
-"Last-Translator: Eduard Gotwig <eduardgotwig@gmail.com>\n"
+"PO-Revision-Date: 2012-06-21 19:40+0000\n"
+"Last-Translator: Ghenrik <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-17 04:54+0000\n"
-"X-Generator: Launchpad (build 15419)\n"
+"X-Launchpad-Export-Date: 2012-06-22 05:13+0000\n"
+"X-Generator: Launchpad (build 15461)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -41,19 +41,19 @@ msgstr "Einstellungen"
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
 msgid "Quit"
-msgstr "Schließen"
+msgstr "Beenden"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
 msgid "Change Scratch settings"
-msgstr "Scratch-Einstellungen verändern"
+msgstr "Scratch-Einstellungen ändern"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Aufnehmen von Fotos mit Ihrer Webcam"
+msgstr "Fotos mit Ihrer Webcam aufnehmen"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr "Photo Booth"
+msgstr "Fotoautomat"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
