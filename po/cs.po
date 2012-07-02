@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-04-05 18:51+0000\n"
-"Last-Translator: Jiří Šebele <Unknown>\n"
+"PO-Revision-Date: 2012-07-01 16:41+0000\n"
+"Last-Translator: Marek Suchánek <suchm@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-26 05:53+0000\n"
-"X-Generator: Launchpad (build 15288)\n"
+"X-Launchpad-Export-Date: 2012-07-02 05:01+0000\n"
+"X-Generator: Launchpad (build 15520)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -23,7 +23,7 @@ msgstr "Efekty"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "photos and"
@@ -41,15 +41,15 @@ msgstr "Nastavení"
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Změnit nastavení editoru Scratch"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr ""
+msgstr "Fotit webkamerou"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
