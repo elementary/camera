@@ -69,8 +69,8 @@ target_link_libraries (snap-webcam-viewer)
 #TODO: Installation
 
 install (TARGETS snap-webcam-viewer RUNTIME DESTINATION bin)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.svg DESTINATION share/icons/hicolor/scalable/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-webcam-viewer.svg DESTINATION share/icons/hicolor/scalable/apps)
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.desktop DESTINATION share/applications)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-webcam-viewer.desktop DESTINATION share/applications)
 include(GSettings)
 add_schema("org.pantheon.snap.gschema.xml")
