@@ -64,13 +64,13 @@ OPTIONS
 add_subdirectory(po)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 
-add_executable (snap ${VALA_C})
-target_link_libraries (snap)
+add_executable (snap-photobooth ${VALA_C})
+target_link_libraries (snap-photobooth)
 #TODO: Installation
 
-install (TARGETS snap RUNTIME DESTINATION bin)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.svg DESTINATION share/icons/hicolor/scalable/apps)
+install (TARGETS snap-photobooth RUNTIME DESTINATION bin)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.svg DESTINATION share/icons/hicolor/scalable/apps)
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap.desktop DESTINATION share/applications)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.desktop DESTINATION share/applications)
 include(GSettings)
 add_schema("org.pantheon.snap.gschema.xml")
