@@ -172,6 +172,7 @@ namespace Snap {
             var take_tool = new Gtk.ToolItem ();
             take_tool.add (take_button_box);
             take_tool.set_expand (false);
+            take_tool.margin_left = 7;
             take_button.set_relief (Gtk.ReliefStyle.NORMAL);
 
             toolbar.add (take_tool);
