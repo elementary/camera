@@ -79,7 +79,7 @@ namespace Snap.Widgets {
            - Use a hasmap as model (get rid of ListStore)
         */
 
-        //Gnome.DesktopThumbnailFactory thumbnail_factory;
+        Gnome.DesktopThumbnailFactory thumbnail_factory;
 
         public string selected {get; private set;}
         
@@ -95,7 +95,7 @@ namespace Snap.Widgets {
         public MediaViewerPage (MediaViewer parent, MediaType? media_type = null) {
             this.parent = parent;
             this.media_type = media_type;
-            //this.thumbnail_factory = new Gnome.DesktopThumbnailFactory (Gnome.ThumbnailSize.NORMAL);
+            this.thumbnail_factory = new Gnome.DesktopThumbnailFactory (Gnome.DesktopThumbnailSize.NORMAL);
 
             items_map = new Gee.HashMap<string, int> ();
             store = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
@@ -198,6 +198,7 @@ namespace Snap.Widgets {
 
                 foreach (FileInfo info in list) {
                     string filename = build_media_filename (info.get_name (), media_type);
+                    string uri = build_uri_from_filename (filename);
                     warning (filename);
                     if (items_map.has_key (filename))
                         continue;
@@ -211,11 +212,17 @@ namespace Snap.Widgets {
                     Gdk.Pixbuf? pix = null;
 
                     // Render image and add shadow
-                    if (media_type == MediaType.PHOTO)
-                        pix = get_pixbuf_shadow (new Gdk.Pixbuf.from_file_at_size (filename, 100, 150), 0);
-                    else
-                        pix = MEDIA_VIDEO_ICON.render (null, null, 64);
-
+                    if (media_type == MediaType.PHOTO) {
+                        pix = thumbnail_factory.generate_thumbnail (uri, "image/*");
+                        if (pix == null)
+                            pix = get_pixbuf_shadow (new Gdk.Pixbuf.from_file_at_size (filename, 100, 150), 0);
+                    }
+                    else {
+                        pix = thumbnail_factory.generate_thumbnail (uri, "video/*");
+                        if (pix == null)
+                            pix = MEDIA_VIDEO_ICON.render (null, null, 64);
+                    }
+                    
                     this.store.set (iter, 0, pix, 1, filename);
                     counter++;
                 }

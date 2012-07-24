@@ -110,7 +110,16 @@ namespace Resources {
 
         return GLib.Path.build_filename ("/", get_media_dir (type), filename);
     }
-
+    
+    /**
+     * @return a valid photo/video uri.
+     */
+    public string build_uri_from_filename (string filename) {        
+        var file = File.new_for_path (filename);
+        
+        return file.get_uri ();
+    }
+    
     /** ICONS **/
 
     public Snap.Icon VIDEO_ICON_SYMBOLIC;
