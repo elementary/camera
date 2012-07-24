@@ -123,7 +123,7 @@ namespace Snap {
             var effects_button_bin = new Gtk.ToolItem ();
             effects_button_bin.add (effects_button_box);
 
-            toolbar.add (effects_button_bin);
+            //toolbar.add (effects_button_bin);
 
             effects_button.clicked.connect ((effects_button) => show_effect_popover(effects_button));
 
@@ -137,6 +137,7 @@ namespace Snap {
 
             var mode_tool = new Gtk.ToolItem ();
             mode_tool.add (mode_button);
+            mode_tool.margin_left = 5;
             mode_tool.set_expand (false);
 
             toolbar.add (mode_tool);
@@ -179,7 +180,7 @@ namespace Snap {
             spacer.set_expand (true);
 
             spacer.margin_left = 0;
-            spacer.margin_right = 72;
+            spacer.margin_right = 0; // Value when using "Effects" button should be 72
 
             toolbar.add (spacer);
 
@@ -188,8 +189,8 @@ namespace Snap {
             share_app_menu.set_sensitive (false);
             toolbar.add (share_app_menu);
 
-            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = (this.get_application() as Granite.Application).create_appmenu (menu);
+            //var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
+            var app_menu = (this.get_application() as Granite.Application).create_appmenu (new Gtk.Menu ());
             app_menu.margin_right = 3;
             toolbar.add (app_menu);
 

@@ -51,8 +51,8 @@ namespace Snap {
             program_name = app_cmd_name;
             exec_name = app_cmd_name.down();
             app_years = "2011-2012";
-            app_icon = "snap";
-            app_launcher = "snap.desktop";
+            app_icon = "snap-photobooth";
+            app_launcher = "snap-photobooth.desktop";
             application_id = "net.launchpad.snap-elementary";
             main_url = "https://launchpad.net/snap-elementary";
             bug_url = "https://bugs.launchpad.net/snap-elementary";
