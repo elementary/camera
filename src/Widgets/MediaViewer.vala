@@ -83,7 +83,7 @@ namespace Snap.Widgets {
 
         public string selected {get; private set;}
         
-        MediaViewer parent;
+        MediaViewer parent_viewer;
         private MediaType? media_type;
         public int counter = 0;
         
@@ -92,8 +92,8 @@ namespace Snap.Widgets {
         private ListStore store;
         private IconView icon_view;
 
-        public MediaViewerPage (MediaViewer parent, MediaType? media_type = null) {
-            this.parent = parent;
+        public MediaViewerPage (MediaViewer parent_viewer, MediaType? media_type = null) {
+            this.parent_viewer = parent_viewer;
             this.media_type = media_type;
             this.thumbnail_factory = new Gnome.DesktopThumbnailFactory (Gnome.DesktopThumbnailSize.NORMAL);
 
@@ -149,7 +149,7 @@ namespace Snap.Widgets {
 
                 var path = GLib.File.new_for_path(background).get_path();
                 this.selected = path;
-                parent.selection_changed (path, media_type);
+                parent_viewer.selection_changed (path, media_type);
             }
         }
         
@@ -169,7 +169,7 @@ namespace Snap.Widgets {
             debug ("Start scan\n");
             var dir = File.new_for_path (get_media_dir (media_type));
             // asynchronous call, with callback, to get dir entries
-            dir.enumerate_children_async (FILE_ATTRIBUTE_STANDARD_NAME, 0,
+            dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
                                             Priority.DEFAULT, null, list_ready);
         }
 
@@ -197,9 +197,9 @@ namespace Snap.Widgets {
                 GLib.List<FileInfo> list = enumer.next_files_async.end (res);
 
                 foreach (FileInfo info in list) {
-                    string filename = build_media_filename (info.get_name (), media_type);
+                    string filename = Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (media_type), info.get_name ());
                     string uri = build_uri_from_filename (filename);
-                    warning (filename);
+                    message (filename);
                     if (items_map.has_key (filename))
                         continue;
 

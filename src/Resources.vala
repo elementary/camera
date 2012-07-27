@@ -98,17 +98,17 @@ namespace Resources {
      * @return a valid photo/video filename.
      */
     public string build_media_filename (string filename, MediaType type, string? ext = null) {
-        string new_filename = "";
+        string new_filename = filename;
         if (ext == null) {
             if (type == MediaType.PHOTO)
-                new_filename = filename + ".jpg";
+                new_filename += ".jpg";
             else if (type == MediaType.VIDEO)
-                new_filename = filename + ".ogg";
+                new_filename += ".ogg";
         } else {
-            new_filename = filename + "." + ext;
+            new_filename += "." + ext;
         }
 
-        return GLib.Path.build_filename ("/", get_media_dir (type), filename);
+        return GLib.Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (type), new_filename);
     }
     
     /**

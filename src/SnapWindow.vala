@@ -327,7 +327,7 @@ namespace Snap {
         }
 
         void on_media_saved (MediaType mediatype) {
-            warning("saved");
+            message("saved");
             viewer.update_items(mediatype);
             viewer.update_items(null);
         }
