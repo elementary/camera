@@ -18,31 +18,24 @@
  * Boston, MA 02111-1307, USA.
  */
 
-using Gtk;
-
 /**
  * This is Snap's preview area
  */
 
 namespace Snap.Widgets {
 
-    public class MediaBin : EventBox {
+    public class MediaBin : Gtk.EventBox {
 
-        public DrawingArea preview_area {get; private set;}
-
-        private Box wrapper_box;
-
-        // Aspect ratio hr:vr. Default: 4:3
-        private int vr = 3;
-        private int hr = 4;
+        public PreviewArea preview_area { get; private set; }
 
         public MediaBin () {
-            preview_area = new DrawingArea ();
+            push_composite_child ();
+            this.preview_area = new PreviewArea ();
+            pop_composite_child ();
 
-            wrapper_box = new Box (Orientation.HORIZONTAL, 0);
-            wrapper_box.pack_start (preview_area, true, true, 0);
+            add (this.preview_area);
 
-            add (wrapper_box);
+            // Dark background theming
 
             var style = new Gtk.CssProvider ();
             try {
@@ -51,47 +44,44 @@ namespace Snap.Widgets {
                 warning (e.message);
             }
 
-            // Dark background
             this.get_style_context ().add_class ("snap-preview-bg");
-            this.get_style_context ().add_provider (style, STYLE_PROVIDER_PRIORITY_THEME);
-
-            this.size_allocate.connect (on_size_allocate);
+            this.get_style_context ().add_provider (style, Gtk.STYLE_PROVIDER_PRIORITY_THEME);
         }
 
-        public void set_aspect_ratio (int horizontal, int vertical) {
-            if (horizontal <= 0 || vertical <= 0)
-                return;
+        public void set_aspect_ratio (int width, int height) {
+            this.preview_area.set_aspect_ratio (width, height);
+        }
+    }
 
-            hr = horizontal;
-            vr = vertical;
+    public class PreviewArea : Gtk.DrawingArea {
+
+        // Aspect ratio h:v. Default: 4:3
+        private uint h = 4;
+        private uint v = 3;
+
+        public PreviewArea () {
+            this.vexpand = true;
+            this.hexpand = false;
+
+            this.valign = Gtk.Align.FILL;
+            this.halign = Gtk.Align.CENTER;
         }
 
-        private void on_size_allocate (Allocation alloc) {
-            Timeout.add (20, () => {
-                int preview_width = (this.get_allocated_height() * hr) / vr;
-                int blank_area_width = this.get_allocated_width() - preview_width;
-                int margin = blank_area_width / 2;
-/*
-                if (blank_area_width < 0)
-                    return false;
-
-                if (preview_area.get_allocated_width () - 2 * margin < 0)
-                    return false;
-*/
-                preview_area.margin_left = margin;
-                preview_area.margin_right = margin;
-
-                return preview_width / this.get_allocated_height() != 4 / 3;
-            });
+        public void set_aspect_ratio (uint horizontal, uint vertical) {
+            this.h = horizontal;
+            this.v = vertical;
+            queue_resize ();
         }
-        
-                public override bool draw (Cairo.Context ctx){
-            int w = this.get_allocated_width  ();
-            int h = this.get_allocated_height ();
-            Granite.Drawing.Utilities.cairo_rounded_rectangle (ctx, 4, 4, w-8, h-8, 4);
-            ctx.set_source_rgba (0.0, 0.0, 1.0, 1.0);
-            ctx.fill ();
-            return base.draw (ctx);
+
+        public override Gtk.SizeRequestMode get_request_mode () {
+            return Gtk.SizeRequestMode.WIDTH_FOR_HEIGHT;
+        }
+
+        public override void get_preferred_width_for_height (int height, out int minimum_width,
+                                                                out int natural_width) {
+            uint width = (this.h * height) / this.v;
+            minimum_width = (int)width;
+            natural_width = minimum_width;
         }
     }
 }
