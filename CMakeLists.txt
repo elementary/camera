@@ -20,21 +20,24 @@ add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 add_definitions(-DGNOME_DESKTOP_USE_UNSTABLE_API)
 # snap
 
-set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0;x11")
+set (SNAP_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite;clutter-1.0;clutter-gtk-1.0;gstreamer-0.10;gstreamer-interfaces-0.10;gdk-x11-3.0;gdk-3.0;x11")
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
 pkg_check_modules (GIO REQUIRED "gio-2.0 >= 2.26.0")
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.2")
 pkg_check_modules (GNOMEDESKTOP REQUIRED "gnome-desktop-3.0 >= 3.0")
+pkg_check_modules (CHEESE REQUIRED "cheese")
+pkg_check_modules (CHEESEGTK REQUIRED "cheese-gtk")
+pkg_check_modules (CLUTTERGTK REQUIRED "clutter-gtk-1.0")
 pkg_check_modules (LIBGRANITE REQUIRED "granite")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gstreamer-0.10 >= 0.10")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gstreamer-interfaces-0.10 >= 0.10")
 pkg_check_modules (LIBSQLHEAVY REQUIRED "gdk-x11-3.0 >= 3.0")
 pkg_check_modules (DEPS REQUIRED ${SNAP_DEPS} gthread-2.0)
-add_definitions (${DEPS_CFLAGS} ${GNOMEDESKTOP_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
-link_libraries (${DEPS_LIBRARIES} ${GNOMEDESKTOP_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS} ${GNOMEDESKTOP_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})
+add_definitions (${DEPS_CFLAGS} ${GNOMEDESKTOP_CFLAGS} ${CLUTTERGTK_CFLAGS} ${CHEESE_CFLAGS} ${CHEESEGTK_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
+link_libraries (${DEPS_LIBRARIES} ${GNOMEDESKTOP_LIBRARIES} ${CLUTTERGTK_LIBRARIES} ${CHEESE_LIBRARIES} ${CHEESEGTK_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})
+link_directories (${DEPS_LIBRARY_DIRS} ${GNOMEDESKTOP_LIBRARY_DIRS} ${CLUTTERGTK_LIBRARY_DIRS} ${CHEESE_LIBRARY_DIRS} ${CHEESEGTK_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})
 find_package (Vala REQUIRED)
 include (ValaVersion)
 ensure_vala_version ("0.16.0" MINIMUM)
@@ -45,6 +48,7 @@ vala_precompile(VALA_C
     src/Snap.vala
     src/SnapPipelines.vala
     src/Recorder.vala
+    src/EffectsManager.vala
     src/config.vala
     src/Widgets/EffectPopOver.vala
     src/Widgets/Countdown.vala
@@ -59,6 +63,8 @@ OPTIONS
     --vapidir=${CMAKE_CURRENT_SOURCE_DIR}/vapi/
 CUSTOM_VAPIS
     vapi/gnome-desktop-3.0.vapi
+    vapi/cheese-common.vapi
+    vapi/cheese-thumbview.vapi
 )
 # tranlation stuff
 

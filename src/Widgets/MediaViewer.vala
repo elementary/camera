@@ -218,7 +218,7 @@ namespace Snap.Widgets {
                             pix = get_pixbuf_shadow (new Gdk.Pixbuf.from_file_at_size (filename, 100, 150), 0);
                     }
                     else {
-                        pix = thumbnail_factory.generate_thumbnail (uri, "video/*");
+                        pix = thumbnail_factory.generate_thumbnail (uri, "*");
                         if (pix == null)
                             pix = MEDIA_VIDEO_ICON.render (null, null, 64);
                     }

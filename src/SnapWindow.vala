@@ -29,9 +29,17 @@ namespace Snap {
         public Snap.SnapApp snap_app;
         bool video_start = true;
         public Gtk.DrawingArea da;
+        private Clutter.Texture video_preview;
+        private Clutter.Box layout;
+        private Clutter.Stage stage;
+        private Clutter.BinLayout layout_manager;
+        public GtkClutter.Embed preview_viewport;
         public Gtk.ActionGroup main_actions;
         Gtk.UIManager ui;
-
+        
+        Cheese.EffectsManager effects_manager;
+        Cheese.Camera camera;
+        
         public const string UI_STRING = """
             <ui>
                 <popup name="Actions">
@@ -39,8 +47,8 @@ namespace Snap {
                 </popup>
 
                 <popup name="AppMenu">
-                <menuitem action="Preferences" />
-            </popup>
+                    <menuitem action="Preferences" />
+                </popup>
             </ui>
         """;
 
@@ -62,7 +70,7 @@ namespace Snap {
 
             this.title = "Snap";
             this.window_position = Gtk.WindowPosition.CENTER;
-            this.resizable = true;
+            this.set_size_request (500, 550);
 
             // Setup the actions
             main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
@@ -89,9 +97,56 @@ namespace Snap {
 
             setup_window ();
             
-            recorder = new Recorder (media_bin);
+            //recorder = new Recorder (media_bin);
             
             take_button.clicked.connect (() => on_record(mode_button, recorder));
+            
+            // Setup effects manager
+            effects_manager = new Cheese.EffectsManager ();
+            effects_manager.load_effects ();
+            
+            // Setup camera
+            setup_camera ();
+            
+            show_all ();
+
+        }
+        
+        void setup_camera () {
+            video_preview = new Clutter.Texture ();
+            video_preview.keep_aspect_ratio = true;
+            video_preview.request_mode = Clutter.RequestMode.HEIGHT_FOR_WIDTH;
+                        
+            layout_manager = new Clutter.BinLayout (Clutter.BinAlignment.CENTER, Clutter.BinAlignment.CENTER);
+                        
+            layout = new Clutter.Box (layout_manager);
+            layout.pack (video_preview);
+          
+            stage.add_actor (layout);
+            
+            var black = new Clutter.Color.from_string ("black");
+            stage.background_color = black;
+            
+            stage.show ();
+            
+            // Camera object
+            camera = new Cheese.Camera (video_preview, "", 0, 0);
+            camera.setup (""); // device
+            camera.state_flags_changed.connect (on_camera_state_flags_changed);
+            camera.play ();
+            
+        }
+        
+        public void on_camera_state_flags_changed (Gst.State new_state) {
+            switch (new_state) {
+                case Gst.State.PLAYING:
+                    Cheese.Effect effect = effects_manager.get_effect ("Hulk");
+                    if (effect != null)
+                        camera.set_effect (effect);
+                    break;
+                default:
+                    break;
+            }
         }
 
         void setup_window () {
@@ -123,7 +178,7 @@ namespace Snap {
             var effects_button_bin = new Gtk.ToolItem ();
             effects_button_bin.add (effects_button_box);
 
-            //toolbar.add (effects_button_bin);
+            toolbar.add (effects_button_bin);
 
             effects_button.clicked.connect ((effects_button) => show_effect_popover(effects_button));
 
@@ -137,7 +192,6 @@ namespace Snap {
 
             var mode_tool = new Gtk.ToolItem ();
             mode_tool.add (mode_button);
-            mode_tool.margin_left = 5;
             mode_tool.set_expand (false);
 
             toolbar.add (mode_tool);
@@ -181,7 +235,7 @@ namespace Snap {
             spacer.set_expand (true);
 
             spacer.margin_left = 0;
-            spacer.margin_right = 0; // Value when using "Effects" button should be 72
+            spacer.margin_right = 72; // Value when using "Effects" button should be 72 otherwise 0
 
             toolbar.add (spacer);
 
@@ -190,7 +244,7 @@ namespace Snap {
             share_app_menu.set_sensitive (false);
             toolbar.add (share_app_menu);
 
-            //var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
+            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (this.get_application() as Granite.Application).create_appmenu (new Gtk.Menu ());
             app_menu.margin_right = 3;
             toolbar.add (app_menu);
@@ -198,10 +252,13 @@ namespace Snap {
             vbox.pack_start (toolbar, false, false, 0);
 
             // Setup preview area
-            media_bin = new Snap.Widgets.MediaBin ();
-            media_bin.set_size_request (500, 300);
-
-            hbox.pack_start (media_bin, true, true, 12);
+            preview_viewport = new GtkClutter.Embed ();
+            stage = preview_viewport.get_stage () as Clutter.Stage;
+            preview_viewport.get_stage ().allocation_changed.connect (() => {
+                this.layout.set_size (stage.width, stage.height);
+            });
+            
+            hbox.pack_start (preview_viewport, true, true, 12);
             vbox.pack_start (hbox, true, true, 12);
 
             // Setup the photo/video viewer
@@ -230,12 +287,12 @@ namespace Snap {
         }
 
         void show_effect_popover (Gtk.Widget widget) {
-                effects_popover = new Snap.Widgets.EffectPopOver ();
-                effects_popover.togglebutton.toggled.connect (on_mirror_screen);
-                effects_popover.move_to_widget (widget);
-                effects_popover.show_all ();
-	            effects_popover.run ();
-                effects_popover.destroy ();
+            effects_popover = new Snap.Widgets.EffectPopOver ();
+            effects_popover.togglebutton.toggled.connect (on_mirror_screen);
+            effects_popover.move_to_widget (widget);
+            effects_popover.show_all ();
+	        effects_popover.run ();
+            effects_popover.destroy ();
         }
 
         void on_record (Granite.Widgets.ModeButton mode_button, Recorder recorder) {

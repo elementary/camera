@@ -79,7 +79,7 @@ namespace Snap {
         }
 
         protected override void activate () {
-            
+
             if (get_windows () == null) {
                 window = new SnapWindow (this);
                 window.show ();
@@ -87,7 +87,7 @@ namespace Snap {
             else {
                 window.present ();
             }
-
+   
         }
 
         public static int main (string[] args) {
@@ -95,7 +95,9 @@ namespace Snap {
             app_cmd_name = "Snap";
 
             Gst.init (ref args);
-            X.init_threads ();            
+            Cheese.init (ref args);
+            Cheese.gtk_init (ref args);
+            //X.init_threads ();            
             
             var app = new SnapApp ();
 
