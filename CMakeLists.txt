@@ -49,11 +49,13 @@ vala_precompile(VALA_C
     src/SnapPipelines.vala
     src/Recorder.vala
     src/EffectsManager.vala
+    src/shotwell-video-thumbnailer.vala
     src/config.vala
     src/Widgets/EffectPopOver.vala
     src/Widgets/Countdown.vala
     src/Widgets/MediaBin.vala
     src/Widgets/MediaViewer.vala
+    src/Widgets/EffectsPopOver.vala
     src/Dialogs/Preferences.vala
     src/Services/Settings.vala
 PACKAGES

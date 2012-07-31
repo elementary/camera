@@ -167,12 +167,12 @@ namespace Snap {
 
             var effects_button = new Gtk.Button.with_label (_("Effects"));
             effects_button.get_style_context ().add_class ("raised");
-            effects_button.margin_right = 12;
+            effects_button.margin_right = 6;
             effects_button.sensitive = false;
 
             var effects_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
     	    effects_button_box.set_layout (Gtk.ButtonBoxStyle.START);
-            effects_button_box.margin_left = 6;
+            effects_button_box.margin_left = 3;
             effects_button_box.pack_start (effects_button, false, false, 0);
 
             var effects_button_bin = new Gtk.ToolItem ();
@@ -265,6 +265,9 @@ namespace Snap {
             var viewer_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             viewer = new Snap.Widgets.MediaViewer ();
+            viewer.changed.connect ((count, type) => {
+                statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
+            });
             viewer.selection_changed.connect ((path, type) => {
                 share_app_menu.set_sensitive (true);
                 populate_with_contractor (share_menu, path, type);
@@ -276,7 +279,7 @@ namespace Snap {
             viewer_box.pack_start (viewer, true, true, 0);
 
             statusbar = new Gtk.Statusbar ();
-            statusbar.push (0, viewer.photos.to_string () + " "+_("photos and") + " " + viewer.videos.to_string () + " " + _("videos"));
+            statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
 
             viewer_box.pack_start (statusbar, false, true, 0);
 

@@ -29,13 +29,14 @@ namespace Snap.Widgets {
 
     public class MediaViewer : Granite.Widgets.StaticNotebook {
         
-        public int photos;
-        public int videos;
+        public int n_photo;
+        public int n_video;
         
         private MediaViewerPage all_viewer;
         private MediaViewerPage photo_viewer;
         private MediaViewerPage video_viewer;
         
+        public signal void changed (int count, MediaType media_type);
         public signal void selection_changed (string path, MediaType media_type);
         
         public MediaViewer () {
@@ -44,8 +45,8 @@ namespace Snap.Widgets {
             photo_viewer = new MediaViewerPage (this, MediaType.PHOTO);
             video_viewer = new MediaViewerPage (this, MediaType.VIDEO);
             
-            photos = photo_viewer.counter;
-            videos = video_viewer.counter;
+            //n_photo = photo_viewer.counter;
+            //n_video = video_viewer.counter;
             
             append_page (all_viewer, new Label (_("All")));
             append_page (photo_viewer, new Label (_("Photo")));
@@ -78,7 +79,7 @@ namespace Snap.Widgets {
            - Add context menu options ('delete' and 'trash file')
            - Use a hasmap as model (get rid of ListStore)
         */
-
+        
         Gnome.DesktopThumbnailFactory thumbnail_factory;
 
         public string selected {get; private set;}
@@ -100,7 +101,7 @@ namespace Snap.Widgets {
             items_map = new Gee.HashMap<string, int> ();
             store = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
 
-            icon_view = new Gtk.IconView ();
+            icon_view = new Gtk.IconView ();            
 
             var icon_view_style = new Gtk.CssProvider ();
             try {
@@ -132,9 +133,6 @@ namespace Snap.Widgets {
 
         // FIXME: this needs serious performance improvements. See list_files() as well
         public void update_items () {
-            if (media_type == null)
-                return;
-
             list_dir ();
         }
 
@@ -167,10 +165,32 @@ namespace Snap.Widgets {
          **/
         private void list_dir () {
             debug ("Start scan\n");
-            var dir = File.new_for_path (get_media_dir (media_type));
-            // asynchronous call, with callback, to get dir entries
-            dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
-                                            Priority.DEFAULT, null, list_ready);
+            
+            File dir;
+            
+            if (media_type == null) {
+                // Photos
+                media_type = MediaType.PHOTO;
+                dir = File.new_for_path (get_media_dir (media_type));
+                // asynchronous call, with callback, to get dir entries
+                dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
+                                                Priority.DEFAULT, null, list_ready);
+                // Videos
+                media_type = MediaType.VIDEO;
+                dir = File.new_for_path (get_media_dir (media_type));
+                // asynchronous call, with callback, to get dir entries
+                dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
+                                                Priority.DEFAULT, null, list_ready);
+                // Reset media type
+                media_type = null;
+            }
+            else {
+                dir = File.new_for_path (get_media_dir (media_type));
+                // asynchronous call, with callback, to get dir entries
+                dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
+                                                Priority.DEFAULT, null, list_ready);
+            }
+                                                
         }
 
         /* Callback for enumerate_children_async */
@@ -197,34 +217,80 @@ namespace Snap.Widgets {
                 GLib.List<FileInfo> list = enumer.next_files_async.end (res);
 
                 foreach (FileInfo info in list) {
-                    string filename = Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (media_type), info.get_name ());
-                    string uri = build_uri_from_filename (filename);
-                    message (filename);
-                    if (items_map.has_key (filename))
-                        continue;
-
-                    items_map.set (filename, 0);
-
-                    icon_view.set_columns (icon_view.columns + 1);
                     
-                    this.store.append (out iter);
-
+                    string filename;
+                    string uri;
                     Gdk.Pixbuf? pix = null;
-
-                    // Render image and add shadow
-                    if (media_type == MediaType.PHOTO) {
-                        pix = thumbnail_factory.generate_thumbnail (uri, "image/*");
-                        if (pix == null)
-                            pix = get_pixbuf_shadow (new Gdk.Pixbuf.from_file_at_size (filename, 100, 150), 0);
-                    }
-                    else {
-                        pix = thumbnail_factory.generate_thumbnail (uri, "*");
-                        if (pix == null)
-                            pix = MEDIA_VIDEO_ICON.render (null, null, 64);
-                    }
                     
-                    this.store.set (iter, 0, pix, 1, filename);
-                    counter++;
+                    if (media_type != null) {
+                        filename = Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (media_type), info.get_name ());
+                        uri = build_uri_from_filename (filename);
+                        message (filename);
+                        if (items_map.has_key (filename))
+                            continue;
+
+                        items_map.set (filename, 0);
+
+                        icon_view.set_columns (icon_view.columns + 1);
+                        
+                        this.store.append (out iter);
+
+                        // Render image and add shadow
+                        if (media_type == MediaType.PHOTO) {
+                            pix = thumbnail_factory.generate_thumbnail (uri, "image/*");
+                            if (pix == null)
+                                pix = get_pixbuf_shadow (new Gdk.Pixbuf.from_file_at_size (filename, 100, 150), 0);
+                            // Update main viewer
+                            parent_viewer.n_photo++;
+                            parent_viewer.changed (parent_viewer.n_photo, media_type);
+                        }
+                        else if (media_type == MediaType.VIDEO) {
+                            pix = thumbnail_factory.generate_thumbnail (uri, "*");
+                            if (pix == null)
+                                pix = MEDIA_VIDEO_ICON.render (null, null, 64);
+                            // Update main viewer
+                            parent_viewer.n_video++;
+                            parent_viewer.changed (parent_viewer.n_video, media_type);
+                        }
+                        else {
+                            pix = thumbnail_factory.generate_thumbnail (uri, "*");
+                            if (pix == null)
+                                pix = MEDIA_VIDEO_ICON.render (null, null, 64);
+                        }
+                        
+                        this.store.set (iter, 0, pix, 1, filename);
+                        counter++;
+                    }
+                    else if (media_type == null) {
+                        for (int n=0; n<=1; n++) {
+                            
+                            if (n == 0)
+                                media_type = MediaType.PHOTO;
+                            if (n == 1)
+                                media_type = MediaType.VIDEO;
+                                
+                            filename = Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (media_type), info.get_name ());
+                            uri = build_uri_from_filename (filename);
+                            message (filename);
+                            if (items_map.has_key (filename))
+                                continue;
+
+                            items_map.set (filename, 0);
+
+                            icon_view.set_columns (icon_view.columns + 1);
+                            
+                            this.store.append (out iter);
+
+                            // Render image and add shadow
+                            pix = thumbnail_factory.generate_thumbnail (uri, "*");
+                            if (pix == null)
+                                pix = MEDIA_VIDEO_ICON.render (null, null, 64);
+                            
+                            this.store.set (iter, 0, pix, 1, filename);
+                            counter++;
+                        }
+                        media_type = null;
+                    }
                 }
 
                 // asynchronous call, with callback, to get any more entries
