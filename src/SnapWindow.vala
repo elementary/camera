@@ -71,7 +71,7 @@ namespace Snap {
             this.title = "Snap";
             this.window_position = Gtk.WindowPosition.CENTER;
             this.set_size_request (500, 550);
-
+            
             // Setup the actions
             main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
             main_actions.set_translation_domain ("snap");
@@ -97,7 +97,7 @@ namespace Snap {
 
             setup_window ();
             
-            //recorder = new Recorder (media_bin);
+            recorder = new Recorder ();
             
             take_button.clicked.connect (() => on_record(mode_button, recorder));
             
@@ -134,13 +134,14 @@ namespace Snap {
             camera.setup (""); // device
             camera.state_flags_changed.connect (on_camera_state_flags_changed);
             camera.play ();
-            
+            // Send camera object to the recorder
+            recorder.set_camera (camera);
         }
         
         public void on_camera_state_flags_changed (Gst.State new_state) {
             switch (new_state) {
                 case Gst.State.PLAYING:
-                    Cheese.Effect effect = effects_manager.get_effect ("Hulk");
+                    Cheese.Effect effect = effects_manager.get_effect ("identity");
                     if (effect != null)
                         camera.set_effect (effect);
                     break;
@@ -300,6 +301,7 @@ namespace Snap {
 
         void on_record (Granite.Widgets.ModeButton mode_button, Recorder recorder) {
             if (mode_button.selected == 0) {
+                //camera.take_photo (file_util.get_new_media_filename (Cheese.MediaMode.PHOTO));
                 recorder.media_saved.connect(() => on_media_saved (MediaType.PHOTO));
                 recorder.start (MediaType.PHOTO);
             }
