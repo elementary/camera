@@ -70,6 +70,7 @@ namespace Snap {
 
             this.title = "Snap";
             this.window_position = Gtk.WindowPosition.CENTER;
+            this.icon_name = "snap-photobooth";
             this.set_size_request (500, 550);
             
             // Setup the actions
