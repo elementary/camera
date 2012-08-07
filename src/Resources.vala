@@ -103,7 +103,7 @@ namespace Resources {
             if (type == MediaType.PHOTO)
                 new_filename += ".jpg";
             else if (type == MediaType.VIDEO)
-                new_filename += ".ogg";
+                new_filename += ".webm";
         } else {
             new_filename += "." + ext;
         }

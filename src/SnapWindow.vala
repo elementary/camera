@@ -170,7 +170,6 @@ namespace Snap {
             var effects_button = new Gtk.Button.with_label (_("Effects"));
             effects_button.get_style_context ().add_class ("raised");
             effects_button.margin_right = 6;
-            effects_button.sensitive = false;
 
             var effects_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
     	    effects_button_box.set_layout (Gtk.ButtonBoxStyle.START);
@@ -292,8 +291,7 @@ namespace Snap {
         }
 
         void show_effect_popover (Gtk.Widget widget) {
-            effects_popover = new Snap.Widgets.EffectPopOver ();
-            effects_popover.togglebutton.toggled.connect (on_mirror_screen);
+            effects_popover = new Snap.Widgets.EffectPopOver (camera, effects_manager);
             effects_popover.move_to_widget (widget);
             effects_popover.show_all ();
 	        effects_popover.run ();
@@ -366,10 +364,6 @@ namespace Snap {
                     menu.show_all ();
                 }
             }
-        }
-
-        void on_mirror_screen () {
-            // TODO : Implement this feature
         }
 
         void on_mode_changed (Gtk.Widget widget) {

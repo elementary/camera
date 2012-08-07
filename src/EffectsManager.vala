@@ -24,7 +24,7 @@ using Gee;
 
 const string GROUP_NAME = "Effect";
 
-internal class Cheese.EffectsManager : GLib.Object
+public class Cheese.EffectsManager : GLib.Object
 {
   public ArrayList<Effect> effects;
 

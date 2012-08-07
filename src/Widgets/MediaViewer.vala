@@ -252,11 +252,6 @@ namespace Snap.Widgets {
                             parent_viewer.n_video++;
                             parent_viewer.changed (parent_viewer.n_video, media_type);
                         }
-                        else {
-                            pix = thumbnail_factory.generate_thumbnail (uri, "*");
-                            if (pix == null)
-                                pix = MEDIA_VIDEO_ICON.render (null, null, 64);
-                        }
                         
                         this.store.set (iter, 0, pix, 1, filename);
                         counter++;

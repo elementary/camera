@@ -71,7 +71,7 @@ namespace Snap {
                 this.drawing_area.get_window () != null)
             {
                 var xoverlay = message.src as XOverlay;
-                xoverlay.set_xwindow_id (Gdk.X11Window.get_xid (this.drawing_area.get_window ()));
+                //xoverlay.set_xwindow_id (Gdk.X11Window.get_xid (this.drawing_area.get_window ()));
                 return Gst.BusSyncReply.DROP;
             }
             else return Gst.BusSyncReply.PASS;

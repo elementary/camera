@@ -22,9 +22,7 @@ namespace Snap.Widgets {
 
     public class EffectPopOver : Granite.Widgets.PopOver {
 
-        public Gtk.ToggleButton togglebutton { get; private set; }
-
-        public EffectPopOver () {
+        public EffectPopOver (Cheese.Camera camera, Cheese.EffectsManager effects_manager) {
             
             var effects_popover_style = new Gtk.CssProvider ();
             try {
@@ -37,13 +35,18 @@ namespace Snap.Widgets {
                                                  Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             var vbox_widget = new Gtk.VBox (false, 0);
+	
+			foreach (var effect in effects_manager.effects) {
+		        var togglebutton = new Gtk.ToggleButton.with_label(effect.get_name ());
+				togglebutton.toggled.connect (() => {
+					camera.set_effect (effect);
+				});
+				
+		        vbox_widget.pack_start (togglebutton, false, false, 0);
 
-            togglebutton = new Gtk.ToggleButton.with_label("Miror");
-
-            vbox_widget.pack_start (togglebutton, false, false, 0);
-
-            var vbox_window = get_content_area () as Gtk.Box;
-            vbox_window.pack_start (vbox_widget, false, false, 0);
+		        var vbox_window = get_content_area () as Gtk.Box;
+		        vbox_window.pack_start (vbox_widget, false, false, 0);
+		    }
         }
     }
 }
