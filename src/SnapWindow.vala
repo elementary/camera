@@ -30,7 +30,7 @@ namespace Snap {
         bool video_start = true;
         public Gtk.DrawingArea da;
         private Clutter.Texture video_preview;
-        private Clutter.Box layout;
+        private Clutter.Actor layout;
         private Clutter.Stage stage;
         private Clutter.BinLayout layout_manager;
         public GtkClutter.Embed preview_viewport;
@@ -57,11 +57,9 @@ namespace Snap {
         Gtk.Toolbar toolbar;
         Granite.Widgets.ModeButton mode_button;
         Gtk.Button take_button;
-        Snap.Widgets.MediaBin media_bin;
         Snap.Widgets.MediaViewer viewer;
         Gtk.Statusbar statusbar;
         Snap.Widgets.EffectPopOver effects_popover;
-        Gtk.Button effects_button;
 
         public SnapWindow (Snap.SnapApp snap_app) {
 
@@ -120,19 +118,24 @@ namespace Snap {
                         
             layout_manager = new Clutter.BinLayout (Clutter.BinAlignment.CENTER, Clutter.BinAlignment.CENTER);
                         
-            layout = new Clutter.Box (layout_manager);
-            layout.pack (video_preview);
+            layout = new Clutter.Actor ();
+            layout.layout_manager = layout_manager;
+            layout.add_child (video_preview);
           
             stage.add_actor (layout);
             
-            var black = new Clutter.Color.from_string ("black");
+            var black = Clutter.Color.from_string ("black");
             stage.background_color = black;
             
             stage.show ();
             
             // Camera object
             camera = new Cheese.Camera (video_preview, "", 0, 0);
-            camera.setup (""); // device
+            try {
+            	camera.setup (""); // device
+            } catch (Error e) {
+            	error (e.message);
+            }
             camera.state_flags_changed.connect (on_camera_state_flags_changed);
             camera.play ();
             // Send camera object to the recorder
@@ -246,7 +249,7 @@ namespace Snap {
             toolbar.add (share_app_menu);
 
             var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = (this.get_application() as Granite.Application).create_appmenu (new Gtk.Menu ());
+            var app_menu = (this.get_application() as Granite.Application).create_appmenu (menu);
             app_menu.margin_right = 3;
             toolbar.add (app_menu);
 
@@ -390,7 +393,7 @@ namespace Snap {
         }
 
         void action_quit () {
-            recorder.pipeline.stop ();
+ 
         }
 
         void action_preferences () {

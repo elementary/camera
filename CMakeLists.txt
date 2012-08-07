@@ -45,13 +45,11 @@ vala_precompile(VALA_C
     src/Resources.vala
     src/SnapWindow.vala
     src/Snap.vala
-    src/SnapPipelines.vala
     src/Recorder.vala
     src/EffectsManager.vala
     src/config.vala
     src/Widgets/EffectPopOver.vala
     src/Widgets/Countdown.vala
-    src/Widgets/MediaBin.vala
     src/Widgets/MediaViewer.vala
     src/Dialogs/Preferences.vala
     src/Services/Settings.vala
