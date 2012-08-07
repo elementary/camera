@@ -1,7 +1,12 @@
 <schemalist>
     <schema path="/org/pantheon/snap/settings/" id="org.pantheon.snap.settings" gettext-domain="snap">
+        <key name="bg-color" type="s">
+        <default>'black'</default>
+            <summary>The background color of the camera preview.</summary>
+            <description>The background color of the camera preview.</description>
+        </key>
         <key name="countdown-time" type="i">
-        <default>5</default>
+        <default>3</default>
             <summary>The time for the countdown.</summary>
             <description>The time for the countdown.</description>
         </key>

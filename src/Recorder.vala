@@ -27,8 +27,6 @@ namespace Snap {
         //gst objects
         private Cheese.Camera camera;
 
-        public bool recording {get; private set;}
-
         public int photo_timeout {get; private set;}
         public int video_timeout {get; private set;}
 
@@ -38,18 +36,11 @@ namespace Snap {
 
         public Recorder () {
 
-            recording = false;
-            photo_timeout = video_timeout = 3;
+            photo_timeout = video_timeout = settings.countdown_time;
 
-            // FIXME: set this value according to the current camera's resolution
-            //media_bin.set_aspect_ratio (4, 3);
         }
 
         public void start (MediaType media_type) {
-            if (recording == true)
-                return;
-
-            recording = true;
 
             int secs = 0;
             if (media_type == MediaType.PHOTO)
@@ -66,19 +57,14 @@ namespace Snap {
                 }
                 else if (media_type == MediaType.VIDEO)
                     camera.start_video_recording (Resources.get_new_media_filename (MediaType.VIDEO));
-                recording = false;
             });
         }
 
         public void stop () {
-            if (!recording)
-                return;
-
             if (countdown_window != null)
                 countdown_window.destroy ();
 
             camera.stop_video_recording ();
-            recording = false;
         }
         
         public void set_camera (Cheese.Camera camera) {

@@ -124,7 +124,7 @@ namespace Snap {
           
             stage.add_actor (layout);
             
-            var black = Clutter.Color.from_string ("black");
+            var black = Clutter.Color.from_string (settings.bg_color);
             stage.background_color = black;
             
             stage.show ();
