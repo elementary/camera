@@ -1,7 +1,7 @@
 using GLib;
 namespace Cheese
 {
-  [CCode (cheader_filename = "thumbview/cheese-thumb-view.h")]
+  [CCode (cheader_filename = "cheese/cheese-thumb-view.h")]
   public class ThumbView : Gtk.IconView
   {
     public ThumbView ();

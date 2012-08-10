@@ -58,6 +58,7 @@ namespace Snap {
         Granite.Widgets.ModeButton mode_button;
         Gtk.Button take_button;
         Snap.Widgets.MediaViewer viewer;
+        Cheese.ThumbView thumbview;
         Gtk.Statusbar statusbar;
         Snap.Widgets.EffectPopOver effects_popover;
 
@@ -267,8 +268,17 @@ namespace Snap {
 
             // Setup the photo/video viewer
             var viewer_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-            viewer = new Snap.Widgets.MediaViewer ();
+            
+            thumbview = new Cheese.ThumbView ();
+            thumbview.start_monitoring_photo_path ("/home/mario/Immagini/Snap/");
+            
+            var scroll = new Gtk.ScrolledWindow (null, null);
+            scroll.vscrollbar_policy = Gtk.PolicyType.NEVER;
+            scroll.add (thumbview);
+            
+            viewer_box.pack_start (scroll, true, true, 0);
+            
+            /*viewer = new Snap.Widgets.MediaViewer ();
             viewer.changed.connect ((count, type) => {
                 statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
             });
@@ -280,15 +290,15 @@ namespace Snap {
             viewer_box.margin_top = 6;
             viewer_box.margin_right = 12;
             viewer_box.margin_left = 12;
-            viewer_box.pack_start (viewer, true, true, 0);
+            viewer_box.pack_start (viewer, true, true, 0);*/
 
             statusbar = new Gtk.Statusbar ();
-            statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
+            //statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
 
             viewer_box.pack_start (statusbar, false, true, 0);
 
             vbox.pack_start (viewer_box, false, true, 0);
-
+            
             add (vbox);
             show_all ();
         }

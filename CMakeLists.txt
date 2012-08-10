@@ -68,13 +68,24 @@ CUSTOM_VAPIS
 add_subdirectory(po)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 
+add_library (libthumbview SHARED    
+    thumbview/cheese-thumbnail.c
+    thumbview/cheese-thumb-view.c
+    thumbview/cheese-fileutil.c
+    thumbview/eog-thumb-nav.c
+    ${VALA_C}
+)
+#target_link_libraries(${PKGNAME} ${LIBS})
+
+
 add_executable (snap-photobooth ${VALA_C})
-target_link_libraries (snap-photobooth)
+target_link_libraries (snap-photobooth libthumbview)
 #TODO: Installation
 
 install (TARGETS snap-photobooth RUNTIME DESTINATION bin)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.svg DESTINATION share/icons/hicolor/scalable/apps)
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
+install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/pixmaps/ DESTINATION share/pixmaps/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.desktop DESTINATION share/applications)
 include(GSettings)
 add_schema("org.pantheon.snap.gschema.xml")
