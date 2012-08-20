@@ -87,5 +87,8 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.svg DESTINATION 
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/pixmaps/ DESTINATION share/pixmaps/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.desktop DESTINATION share/applications)
+# lib
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/thumbview/cheese-thumbview.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/cheese/)
+
 include(GSettings)
 add_schema("org.pantheon.snap.gschema.xml")

@@ -56,6 +56,9 @@ typedef struct
   GQueue *thumbnails;
 } CheeseThumbViewPrivate;
 
+/* Media type */
+CheeseMediaType cheese_media_type;
+
 enum
 {
   THUMBNAIL_PIXBUF_COLUMN,
@@ -64,7 +67,7 @@ enum
 };
 
 /* Drag 'n Drop */
-enum
+enum THUMBNAIL_PIXBUF_COLUMN
 {
   TARGET_PLAIN,
   TARGET_PLAIN_UTF8,
@@ -529,6 +532,7 @@ cheese_thumb_view_fill (CheeseThumbView *thumb_view)
   g_free (multiplex_file);
 
   if (dir_videos)
+  if (cheese_media_type == VIDEO || cheese_media_type == ALL)
   {
     /* read videos from the vid directory */
     while ((name = g_dir_read_name (dir_videos)))
@@ -548,6 +552,7 @@ cheese_thumb_view_fill (CheeseThumbView *thumb_view)
   }
 
   if (dir_photos)
+  if (cheese_media_type == PHOTO || cheese_media_type == ALL)
   {
     /* read photos from the photo directory */
     while ((name = g_dir_read_name (dir_photos)))
@@ -732,4 +737,21 @@ cheese_thumb_view_start_monitoring_video_path (CheeseThumbView *thumb_view, cons
 
   g_object_unref (file);
 
+}
+
+void 
+cheese_thumb_view_set_media_type (gint id) 
+{
+  switch (id)
+  {
+    case 0:
+      cheese_media_type = ALL;
+      break;
+    case 1:
+      cheese_media_type = PHOTO;
+      break;
+    case 2:
+      cheese_media_type = VIDEO;
+      break;
+  }
 }
