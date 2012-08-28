@@ -1,4 +1,4 @@
-# Slovak translation for snap-elementary
+# Marathi translation for snap-elementary
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the snap-elementary package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-03-04 09:45+0000\n"
-"Last-Translator: Branislav Machava <Unknown>\n"
-"Language-Team: Slovak <sk@li.org>\n"
+"PO-Revision-Date: 2012-08-25 06:13+0000\n"
+"Last-Translator: kroq-gar78 <Unknown>\n"
+"Language-Team: Marathi <mr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
-msgstr "Efekty"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
 msgid "Share"
@@ -36,7 +36,7 @@ msgstr ""
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
 msgid "Preferences"
-msgstr "Možnosti"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
@@ -57,15 +57,15 @@ msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
-msgstr "Všetky"
+msgstr "सर्व"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
 msgid "Photo"
-msgstr "Fotografia"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
 msgid "Video"
-msgstr "Video"
+msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
