@@ -1,13 +1,13 @@
 using GLib;
 namespace Cheese
 {
-  [CCode (cheader_filename = "cheese/cheese-thumb-view.h", cprefix = "CHESE_MEDIA_TYPE_")]
+  [CCode (cheader_filename = "libsnap/cheese-thumb-view.h", cprefix = "CHESE_MEDIA_TYPE_")]
   public enum MediaType {
     ALL,
     PHOTO,
     VIDEO
   }
-  [CCode (cheader_filename = "cheese/cheese-thumb-view.h")]
+  [CCode (cheader_filename = "libsnap/cheese-thumb-view.h")]
   public class ThumbView : Gtk.IconView
   {
     public ThumbView ();

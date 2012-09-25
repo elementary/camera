@@ -270,7 +270,6 @@ namespace Snap {
             var viewer_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             
             thumbview = new Cheese.ThumbView ();
-            thumbview.set_media_type (1);
             //thumbview.start_monitoring_photo_path ("/home/mario/Immagini/Snap/");
             
             var scroll = new Gtk.ScrolledWindow (null, null);

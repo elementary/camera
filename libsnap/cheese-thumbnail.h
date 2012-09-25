@@ -1,6 +1,6 @@
 /*
  * Copyright © 2010 daniel g. siegel <dgsiegel@gnome.org>
- *
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Based on eog and eel code by:
  *   - Lucas Rocha <lucasr@gnome.org>

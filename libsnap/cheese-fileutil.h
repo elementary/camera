@@ -2,6 +2,7 @@
  * Copyright © 2007,2008 daniel g. siegel <dgsiegel@gnome.org>
  * Copyright © 2007,2008 Jaap Haitsma <jaap@haitsma.org>
  * Copyright © 2008 Felix Kaser <f.kaser@gmx.net>
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Licensed under the GNU General Public License Version 2
  *

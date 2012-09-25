@@ -1,6 +1,7 @@
 /* Eye Of Gnome - Thumbnail Navigator
  *
  * Copyright (C) 2006 The Free Software Foundation
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Author: Lucas Rocha <lucasr@gnome.org>
  *
@@ -18,10 +19,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-#ifdef HAVE_CONFIG_H
-  #include <cheese-config.h>
-#endif
 
 #include "eog-thumb-nav.h"
 #include "cheese-thumb-view.h"

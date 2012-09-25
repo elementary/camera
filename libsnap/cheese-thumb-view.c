@@ -2,6 +2,7 @@
  * Copyright © 2007,2008 daniel g. siegel <dgsiegel@gnome.org>
  * Copyright © 2007,2008 Jaap Haitsma <jaap@haitsma.org>
  * Copyright © 2008 Filippo Argiolas <filippo.argiolas@gmail.com>
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Licensed under the GNU General Public License Version 2
  *
@@ -18,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#ifdef HAVE_CONFIG_H
-  #include "cheese-config.h"
-#endif
 
 #include <glib.h>
 #include <gtk/gtk.h>
@@ -55,9 +52,6 @@ typedef struct
   guint idle_id;
   GQueue *thumbnails;
 } CheeseThumbViewPrivate;
-
-/* Media type */
-CheeseMediaType cheese_media_type;
 
 enum
 {
@@ -532,7 +526,6 @@ cheese_thumb_view_fill (CheeseThumbView *thumb_view)
   g_free (multiplex_file);
 
   if (dir_videos)
-  if (cheese_media_type == VIDEO || cheese_media_type == ALL)
   {
     /* read videos from the vid directory */
     while ((name = g_dir_read_name (dir_videos)))
@@ -552,7 +545,6 @@ cheese_thumb_view_fill (CheeseThumbView *thumb_view)
   }
 
   if (dir_photos)
-  if (cheese_media_type == PHOTO || cheese_media_type == ALL)
   {
     /* read photos from the photo directory */
     while ((name = g_dir_read_name (dir_photos)))
@@ -737,21 +729,4 @@ cheese_thumb_view_start_monitoring_video_path (CheeseThumbView *thumb_view, cons
 
   g_object_unref (file);
 
-}
-
-void 
-cheese_thumb_view_set_media_type (gint id) 
-{
-  switch (id)
-  {
-    case 0:
-      cheese_media_type = ALL;
-      break;
-    case 1:
-      cheese_media_type = PHOTO;
-      break;
-    case 2:
-      cheese_media_type = VIDEO;
-      break;
-  }
 }

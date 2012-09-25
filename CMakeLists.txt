@@ -58,28 +58,23 @@ PACKAGES
 OPTIONS
     --thread
     --vapidir=${CMAKE_CURRENT_SOURCE_DIR}/vapi/
+    --vapidir=${CMAKE_CURRENT_SOURCE_DIR}/libsnap/
 CUSTOM_VAPIS
     vapi/gnome-desktop-3.0.vapi
     vapi/cheese-common.vapi
-    vapi/cheese-thumbview.vapi
+    libsnap/cheese-thumbview.vapi
 )
 # tranlation stuff
 
 add_subdirectory(po)
+add_subdirectory (libsnap)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
-
-add_library (libthumbview SHARED    
-    thumbview/cheese-thumbnail.c
-    thumbview/cheese-thumb-view.c
-    thumbview/cheese-fileutil.c
-    thumbview/eog-thumb-nav.c
-    ${VALA_C}
-)
-#target_link_libraries(${PKGNAME} ${LIBS})
 
 
 add_executable (snap-photobooth ${VALA_C})
-target_link_libraries (snap-photobooth libthumbview)
+add_dependencies(snap-photobooth libsnap)
+include_directories(${CMAKE_SOURCE_DIR}/libsnap)
+target_link_libraries (snap-photobooth libsnap)
 #TODO: Installation
 
 install (TARGETS snap-photobooth RUNTIME DESTINATION bin)
@@ -87,8 +82,6 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.svg DESTINATION 
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/ DESTINATION share/icons/)
 install (DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/pixmaps/ DESTINATION share/pixmaps/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.desktop DESTINATION share/applications)
-# lib
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/thumbview/cheese-thumbview.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/cheese/)
 
 include(GSettings)
 add_schema("org.pantheon.snap.gschema.xml")

@@ -1,6 +1,7 @@
 /* Eye Of Gnome - Thumbnail Navigator
  *
  * Copyright (C) 2006 The Free Software Foundation
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Author: Lucas Rocha <lucasr@gnome.org>
  *

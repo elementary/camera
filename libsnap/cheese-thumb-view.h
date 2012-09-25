@@ -1,6 +1,7 @@
 /*
  * Copyright © 2007,2008 daniel g. siegel <dgsiegel@gnome.org>
  * Copyright © 2007,2008 Jaap Haitsma <jaap@haitsma.org>
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Licensed under the GNU General Public License Version 2
  *
@@ -46,13 +47,6 @@ typedef struct
   GtkIconViewClass parent_class;
 } CheeseThumbViewClass;
 
-typedef enum 
-{
-  ALL = 0,
-  PHOTO,
-  VIDEO
-} CheeseMediaType;
-
 GType      cheese_thumb_view_get_type (void);
 GtkWidget *cheese_thumb_view_new ();
 
@@ -62,7 +56,6 @@ guint  cheese_thumb_view_get_n_selected (CheeseThumbView *thumbview);
 void   cheese_thumb_view_remove_item (CheeseThumbView *thumb_view, GFile *file);
 void cheese_thumb_view_start_monitoring_photo_path (CheeseThumbView *thumbview, const char *path_photos);
 void cheese_thumb_view_start_monitoring_video_path (CheeseThumbView *thumbview, const char *path_videos);
-void cheese_thumb_view_set_media_type (gint id);
 
 G_END_DECLS
 

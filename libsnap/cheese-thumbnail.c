@@ -1,6 +1,6 @@
 /*
  * Copyright © 2010 daniel g. siegel <dgsiegel@gnome.org>
- *
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Based on eog and eel code by:
  *   - Lucas Rocha <lucasr@gnome.org>
@@ -21,10 +21,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#ifdef HAVE_CONFIG_H
-  #include <cheese-config.h>
-#endif
 
 #include "cheese-thumbnail.h"
 

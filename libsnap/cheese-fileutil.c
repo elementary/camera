@@ -2,6 +2,7 @@
  * Copyright © 2007,2008 daniel g. siegel <dgsiegel@gnome.org>
  * Copyright © 2007,2008 Jaap Haitsma <jaap@haitsma.org>
  * Copyright © 2008 Felix Kaser <f.kaser@gmx.net>
+ * Copyright © 2012 Mario Guerriero <mario@elementaryos.org>
  *
  * Licensed under the GNU General Public License Version 2
  *
@@ -18,10 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#ifdef HAVE_CONFIG_H
-  #include <cheese-config.h>
-#endif
 
 #include <glib.h>
 #include <gio/gio.h>
