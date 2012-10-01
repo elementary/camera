@@ -31,4 +31,5 @@ set_target_properties (${PKGNAME} PROPERTIES
     SOVERSION 0)
     
 install (TARGETS libsnap DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
-install (FILES ${CMAKE_SOURCE_DIR}/thumbview/cheese-thumb-view.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/cheese/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/cheese-thumb-view.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/snap/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/eog-thumb-nav.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/snap/)
