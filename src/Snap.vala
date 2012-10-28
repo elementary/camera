@@ -95,9 +95,7 @@ namespace Snap {
             app_cmd_name = "Snap";
 
             Gst.init (ref args);
-            Cheese.init (ref args);
-            Cheese.gtk_init (ref args);
-            //X.init_threads ();            
+            GtkClutter.init (ref args);
             
             var app = new SnapApp ();
 

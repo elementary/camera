@@ -30,7 +30,7 @@ namespace Snap {
         bool video_start = true;
         public Gtk.DrawingArea da;
         private Clutter.Texture video_preview;
-        private Clutter.Actor layout;
+        private Clutter.Actor layout = new Clutter.Actor ();
         private Clutter.Stage stage;
         private Clutter.BinLayout layout_manager;
         public GtkClutter.Embed preview_viewport;
@@ -119,7 +119,6 @@ namespace Snap {
                         
             layout_manager = new Clutter.BinLayout (Clutter.BinAlignment.CENTER, Clutter.BinAlignment.CENTER);
                         
-            layout = new Clutter.Actor ();
             layout.layout_manager = layout_manager;
             layout.add_child (video_preview);
           
