@@ -58,7 +58,10 @@ namespace Snap {
         Granite.Widgets.ModeButton mode_button;
         Gtk.Button take_button;
         Snap.Widgets.MediaViewer viewer;
-        Cheese.ThumbView thumbview;
+        Granite.Widgets.StaticNotebook viewer_notebook;
+        Cheese.ThumbView thumbview_all;
+        Cheese.ThumbView thumbview_photo;
+        Cheese.ThumbView thumbview_video;
         Gtk.Statusbar statusbar;
         Snap.Widgets.EffectPopOver effects_popover;
 
@@ -266,31 +269,31 @@ namespace Snap {
             vbox.pack_start (hbox, true, true, 12);
 
             // Setup the photo/video viewer
+            viewer_notebook = new Granite.Widgets.StaticNotebook ();
+            
             var viewer_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            
-            thumbview = new Cheese.ThumbView ();
-            //thumbview.start_monitoring_photo_path ("/home/mario/Immagini/Snap/");
-            
-            var scroll = new Gtk.ScrolledWindow (null, null);
-            scroll.vscrollbar_policy = Gtk.PolicyType.NEVER;
-            scroll.add (thumbview);
-            
-            viewer_box.pack_start (scroll, true, true, 0);
-            
-            /*viewer = new Snap.Widgets.MediaViewer ();
-            viewer.changed.connect ((count, type) => {
-                statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
-            });
-            viewer.selection_changed.connect ((path, type) => {
-                share_app_menu.set_sensitive (true);
-                populate_with_contractor (share_menu, path, type);
-            });
-            
-            viewer_box.margin_top = 6;
-            viewer_box.margin_right = 12;
-            viewer_box.margin_left = 12;
-            viewer_box.pack_start (viewer, true, true, 0);*/
 
+            thumbview_all = new Cheese.ThumbView (0);
+            var scroll_all = new Gtk.ScrolledWindow (null, null);
+            scroll_all.vscrollbar_policy = Gtk.PolicyType.NEVER;
+            scroll_all.add (thumbview_all);
+            viewer_notebook.append_page (scroll_all, new Gtk.Label (_("All")));
+            
+            thumbview_photo = new Cheese.ThumbView (1);
+            var scroll_photo = new Gtk.ScrolledWindow (null, null);
+            scroll_photo.vscrollbar_policy = Gtk.PolicyType.NEVER;
+            scroll_photo.add (thumbview_photo);
+            viewer_notebook.append_page (scroll_photo, new Gtk.Label (_("Photo")));
+            
+            thumbview_video = new Cheese.ThumbView (2);
+            var scroll_video = new Gtk.ScrolledWindow (null, null);
+            scroll_video.vscrollbar_policy = Gtk.PolicyType.NEVER;
+            scroll_video.add (thumbview_video);
+            viewer_notebook.append_page (scroll_video, new Gtk.Label (_("Video")));
+
+            viewer_box.pack_start (viewer_notebook, true, true, 0);
+            
+            // Statusbar
             statusbar = new Gtk.Statusbar ();
             //statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
 
@@ -418,7 +421,7 @@ namespace Snap {
                                          action_quit },
            { "Preferences", Gtk.Stock.PREFERENCES,
           /* label, accelerator */       N_("Preferences"), null,
-          /* tooltip */                  N_("Change Scratch settings"),
+          /* tooltip */                  N_("Change Snap settings"),
                                          action_preferences }
         };
     }

@@ -35,6 +35,8 @@ const guint THUMB_VIEW_MINIMUM_HEIGHT = 100;
 
 const gchar CHEESE_OLD_VIDEO_NAME_SUFFIX[] = ".ogv";
 
+int THUMB_VIEW_TYPE;
+
 #define CHEESE_THUMB_VIEW_GET_PRIVATE(o) \
   (G_TYPE_INSTANCE_GET_PRIVATE ((o), CHEESE_TYPE_THUMB_VIEW, CheeseThumbViewPrivate))
 
@@ -81,7 +83,7 @@ typedef struct
 
 
 static void cheese_thumb_view_constructed (GObject *object);
-GtkWidget * cheese_thumb_view_new (void);
+GtkWidget * cheese_thumb_view_new (const int *type);
 
 static gboolean
 cheese_thumb_view_idle_append_item (gpointer data)
@@ -497,7 +499,7 @@ cheese_thumb_view_get_n_selected (CheeseThumbView *thumbview)
   return count;
 }
 
-static void
+void
 cheese_thumb_view_fill (CheeseThumbView *thumb_view)
 {
   CheeseThumbViewPrivate *priv = CHEESE_THUMB_VIEW_GET_PRIVATE (thumb_view);
@@ -536,7 +538,8 @@ cheese_thumb_view_fill (CheeseThumbView *thumb_view)
 
       filename = g_build_filename (path_videos, name, NULL);
       file     = g_file_new_for_path (filename);
-      cheese_thumb_view_append_item (thumb_view, file);
+      if (THUMB_VIEW_TYPE == 0 || THUMB_VIEW_TYPE == 2)
+        cheese_thumb_view_append_item (thumb_view, file);
       g_free (filename);
       g_object_unref (file);
     }
@@ -554,7 +557,8 @@ cheese_thumb_view_fill (CheeseThumbView *thumb_view)
 
       filename = g_build_filename (path_photos, name, NULL);
       file     = g_file_new_for_path (filename);
-      cheese_thumb_view_append_item (thumb_view, file);
+      if (THUMB_VIEW_TYPE == 0 || THUMB_VIEW_TYPE == 1)
+        cheese_thumb_view_append_item (thumb_view, file);
       g_free (filename);
       g_object_unref (file);
     }
@@ -685,10 +689,13 @@ cheese_thumb_view_constructed (GObject *object)
 }
 
 GtkWidget *
-cheese_thumb_view_new ()
+cheese_thumb_view_new (const int *type)
 {
   CheeseThumbView *thumb_view;
-
+  
+  // 0 is all, 1 is photo, 2 is video
+  THUMB_VIEW_TYPE = type;
+  
   thumb_view = g_object_new (CHEESE_TYPE_THUMB_VIEW, NULL);
   return GTK_WIDGET (thumb_view);
 }
