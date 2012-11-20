@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-06-09 18:13+0000\n"
-"Last-Translator: Quinten Schelfhout <dequicky@gmail.com>\n"
+"PO-Revision-Date: 2012-11-19 17:14+0000\n"
+"Last-Translator: Wesley <js4918177@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-05 04:53+0000\n"
-"X-Generator: Launchpad (build 16232)\n"
+"X-Launchpad-Export-Date: 2012-11-20 05:15+0000\n"
+"X-Generator: Launchpad (build 16286)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -53,7 +53,7 @@ msgstr "neem foto's met je webcam"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr "fotosessie"
+msgstr "Fotokiosk"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
