@@ -1,4 +1,4 @@
-# Brazilian Portuguese translation for snap-elementary
+# Korean translation for snap-elementary
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the snap-elementary package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-12-19 07:42+0000\n"
-"Last-Translator: Renato da Luz <renato.candido.tavares@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2012-12-20 05:04+0000\n"
+"Last-Translator: MinSik CHO <Unknown>\n"
+"Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,58 +19,58 @@ msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
-msgstr "Efeitos"
+msgstr "효과"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
 msgid "Share"
-msgstr "Compartilhar"
+msgstr "공유"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "photos and"
-msgstr "fotos e"
+msgstr "사진과"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "videos"
-msgstr "vídeos"
+msgstr "비디오"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
 msgid "Preferences"
-msgstr "Preferências"
+msgstr "환경 설정"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
 msgid "Quit"
-msgstr "Fechar"
+msgstr "나가기"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
 msgid "Change Scratch settings"
-msgstr "Mudar configurações do Scratch"
+msgstr "설정 변경하기"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Tirar fotos com sua web cam"
+msgstr "웹캠으로 사진 찍기"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr "Photo Booth"
+msgstr "포토 부스"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
-msgstr "Todos"
+msgstr "모두"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
 msgid "Photo"
-msgstr "Foto"
+msgstr "사진"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
 msgid "Video"
-msgstr "Vídeo"
+msgstr "비디오"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
-msgstr "Tirando foto em"
+msgstr "사진을 다음 시간 후에 촬영:"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
-msgstr "A gravação começa em"
+msgstr "비디오를 다음 시간 후에 녹화:"
