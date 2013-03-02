@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-11-19 17:14+0000\n"
-"Last-Translator: Wesley <js4918177@gmail.com>\n"
+"PO-Revision-Date: 2013-03-01 18:35+0000\n"
+"Last-Translator: Thomas Berends <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-20 05:15+0000\n"
-"X-Generator: Launchpad (build 16286)\n"
+"X-Launchpad-Export-Date: 2013-03-02 05:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -69,7 +69,7 @@ msgstr "Video"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
-msgstr "foto wordt getrokken in"
+msgstr "Neem foto in"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
