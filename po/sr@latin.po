@@ -1,0 +1,76 @@
+# Serbian Latin translation for snap-elementary
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the snap-elementary package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: snap-elementary\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-05-25 16:59+0200\n"
+"PO-Revision-Date: 2013-03-05 15:43+0000\n"
+"Last-Translator: Djordje <kod.joja@gmail.com>\n"
+"Language-Team: Serbian Latin <sr@latin@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-03-06 06:09+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
+msgid "Effects"
+msgstr "Efekti"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:187
+msgid "Share"
+msgstr "Podeli"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
+msgid "photos and"
+msgstr "Fotografije i"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
+msgid "videos"
+msgstr "Video"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:338
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:349
+msgid "Preferences"
+msgstr "Postavke"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:345
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:346
+msgid "Quit"
+msgstr "Napusti"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:350
+msgid "Change Scratch settings"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
+msgid "Photo Booth"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
+msgid "All"
+msgstr "Sve"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
+msgid "Photo"
+msgstr "Fotografija"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
+msgid "Video"
+msgstr "Video"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
+msgid "Taking photo in"
+msgstr "Slikanje za"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
+msgid "Recording starts in"
+msgstr "Snimanje počinje za"
