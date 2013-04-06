@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:59+0200\n"
-"PO-Revision-Date: 2012-08-02 23:07+0000\n"
+"PO-Revision-Date: 2013-04-05 12:39+0000\n"
 "Last-Translator: Skandee <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-05 04:53+0000\n"
-"X-Generator: Launchpad (build 16232)\n"
+"X-Launchpad-Export-Date: 2013-04-06 05:51+0000\n"
+"X-Generator: Launchpad (build 16550)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:113
 msgid "Effects"
@@ -27,7 +27,7 @@ msgstr "Del"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "photos and"
-msgstr ""
+msgstr "bilder og"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:220
 msgid "videos"
@@ -53,7 +53,7 @@ msgstr "Ta bilder med ditt webcamera"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr ""
+msgstr "Fotoautomat"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:50
 msgid "All"
