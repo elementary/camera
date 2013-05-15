@@ -2,7 +2,7 @@
 Type=Application
 Version=0.1
 Name=Snap
-Comment=Take photos with your web cam
+Comment=Take photo and video with the camera
 GenericName=Photo Booth
 Exec=snap-photobooth
 Icon=snap-photobooth
