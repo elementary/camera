@@ -51,7 +51,7 @@ namespace Snap {
             program_name = app_cmd_name;
             exec_name = app_cmd_name.down();
             app_years = "2011-2012";
-            app_icon = "snap-photobooth";
+            app_icon = "accessories-camera";
             app_launcher = "snap-photobooth.desktop";
             application_id = "net.launchpad.snap-elementary";
             main_url = "https://launchpad.net/snap-elementary";
@@ -61,7 +61,7 @@ namespace Snap {
             about_authors = {"Mario Guerriero <mefrio.g@gmail.com>", null };
             //about_documenters = {"",""};
             about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
-            //about_translators = "Launchpad Translators";
+            about_translators = "Launchpad Translators";
             about_license_type = License.GPL_3_0;
 
         }
