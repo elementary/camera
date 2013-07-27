@@ -24,7 +24,6 @@ namespace Snap {
 
     public class Recorder {
 
-        //gst objects
         private Cheese.Camera camera;
 
         public int photo_timeout {get; private set;}

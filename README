@@ -1,8 +1,8 @@
 Dependencies
 ------------
  - libgtk-3.0-dev
- - libgstreamer0.10-dev
- - libgranite
+ - libgstreamer1.0-dev
+ - libgranite-dev
 
 Testing and installation
 ------------------------
@@ -11,6 +11,6 @@ $ cd build/
 $ cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 $ make
 $ sudo make install
-$ snap
+$ snap-photobooth
 
 Thanks!

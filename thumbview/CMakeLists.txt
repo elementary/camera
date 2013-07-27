@@ -1,6 +1,6 @@
 set (PKGNAME libsnap)
 set (PKGNAME_ LIBSNAP)
-set (GETTEXT_PACKAGE "snap")
+set (GETTEXT_PACKAGE "snap-photobooth")
 set (${PKGNAME_}_VERSION 0.1)
 # increase when you broke the API
 

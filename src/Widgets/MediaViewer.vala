@@ -173,13 +173,13 @@ namespace Snap.Widgets {
                 media_type = MediaType.PHOTO;
                 dir = File.new_for_path (get_media_dir (media_type));
                 // asynchronous call, with callback, to get dir entries
-                dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
+                dir.enumerate_children_async.begin (FileAttribute.STANDARD_NAME, 0,
                                                 Priority.DEFAULT, null, list_ready);
                 // Videos
                 media_type = MediaType.VIDEO;
                 dir = File.new_for_path (get_media_dir (media_type));
                 // asynchronous call, with callback, to get dir entries
-                dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
+                dir.enumerate_children_async.begin (FileAttribute.STANDARD_NAME, 0,
                                                 Priority.DEFAULT, null, list_ready);
                 // Reset media type
                 media_type = null;
@@ -187,7 +187,7 @@ namespace Snap.Widgets {
             else {
                 dir = File.new_for_path (get_media_dir (media_type));
                 // asynchronous call, with callback, to get dir entries
-                dir.enumerate_children_async (FileAttribute.STANDARD_NAME, 0,
+                dir.enumerate_children_async.begin (FileAttribute.STANDARD_NAME, 0,
                                                 Priority.DEFAULT, null, list_ready);
             }
                                                 
@@ -198,7 +198,7 @@ namespace Snap.Widgets {
             try {
                 FileEnumerator e = ((File) file).enumerate_children_async.end (res);
                 // asynchronous call, with callback, to get entries so far
-                e.next_files_async (10, Priority.DEFAULT, null, list_files);
+                e.next_files_async.begin (10, Priority.DEFAULT, null, list_files);
             } catch (Error err) {
                 warning ("Error async_ready failed %s\n", err.message);
             }
@@ -289,7 +289,7 @@ namespace Snap.Widgets {
                 }
 
                 // asynchronous call, with callback, to get any more entries
-                enumer.next_files_async (10, Priority.DEFAULT, null, list_files);
+                enumer.next_files_async.begin (10, Priority.DEFAULT, null, list_files);
             } catch (Error err) {
                 warning ("error list_files failed %s\n", err.message);
             }
