@@ -7,69 +7,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-05-13 19:16-0500\n"
+"POT-Creation-Date: 2013-07-28 00:43+0200\n"
 "PO-Revision-Date: 2012-06-25 16:54+0000\n"
 "Last-Translator: Jishnu Mohan <Unknown>\n"
 "Language-Team: Malayalam <ml@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-15 05:45+0000\n"
-"X-Generator: Launchpad (build 16617)\n"
+"X-Launchpad-Export-Date: 2013-07-28 06:24+0000\n"
+"X-Generator: Launchpad (build 16700)\n"
 
-#: /home/codygarver/snap/po/../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "വെബ്കാം ഉപയോഗിച്ച് ചിത്രമെടുക്കുക"
-
-#: /home/codygarver/snap/po/../src/config.vala:11
-msgid "Photo Booth"
-msgstr "ഫോട്ടോ ബൂത്ത്"
-
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:176
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:176
 msgid "Effects"
 msgstr "പ്രഭാവങ്ങള്‍"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:250
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:250
 msgid "Share"
 msgstr "പങ്കുവെയ്ക്കുക"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:280
-#: /home/codygarver/snap/po/../src/Widgets/MediaViewer.vala:51
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:280
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
 msgid "All"
 msgstr "എല്ലാം"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:286
-#: /home/codygarver/snap/po/../src/Widgets/MediaViewer.vala:52
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:286
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
 msgid "Photo"
 msgstr "ഫോട്ടോ"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:292
-#: /home/codygarver/snap/po/../src/Widgets/MediaViewer.vala:53
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:292
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:53
 msgid "Video"
 msgstr "ചലച്ചിത്രം"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:412
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:423
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:412
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:423
 msgid "Preferences"
 msgstr "മുന്‍ഗണനകള്‍"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:419
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:420
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:419
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:420
 msgid "Quit"
 msgstr "പുറത്തുകടക്കുക"
 
-#: /home/codygarver/snap/po/../src/SnapWindow.vala:424
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:424
 msgid "Change Snap settings"
 msgstr ""
 
-#: /home/codygarver/snap/po/../src/Widgets/Countdown.vala:65
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr "വെബ്കാം ഉപയോഗിച്ച് ചിത്രമെടുക്കുക"
+
+#: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
+msgid "Photo Booth"
+msgstr "ഫോട്ടോ ബൂത്ത്"
+
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:65
 msgid "Taking photo in"
 msgstr "ചിത്രം എടുക്കുന്നു"
 
-#: /home/codygarver/snap/po/../src/Widgets/Countdown.vala:67
+#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
 msgstr "റിക്കോര്‍ഡിങ്ങ് തുടങ്ങുന്നു"
 
-#: /home/codygarver/snap/po/../src/EffectsManager.vala:50
+#: /home/mario/elementary/snap-elementary/po/../src/Services/EffectsManager.vala:50
 msgid "No Effect"
 msgstr ""
