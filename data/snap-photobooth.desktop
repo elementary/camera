@@ -10,4 +10,4 @@ Terminal=false
 Categories=GNOME;AudioVideo;
 StartupNotify=true
 
-X-GNOME-Gettext-Domain=snap
+X-GNOME-Gettext-Domain=snap-photobooth
