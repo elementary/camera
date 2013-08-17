@@ -21,6 +21,7 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
 CUSTOM_VAPIS
+    ${CMAKE_SOURCE_DIR}/vapi/gdesktopenums-3.0.vapi
     ${CMAKE_SOURCE_DIR}/vapi/gnome-desktop-3.0.vapi
     ${CMAKE_SOURCE_DIR}/vapi/cheese-common.vapi
     ${CMAKE_SOURCE_DIR}/thumbview/cheese-thumbview.vapi
