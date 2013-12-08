@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-28 00:43+0200\n"
+"POT-Creation-Date: 2013-12-08 11:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,40 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:176
-msgid "Effects"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:250
-msgid "Share"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:280
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
-msgid "All"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:286
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
-msgid "Photo"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:292
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:53
-msgid "Video"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:412
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:423
-msgid "Preferences"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:419
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:420
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:193
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:194
 msgid "Quit"
 msgstr ""
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:424
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:197
+msgid "Preferences"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:198
 msgid "Change Snap settings"
 msgstr ""
 
@@ -68,8 +44,4 @@ msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/Services/EffectsManager.vala:50
-msgid "No Effect"
 msgstr ""
