@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as
   published    by the Free Software Foundation.
@@ -18,29 +18,15 @@
   END LICENSE
 ***/
 
-/* TODO:
- * - Update statusbar
- */
-
 namespace Snap {
 
     public class SnapWindow : Gtk.Window {
 
-        public Snap.SnapApp snap_app;
-        bool video_start = true;
-        public Gtk.DrawingArea da;
-        private Clutter.Texture video_preview;
-        private Clutter.Actor layout = new Clutter.Actor ();
-        private Clutter.Stage stage;
-        private Clutter.BinLayout layout_manager;
-        public GtkClutter.Embed preview_viewport;
+        private Snap.SnapApp snap_app;
+
         public Gtk.ActionGroup main_actions;
-        Gtk.UIManager ui;
-        
-        Cheese.EffectsManager effects_manager;
-        Cheese.Camera camera;
-        
-        public const string UI_STRING = """
+        private Gtk.UIManager ui;        
+        private const string UI_STRING = """
             <ui>
                 <popup name="Actions">
                     <menuitem name="Quit" action="Quit"/>
@@ -52,28 +38,23 @@ namespace Snap {
             </ui>
         """;
 
-        Recorder recorder;
-
-        Gtk.Toolbar toolbar;
-        Granite.Widgets.ModeButton mode_button;
-        Gtk.Button take_button;
-        Snap.Widgets.MediaViewer viewer;
-        Granite.Widgets.StaticNotebook viewer_notebook;
-        Cheese.ThumbView thumbview_all;
-        Cheese.ThumbView thumbview_photo;
-        Cheese.ThumbView thumbview_video;
-        Gtk.Statusbar statusbar;
-        Snap.Widgets.EffectPopOver effects_popover;
+        private Snap.Widgets.Camera camera;
+        private Gtk.HeaderBar toolbar;
+        private Granite.Widgets.ModeButton mode_button;
+        private Gtk.Button take_button;
+        private Gtk.Stack viewer_notebook;
+        private Gtk.Statusbar statusbar;
 
         public SnapWindow (Snap.SnapApp snap_app) {
 
             this.snap_app = snap_app;
-            set_application (this.snap_app);
-
+            this.set_application (this.snap_app);
+            
             this.title = "Snap";
             this.window_position = Gtk.WindowPosition.CENTER;
             this.icon_name = "snap-photobooth";
-            this.set_size_request (500, 550);
+            this.set_size_request (640, 480);
+            this.resizable = false;
             
             // Setup the actions
             main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
@@ -95,118 +76,27 @@ namespace Snap {
             ui.insert_action_group (main_actions, 0);
             ui.ensure_update ();
 
-            // Load icon information
-            Resources.load_icons ();
-
             setup_window ();
-            
-            recorder = new Recorder ();
-            
-            take_button.clicked.connect (() => on_record(mode_button, recorder));
-            
-            // Setup effects manager
-            effects_manager = new Cheese.EffectsManager ();
-            effects_manager.load_effects ();
-            
-            // Setup camera
-            setup_camera ();
-            
-            show_all ();
-
         }
         
-        void setup_camera () {
-            video_preview = new Clutter.Texture ();
-            video_preview.keep_aspect_ratio = true;
-            video_preview.request_mode = Clutter.RequestMode.HEIGHT_FOR_WIDTH;
-                        
-            layout_manager = new Clutter.BinLayout (Clutter.BinAlignment.CENTER, Clutter.BinAlignment.CENTER);
-                        
-            layout.layout_manager = layout_manager;
-            layout.add_child (video_preview);
-          
-            stage.add_actor (layout);
-            
-            var black = Clutter.Color.from_string (settings.bg_color);
-            stage.background_color = black;
-            
-            stage.show ();
-            
-            // Camera object
-            camera = new Cheese.Camera (video_preview, "", 0, 0);
-            try {
-            	camera.setup (""); // device
-            } catch (Error e) {
-            	error (e.message);
-            }
-            camera.state_flags_changed.connect (on_camera_state_flags_changed);
-            camera.play ();
-            // Send camera object to the recorder
-            recorder.set_camera (camera);
-        }
-        
-        public void on_camera_state_flags_changed (Gst.State new_state) {
-            switch (new_state) {
-                case Gst.State.PLAYING:
-                    Cheese.Effect effect = effects_manager.get_effect ("identity");
-                    if (effect != null)
-                        camera.set_effect (effect);
-                    break;
-                default:
-                    break;
-            }
-        }
-
         void setup_window () {
-
+            // Load used icons
+            Resources.load_icons ();
+            
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
-            /**
-             * Setup the toolbar
-             */
-
-            toolbar = new Gtk.Toolbar ();
-            toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-            toolbar.set_icon_size (Gtk.IconSize.LARGE_TOOLBAR);
-            toolbar.set_vexpand (false);
-            toolbar.set_hexpand (true);
-            toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-
-            var effects_button = new Gtk.Button.with_label (_("Effects"));
-            effects_button.get_style_context ().add_class ("raised");
-            effects_button.margin_right = 6;
-
-            var effects_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-    	    effects_button_box.set_layout (Gtk.ButtonBoxStyle.START);
-            effects_button_box.margin_left = 3;
-            effects_button_box.pack_start (effects_button, false, false, 0);
-
-            var effects_button_bin = new Gtk.ToolItem ();
-            effects_button_bin.add (effects_button_box);
-
-            toolbar.add (effects_button_bin);
-
-            effects_button.clicked.connect ((effects_button) => show_effect_popover(effects_button));
+            // Toolbar
+            toolbar = new Gtk.HeaderBar ();
+            toolbar.show_close_button = true;
+            this.set_titlebar (toolbar);
 
             mode_button = new Granite.Widgets.ModeButton ();
             mode_button.valign = Gtk.Align.CENTER;
             mode_button.halign = Gtk.Align.CENTER;
-            mode_button.append (Resources.PHOTO_ICON_SYMBOLIC.render_image(Gtk.IconSize.SMALL_TOOLBAR));
-            mode_button.append (Resources.VIDEO_ICON_SYMBOLIC.render_image(Gtk.IconSize.SMALL_TOOLBAR));
-            mode_button.mode_changed.connect (on_mode_changed);
-            mode_button.set_active (0);
+            mode_button.append (Resources.PHOTO_ICON_SYMBOLIC.render_image (Gtk.IconSize.SMALL_TOOLBAR));
+            mode_button.append (Resources.VIDEO_ICON_SYMBOLIC.render_image (Gtk.IconSize.SMALL_TOOLBAR));
 
-            var mode_tool = new Gtk.ToolItem ();
-            mode_tool.add (mode_button);
-            mode_tool.set_expand (false);
-
-            toolbar.add (mode_tool);
-
-            var spacer = new Gtk.ToolItem ();
-            spacer.set_expand (true);
-
-            toolbar.add (spacer);
+            toolbar.pack_start (mode_button);
 
             var take_button_style = new Gtk.CssProvider ();
             try {
@@ -216,7 +106,7 @@ namespace Snap {
             }
 
             take_button = new Gtk.Button ();
-            take_button.get_style_context ().add_provider (take_button_style, Gtk.STYLE_PROVIDER_PRIORITY_THEME);
+            take_button.get_style_context ().add_provider (take_button_style, Gtk.STYLE_PROVIDER_PRIORITY_USER);
             take_button.get_style_context ().add_class ("take-button");
             take_button.get_style_context ().add_class ("noundo"); // egtk's red button
             take_button.get_style_context ().add_class ("raised");
@@ -228,68 +118,28 @@ namespace Snap {
 
             // Make the take button wider
             take_button.set_size_request (54, -1);
-            take_button.set_image (Resources.PHOTO_ICON_SYMBOLIC.render_image(Gtk.IconSize.SMALL_TOOLBAR));
 
-            var take_tool = new Gtk.ToolItem ();
-            take_tool.add (take_button_box);
-            take_tool.set_expand (false);
-            take_tool.margin_left = 7;
-            take_button.set_relief (Gtk.ReliefStyle.NORMAL);
+            toolbar.set_custom_title (take_button_box);
 
-            toolbar.add (take_tool);
-
-            spacer = new Gtk.ToolItem ();
-            spacer.set_expand (true);
-
-            spacer.margin_left = 0;
-            spacer.margin_right = 72; // Value when using "Effects" button should be 72 otherwise 0
-
-            toolbar.add (spacer);
-
-            var share_menu = new Gtk.Menu ();       
-            var share_app_menu = new Granite.Widgets.ToolButtonWithMenu (Resources.EXPORT_ICON.render_image(Gtk.IconSize.LARGE_TOOLBAR), _("Share"), share_menu);
-            share_app_menu.set_sensitive (false);
-            toolbar.add (share_app_menu);
+            //var share_menu = new Gtk.Menu ();       
+            //var share_app_menu = new Granite.Widgets.ToolButtonWithMenu (Resources.EXPORT_ICON.render_image(Gtk.IconSize.LARGE_TOOLBAR), _("Share"), share_menu);
+            //share_app_menu.set_sensitive (false);
+            //toolbar.add (share_app_menu);
 
             var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (this.get_application() as Granite.Application).create_appmenu (menu);
             app_menu.margin_right = 3;
-            toolbar.add (app_menu);
-
-            vbox.pack_start (toolbar, false, false, 0);
+            toolbar.pack_end (app_menu);
 
             // Setup preview area
-            preview_viewport = new GtkClutter.Embed ();
-            stage = preview_viewport.get_stage () as Clutter.Stage;
-            preview_viewport.get_stage ().allocation_changed.connect (() => {
-                this.layout.set_size (stage.width, stage.height);
-            });
+            this.camera = new Snap.Widgets.Camera ();
             
-            hbox.pack_start (preview_viewport, true, true, 12);
-            vbox.pack_start (hbox, true, true, 12);
-
+            vbox.pack_start (camera, true, true, 0);
+            
             // Setup the photo/video viewer
-            viewer_notebook = new Granite.Widgets.StaticNotebook ();
+            viewer_notebook = new Gtk.Stack ();
             
             var viewer_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-            thumbview_all = new Cheese.ThumbView (0);
-            var scroll_all = new Gtk.ScrolledWindow (null, null);
-            scroll_all.vscrollbar_policy = Gtk.PolicyType.NEVER;
-            scroll_all.add (thumbview_all);
-            viewer_notebook.append_page (scroll_all, new Gtk.Label (_("All")));
-            
-            thumbview_photo = new Cheese.ThumbView (1);
-            var scroll_photo = new Gtk.ScrolledWindow (null, null);
-            scroll_photo.vscrollbar_policy = Gtk.PolicyType.NEVER;
-            scroll_photo.add (thumbview_photo);
-            viewer_notebook.append_page (scroll_photo, new Gtk.Label (_("Photo")));
-            
-            thumbview_video = new Cheese.ThumbView (2);
-            var scroll_video = new Gtk.ScrolledWindow (null, null);
-            scroll_video.vscrollbar_policy = Gtk.PolicyType.NEVER;
-            scroll_video.add (thumbview_video);
-            viewer_notebook.append_page (scroll_video, new Gtk.Label (_("Video")));
 
             viewer_box.pack_start (viewer_notebook, true, true, 0);
             
@@ -297,129 +147,53 @@ namespace Snap {
             statusbar = new Gtk.Statusbar ();
             //statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
 
-            viewer_box.pack_start (statusbar, false, true, 0);
+            //viewer_box.pack_start (statusbar, false, true, 0);
 
-            vbox.pack_start (viewer_box, false, true, 0);
+            //vbox.pack_start (viewer_box, false, true, 0);
             
-            add (vbox);
-            show_all ();
-        }
-
-        void show_effect_popover (Gtk.Widget widget) {
-            effects_popover = new Snap.Widgets.EffectPopOver (camera, effects_manager);
-            effects_popover.move_to_widget (widget);
-            effects_popover.show_all ();
-	        effects_popover.run ();
-            effects_popover.destroy ();
-        }
-
-        void on_record (Granite.Widgets.ModeButton mode_button, Recorder recorder) {
-            if (mode_button.selected == 0) {
-                //camera.take_photo (file_util.get_new_media_filename (Cheese.MediaMode.PHOTO));
-                recorder.media_saved.connect(() => on_media_saved (MediaType.PHOTO));
-                recorder.start (MediaType.PHOTO);
-            }
-            else if (mode_button.selected == 1) {
-                recorder.media_saved.connect(() => on_media_saved (MediaType.VIDEO));
-                if (video_start) {
-                    take_button.set_image (Resources.MEDIA_STOP_ICON_SYMBOLIC.render_image(Gtk.IconSize.MENU));
-                    recorder.start (MediaType.VIDEO);
-                    video_start = false;
-                }
-                else {
-                    take_button.set_image (Resources.VIDEO_ICON_SYMBOLIC.render_image(Gtk.IconSize.MENU));
-                    recorder.stop ();
-                    video_start = true;
-                }
-            }
-        }
-
-        void populate_with_contractor (Gtk.Menu menu, string path, MediaType? media_type) {
-            /**
-             *  Free the menu
-             */
-            var list  = menu.get_children ();
-            foreach (var item in list)           
-                item.destroy ();
+            // Some signals
+            mode_button.mode_changed.connect (on_mode_changed);
+            mode_button.set_active (0);
             
-            /*
-             * Add contracts for image files
-             */
-            if (media_type == MediaType.PHOTO || media_type == null) {
-                foreach (var contract in Granite.Services.Contractor.get_contract("file://" + path, "image/*")) {
-                    var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
-                    string exec = contract["Exec"];
-                    menuitem.activate.connect( () => {
-                        try {
-                            GLib.Process.spawn_command_line_async(exec);
-                        } catch (SpawnError e) {
-                            stderr.printf ("error spawn command line %s: %s", exec, e.message);
-                        }
-                    });
-                    menu.append (menuitem);
-                    menu.show_all ();
-                }
-            }
+            this. add (vbox);
+            this.show_all ();
             
-            /*
-             * Add contracts for videos
-             */ 
-            if (media_type == MediaType.VIDEO || media_type == null) {
-                foreach (var contract in Granite.Services.Contractor.get_contract ("file:///" + path, "video/*")) {
-                    var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
-                    string exec = contract["Exec"];
-                    menuitem.activate.connect( () => {
-                        try {
-                            GLib.Process.spawn_command_line_async(exec);
-                        } catch (SpawnError e) {
-                            stderr.printf ("error spawn command line %s: %s", exec, e.message);
-                        }
-                    });
-                    menu.append (menuitem);
-                    menu.show_all ();
-                }
-            }
         }
-
-        void on_mode_changed (Gtk.Widget widget) {
-            if (take_button == null)
-                return;
-
-            if (mode_button.selected == 0)
-                take_button.set_image (Resources.PHOTO_ICON_SYMBOLIC.render_image(Gtk.IconSize.SMALL_TOOLBAR));
-            else
-                take_button.set_image (Resources.VIDEO_ICON_SYMBOLIC.render_image(Gtk.IconSize.SMALL_TOOLBAR));
-        }
+    
+        private void on_mode_changed () {
+            var type = (mode_button.selected == 0) ? 
+                Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO; 
+            
+            this.camera.set_action_type (type);
         
-        protected override bool delete_event (Gdk.EventAny event) {
-
-            action_quit ();
-            return false;
-
+            switch (type) {
+                case Snap.Widgets.Camera.ActionType.PHOTO:
+                    debug ("Photo mode");
+                    take_button.set_image (Resources.PHOTO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR));
+                break;
+                case Snap.Widgets.Camera.ActionType.VIDEO:
+                    debug ("Video mode");
+                    take_button.set_image (Resources.VIDEO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR));
+                break;
+            }
         }
-
-        void on_media_saved (MediaType mediatype) {
-            message("saved");
-            viewer.update_items(mediatype);
-            viewer.update_items(null);
-        }
-
+    
         void action_quit () {
- 
+            this.destroy ();
         }
 
         void action_preferences () {
-            var dialog = new Snap.Dialogs.Preferences (_("Preferences"), this);
-            dialog.run ();
-            dialog.destroy ();
+            //var dialog = new Snap.Dialogs.Preferences (_("Preferences"), this);
+            //dialog.run ();
+            //dialog.destroy ();
         }
 
         static const Gtk.ActionEntry[] main_entries = {
-           { "Quit", Gtk.Stock.QUIT,
+           { "Quit", null,
           /* label, accelerator */       N_("Quit"), null,
           /* tooltip */                  N_("Quit"),
                                          action_quit },
-           { "Preferences", Gtk.Stock.PREFERENCES,
+           { "Preferences", null,
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Snap settings"),
                                          action_preferences }

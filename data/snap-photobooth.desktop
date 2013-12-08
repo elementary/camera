@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Version=0.1
+Version=1.0
 Name=Snap
 Comment=Take photo and video with the camera
 GenericName=Photo Booth
@@ -9,5 +9,4 @@ Icon=accessories-camera
 Terminal=false
 Categories=GNOME;AudioVideo;
 StartupNotify=true
-
 X-GNOME-Gettext-Domain=snap-photobooth

@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as
   published    by the Free Software Foundation.
@@ -24,14 +24,6 @@ using Granite;
 using Granite.Services;
 
 namespace Snap {
-
-    /**
-     * Type of media
-     */
-    public enum MediaType {
-        PHOTO,
-        VIDEO
-    }
 
     public Snap.Services.Settings settings;
 
@@ -58,7 +50,7 @@ namespace Snap {
             bug_url = "https://bugs.launchpad.net/snap-elementary";
             help_url = "https://answers.launchpad.net/snap-elementary";
             translate_url = "https://translations.launchpad.net/snap-elementary";
-            about_authors = {"Mario Guerriero <mefrio.g@gmail.com>", null };
+            about_authors = {"Mario Guerriero <mario@elementaryos.org>", null };
             //about_documenters = {"",""};
             about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
             about_translators = "Launchpad Translators";
@@ -72,10 +64,6 @@ namespace Snap {
             Logger.DisplayLevel = LogLevel.DEBUG;
 
             settings = new Snap.Services.Settings ();
-
-            // Create Snap dirs
-            GLib.DirUtils.create (Resources.get_media_dir (MediaType.PHOTO), 0755);
-            GLib.DirUtils.create (Resources.get_media_dir (MediaType.VIDEO), 0755);
         }
 
         protected override void activate () {
@@ -93,10 +81,9 @@ namespace Snap {
         public static int main (string[] args) {
 
             app_cmd_name = "Snap";
-
-            Gst.init (ref args);
-            GtkClutter.init (ref args);
             
+            Gst.init (ref args);
+
             var app = new SnapApp ();
 
             return app.run (args);

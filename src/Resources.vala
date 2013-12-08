@@ -28,14 +28,35 @@ namespace Resources {
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
             border-radius: 400px;
-        }
-    """;
+            background-image: -gtk-gradient (linear,
+				     left top,
+				     left bottom,
+                     from (#e56453),
+                     to (#bb2332));
 
-    public const string EFFECTS_POPOVER_STYLESHEET = """
-        GraniteWidgetsPopOver * {
-            border-color: alpha (#fff, 0.3);
-            background-color: alpha (#000, 0.80);
-            margin: 0;
+            -unico-border-gradient: -gtk-gradient (linear,
+                             left top, left bottom,
+                             from (#dd3b27),
+                             to (#791235));
+            -unico-inner-stroke-gradient: -gtk-gradient (linear,
+                             left bottom, left top,
+                             from (alpha (#fff, 0.20)),
+                             color-stop (0.10, alpha (#fff, 0.05)),
+                             color-stop (0.90, alpha (#fff, 0.05)),
+                             to (alpha (#fff, 0.50)));
+        }
+        
+        .take-button:focus {
+            background-image: -gtk-gradient (linear,
+                            left top,
+                            left bottom,
+                            from (#f67564),
+                            to (#cc3443));
+
+            -unico-border-gradient: -gtk-gradient (linear,
+                            left top, left bottom,
+                            from (#dd3b27),
+                            to (#791235));
         }
     """;
 
@@ -59,7 +80,7 @@ namespace Resources {
 
     /**
      * @return path to save photos or videos
-     */
+     *
     public string get_media_dir (MediaType type) {
         UserDirectory user_dir;
 
@@ -78,7 +99,7 @@ namespace Resources {
      * @param extension file extension [allow-none]
      *
      * @return new photo/video filename.
-     */
+     *
     public string get_new_media_filename (MediaType type, string? ext = null) {
         // Get date and time
         var datetime = new GLib.DateTime.now_local ();
@@ -96,7 +117,7 @@ namespace Resources {
 
     /**
      * @return a valid photo/video filename.
-     */
+     *
     public string build_media_filename (string filename, MediaType type, string? ext = null) {
         string new_filename = filename;
         if (ext == null) {
@@ -109,7 +130,7 @@ namespace Resources {
         }
 
         return GLib.Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (type), new_filename);
-    }
+    }*/
     
     /**
      * @return a valid photo/video uri.
@@ -207,6 +228,29 @@ namespace Resources {
 
             return rv;
         }
+        
+        /**
+	     *  Get a themed image with a given colour
+	     **/
+	    public Gtk.Image? render_image_with_color (Gtk.IconSize? size, Gdk.RGBA rgba = {1, 1, 1, 1}) {
+            var icon_name_themed = new ThemedIcon (this.name);
+            Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
+	        Gdk.Pixbuf? pix = null;
+            Gtk.IconInfo icon_test = null;
+
+	        try {
+	            icon_test = theme.lookup_by_gicon (icon_name_themed, 16, 0);
+                if (icon_test != null) {
+                    pix = icon_test.load_symbolic (rgba);
+                }
+	        } catch (Error e) {
+                warning (e.message);
+            }
+            
+            var im = new Gtk.Image.from_pixbuf (pix);
+            
+            return im;
+	    }
 
         public Gtk.Image? render_image (Gtk.IconSize? size, Gtk.StyleContext? ctx = null, int px_size = 0) {
             Gtk.Image? rv = null;

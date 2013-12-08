@@ -1,8 +1,11 @@
 Dependencies
 ------------
+ - valac-0.20
  - libgtk-3.0-dev
  - libgstreamer1.0-dev
+ - libzeitgeist-2.0-dev
  - libgranite-dev
+ - libgee-dev
 
 Testing and installation
 ------------------------
