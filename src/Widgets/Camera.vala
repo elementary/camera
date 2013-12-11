@@ -32,6 +32,8 @@ namespace Snap.Widgets {
         
         private ActionType type;
         
+        private bool capturing = false;
+        
         private Gst.Element? camerabin = null;
         
         public class Camera () {
@@ -67,18 +69,38 @@ namespace Snap.Widgets {
             this.camerabin.set_state (Gst.State.NULL);  
         }
         
-        public void take () {
+        public void take_start () {
             debug ("Recording...");
 
             string location = Resources.get_new_media_filename (this.type);
-
-            //this.camerabin.set_property ("mode", (int) this.type);
-
+            
+            // "(int) this.type + 1" is here because GST developers used mode 1 for photos
+            // and mode 2 for videos (can't understand why not 0 and 1)
+            this.camerabin.set_property ("mode", (int) this.type + 1);
+            
+            this.capturing = (this.type == ActionType.VIDEO);
+            
             debug ("%s", location);
 
             camerabin.set_property ("location", location);
             //bus.message.connect(on_media_saved);
             GLib.Signal.emit_by_name (camerabin, "start-capture");
         }
+        
+        public void take_stop () {
+            debug ("Stopping video record...");
+            
+            this.capturing = false;
+            
+            GLib.Signal.emit_by_name (camerabin, "stop-capture");
+        }
+        
+        /**
+         * @return true if camera is recording a video, false otherwise
+         */
+        public bool get_capturing () {
+            return capturing;
+        }
+        
     }
 }

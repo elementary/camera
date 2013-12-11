@@ -132,7 +132,12 @@ namespace Snap {
             take_button.get_style_context ().add_class ("take-button");
             take_button.get_style_context ().add_class ("noundo"); // egtk's red button
             take_button.get_style_context ().add_class ("raised");
-            take_button.clicked.connect (() => { this.camera.take (); });
+            take_button.clicked.connect (() => { 
+                if (!this.camera.get_capturing ())
+                    this.camera.take_start ();
+                else
+                    this.camera.take_stop (); 
+            });
             
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             take_button_box.set_spacing (4);

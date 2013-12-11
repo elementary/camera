@@ -105,12 +105,12 @@ namespace Resources {
     public string get_new_media_filename (Camera.ActionType type, string? ext = null) {
         // Get date and time
         var datetime = new GLib.DateTime.now_local ();
-        string time = datetime.format ("%F %H:%M:%S");
+        string time = datetime.format ("%F%H:%M:%S");
 
         int n = 0;
         string filename = "";
         do {
-            filename = time + (n > 0 ? " - " + n.to_string () : "");
+            filename = time + (n > 0 ? "-" + n.to_string () : "");
             n++;
         } while (GLib.FileUtils.test (build_media_filename (filename, type, ext), FileTest.EXISTS));
 
@@ -126,7 +126,7 @@ namespace Resources {
             if (type == Camera.ActionType.PHOTO)
                 new_filename += ".jpg";
             else if (type == Camera.ActionType.VIDEO)
-                new_filename += ".webm";
+                new_filename += ".mp4";
         } else {
             new_filename += "." + ext;
         }
