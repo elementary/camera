@@ -8,6 +8,7 @@ vala_precompile(VALA_C
     Services/Settings.vala
     ######
     Widgets/Camera.vala
+    Widgets/Gallery.vala
     ######
     config.vala
 PACKAGES

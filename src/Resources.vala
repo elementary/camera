@@ -22,6 +22,7 @@ using Gtk;
 using GLib;
 
 using Snap;
+using Snap.Widgets;
 
 namespace Resources {
 
@@ -80,17 +81,18 @@ namespace Resources {
 
     /**
      * @return path to save photos or videos
-     *
-    public string get_media_dir (MediaType type) {
+     */
+    public string get_media_dir (Camera.ActionType type) {
         UserDirectory user_dir;
 
-        if (type == MediaType.PHOTO)
+        if (type == Camera.ActionType.PHOTO)
             user_dir = UserDirectory.PICTURES;
         else
             user_dir = UserDirectory.VIDEOS;
 
         string dir = GLib.Environment.get_user_special_dir (user_dir);
-        return GLib.Path.build_path("/", dir, "Webcam");
+        
+        return GLib.Path.build_path ("/", dir, "Webcam");
     }
 
     /**
@@ -99,8 +101,8 @@ namespace Resources {
      * @param extension file extension [allow-none]
      *
      * @return new photo/video filename.
-     *
-    public string get_new_media_filename (MediaType type, string? ext = null) {
+     */
+    public string get_new_media_filename (Camera.ActionType type, string? ext = null) {
         // Get date and time
         var datetime = new GLib.DateTime.now_local ();
         string time = datetime.format ("%F %H:%M:%S");
@@ -117,20 +119,24 @@ namespace Resources {
 
     /**
      * @return a valid photo/video filename.
-     *
-    public string build_media_filename (string filename, MediaType type, string? ext = null) {
+     */
+    public string build_media_filename (string filename, Camera.ActionType type, string? ext = null) {
         string new_filename = filename;
         if (ext == null) {
-            if (type == MediaType.PHOTO)
+            if (type == Camera.ActionType.PHOTO)
                 new_filename += ".jpg";
-            else if (type == MediaType.VIDEO)
+            else if (type == Camera.ActionType.VIDEO)
                 new_filename += ".webm";
         } else {
             new_filename += "." + ext;
         }
-
-        return GLib.Path.build_filename (Path.DIR_SEPARATOR_S, get_media_dir (type), new_filename);
-    }*/
+        
+        string media_dir = get_media_dir (type);
+        if (!FileUtils.test (media_dir, FileTest.EXISTS))
+            DirUtils.create (media_dir, 0777);
+        
+        return GLib.Path.build_filename (Path.DIR_SEPARATOR_S, media_dir, new_filename);
+    }
     
     /**
      * @return a valid photo/video uri.

@@ -66,5 +66,19 @@ namespace Snap.Widgets {
         public void stop () {
             this.camerabin.set_state (Gst.State.NULL);  
         }
+        
+        public void take () {
+            debug ("Recording...");
+
+            string location = Resources.get_new_media_filename (this.type);
+
+            //this.camerabin.set_property ("mode", (int) this.type);
+
+            debug ("%s", location);
+
+            camerabin.set_property ("location", location);
+            //bus.message.connect(on_media_saved);
+            GLib.Signal.emit_by_name (camerabin, "start-capture");
+        }
     }
 }

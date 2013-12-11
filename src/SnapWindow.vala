@@ -37,9 +37,11 @@ namespace Snap {
                 </popup>
             </ui>
         """;
-
+        
         private Snap.Widgets.Camera camera;
+        private Snap.Widgets.Gallery gallery;
         private Gtk.HeaderBar toolbar;
+        private Gtk.Stack stack;
         private Granite.Widgets.ModeButton mode_button;
         private Gtk.Button take_button;
         private Gtk.Stack viewer_notebook;
@@ -83,20 +85,39 @@ namespace Snap {
             // Load used icons
             Resources.load_icons ();
             
-            var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
             // Toolbar
             toolbar = new Gtk.HeaderBar ();
             toolbar.show_close_button = true;
             this.set_titlebar (toolbar);
-
+            
+            // Gallery button
+            var gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+            gallery_button_box.set_spacing (4);
+    	    gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
+            
+            var gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
+            gallery_button.toggled.connect (() => {
+                if (this.stack.get_visible_child () == this.camera) {
+                    this.camera.stop ();
+                    this.stack.set_visible_child (this.gallery);
+                }
+                else {
+                    this.camera.play ();
+                    this.stack.set_visible_child (this.camera);
+                }
+            });
+            gallery_button_box.pack_start (gallery_button, true, true, 0);
+            
+            toolbar.pack_start (gallery_button_box);
+            
+            // Mode switcher
             mode_button = new Granite.Widgets.ModeButton ();
             mode_button.valign = Gtk.Align.CENTER;
             mode_button.halign = Gtk.Align.CENTER;
             mode_button.append (Resources.PHOTO_ICON_SYMBOLIC.render_image (Gtk.IconSize.SMALL_TOOLBAR));
             mode_button.append (Resources.VIDEO_ICON_SYMBOLIC.render_image (Gtk.IconSize.SMALL_TOOLBAR));
 
-            toolbar.pack_start (mode_button);
+            toolbar.pack_end (mode_button);
 
             var take_button_style = new Gtk.CssProvider ();
             try {
@@ -105,12 +126,14 @@ namespace Snap {
                 warning (e.message);
             }
 
+            // Take button
             take_button = new Gtk.Button ();
             take_button.get_style_context ().add_provider (take_button_style, Gtk.STYLE_PROVIDER_PRIORITY_USER);
             take_button.get_style_context ().add_class ("take-button");
             take_button.get_style_context ().add_class ("noundo"); // egtk's red button
             take_button.get_style_context ().add_class ("raised");
-
+            take_button.clicked.connect (() => { this.camera.take (); });
+            
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             take_button_box.set_spacing (4);
     	    take_button_box.set_layout (Gtk.ButtonBoxStyle.START);
@@ -125,16 +148,19 @@ namespace Snap {
             //var share_app_menu = new Granite.Widgets.ToolButtonWithMenu (Resources.EXPORT_ICON.render_image(Gtk.IconSize.LARGE_TOOLBAR), _("Share"), share_menu);
             //share_app_menu.set_sensitive (false);
             //toolbar.add (share_app_menu);
-
-            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = (this.get_application() as Granite.Application).create_appmenu (menu);
-            app_menu.margin_right = 3;
-            toolbar.pack_end (app_menu);
-
+            
+            // Setup gallery widget
+            this.gallery = new Snap.Widgets.Gallery ();
+            
             // Setup preview area
             this.camera = new Snap.Widgets.Camera ();
             
-            vbox.pack_start (camera, true, true, 0);
+            // Setup window main content area
+            this.stack = new Gtk.Stack ();
+            this.stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
+            this.stack.add_named (this.gallery, _("Gallery"));
+            this.stack.add_named (this.camera, _("Camera"));
+            this.stack.set_visible_child (this.camera); // Show camera on launch
             
             // Setup the photo/video viewer
             viewer_notebook = new Gtk.Stack ();
@@ -145,17 +171,12 @@ namespace Snap {
             
             // Statusbar
             statusbar = new Gtk.Statusbar ();
-            //statusbar.push (0, viewer.n_photo.to_string () + " " +_("photos and") + " " + viewer.n_video.to_string () + " " + _("videos"));
 
-            //viewer_box.pack_start (statusbar, false, true, 0);
-
-            //vbox.pack_start (viewer_box, false, true, 0);
-            
             // Some signals
             mode_button.mode_changed.connect (on_mode_changed);
             mode_button.set_active (0);
             
-            this. add (vbox);
+            this. add (stack);
             this.show_all ();
             
         }
