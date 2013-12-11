@@ -7,50 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-07-28 00:43+0200\n"
+"POT-Creation-Date: 2013-12-08 11:52+0100\n"
 "PO-Revision-Date: 2013-06-19 11:08+0000\n"
 "Last-Translator: Adrian Widerski <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-07 04:58+0000\n"
-"X-Generator: Launchpad (build 16721)\n"
+"X-Launchpad-Export-Date: 2013-12-11 06:21+0000\n"
+"X-Generator: Launchpad (build 16869)\n"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:176
-msgid "Effects"
-msgstr "Efekty"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:250
-msgid "Share"
-msgstr "Udostępnij"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:280
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:51
-msgid "All"
-msgstr "Wszystko"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:286
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:52
-msgid "Photo"
-msgstr "Zdjęcie"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:292
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/MediaViewer.vala:53
-msgid "Video"
-msgstr "Wideo"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:412
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:423
-msgid "Preferences"
-msgstr "Preferencje"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:419
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:420
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:193
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:194
 msgid "Quit"
 msgstr "Zakończ"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:424
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:197
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:198
 msgid "Change Snap settings"
 msgstr "Zmień ustawienia aplikacji"
 
@@ -69,7 +45,3 @@ msgstr "Zrobienie zdjęcia za"
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:67
 msgid "Recording starts in"
 msgstr "Nagrywanie rozpocznie się za"
-
-#: /home/mario/elementary/snap-elementary/po/../src/Services/EffectsManager.vala:50
-msgid "No Effect"
-msgstr "Bez efektu"
