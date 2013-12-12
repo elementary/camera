@@ -38,10 +38,6 @@ namespace Snap.Widgets {
         
         public class Camera () {
             this.set_size_request (WIDTH, HEIGHT); // FIXME
-            
-            this.realize.connect (() => {
-               //this.get_window ().ensure_native ();
-            });
            
             this.camerabin = Gst.ElementFactory.make ("camerabin","camera");
             this.camerabin.bus.add_watch (0,(bus,message) => {
@@ -83,7 +79,6 @@ namespace Snap.Widgets {
             debug ("%s", location);
 
             camerabin.set_property ("location", location);
-            //bus.message.connect(on_media_saved);
             GLib.Signal.emit_by_name (camerabin, "start-capture");
         }
         

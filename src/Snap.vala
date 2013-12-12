@@ -51,7 +51,6 @@ namespace Snap {
             help_url = "https://answers.launchpad.net/snap-elementary";
             translate_url = "https://translations.launchpad.net/snap-elementary";
             about_authors = {"Mario Guerriero <mario@elementaryos.org>", null };
-            //about_documenters = {"",""};
             about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
             about_translators = "Launchpad Translators";
             about_license_type = License.GPL_3_0;
