@@ -159,6 +159,16 @@ namespace Snap {
             
             // Setup preview area
             this.camera = new Snap.Widgets.Camera ();
+            this.camera.capture_start.connect (() => {
+                // Disable uneeded buttons
+                gallery_button.sensitive = false;
+                this.mode_button.sensitive = false;
+            });
+            this.camera.capture_end.connect (() => {
+                // Enable extra buttons
+                gallery_button.sensitive = true;
+                this.mode_button.sensitive = true;
+            });
             
             // Setup window main content area
             this.stack = new Gtk.Stack ();
@@ -179,6 +189,9 @@ namespace Snap {
 
             // Some signals
             mode_button.mode_changed.connect (on_mode_changed);
+            this.key_press_event.connect (this.on_key_press_event);
+            
+            // Set camera mode by default
             mode_button.set_active (0);
             
             this. add (stack);
@@ -202,6 +215,14 @@ namespace Snap {
                     take_button.set_image (Resources.VIDEO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR));
                 break;
             }
+        }
+        
+        private bool on_key_press_event (Gdk.EventKey ev) {
+            // 32 is the ASCII value for spacebar
+            if (ev.keyval == 32)
+                this.take_button.clicked ();
+
+            return false;
         }
     
         void action_quit () {

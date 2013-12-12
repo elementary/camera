@@ -36,6 +36,9 @@ namespace Snap.Widgets {
         
         private Gst.Element? camerabin = null;
         
+        public signal void capture_start ();
+        public signal void capture_end ();
+        
         public class Camera () {
             this.set_size_request (WIDTH, HEIGHT); // FIXME
             
@@ -71,7 +74,9 @@ namespace Snap.Widgets {
         
         public void take_start () {
             debug ("Recording...");
-
+            
+            this.capture_start ();
+            
             string location = Resources.get_new_media_filename (this.type);
             
             // "(int) this.type + 1" is here because GST developers used mode 1 for photos
@@ -85,6 +90,9 @@ namespace Snap.Widgets {
             camerabin.set_property ("location", location);
             //bus.message.connect(on_media_saved);
             GLib.Signal.emit_by_name (camerabin, "start-capture");
+        
+            if (this.type == ActionType.PHOTO)
+                this.capture_end ();
         }
         
         public void take_stop () {
@@ -93,6 +101,8 @@ namespace Snap.Widgets {
             this.capturing = false;
             
             GLib.Signal.emit_by_name (camerabin, "stop-capture");
+            
+            this.capture_end ();
         }
         
         /**
