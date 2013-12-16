@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-08 11:52+0100\n"
+"POT-Creation-Date: 2013-12-16 10:45-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:193
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:194
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:98
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:171
+msgid "Gallery"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:172
+msgid "Camera"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:229
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:230
 msgid "Quit"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:197
-msgid "Preferences"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:198
-msgid "Change Snap settings"
 msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
