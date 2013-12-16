@@ -3,8 +3,6 @@ vala_precompile(VALA_C
     Snap.vala
     SnapWindow.vala
     ######
-    #Dialogs/Preferences.vala
-    ######
     Services/Settings.vala
     ######
     Widgets/Camera.vala

@@ -148,11 +148,6 @@ namespace Snap {
             take_button.set_size_request (54, -1);
 
             toolbar.set_custom_title (take_button_box);
-
-            //var share_menu = new Gtk.Menu ();       
-            //var share_app_menu = new Granite.Widgets.ToolButtonWithMenu (Resources.EXPORT_ICON.render_image(Gtk.IconSize.LARGE_TOOLBAR), _("Share"), share_menu);
-            //share_app_menu.set_sensitive (false);
-            //toolbar.add (share_app_menu);
             
             // Setup gallery widget
             this.gallery = new Snap.Widgets.Gallery ();
@@ -229,21 +224,11 @@ namespace Snap {
             this.destroy ();
         }
 
-        void action_preferences () {
-            //var dialog = new Snap.Dialogs.Preferences (_("Preferences"), this);
-            //dialog.run ();
-            //dialog.destroy ();
-        }
-
         static const Gtk.ActionEntry[] main_entries = {
            { "Quit", null,
           /* label, accelerator */       N_("Quit"), null,
           /* tooltip */                  N_("Quit"),
-                                         action_quit },
-           { "Preferences", null,
-          /* label, accelerator */       N_("Preferences"), null,
-          /* tooltip */                  N_("Change Snap settings"),
-                                         action_preferences }
+                                         action_quit }
         };
     }
 }

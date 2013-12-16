@@ -31,7 +31,6 @@ namespace Snap.Dialogs {
             this.set_transient_for (window);
             set_default_size (300, 200);
             modal = true;
-            //resizable = false;
         }
 
     }
