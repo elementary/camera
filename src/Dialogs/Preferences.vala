@@ -18,9 +18,6 @@
   END LICENSE
 ***/
 
-using Gtk;
-using Granite.Widgets;
-
 namespace Snap.Dialogs {
 
     public class Preferences : Gtk.Dialog {

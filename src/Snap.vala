@@ -18,11 +18,6 @@
   END LICENSE
 ***/
 
-using Gtk;
-
-using Granite;
-using Granite.Services;
-
 namespace Snap {
 
     public Snap.Services.Settings settings;
@@ -54,14 +49,14 @@ namespace Snap {
             //about_documenters = {"",""};
             about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
             about_translators = "Launchpad Translators";
-            about_license_type = License.GPL_3_0;
+            about_license_type = Gtk.License.GPL_3_0;
 
         }
 
         public SnapApp () {
 
-            Logger.initialize (app_cmd_name);
-            Logger.DisplayLevel = LogLevel.DEBUG;
+            Granite.Services.Logger.initialize (app_cmd_name);
+            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             settings = new Snap.Services.Settings ();
         }

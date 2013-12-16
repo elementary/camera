@@ -18,10 +18,6 @@
  * Boston, MA 02111-1307, USA.
  */
 
-using Gtk;
-using GLib;
-
-using Snap;
 using Snap.Widgets;
 
 namespace Resources {
@@ -202,17 +198,17 @@ namespace Resources {
         }
 
         public Gtk.IconInfo? get_icon_info (int size) {
-            var icon_theme = IconTheme.get_default();
+            var icon_theme = Gtk.IconTheme.get_default();
             var lookup_flags = Gtk.IconLookupFlags.GENERIC_FALLBACK;
             return icon_theme.lookup_by_gicon (get_gicon(), size, lookup_flags);
         }
 
-        public Gdk.Pixbuf? render (Gtk.IconSize? size, StyleContext? context = null, int px_size = 0) {
+        public Gdk.Pixbuf? render (Gtk.IconSize? size, Gtk.StyleContext? context = null, int px_size = 0) {
             Gdk.Pixbuf? rv = null;
             int width = 16, height = 16;
 
             if (size != null) {
-                icon_size_lookup (size, out width, out height);
+                Gtk.icon_size_lookup (size, out width, out height);
             }
             else if (px_size > 0) {
                 width = px_size;
@@ -263,17 +259,17 @@ namespace Resources {
             int width = 16, height = 16;
 
             if (size != null) {
-                icon_size_lookup (size, out width, out height);
+                Gtk.icon_size_lookup (size, out width, out height);
             }
             else if (px_size > 0) {
                 width = px_size;
                 height = px_size;
             }
 
-            if (IconTheme.get_default().has_icon (this.name))
-                rv = new Image.from_icon_name (this.name, size);
+            if (Gtk.IconTheme.get_default().has_icon (this.name))
+                rv = new Gtk.Image.from_icon_name (this.name, size);
             else
-                rv = new Image.from_pixbuf (this.render (size, ctx));
+                rv = new Gtk.Image.from_pixbuf (this.render (size, ctx));
 
             // Resize image if necessary
             if (rv.get_pixel_size () != height)
