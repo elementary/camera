@@ -7,28 +7,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-12-08 11:52+0100\n"
+"POT-Creation-Date: 2013-12-16 10:45-0600\n"
 "PO-Revision-Date: 2012-07-09 06:00+0000\n"
 "Last-Translator: Joji Bronner <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-11 06:21+0000\n"
+"X-Launchpad-Export-Date: 2013-12-17 06:08+0000\n"
 "X-Generator: Launchpad (build 16869)\n"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:193
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:194
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:98
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:171
+msgid "Gallery"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:172
+msgid "Camera"
+msgstr ""
+
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:229
+#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:230
 msgid "Quit"
 msgstr "終了する"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:197
-msgid "Preferences"
-msgstr "設定"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:198
-msgid "Change Snap settings"
-msgstr ""
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
