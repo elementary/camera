@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-12-16 10:45-0600\n"
-"PO-Revision-Date: 2013-06-15 06:30+0000\n"
-"Last-Translator: Wang Dianjin <Unknown>\n"
+"PO-Revision-Date: 2014-01-04 12:19+0000\n"
+"Last-Translator: Yangyu Huang <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-17 06:08+0000\n"
-"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2014-01-05 05:41+0000\n"
+"X-Generator: Launchpad (build 16877)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:98
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:171
 msgid "Gallery"
-msgstr ""
+msgstr "相册"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:172
 msgid "Camera"
-msgstr ""
+msgstr "摄像头"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:229
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:230
