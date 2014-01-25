@@ -27,8 +27,8 @@ namespace Snap.Widgets {
             VIDEO;
         }       
                 
-        public const int WIDTH = 640;
-        public const int HEIGHT = 480;
+        public static const int WIDTH = 640;
+        public static const int HEIGHT = 480;
         
         private ActionType type;
         
@@ -52,22 +52,42 @@ namespace Snap.Widgets {
             var preview_caps = Gst.Caps.from_string ("video/x-raw, format=\"rgb\", width = (int) %d, height = (int) %d".printf (WIDTH, HEIGHT));
             this.camerabin.set ("preview-caps", preview_caps);
             
+            // Workaround to fix a CSD releated bug.
+            // See https://bugzilla.gnome.org/show_bug.cgi?id=721148
+            // for more information
+            Gdk.Visual visual = Gdk.Visual.get_system ();
+            if (visual != null)
+                this.set_visual (visual);
+            // workaround END
+            
             this.show_all ();
             this.play ();
         }
         
+        /**
+         * Change the camera recording type (switch between Video or Photo mode)
+         */
         public void set_action_type (ActionType type) {
             this.type = type;
         }
        
+        /**
+         * Starts Camera visualization
+         */
         public void play () {
             this.camerabin.set_state (Gst.State.PLAYING);  
         }
        
+        /**
+         * Stops Camera visualization
+         */
         public void stop () {
             this.camerabin.set_state (Gst.State.NULL);  
         }
         
+        /**
+         * Send to the Camera an acquire signal depending on its recording mode
+         */
         public void take_start () {
             debug ("Recording...");
             
@@ -90,6 +110,9 @@ namespace Snap.Widgets {
                 this.capture_end ();
         }
         
+        /**
+         * Tells the camera to stop recording (to be used only in video mode)
+         */
         public void take_stop () {
             debug ("Stopping video record...");
             

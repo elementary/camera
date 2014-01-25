@@ -82,7 +82,7 @@ namespace Snap {
             app_cmd_name = "Snap";
             
             Gst.init (ref args);
-
+            
             var app = new SnapApp ();
 
             return app.run (args);

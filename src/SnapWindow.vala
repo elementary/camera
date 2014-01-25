@@ -44,7 +44,6 @@ namespace Snap {
         private Gtk.Stack stack;
         private Granite.Widgets.ModeButton mode_button;
         private Gtk.Button take_button;
-        private Gtk.Stack viewer_notebook;
         private Gtk.Statusbar statusbar;
 
         public SnapWindow (Snap.SnapApp snap_app) {
@@ -172,24 +171,17 @@ namespace Snap {
             this.stack.add_named (this.camera, _("Camera"));
             this.stack.set_visible_child (this.camera); // Show camera on launch
             
-            // Setup the photo/video viewer
-            viewer_notebook = new Gtk.Stack ();
-            
-            var viewer_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-            viewer_box.pack_start (viewer_notebook, true, true, 0);
-            
             // Statusbar
             statusbar = new Gtk.Statusbar ();
-
+            
             // Some signals
             mode_button.mode_changed.connect (on_mode_changed);
             this.key_press_event.connect (this.on_key_press_event);
             
             // Set camera mode by default
-            mode_button.set_active (0);
-            
-            this. add (stack);
+            //mode_button.set_active (0);
+
+            this.add (this.stack);
             this.show_all ();
             
         }
