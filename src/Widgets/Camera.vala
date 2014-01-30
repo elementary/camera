@@ -47,7 +47,7 @@ namespace Snap.Widgets {
             this.videoflip.set_property("method", 4);
 
             this.camerabin = Gst.ElementFactory.make ("camerabin","camera");
-            camerabin.set_property("viewfinder-filter", videoflip);
+            this.camerabin.set_property("viewfinder-filter", videoflip);
             this.camerabin.bus.add_watch (0,(bus,message) => {
                 if (Gst.Video.is_video_overlay_prepare_window_handle_message (message))
                     (message.src as Gst.Video.Overlay).set_window_handle ((uint*) Gdk.X11Window.get_xid (this.get_window()));
