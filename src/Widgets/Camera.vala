@@ -35,14 +35,19 @@ namespace Snap.Widgets {
         private bool capturing = false;
         
         private Gst.Element? camerabin = null;
+        private Gst.Element? videoflip = null;
         
         public signal void capture_start ();
         public signal void capture_end ();
         
         public class Camera () {
             this.set_size_request (WIDTH, HEIGHT); // FIXME
-           
+
+            this.videoflip = Gst.ElementFactory.make ("videoflip", "videoflip");
+            this.videoflip.set_property("method", 4);
+
             this.camerabin = Gst.ElementFactory.make ("camerabin","camera");
+            camerabin.set_property("viewfinder-filter", videoflip);
             this.camerabin.bus.add_watch (0,(bus,message) => {
                 if (Gst.Video.is_video_overlay_prepare_window_handle_message (message))
                     (message.src as Gst.Video.Overlay).set_window_handle ((uint*) Gdk.X11Window.get_xid (this.get_window()));
