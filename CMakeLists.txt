@@ -39,7 +39,7 @@ add_definitions(-DVALA_VERSION="${VALA_SHORTVER}")
 add_definitions(-w) # Disable gcc warnings
 
 # Dependencies
-set (SNAP_DEPS gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0>=3.10 gdk-x11-3.0 granite gstreamer-video-1.0 x11 gudev-1.0 zeitgeist-2.0)
+set (SNAP_DEPS gee-0.8 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0>=3.10 gdk-x11-3.0 granite gstreamer-video-1.0 x11 gudev-1.0 zeitgeist-2.0)
 find_package (PkgConfig)
 pkg_check_modules (DEPS REQUIRED ${SNAP_DEPS})
 
