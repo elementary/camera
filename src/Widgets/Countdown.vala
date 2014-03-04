@@ -18,9 +18,6 @@
   END LICENSE
 ***/
 
-using Gtk;
-using Granite;
-
 namespace Snap.Widgets {
 
     public class Countdown : Granite.Widgets.CompositedWindow {
