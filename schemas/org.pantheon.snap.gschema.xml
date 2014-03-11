@@ -15,5 +15,10 @@
             <summary>Use or not the countdown.</summary>
             <description>Use or not the countdown.</description>
         </key>
+        <key name="mode" type="i">
+            <default>0</default>
+            <summary>The mode of the camera, photo or video</summary>
+            <description>Photo mode is represented by 0, video mode by 1</description>
+        </key>
     </schema>
 </schemalist>
