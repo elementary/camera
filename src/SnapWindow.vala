@@ -179,7 +179,7 @@ namespace Snap {
             this.key_press_event.connect (this.on_key_press_event);
             
             // Set camera mode by default
-            //mode_button.set_active (0);
+            mode_button.set_active (0);
 
             this.add (this.stack);
             this.show_all ();
