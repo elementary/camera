@@ -20,10 +20,11 @@
 
 namespace Snap.Widgets {
     
-    public class Gallery : Gtk.Widget {
+    public class Gallery : Gtk.Label {
         
         public Gallery () {
-        }    
+            Object (label: "test");
+        }
         
     }
     
