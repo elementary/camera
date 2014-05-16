@@ -189,6 +189,20 @@ namespace Resources {
         return buffer_surface.load_to_pixbuf();
     }
 
+    // Some utility methods
+    /**
+     * Launch a file with its default handler
+     */
+    public void launch_file (File file) {
+        try {
+            var handler = file.query_default_handler (null);
+            var list = new GLib.List<File> ();
+            list.append (file);
+            handler.launch (list, null);
+        } catch (Error err) {
+            warning (err.message);
+        }
+    }
 
     public class Snap.Icon : Object {
 

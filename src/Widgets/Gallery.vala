@@ -19,36 +19,53 @@
 ***/
 
 namespace Snap.Widgets {
-    
+
     public class Gallery : Gtk.ScrolledWindow {
-        
-        private Gtk.ListStore photo_model;
-        private Gtk.ListStore video_model;
-        private Gtk.IconView photo_view;
-        private Gtk.IconView video_view;
-        
+
+        private Gtk.ListStore model;
+        private Gtk.IconView view;
+
         public Gallery () {
-            this.photo_model = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
-            this.video_model = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
-        
-            this.photo_view = new Gtk.IconView.with_model (photo_model);
-            this.video_view = new Gtk.IconView.with_model (video_model);
-        
-            Resources.photo_thumb_provider.thumbnail_loaded.connect (on_photo_thumb_loaded);
-            Resources.video_thumb_provider.thumbnail_loaded.connect (on_video_thumb_loaded);
+            this.model = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (Services.Thumbnail));
+
+            this.view = new Gtk.IconView.with_model (model);
+            this.view.set_pixbuf_column (0);
+            this.view.set_selection_mode (Gtk.SelectionMode.SINGLE);
+            this.view.selection_changed.connect (() => {
+                GLib.List<Gtk.TreePath> paths = this.view.get_selected_items ();
+                Gtk.TreeIter iter;
+                Services.Thumbnail thumb = null;
+
+                foreach (Gtk.TreePath path in paths) {
+                    this.model.get_iter (out iter, path);
+                    
+                    GLib.Value val;
+                    this.model.get_value (iter, 1, out val);
+                    
+                    thumb = (Services.Thumbnail) val;
+                    
+                    Resources.launch_file (thumb.file);
+                }
+            });
+
+            Resources.photo_thumb_provider.thumbnail_loaded.connect (add_thumbnail);
+            Resources.video_thumb_provider.thumbnail_loaded.connect (add_thumbnail);
+
+            this.add (view);
+        }
+
+        private void add_thumbnail (Services.Thumbnail thumb) {
+            Gtk.TreeIter iter;
+            this.model.append (out iter);
+            this.model.set (iter, 0, thumb.pixbuf, 1, thumb);
         }
         
-        private void on_photo_thumb_loaded (Services.Thumbnail thumb) {
-            Gtk.TreeIter iter;
-            this.photo_model.append (out iter);
-            this.photo_model.set (iter, 0, thumb.pixbuf, 1, thumb.file.get_basename ());
-        }
-        
-        private void on_video_thumb_loaded (Services.Thumbnail thumb) {
-            Gtk.TreeIter iter;
-            this.video_model.append (out iter);
-            this.video_model.set (iter, 0, thumb.pixbuf, 1, thumb.file.get_basename ());
+        /**
+         + Simply clear the IconView as the name suggests
+         */
+        public void clear_view () {
+            this.model.clear ();
         }
     }
-    
+
 }

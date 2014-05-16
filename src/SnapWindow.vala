@@ -75,7 +75,7 @@ namespace Snap {
             
             // Init thumbnail providers
             var photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
-            var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
+            var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
             
@@ -214,18 +214,31 @@ namespace Snap {
             return false;
         }
         
+        private void lock_camera_actions () {
+            this.take_button.set_sensitive (false);
+            this.mode_button.set_sensitive (false);
+        }
+        
+        private void unlock_camera_actions () {
+            this.take_button.set_sensitive (true);
+            this.mode_button.set_sensitive (true);
+        }
+        
         private void load_thumbnails () {
+            this.gallery.clear_view ();
             Resources.photo_thumb_provider.parse_thumbs.begin ();
             Resources.video_thumb_provider.parse_thumbs.begin ();
         }
         
         private void show_gallery () {
             this.camera.stop ();
+            this.lock_camera_actions ();
             this.stack.set_visible_child (this.gallery);
         }
         
         private void show_camera () {
             this.camera.play ();
+            this.unlock_camera_actions ();
             this.stack.set_visible_child (this.camera);
         }
         

@@ -34,6 +34,9 @@ namespace Snap.Services {
         private File path;
         private GLib.List<Thumbnail> thumbnails;
         
+        public static const int THUMB_WIDTH = Widgets.Camera.WIDTH / 4;
+        public static const int THUMB_HEIGHT = Widgets.Camera.HEIGHT / 4;
+        
         public signal void thumbnail_loaded (Thumbnail thumbnail);
         
         /**
@@ -81,6 +84,7 @@ namespace Snap.Services {
                 Gdk.Pixbuf pix = null;
                 if (attr == null) pix = new Gdk.Pixbuf.from_file (file.get_path ());
                 else pix = new Gdk.Pixbuf.from_file (attr);
+                pix = pix.scale_simple (THUMB_WIDTH, THUMB_HEIGHT, 0);
                 return new Thumbnail (file, pix);
             } catch (Error err) {
                 warning ("Error: get_thumbnail failed: %s\n", err.message);
