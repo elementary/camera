@@ -4,6 +4,7 @@ vala_precompile(VALA_C
     SnapWindow.vala
     ######
     Services/Settings.vala
+    Services/ThumbnailProvider.vala
     ######
     Widgets/Camera.vala
     Widgets/Gallery.vala

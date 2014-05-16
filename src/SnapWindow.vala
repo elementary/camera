@@ -31,10 +31,6 @@ namespace Snap {
                 <popup name="Actions">
                     <menuitem name="Quit" action="Quit"/>
                 </popup>
-
-                <popup name="AppMenu">
-                    <menuitem action="Preferences" />
-                </popup>
             </ui>
         """;
         
@@ -76,7 +72,14 @@ namespace Snap {
 
             ui.insert_action_group (main_actions, 0);
             ui.ensure_update ();
-
+            
+            // Init thumbnail providers
+            var photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
+            var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
+            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
+            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
+            
+            // Setup UI
             setup_window ();
         }
         
@@ -92,17 +95,16 @@ namespace Snap {
             // Gallery button
             var gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             gallery_button_box.set_spacing (4);
-    	    gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
+            gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
             
             var gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
             gallery_button.toggled.connect (() => {
                 if (this.stack.get_visible_child () == this.camera) {
-                    this.camera.stop ();
-                    this.stack.set_visible_child (this.gallery);
+                    this.show_gallery ();
+                    this.load_thumbnails ();
                 }
                 else {
-                    this.camera.play ();
-                    this.stack.set_visible_child (this.camera);
+                    this.show_camera ();
                 }
             });
             gallery_button_box.pack_start (gallery_button, true, true, 0);
@@ -140,7 +142,7 @@ namespace Snap {
             
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             take_button_box.set_spacing (4);
-    	    take_button_box.set_layout (Gtk.ButtonBoxStyle.START);
+            take_button_box.set_layout (Gtk.ButtonBoxStyle.START);
             take_button_box.pack_start (take_button, false, false, 0);
 
             // Make the take button wider
@@ -211,7 +213,22 @@ namespace Snap {
 
             return false;
         }
-    
+        
+        private void load_thumbnails () {
+            Resources.photo_thumb_provider.parse_thumbs.begin ();
+            Resources.video_thumb_provider.parse_thumbs.begin ();
+        }
+        
+        private void show_gallery () {
+            this.camera.stop ();
+            this.stack.set_visible_child (this.gallery);
+        }
+        
+        private void show_camera () {
+            this.camera.play ();
+            this.stack.set_visible_child (this.camera);
+        }
+        
         void action_quit () {
             this.destroy ();
         }

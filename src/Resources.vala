@@ -19,6 +19,7 @@
  */
 
 using Snap.Widgets;
+using Snap.Services;
 
 namespace Resources {
 
@@ -26,8 +27,8 @@ namespace Resources {
         .take-button {
             border-radius: 400px;
             background-image: -gtk-gradient (linear,
-				     left top,
-				     left bottom,
+                     left top,
+                     left bottom,
                      from (#e56453),
                      to (#bb2332));
 
@@ -142,6 +143,10 @@ namespace Resources {
         
         return file.get_uri ();
     }
+    
+    /** Thumbnail providers **/
+    public ThumbnailProvider photo_thumb_provider;
+    public ThumbnailProvider video_thumb_provider;
     
     /** ICONS **/
 

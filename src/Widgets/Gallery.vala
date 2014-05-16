@@ -20,12 +20,35 @@
 
 namespace Snap.Widgets {
     
-    public class Gallery : Gtk.Label {
+    public class Gallery : Gtk.ScrolledWindow {
+        
+        private Gtk.ListStore photo_model;
+        private Gtk.ListStore video_model;
+        private Gtk.IconView photo_view;
+        private Gtk.IconView video_view;
         
         public Gallery () {
-            Object (label: "test");
+            this.photo_model = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
+            this.video_model = new Gtk.ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
+        
+            this.photo_view = new Gtk.IconView.with_model (photo_model);
+            this.video_view = new Gtk.IconView.with_model (video_model);
+        
+            Resources.photo_thumb_provider.thumbnail_loaded.connect (on_photo_thumb_loaded);
+            Resources.video_thumb_provider.thumbnail_loaded.connect (on_video_thumb_loaded);
         }
         
+        private void on_photo_thumb_loaded (Services.Thumbnail thumb) {
+            Gtk.TreeIter iter;
+            this.photo_model.append (out iter);
+            this.photo_model.set (iter, 0, thumb.pixbuf, 1, thumb.file.get_basename ());
+        }
+        
+        private void on_video_thumb_loaded (Services.Thumbnail thumb) {
+            Gtk.TreeIter iter;
+            this.video_model.append (out iter);
+            this.video_model.set (iter, 0, thumb.pixbuf, 1, thumb.file.get_basename ());
+        }
     }
     
 }
