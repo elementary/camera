@@ -180,8 +180,7 @@ namespace Snap {
             mode_button.mode_changed.connect (on_mode_changed);
             this.key_press_event.connect (this.on_key_press_event);
             
-            // Set camera mode by default
-            mode_button.set_active (0);
+            mode_button.set_active (Snap.settings.mode);
 
             this.add (this.stack);
             this.show_all ();
@@ -191,6 +190,8 @@ namespace Snap {
         private void on_mode_changed () {
             var type = (mode_button.selected == 0) ? 
                 Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO; 
+
+            Snap.settings.mode = type;
             
             this.camera.set_action_type (type);
         

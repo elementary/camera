@@ -26,6 +26,7 @@ namespace Snap.Services {
         public string bg_color { get; set; }
         public bool countdown { get; set; }
         public int countdown_time { get; set; }
+        public int mode { get; set; }
 
         public Settings ()  {
             base ("org.pantheon.snap.settings");
