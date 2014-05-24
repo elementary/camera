@@ -160,7 +160,7 @@ namespace Snap {
                 gallery_button.sensitive = false;
                 this.mode_button.sensitive = false;
             });
-            this.camera.capture_end.connect (() => {
+            this.camera.capture_stop.connect (() => {
                 // Enable extra buttons
                 gallery_button.sensitive = true;
                 this.mode_button.sensitive = true;

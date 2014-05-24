@@ -38,7 +38,7 @@ namespace Snap.Widgets {
         private Gst.Element? videoflip = null;
         
         public signal void capture_start ();
-        public signal void capture_end ();
+        public signal void capture_stop ();
         
         public class Camera () {
             this.set_size_request (WIDTH, HEIGHT); // FIXME
@@ -130,7 +130,7 @@ namespace Snap.Widgets {
             GLib.Signal.emit_by_name (camerabin, "capture-start");
 #endif
             if (this.type == ActionType.PHOTO)
-                this.capture_end ();
+                this.capture_stop ();
         }
         
         /**
@@ -147,7 +147,7 @@ namespace Snap.Widgets {
             GLib.Signal.emit_by_name (camerabin, "capture-stop");
 #endif
             
-            this.capture_end ();
+            this.capture_stop ();
         }
         
         /**
