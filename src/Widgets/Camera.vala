@@ -129,6 +129,8 @@ namespace Snap.Widgets {
             camerabin.set_property ("filename", location);
             GLib.Signal.emit_by_name (camerabin, "capture-start");
 #endif
+            if (this.type == ActionType.PHOTO)
+                this.capture_end ();
         }
         
         /**
