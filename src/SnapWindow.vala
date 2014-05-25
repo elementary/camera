@@ -23,16 +23,6 @@ namespace Snap {
     public class SnapWindow : Gtk.Window {
 
         private Snap.SnapApp snap_app;
-
-        public Gtk.ActionGroup main_actions;
-        private Gtk.UIManager ui;        
-        private const string UI_STRING = """
-            <ui>
-                <popup name="Actions">
-                    <menuitem name="Quit" action="Quit"/>
-                </popup>
-            </ui>
-        """;
         
         private Snap.Widgets.Camera camera;
         private Snap.Widgets.Gallery gallery;
@@ -52,27 +42,7 @@ namespace Snap {
             this.icon_name = "snap-photobooth";
             this.set_size_request (640, 480);
             this.resizable = false;
-            
-            // Setup the actions
-            main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
-            main_actions.set_translation_domain ("snap");
-            main_actions.add_actions (main_entries, this);
 
-            ui = new Gtk.UIManager ();
-
-            try {
-                ui.add_ui_from_string (UI_STRING, -1);
-            }
-            catch(Error e) {
-                error ("Couldn't load the UI: %s", e.message);
-            }
-
-            Gtk.AccelGroup accel_group = ui.get_accel_group();
-            add_accel_group (accel_group);
-
-            ui.insert_action_group (main_actions, 0);
-            ui.ensure_update ();
-            
             // Init thumbnail providers
             var photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
             var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
@@ -248,16 +218,5 @@ namespace Snap {
             this.unlock_camera_actions ();
             this.stack.set_visible_child (this.camera);
         }
-        
-        void action_quit () {
-            this.destroy ();
-        }
-
-        static const Gtk.ActionEntry[] main_entries = {
-           { "Quit", null,
-          /* label, accelerator */       N_("Quit"), null,
-          /* tooltip */                  N_("Quit"),
-                                         action_quit }
-        };
     }
 }
