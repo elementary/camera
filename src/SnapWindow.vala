@@ -186,7 +186,13 @@ namespace Snap {
             this.show_all ();
             
         }
-    
+        
+        protected override bool delete_event (Gdk.EventAny event) {
+            Resources.photo_thumb_provider.clear_cache ();
+            Resources.video_thumb_provider.clear_cache ();
+            return false;
+        }
+        
         private void on_mode_changed () {
             var type = (mode_button.selected == 0) ? 
                 Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO; 
