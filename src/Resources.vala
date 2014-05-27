@@ -251,27 +251,27 @@ namespace Resources {
         }
         
         /**
-	     *  Get a themed image with a given colour
-	     **/
-	    public Gtk.Image? render_image_with_color (Gtk.IconSize? size, Gdk.RGBA rgba = {1, 1, 1, 1}) {
+         *  Get a themed image with a given color
+         **/
+        public Gtk.Image? render_image_with_color (Gtk.IconSize? size, Gdk.RGBA rgba = {1, 1, 1, 1}) {
             var icon_name_themed = new ThemedIcon (this.name);
             Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-	        Gdk.Pixbuf? pix = null;
+            Gdk.Pixbuf? pix = null;
             Gtk.IconInfo icon_test = null;
 
-	        try {
-	            icon_test = theme.lookup_by_gicon (icon_name_themed, 16, 0);
+            try {
+                icon_test = theme.lookup_by_gicon (icon_name_themed, 16, 0);
                 if (icon_test != null) {
                     pix = icon_test.load_symbolic (rgba);
                 }
-	        } catch (Error e) {
+            } catch (Error e) {
                 warning (e.message);
             }
             
             var im = new Gtk.Image.from_pixbuf (pix);
             
             return im;
-	    }
+        }
 
         public Gtk.Image? render_image (Gtk.IconSize? size, Gtk.StyleContext? ctx = null, int px_size = 0) {
             Gtk.Image? rv = null;

@@ -48,25 +48,25 @@ namespace Snap {
             var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
-            
+
             // Setup UI
             setup_window ();
         }
-        
+
         void setup_window () {
-            // Load used icons
+            // Load icons
             Resources.load_icons ();
-            
+
             // Toolbar
             toolbar = new Gtk.HeaderBar ();
             toolbar.show_close_button = true;
             this.set_titlebar (toolbar);
-            
+
             // Gallery button
             var gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             gallery_button_box.set_spacing (4);
             gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
-            
+
             var gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
             gallery_button.toggled.connect (() => {
                 if (this.stack.get_visible_child () == this.camera) {
@@ -129,32 +129,34 @@ namespace Snap {
                 // Disable uneeded buttons
                 gallery_button.sensitive = false;
                 this.mode_button.sensitive = false;
+                this.set_take_button_icon (null);
             });
             this.camera.capture_stop.connect (() => {
                 // Enable extra buttons
                 gallery_button.sensitive = true;
                 this.mode_button.sensitive = true;
+                this.set_take_button_icon (this.camera.get_action_type ());
             });
-            
+
             // Setup window main content area
             this.stack = new Gtk.Stack ();
             this.stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
             this.stack.add_named (this.gallery, _("Gallery"));
             this.stack.add_named (this.camera, _("Camera"));
             this.stack.set_visible_child (this.camera); // Show camera on launch
-            
+
             // Statusbar
             statusbar = new Gtk.Statusbar ();
-            
+
             // Some signals
             mode_button.mode_changed.connect (on_mode_changed);
             this.key_press_event.connect (this.on_key_press_event);
-            
+
             mode_button.set_active (Snap.settings.mode);
 
             this.add (this.stack);
             this.show_all ();
-            
+
         }
         
         protected override bool delete_event (Gdk.EventAny event) {
@@ -168,21 +170,29 @@ namespace Snap {
                 Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO; 
 
             Snap.settings.mode = type;
-            
+
             this.camera.set_action_type (type);
-        
-            switch (type) {
-                case Snap.Widgets.Camera.ActionType.PHOTO:
-                    debug ("Photo mode");
-                    take_button.set_image (Resources.PHOTO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR));
-                break;
-                case Snap.Widgets.Camera.ActionType.VIDEO:
-                    debug ("Video mode");
-                    take_button.set_image (Resources.VIDEO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR));
-                break;
-            }
+            this.set_take_button_icon (type);
         }
         
+        private void set_take_button_icon (Snap.Widgets.Camera.ActionType? type) {
+            if (type == Snap.Widgets.Camera.ActionType.PHOTO) {
+                Gtk.Image? icon = Resources.PHOTO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR);
+                if (icon != null)
+                    take_button.set_image (icon);
+            }
+            else if (type == Snap.Widgets.Camera.ActionType.VIDEO) {
+                Gtk.Image? icon = Resources.VIDEO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR);
+                if (icon != null)
+                    take_button.set_image (icon);
+            }
+            else {
+                //Gtk.Image? icon = Resources.MEDIA_STOP_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR);
+                //if (icon != null)
+                //    take_button.set_image (icon);
+            }
+        }
+
         private bool on_key_press_event (Gdk.EventKey ev) {
             // 32 is the ASCII value for spacebar
             if (ev.keyval == 32)
