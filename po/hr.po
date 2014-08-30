@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-06 21:29-0500\n"
-"PO-Revision-Date: 2013-04-16 05:36+0000\n"
-"Last-Translator: zvacet <ikoli@yahoo.com>\n"
+"PO-Revision-Date: 2014-08-29 12:18+0000\n"
+"Last-Translator: AnSukkal <ansukkal@outlook.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 06:49+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-08-30 07:21+0000\n"
+"X-Generator: Launchpad (build 17176)\n"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:70
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:144
 msgid "Gallery"
-msgstr ""
+msgstr "Galerija"
 
 #: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:145
 msgid "Camera"
-msgstr ""
+msgstr "Fotoaparat"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
 msgid "Take photos with your web cam"
@@ -32,12 +32,12 @@ msgstr "Fotografirajte vašom web kamerom"
 
 #: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
 msgid "Photo Booth"
-msgstr ""
+msgstr "Photo Booth"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr ""
+msgstr "Fotografiranje započinje za"
 
 #: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
-msgstr ""
+msgstr "Snimanje počinje u"
