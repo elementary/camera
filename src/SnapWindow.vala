@@ -236,26 +236,19 @@ namespace Snap {
             FileInfo file_info;
             
             try {
-                FileEnumerator enumerator_photo = photo_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);            
-                if ((file_info = enumerator_photo.next_file ()) != null) {
-                    debug ("gallery has photo files.\n");
+                FileEnumerator enumerator_photo = photo_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+                FileEnumerator enumerator_video = video_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+                
+                if ((file_info = enumerator_photo.next_file ()) != null ||
+                    (file_info = enumerator_video.next_file ()) != null) {
+                    debug ("gallery is not empty\n");
                     return true;
                 }
             } catch (Error perr) {
                     warning ("Error: check_gallery_files photo failed: %s", perr.message);
             }
-            
-            try {
-                FileEnumerator enumerator_video = video_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);            
-                if ((file_info = enumerator_video.next_file ()) != null) {
-                    debug ("gallery has video files.\n");
-                    return true;
-                }
-            } catch (Error verr) {
-                    warning ("Error: check_gallery_files video failed: %s", verr.message);
-            }
-            
-            debug ("gallery has not files.\n");
+                        
+            debug ("gallery is empty\n");
             return false;
         }
     }
