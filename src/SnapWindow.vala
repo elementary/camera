@@ -210,12 +210,10 @@ namespace Snap {
         }
         
         private void lock_camera_actions () {
-            //this.take_button.set_sensitive (false);
             this.mode_button.set_sensitive (false);
         }
         
         private void unlock_camera_actions () {
-            //this.take_button.set_sensitive (true);
             this.mode_button.set_sensitive (true);
         }
         
