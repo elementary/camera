@@ -33,6 +33,8 @@ namespace Snap {
         private Gtk.ButtonBox gallery_button_box;
         private Gtk.ToggleButton gallery_button;
         private Gtk.Statusbar statusbar;
+        private File photo_path;
+        private File video_path;
 
         public SnapWindow (Snap.SnapApp snap_app) {
 
@@ -46,8 +48,8 @@ namespace Snap {
             this.resizable = false;
 
             // Init thumbnail providers
-            var photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
-            var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
+            photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
+            video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
 
@@ -70,6 +72,7 @@ namespace Snap {
             gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
 
             gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
+            gallery_button.sensitive = gallery_files_exists ();
             gallery_button.toggled.connect (() => {
                 if (this.stack.get_visible_child () == this.camera) {
                     this.show_gallery ();
@@ -141,7 +144,7 @@ namespace Snap {
             });
             this.camera.capture_stop.connect (() => {
                 // Enable extra buttons
-                gallery_button.sensitive = true;
+                gallery_button.sensitive = gallery_files_exists ();
                 this.mode_button.sensitive = true;
                 this.set_take_button_icon (this.camera.get_action_type ());
             });
@@ -164,7 +167,7 @@ namespace Snap {
 
             this.add (this.stack);
             this.show_all ();
-
+            
         }
         
         protected override bool delete_event (Gdk.EventAny event) {
@@ -233,6 +236,26 @@ namespace Snap {
             this.camera.play ();
             this.unlock_camera_actions ();
             this.stack.set_visible_child (this.camera);
+        }
+
+        private bool gallery_files_exists () {
+            FileInfo file_info;
+            
+            try {
+                FileEnumerator enumerator_photo = photo_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+                FileEnumerator enumerator_video = video_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+                
+                if ((file_info = enumerator_photo.next_file ()) != null ||
+                    (file_info = enumerator_video.next_file ()) != null) {
+                    // Gallery is not empty
+                    return true;
+                }
+            } catch (Error perr) {
+                    warning ("Error: check_gallery_files photo failed: %s", perr.message);
+            }
+                        
+            // Gallery is empty, button may be disabled
+            return false;
         }
     }
 }
