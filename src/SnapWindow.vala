@@ -151,9 +151,9 @@ namespace Snap {
             // Setup window main content area
             this.stack = new Gtk.Stack ();
             this.stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
-            this.stack.add_named (this.gallery, _("Gallery"));
-            this.stack.add_named (this.camera, _("Camera"));
-            this.stack.add_named (this.no_camera, _("NoCamera"));
+            this.stack.add_named (this.gallery, "Gallery");
+            this.stack.add_named (this.camera, "Camera");
+            this.stack.add_named (this.no_camera, "NoCamera");
             if (camera_detected)
                 this.stack.set_visible_child (this.camera); // Show camera on launch
             else
@@ -173,8 +173,7 @@ namespace Snap {
 
         }
         
-        private bool detect_camera ()
-        {
+        private bool detect_camera () {
             try {
                 var video_devices = File.new_for_path ("/dev/.");
                 FileEnumerator enumerator = video_devices.enumerate_children (FileAttribute.STANDARD_NAME, 0);
