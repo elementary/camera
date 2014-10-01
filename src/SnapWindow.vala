@@ -115,7 +115,7 @@ namespace Snap {
                 else
                     this.camera.take_stop (); 
             });
-            take_button.set_sensitive(camera_detected);
+            take_button.set_sensitive (camera_detected);
             
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             take_button_box.set_spacing (4);
@@ -128,7 +128,7 @@ namespace Snap {
             toolbar.set_custom_title (take_button_box);
             
             // Setup NoCamera widget
-            this.no_camera = new Snap.Widgets.NoCamera();
+            this.no_camera = new Snap.Widgets.NoCamera ();
             
             // Setup gallery widget
             this.gallery = new Snap.Widgets.Gallery ();
@@ -154,7 +154,7 @@ namespace Snap {
             this.stack.add_named (this.gallery, _("Gallery"));
             this.stack.add_named (this.camera, _("Camera"));
             this.stack.add_named (this.no_camera, _("NoCamera"));
-            if(camera_detected)
+            if (camera_detected)
                 this.stack.set_visible_child (this.camera); // Show camera on launch
             else
                 this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
@@ -173,7 +173,7 @@ namespace Snap {
 
         }
         
-        private bool detect_camera()
+        private bool detect_camera ()
         {
             try {
                 var video_devices = File.new_for_path ("/dev/.");
