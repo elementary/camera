@@ -189,7 +189,7 @@ namespace Snap {
                 FileEnumerator enumerator = video_devices.enumerate_children (FileAttribute.STANDARD_NAME, 0);
                 FileInfo info;
                 while ((info = enumerator.next_file (null)) != null) {
-                    if(info.get_name().has_prefix ("video")){
+                    if (info.get_name ().has_prefix ("video")){
                         debug ("camera found: %s", info.get_name ());
                         return true;
                     }
