@@ -30,6 +30,8 @@ namespace Snap {
         private Gtk.Stack stack;
         private Granite.Widgets.ModeButton mode_button;
         private Gtk.Button take_button;
+        private Gtk.ButtonBox gallery_button_box;
+        private Gtk.ToggleButton gallery_button;
         private Gtk.Statusbar statusbar;
         private File photo_path;
         private File video_path;
@@ -65,11 +67,11 @@ namespace Snap {
             this.set_titlebar (toolbar);
 
             // Gallery button
-            var gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+            gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             gallery_button_box.set_spacing (4);
             gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
 
-            var gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
+            gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
             gallery_button.sensitive = gallery_files_exists ();
             gallery_button.toggled.connect (() => {
                 if (this.stack.get_visible_child () == this.camera) {
@@ -107,10 +109,15 @@ namespace Snap {
             take_button.get_style_context ().add_class ("noundo"); // egtk's red button
             take_button.get_style_context ().add_class ("raised");
             take_button.clicked.connect (() => { 
-                if (!this.camera.get_capturing ())
+                if (this.stack.get_visible_child () != this.camera) {
+                    gallery_button.set_active (false);
+                    return;
+                }
+                if (!this.camera.get_capturing ()) {
                     this.camera.take_start ();
-                else
-                    this.camera.take_stop (); 
+                } else {
+                    this.camera.take_stop ();
+                }
             });
             
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
@@ -205,12 +212,10 @@ namespace Snap {
         }
         
         private void lock_camera_actions () {
-            this.take_button.set_sensitive (false);
             this.mode_button.set_sensitive (false);
         }
         
         private void unlock_camera_actions () {
-            this.take_button.set_sensitive (true);
             this.mode_button.set_sensitive (true);
         }
         
