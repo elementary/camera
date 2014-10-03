@@ -31,7 +31,11 @@ namespace Snap {
         private Gtk.Stack stack;
         private Granite.Widgets.ModeButton mode_button;
         private Gtk.Button take_button;
+        private Gtk.ButtonBox gallery_button_box;
+        private Gtk.ToggleButton gallery_button;
         private Gtk.Statusbar statusbar;
+        private File photo_path;
+        private File video_path;
 
         private bool camera_detected;
 
@@ -47,8 +51,8 @@ namespace Snap {
             this.resizable = false;
 
             // Init thumbnail providers
-            var photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
-            var video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
+            photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
+            video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
 
@@ -69,11 +73,12 @@ namespace Snap {
             this.set_titlebar (toolbar);
 
             // Gallery button
-            var gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+            gallery_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             gallery_button_box.set_spacing (4);
             gallery_button_box.set_layout (Gtk.ButtonBoxStyle.START);
 
-            var gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
+            gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
+            gallery_button.sensitive = gallery_files_exists ();
             gallery_button.toggled.connect (() => {
                 if (this.stack.get_visible_child () != this.gallery) {
                     this.show_gallery ();
@@ -110,10 +115,15 @@ namespace Snap {
             take_button.get_style_context ().add_class ("noundo"); // egtk's red button
             take_button.get_style_context ().add_class ("raised");
             take_button.clicked.connect (() => { 
-                if (!this.camera.get_capturing ())
+                if (this.stack.get_visible_child () != this.camera) {
+                    gallery_button.set_active (false);
+                    return;
+                }
+                if (!this.camera.get_capturing ()) {
                     this.camera.take_start ();
-                else
-                    this.camera.take_stop (); 
+                } else {
+                    this.camera.take_stop ();
+                }
             });
             take_button.set_sensitive (camera_detected);
             
@@ -143,7 +153,7 @@ namespace Snap {
             });
             this.camera.capture_stop.connect (() => {
                 // Enable extra buttons
-                gallery_button.sensitive = true;
+                gallery_button.sensitive = gallery_files_exists ();
                 this.mode_button.sensitive = true;
                 this.set_take_button_icon (this.camera.get_action_type ());
             });
@@ -170,7 +180,7 @@ namespace Snap {
 
             this.add (this.stack);
             this.show_all ();
-
+            
         }
         
         private bool detect_camera () {
@@ -178,7 +188,7 @@ namespace Snap {
                 var video_devices = File.new_for_path ("/dev/.");
                 FileEnumerator enumerator = video_devices.enumerate_children (FileAttribute.STANDARD_NAME, 0);
                 FileInfo info;
-                while ((info = enumerator.next_file (new Cancellable ())) != null) {
+                while ((info = enumerator.next_file (null)) != null) {
                     if(info.get_name().has_prefix ("video")){
                         debug ("camera found: %s", info.get_name ());
                         return true;
@@ -235,12 +245,10 @@ namespace Snap {
         }
         
         private void lock_camera_actions () {
-            this.take_button.set_sensitive (false);
             this.mode_button.set_sensitive (false);
         }
         
         private void unlock_camera_actions () {
-            this.take_button.set_sensitive (true);
             this.mode_button.set_sensitive (true);
         }
         
@@ -251,7 +259,7 @@ namespace Snap {
         }
         
         private void show_gallery () {
-            if(camera_detected) {
+            if (camera_detected) {
                 this.camera.stop ();                
             }
             this.lock_camera_actions ();
@@ -260,14 +268,34 @@ namespace Snap {
         
         private void show_camera () {
             
-            if(camera_detected) {
+            if (camera_detected) {
                 this.stack.set_visible_child (this.camera); // Show camera on launch
                 this.camera.play ();
                 this.unlock_camera_actions ();
             }
-            else
+            else {
                 this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
+            }                
+        }
+
+        private bool gallery_files_exists () {
+            FileInfo file_info;
+            
+            try {
+                FileEnumerator enumerator_photo = photo_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+                FileEnumerator enumerator_video = video_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
                 
+                if ((file_info = enumerator_photo.next_file ()) != null ||
+                    (file_info = enumerator_video.next_file ()) != null) {
+                    // Gallery is not empty
+                    return true;
+                }
+            } catch (Error perr) {
+                    warning ("Error: check_gallery_files photo failed: %s", perr.message);
+            }
+                        
+            // Gallery is empty, button may be disabled
+            return false;
         }
     }
 }
