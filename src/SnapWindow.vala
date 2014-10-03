@@ -21,11 +21,12 @@
 namespace Snap {
 
     public class SnapWindow : Gtk.Window {
-
+    
         private Snap.SnapApp snap_app;
         
         private Snap.Widgets.Camera camera;
         private Snap.Widgets.Gallery gallery;
+        private Snap.Widgets.NoCamera no_camera;
         private Gtk.HeaderBar toolbar;
         private Gtk.Stack stack;
         private Granite.Widgets.ModeButton mode_button;
@@ -35,6 +36,8 @@ namespace Snap {
         private Gtk.Statusbar statusbar;
         private File photo_path;
         private File video_path;
+
+        private bool camera_detected;
 
         public SnapWindow (Snap.SnapApp snap_app) {
 
@@ -52,6 +55,9 @@ namespace Snap {
             video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
+
+            // camera
+            camera_detected = this.detect_camera ();
 
             // Setup UI
             setup_window ();
@@ -74,7 +80,7 @@ namespace Snap {
             gallery_button = new Gtk.ToggleButton.with_label (_("Gallery"));
             gallery_button.sensitive = gallery_files_exists ();
             gallery_button.toggled.connect (() => {
-                if (this.stack.get_visible_child () == this.camera) {
+                if (this.stack.get_visible_child () != this.gallery) {
                     this.show_gallery ();
                     this.load_thumbnails ();
                 }
@@ -119,6 +125,7 @@ namespace Snap {
                     this.camera.take_stop ();
                 }
             });
+            take_button.set_sensitive (camera_detected);
             
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             take_button_box.set_spacing (4);
@@ -129,6 +136,9 @@ namespace Snap {
             take_button.set_size_request (54, -1);
 
             toolbar.set_custom_title (take_button_box);
+            
+            // Setup NoCamera widget
+            this.no_camera = new Snap.Widgets.NoCamera ();
             
             // Setup gallery widget
             this.gallery = new Snap.Widgets.Gallery ();
@@ -151,10 +161,14 @@ namespace Snap {
             // Setup window main content area
             this.stack = new Gtk.Stack ();
             this.stack.transition_type = Gtk.StackTransitionType.SLIDE_UP_DOWN;
-            this.stack.add_named (this.gallery, _("Gallery"));
-            this.stack.add_named (this.camera, _("Camera"));
-            this.stack.set_visible_child (this.camera); // Show camera on launch
-
+            this.stack.add_named (this.gallery, "Gallery");
+            this.stack.add_named (this.camera, "Camera");
+            this.stack.add_named (this.no_camera, "NoCamera");
+            if (camera_detected)
+                this.stack.set_visible_child (this.camera); // Show camera on launch
+            else
+                this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
+                
             // Statusbar
             statusbar = new Gtk.Statusbar ();
 
@@ -167,6 +181,25 @@ namespace Snap {
             this.add (this.stack);
             this.show_all ();
             
+        }
+        
+        private bool detect_camera () {
+            try {
+                var video_devices = File.new_for_path ("/dev/.");
+                FileEnumerator enumerator = video_devices.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+                FileInfo info;
+                while ((info = enumerator.next_file (null)) != null) {
+                    if (info.get_name ().has_prefix ("video")){
+                        debug ("camera found: %s", info.get_name ());
+                        return true;
+                    }
+                }                
+            } catch (Error err) {
+                debug ("camera detection failed: %s", err.message);
+            }
+           
+            debug ("no camera");
+            return false;
         }
         
         protected override bool delete_event (Gdk.EventAny event) {
@@ -226,15 +259,23 @@ namespace Snap {
         }
         
         private void show_gallery () {
-            this.camera.stop ();
+            if (camera_detected) {
+                this.camera.stop ();                
+            }
             this.lock_camera_actions ();
             this.stack.set_visible_child (this.gallery);
         }
         
         private void show_camera () {
-            this.camera.play ();
-            this.unlock_camera_actions ();
-            this.stack.set_visible_child (this.camera);
+            
+            if (camera_detected) {
+                this.stack.set_visible_child (this.camera); // Show camera on launch
+                this.camera.play ();
+                this.unlock_camera_actions ();
+            }
+            else {
+                this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
+            }                
         }
 
         private bool gallery_files_exists () {
