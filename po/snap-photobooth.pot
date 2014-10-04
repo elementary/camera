@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 21:29-0500\n"
+"POT-Creation-Date: 2014-10-04 23:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:70
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:144
-msgid "Gallery"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:145
-msgid "Camera"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
-msgid "Photo Booth"
-msgstr ""
-
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:62
+#: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
 msgstr ""
 
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:64
+#: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
+msgstr ""
+
+#: ../src/Widgets/NoCamera.vala:28
+msgid "Your webcam has not been detected. Please be sure you plugged it in."
+msgstr ""
+
+#: ../src/SnapWindow.vala:80
+msgid "Gallery"
+msgstr ""
+
+#: ../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr ""
+
+#: ../src/config.vala:11
+msgid "Photo Booth"
 msgstr ""
