@@ -112,7 +112,7 @@ namespace Snap {
             take_button = new Gtk.Button ();
             take_button.get_style_context ().add_provider (take_button_style, Gtk.STYLE_PROVIDER_PRIORITY_USER);
             take_button.get_style_context ().add_class ("take-button");
-            take_button.get_style_context ().add_class ("noundo"); // egtk's red button
+            take_button.get_style_context ().add_class ("destructive-action");
             take_button.get_style_context ().add_class ("raised");
             take_button.clicked.connect (() => { 
                 if (this.stack.get_visible_child () != this.camera) {
