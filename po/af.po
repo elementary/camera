@@ -7,37 +7,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-06 21:29-0500\n"
+"POT-Creation-Date: 2014-10-04 23:53+0200\n"
 "PO-Revision-Date: 2014-07-20 09:14+0000\n"
 "Last-Translator: Jacques Strydom <jacquesafro@gmail.com>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 06:49+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-10-05 06:18+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:70
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:144
-msgid "Gallery"
-msgstr "Galery"
-
-#: /home/mario/elementary/snap-elementary/po/../src/SnapWindow.vala:145
-msgid "Camera"
-msgstr "Kamera"
-
-#: /home/mario/elementary/snap-elementary/po/../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "Neem foto's met jou web cam"
-
-#: /home/mario/elementary/snap-elementary/po/../src/config.vala:11
-msgid "Photo Booth"
-msgstr "Foto Hokkie"
-
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:62
+#: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
 msgstr "Neem foto in"
 
-#: /home/mario/elementary/snap-elementary/po/../src/Widgets/Countdown.vala:64
+#: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
 msgstr "Opnames begin binne"
+
+#: ../src/Widgets/NoCamera.vala:28
+msgid "Your webcam has not been detected. Please be sure you plugged it in."
+msgstr ""
+
+#: ../src/SnapWindow.vala:80
+msgid "Gallery"
+msgstr "Galery"
+
+#: ../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr "Neem foto's met jou web cam"
+
+#: ../src/config.vala:11
+msgid "Photo Booth"
+msgstr "Foto Hokkie"
