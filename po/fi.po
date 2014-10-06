@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-04 23:53+0200\n"
-"PO-Revision-Date: 2013-12-27 18:43+0000\n"
+"PO-Revision-Date: 2014-10-06 06:33+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-05 06:18+0000\n"
+"X-Launchpad-Export-Date: 2014-10-06 06:45+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: ../src/Widgets/Countdown.vala:62
@@ -28,6 +28,7 @@ msgstr "Nauhoitus alkaa"
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
+"Web-kameraasi ei havaittu. Varmista, että on se on liitetty tietokoneeseen."
 
 #: ../src/SnapWindow.vala:80
 msgid "Gallery"
