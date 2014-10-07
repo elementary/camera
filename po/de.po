@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-04 23:53+0200\n"
-"PO-Revision-Date: 2013-12-18 14:51+0000\n"
-"Last-Translator: Phillip Sz <Unknown>\n"
+"PO-Revision-Date: 2014-10-06 19:33+0000\n"
+"Last-Translator: Artem Anufrij <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-05 06:18+0000\n"
+"X-Launchpad-Export-Date: 2014-10-07 06:48+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: ../src/Widgets/Countdown.vala:62
@@ -28,6 +28,8 @@ msgstr "Aufnahme beginnt in"
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
+"Es wurde keine Kamera erkannt. Bitte stellen Sie sicher, dass eine "
+"angeschlossen ist."
 
 #: ../src/SnapWindow.vala:80
 msgid "Gallery"
@@ -35,7 +37,7 @@ msgstr "Galerie"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Fotos mit Ihrer Webcam aufnehmen"
+msgstr "Fotos mit Ihrer Kamera aufnehmen"
 
 #: ../src/config.vala:11
 msgid "Photo Booth"
