@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Snap
-Comment=Take photo and video with the camera
+Comment=Take photos and videos with the camera
 GenericName=Photo Booth
 Exec=snap-photobooth
 Icon=accessories-camera
