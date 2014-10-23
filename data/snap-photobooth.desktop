@@ -9,3 +9,9 @@ Terminal=false
 Categories=GNOME;AudioVideo;
 StartupNotify=true
 X-GNOME-Gettext-Domain=snap-photobooth
+
+Actions=AboutDialog;
+
+[Desktop Action AboutDialog]
+Exec=snap-photobooth --about
+Name=About Snap

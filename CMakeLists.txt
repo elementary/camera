@@ -40,7 +40,7 @@ add_definitions(-w) # Disable gcc warnings
 
 # Dependencies
 find_package (PkgConfig)
-set (SNAP_DEPS gee-0.8 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0>=3.10 gdk-x11-3.0 granite gstreamer-1.0 gstreamer-video-1.0 x11 gudev-1.0 zeitgeist-2.0)
+set (SNAP_DEPS gee-0.8 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0>=3.10 gdk-x11-3.0 granite gstreamer-1.0 gstreamer-video-1.0 x11 gudev-1.0 unity zeitgeist-2.0)
 pkg_check_modules (DEPS REQUIRED ${SNAP_DEPS})
 
 set(NORMAL_CFLAGS ${DEPS_CFLAGS})

@@ -14,6 +14,7 @@ vala_precompile(VALA_C
 PACKAGES
     ${SNAP_DEPS}
     posix
+    unity
 OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
