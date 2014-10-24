@@ -21,7 +21,9 @@
 namespace Snap {
 
     public class SnapWindow : Gtk.Window {
-    
+        private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
+        private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
+
         private Snap.SnapApp snap_app;
         
         private Snap.Widgets.Camera camera;
@@ -64,9 +66,6 @@ namespace Snap {
         }
 
         void setup_window () {
-            // Load icons
-            Resources.load_icons ();
-
             // Toolbar
             toolbar = new Gtk.HeaderBar ();
             toolbar.show_close_button = true;
@@ -96,8 +95,9 @@ namespace Snap {
             mode_button = new Granite.Widgets.ModeButton ();
             mode_button.valign = Gtk.Align.CENTER;
             mode_button.halign = Gtk.Align.CENTER;
-            mode_button.append (Resources.PHOTO_ICON_SYMBOLIC.render_image (Gtk.IconSize.SMALL_TOOLBAR));
-            mode_button.append (Resources.VIDEO_ICON_SYMBOLIC.render_image (Gtk.IconSize.SMALL_TOOLBAR));
+
+            mode_button.append (load_toolbar_icon (PHOTO_ICON_SYMBOLIC));
+            mode_button.append (load_toolbar_icon (VIDEO_ICON_SYMBOLIC));
 
             toolbar.pack_end (mode_button);
 
@@ -219,21 +219,21 @@ namespace Snap {
         }
         
         private void set_take_button_icon (Snap.Widgets.Camera.ActionType? type) {
-            if (type == Snap.Widgets.Camera.ActionType.PHOTO) {
-                Gtk.Image? icon = Resources.PHOTO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR);
-                if (icon != null)
-                    take_button.set_image (icon);
-            }
-            else if (type == Snap.Widgets.Camera.ActionType.VIDEO) {
-                Gtk.Image? icon = Resources.VIDEO_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR);
-                if (icon != null)
-                    take_button.set_image (icon);
-            }
-            else {
-                //Gtk.Image? icon = Resources.MEDIA_STOP_ICON_SYMBOLIC.render_image_with_color (Gtk.IconSize.SMALL_TOOLBAR);
-                //if (icon != null)
-                //    take_button.set_image (icon);
-            }
+            string icon_name;
+
+            if (type == Snap.Widgets.Camera.ActionType.PHOTO)
+                icon_name = PHOTO_ICON_SYMBOLIC;
+            else if (type == Snap.Widgets.Camera.ActionType.VIDEO)
+                icon_name = VIDEO_ICON_SYMBOLIC;
+            else
+                assert_not_reached ();
+
+            take_button.set_image (load_toolbar_icon (icon_name));
+        }
+
+        private Gtk.Image load_toolbar_icon (string icon_name) {
+            var icon = new ThemedIcon.with_default_fallbacks (icon_name);
+            return new Gtk.Image.from_gicon (icon, Gtk.IconSize.SMALL_TOOLBAR);
         }
 
         private bool on_key_press_event (Gdk.EventKey ev) {
