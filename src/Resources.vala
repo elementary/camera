@@ -26,35 +26,6 @@ namespace Resources {
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
             border-radius: 400px;
-            background-image: -gtk-gradient (linear,
-                     left top,
-                     left bottom,
-                     from (#e56453),
-                     to (#bb2332));
-
-            -unico-border-gradient: -gtk-gradient (linear,
-                             left top, left bottom,
-                             from (#dd3b27),
-                             to (#791235));
-            -unico-inner-stroke-gradient: -gtk-gradient (linear,
-                             left bottom, left top,
-                             from (alpha (#fff, 0.20)),
-                             color-stop (0.10, alpha (#fff, 0.05)),
-                             color-stop (0.90, alpha (#fff, 0.05)),
-                             to (alpha (#fff, 0.50)));
-        }
-        
-        .take-button:focus {
-            background-image: -gtk-gradient (linear,
-                            left top,
-                            left bottom,
-                            from (#f67564),
-                            to (#cc3443));
-
-            -unico-border-gradient: -gtk-gradient (linear,
-                            left top, left bottom,
-                            from (#dd3b27),
-                            to (#791235));
         }
     """;
 
