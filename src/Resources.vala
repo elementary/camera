@@ -118,23 +118,6 @@ namespace Resources {
     /** Thumbnail providers **/
     public ThumbnailProvider photo_thumb_provider;
     public ThumbnailProvider video_thumb_provider;
-    
-    /** ICONS **/
-
-    public Snap.Icon VIDEO_ICON_SYMBOLIC;
-    public Snap.Icon PHOTO_ICON_SYMBOLIC;
-    public Snap.Icon MEDIA_STOP_ICON_SYMBOLIC;
-    public Snap.Icon EXPORT_ICON;
-    public Snap.Icon MEDIA_VIDEO_ICON;
-
-    public void load_icons () {
-        MEDIA_VIDEO_ICON = new Snap.Icon ("media-video");
-        VIDEO_ICON_SYMBOLIC = new Snap.Icon ("view-list-video-symbolic");
-        PHOTO_ICON_SYMBOLIC = new Snap.Icon ("view-list-images-symbolic");
-        MEDIA_STOP_ICON_SYMBOLIC = new Snap.Icon ("media-playback-stop-symbolic");
-        EXPORT_ICON = new Snap.Icon ("document-export");
-    }
-
 
     /**
      * @param surface_size size of the new pixbuf. Set a value of 0 to use the pixbuf's natural size.
@@ -160,7 +143,6 @@ namespace Resources {
         return buffer_surface.load_to_pixbuf();
     }
 
-    // Some utility methods
     /**
      * Launch a file with its default handler
      */
@@ -172,100 +154,6 @@ namespace Resources {
             handler.launch (list, null);
         } catch (Error err) {
             warning (err.message);
-        }
-    }
-
-    public class Snap.Icon : Object {
-
-        public string name {get; private set;}
-
-        public Icon (string name) {
-            this.name = name;
-        }
-
-        public GLib.Icon get_gicon () {
-            return new GLib.ThemedIcon.with_default_fallbacks (this.name);
-        }
-
-        public Gtk.IconInfo? get_icon_info (int size) {
-            var icon_theme = Gtk.IconTheme.get_default();
-            var lookup_flags = Gtk.IconLookupFlags.GENERIC_FALLBACK;
-            return icon_theme.lookup_by_gicon (get_gicon(), size, lookup_flags);
-        }
-
-        public Gdk.Pixbuf? render (Gtk.IconSize? size, Gtk.StyleContext? context = null, int px_size = 0) {
-            Gdk.Pixbuf? rv = null;
-            int width = 16, height = 16;
-
-            if (size != null) {
-                Gtk.icon_size_lookup (size, out width, out height);
-            }
-            else if (px_size > 0) {
-                width = px_size;
-                height = px_size;
-            }
-
-            try {
-                var icon_info = get_icon_info (height);
-                if (icon_info != null) {
-                    if (context != null)
-                        rv = icon_info.load_symbolic_for_context (context);
-                    else
-                        rv = icon_info.load_icon ();
-                }
-            }
-            catch (Error err) {
-                message (err.message);
-            }
-
-            return rv;
-        }
-        
-        /**
-         *  Get a themed image with a given color
-         **/
-        public Gtk.Image? render_image_with_color (Gtk.IconSize? size, Gdk.RGBA rgba = {1, 1, 1, 1}) {
-            var icon_name_themed = new ThemedIcon (this.name);
-            Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-            Gdk.Pixbuf? pix = null;
-            Gtk.IconInfo icon_test = null;
-
-            try {
-                icon_test = theme.lookup_by_gicon (icon_name_themed, 16, 0);
-                if (icon_test != null) {
-                    pix = icon_test.load_symbolic (rgba);
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
-            
-            var im = new Gtk.Image.from_pixbuf (pix);
-            
-            return im;
-        }
-
-        public Gtk.Image? render_image (Gtk.IconSize? size, Gtk.StyleContext? ctx = null, int px_size = 0) {
-            Gtk.Image? rv = null;
-            int width = 16, height = 16;
-
-            if (size != null) {
-                Gtk.icon_size_lookup (size, out width, out height);
-            }
-            else if (px_size > 0) {
-                width = px_size;
-                height = px_size;
-            }
-
-            if (Gtk.IconTheme.get_default().has_icon (this.name))
-                rv = new Gtk.Image.from_icon_name (this.name, size);
-            else
-                rv = new Gtk.Image.from_pixbuf (this.render (size, ctx));
-
-            // Resize image if necessary
-            if (rv.get_pixel_size () != height)
-                rv.set_pixel_size (height);
-
-            return rv;
         }
     }
 }
