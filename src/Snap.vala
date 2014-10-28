@@ -24,8 +24,18 @@ namespace Snap {
 
     public class SnapApp : Granite.Application {
 
+        /**
+         * Translatable launcher (.desktop) strings to be added to template (.pot) file.
+         * These strings should reflect any changes in these launcher keys in .desktop file
+         */
+        public const string CAMERA = N_("Camera");
+        public const string COMMENT = N_("Take photos and videos with the camera");
+        public const string GENERIC_NAME = N_("Photo Booth");
+        public const string PROGRAM_NAME = "Snap";
+        public const string QUICKLIST_ABOUT_STOCK = N_("About Snap");
+        public const string QUICKLIST_ABOUT_GENERIC = N_("About Camera");
+
         public SnapWindow window = null;
-        static string app_cmd_name;
 
         construct {
 
@@ -35,9 +45,9 @@ namespace Snap {
             build_version = Constants.VERSION;
             build_version_info = Constants.VERSION_INFO;
 
-            program_name = app_cmd_name;
-            exec_name = app_cmd_name.down();
-            app_years = "2011-2012";
+            program_name = PROGRAM_NAME;
+            exec_name = "snap-photobooth";
+            app_years = "2011-2014";
             app_icon = "accessories-camera";
             app_launcher = "snap-photobooth.desktop";
             application_id = "net.launchpad.snap-elementary";
@@ -54,7 +64,7 @@ namespace Snap {
 
         public SnapApp () {
 
-            Granite.Services.Logger.initialize (app_cmd_name);
+            Granite.Services.Logger.initialize ("Snap");
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             settings = new Snap.Services.Settings ();
@@ -74,8 +84,6 @@ namespace Snap {
 
         public static int main (string[] args) {
 
-            app_cmd_name = "Snap";
-            
             Gst.init (ref args);
             
             var app = new SnapApp ();
