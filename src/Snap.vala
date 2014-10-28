@@ -32,7 +32,8 @@ namespace Snap {
         public const string COMMENT = N_("Take photos and videos with the camera");
         public const string GENERIC_NAME = N_("Photo Booth");
         public const string PROGRAM_NAME = "Snap";
-        public string QUICKLIST_ABOUT = N_("About ") + PROGRAM_NAME;
+        public const string QUICKLIST_ABOUT_STOCK = N_("About Snap");
+        public const string QUICKLIST_ABOUT_GENERIC = N_("About Camera");
 
         public SnapWindow window = null;
 
