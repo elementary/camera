@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-10-04 23:53+0200\n"
-"PO-Revision-Date: 2014-10-05 08:14+0000\n"
+"POT-Creation-Date: 2014-10-28 11:16-0500\n"
+"PO-Revision-Date: 2014-10-29 06:47+0000\n"
 "Last-Translator: ProsjektX <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-06 06:45+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
+"X-Generator: Launchpad (build 17203)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -31,14 +31,30 @@ msgstr ""
 "Ditt webkamera har ikke blitt oppdaget. Vennligst verifiser at det er "
 "tilkoblet."
 
-#: ../src/SnapWindow.vala:80
+#: ../src/SnapWindow.vala:79
 msgid "Gallery"
 msgstr "Galleri"
+
+#: ../src/Snap.vala:31
+msgid "Camera"
+msgstr "Kamera"
+
+#: ../src/Snap.vala:32
+msgid "Take photos and videos with the camera"
+msgstr "Ta bilder og videoer med kameraet"
+
+#: ../src/Snap.vala:33 ../src/config.vala:11
+msgid "Photo Booth"
+msgstr "Fotoautomat"
+
+#: ../src/Snap.vala:35
+msgid "About Snap"
+msgstr "Om Snap"
+
+#: ../src/Snap.vala:36
+msgid "About Camera"
+msgstr "Om Kamera"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
 msgstr "Ta bilder med ditt webkamera"
-
-#: ../src/config.vala:11
-msgid "Photo Booth"
-msgstr "Fotoautomat"
