@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-10-17 08:37+0000\n"
+"PO-Revision-Date: 2014-10-29 08:33+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
+"X-Launchpad-Export-Date: 2014-10-30 06:27+0000\n"
 "X-Generator: Launchpad (build 17203)\n"
 
 #: ../src/Widgets/Countdown.vala:62
@@ -36,11 +36,11 @@ msgstr "Galleria"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Ota kuvia ja videoita kamerallasi"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
@@ -48,11 +48,11 @@ msgstr "Kuvauskoppi"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "Tietoja - Snap"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "Tietoja - Kamera"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
