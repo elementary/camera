@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2012-03-13 07:24+0000\n"
-"Last-Translator: Bojan Malinović <Unknown>\n"
+"PO-Revision-Date: 2014-11-11 11:17+0000\n"
+"Last-Translator: Coa_brate <aleksandar.todorovic@mail.ru>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2014-11-12 06:38+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr ""
+msgstr "Čuvam sliku u"
 
 #: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
@@ -28,31 +28,33 @@ msgstr "Snimanje počinje za"
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
+"Detektovanje web kamere nije moguće. Molimo provjerite da li ste je "
+"priključili."
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
-msgstr ""
+msgstr "Galerija"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Fotografišite i snimajte sa kamerom"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
-msgstr ""
+msgstr "Foto štand"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "O Snap programu"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "O Kamera programu"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr ""
+msgstr "Fotografišite pomoću vaše web kamere"
