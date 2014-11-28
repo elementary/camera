@@ -1,16 +1,16 @@
-# Portuguese translation for snap-elementary
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Icelandic translation for snap-elementary
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the snap-elementary package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-11-27 21:50+0000\n"
-"Last-Translator: Pedro Monteiro <Unknown>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
+"PO-Revision-Date: 2014-11-27 18:33+0000\n"
+"Last-Translator: Kristófer Reykjalín Þorláksson <kristoferrt@gmail.com>\n"
+"Language-Team: Icelandic <is@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,41 +19,41 @@ msgstr ""
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr "Foto tirada em"
+msgstr "Tek mynd eftir"
 
 #: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
-msgstr "Gravação começa em"
+msgstr "Upptaka hefst eftir"
 
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
-"A sua webcam não foi detectada. Por favor verifique se está conectada."
+"Finn ekki vefmyndavél. Vinsamlegast athugaðu hvort hún sé í sambandi."
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
-msgstr "Galeria"
+msgstr "Myndasafn"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr "Câmara"
+msgstr "Myndavél"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr "Tirar fotos e gravar vídeos com a câmara"
+msgstr "Taka myndir og vídeó með myndavél"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
-msgstr "Cabine fotográfica"
+msgstr "Myndaklefi"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr "Sobre Câmara"
+msgstr "Um Snap"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr "Sobre Câmara"
+msgstr "Um Myndavél"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Tirar fotos com a sua webcam"
+msgstr "Taktu myndir með vefmyndavélinni þinni"
