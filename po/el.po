@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-08-02 18:42+0000\n"
-"Last-Translator: Jim Spentzos <Unknown>\n"
+"PO-Revision-Date: 2014-12-06 18:34+0000\n"
+"Last-Translator: George Chalkitis <chalkitisge@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2014-12-07 06:03+0000\n"
+"X-Generator: Launchpad (build 17274)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -28,6 +28,8 @@ msgstr "Η εγγραφή αρχίζει σε"
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
+"Η κάμερα σας δεν έχει εντοπιστεί. Παρακαλούμε βεβαιωθείτε ότι είναι "
+"συνδεδεμένη."
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
@@ -35,11 +37,11 @@ msgstr "Συλλογή"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "Κάμερα"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Τραβήξτε φωτογραφίες και Βίντεο με την κάμερα."
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
@@ -47,12 +49,12 @@ msgstr "Θάλαμος Φωτογραφιών"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "Σχετικά με το Snap"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "Σχετικά με το Camera"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Λήψη φωτογραφιών μέσω της web cam σας"
+msgstr "Λήψη φωτογραφιών μέσω της web κάμερά σας"
