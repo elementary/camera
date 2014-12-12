@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-10-12 10:48+0000\n"
-"Last-Translator: Yennefer of Vengerberg <Unknown>\n"
+"PO-Revision-Date: 2014-12-11 16:17+0000\n"
+"Last-Translator: ITPROJECTS <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2014-12-12 06:28+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -36,11 +36,11 @@ msgstr "Галерия"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "Фотоапарат"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Направи снимки и филмчета с фотоапарата"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
@@ -48,11 +48,11 @@ msgstr "Будка за снимки"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "Относно Снап"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "Относно Фотоапарат"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
