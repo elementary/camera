@@ -236,7 +236,7 @@ namespace Snap {
             else if (type == Snap.Widgets.Camera.ActionType.CAPTURING)
                 icon_name = STOP_ICON;
             else
-                return;
+                assert_not_reached();
 
             take_button.set_image (load_toolbar_icon (icon_name));
         }
