@@ -23,7 +23,7 @@ namespace Snap {
     public class SnapWindow : Gtk.Window {
         private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
         private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
-        private const string STOP_ICON = "media-playback-stop";
+        private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
         private Snap.SnapApp snap_app;
         
@@ -234,7 +234,7 @@ namespace Snap {
             else if (type == Snap.Widgets.Camera.ActionType.VIDEO)
                 icon_name = VIDEO_ICON_SYMBOLIC;
             else if (type == Snap.Widgets.Camera.ActionType.CAPTURING)
-                icon_name = STOP_ICON;
+                icon_name = STOP_ICON_SYMBOLIC;
             else
                 assert_not_reached();
 
