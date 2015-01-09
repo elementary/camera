@@ -60,6 +60,8 @@ namespace Resources {
 
         string dir = GLib.Environment.get_user_special_dir (user_dir);
         
+        debug (dir+"is location");
+
         return GLib.Path.build_path ("/", dir, "Webcam");
     }
 

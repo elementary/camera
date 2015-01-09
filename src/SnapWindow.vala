@@ -23,6 +23,7 @@ namespace Snap {
     public class SnapWindow : Gtk.Window {
         private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
         private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
+        private const string STOP_ICON = "media-playback-stop";
 
         private Snap.SnapApp snap_app;
         
@@ -121,8 +122,15 @@ namespace Snap {
                 }
                 if (!this.camera.get_capturing ()) {
                     this.camera.take_start ();
+                    if (this.camera.get_action_type() == Widgets.Camera.ActionType.VIDEO) {
+                        set_take_button_icon (Snap.Widgets.Camera.ActionType.CAPTURING);
+                    }
+                    
                 } else {
                     this.camera.take_stop ();
+                    if (this.camera.get_action_type() == Widgets.Camera.ActionType.VIDEO) {
+                        set_take_button_icon (Snap.Widgets.Camera.ActionType.VIDEO);
+                    }
                 }
             });
             take_button.set_sensitive (camera_detected);
@@ -149,7 +157,7 @@ namespace Snap {
                 // Disable uneeded buttons
                 gallery_button.sensitive = false;
                 this.mode_button.sensitive = false;
-                this.set_take_button_icon (null);
+                this.set_take_button_icon (Snap.Widgets.Camera.ActionType.CAPTURING);
             });
             this.camera.capture_stop.connect (() => {
                 // Enable extra buttons
@@ -209,7 +217,7 @@ namespace Snap {
         }
         
         private void on_mode_changed () {
-            var type = (mode_button.selected == 0) ? 
+            var type = (mode_button.selected == 0) ?
                 Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO; 
 
             Snap.settings.mode = type;
@@ -220,13 +228,15 @@ namespace Snap {
         
         private void set_take_button_icon (Snap.Widgets.Camera.ActionType? type) {
             string icon_name;
-
+            
             if (type == Snap.Widgets.Camera.ActionType.PHOTO)
                 icon_name = PHOTO_ICON_SYMBOLIC;
             else if (type == Snap.Widgets.Camera.ActionType.VIDEO)
                 icon_name = VIDEO_ICON_SYMBOLIC;
+            else if (type == Snap.Widgets.Camera.ActionType.CAPTURING)
+                icon_name = STOP_ICON;
             else
-                assert_not_reached ();
+                return;
 
             take_button.set_image (load_toolbar_icon (icon_name));
         }
