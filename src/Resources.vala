@@ -59,7 +59,6 @@ namespace Resources {
             user_dir = UserDirectory.VIDEOS;
 
         string dir = GLib.Environment.get_user_special_dir (user_dir);
-        
         return GLib.Path.build_path ("/", dir, "Webcam");
     }
 

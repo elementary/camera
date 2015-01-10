@@ -24,7 +24,8 @@ namespace Snap.Widgets {
 
         public enum ActionType {
             PHOTO = 0,
-            VIDEO;
+            VIDEO,
+            CAPTURING;
         }
 
         public static const int WIDTH = 640;
@@ -75,6 +76,7 @@ namespace Snap.Widgets {
          * Change the camera recording type (switch between Video or Photo mode)
          */
         public void set_action_type (ActionType type) {
+            debug ("mode changed");
             this.type = type;
         }
        
@@ -101,7 +103,6 @@ namespace Snap.Widgets {
             this.capture_start ();
 
             string location = Resources.get_new_media_filename (this.type);
-
             // "(int) this.type + 1" is here because GST developers used mode 1 for photos
             // and mode 2 for videos (can't understand why not 0 and 1)
             this.camerabin.set_property ("mode", (int) this.type + 1);
