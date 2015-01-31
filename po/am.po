@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-03-26 15:29+0000\n"
+"PO-Revision-Date: 2015-01-31 01:45+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2015-01-31 06:11+0000\n"
+"X-Generator: Launchpad (build 17306)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -27,7 +27,7 @@ msgstr "መቅረጽ የሚጀምረው በ"
 
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
-msgstr ""
+msgstr "የ እርስዎን ውሥብ ካሜራ ማግኘት አልተቻለም: እባክዎን በትክክል መሰካቱን ያረጋግጡ"
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
@@ -35,11 +35,11 @@ msgstr "አዳራሽ"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "ካሜራ"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "በ ካሜራ ፎቶዎች እና ቪዲዮዎች ይቅረጹ"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
@@ -47,11 +47,11 @@ msgstr "ፎቶ ማሳያ"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "ስለ ስናፕ"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "ስለ ካሜራ"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
