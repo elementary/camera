@@ -3,38 +3,38 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-10-05 03:03+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-02-10 17:58+0000\n"
+"Last-Translator: macghivo <macghivo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-29 07:18+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2015-02-11 06:18+0000\n"
+"X-Generator: Launchpad (build 17336)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr ""
+msgstr "Foto maachen an"
 
 #: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
-msgstr ""
+msgstr "Opnam ufänken an"
 
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
-msgstr ""
+msgstr "Webcam ass net fonnt gin, schleist wann ech gelift eing un."
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
-msgstr ""
+msgstr "Galerie"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Fotoen an opnamen mat der Kamera maachen"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
@@ -42,12 +42,12 @@ msgstr ""
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "Iwer Snap"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "Iwer Kamera"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr ""
+msgstr "Fotoen maachen mat denger web cam"
