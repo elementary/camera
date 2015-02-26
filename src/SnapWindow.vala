@@ -52,17 +52,19 @@ namespace Snap {
             this.set_size_request (640, 480);
             this.resizable = false;
 
-            // Init thumbnail providers
+            // Get paths
             photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
             video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
-            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
-            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
 
             // camera
             camera_detected = this.detect_camera ();
 
             // Setup UI
             setup_window ();
+
+            // Init thumbnail providers
+            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path, camera.video_width / 4, camera.video_height / 4);
+            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path, camera.video_width / 4, camera.video_height / 4);
         }
 
         void setup_window () {

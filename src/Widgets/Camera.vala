@@ -26,8 +26,8 @@ namespace Snap.Widgets {
             CAPTURING;
         }
 
-        public static const int WIDTH = 640;
-        public static const int HEIGHT = 480;
+        public uint video_width = 640;
+        public uint video_height = 480;
 
         private ActionType type;
 
@@ -40,8 +40,6 @@ namespace Snap.Widgets {
         public signal void capture_stop ();
 
         public class Camera () {
-            this.set_size_request (WIDTH, HEIGHT); // FIXME
-
             this.videoflip = Gst.ElementFactory.make ("videoflip", "videoflip");
             this.videoflip.set_property ("method", 4);
 
@@ -54,7 +52,7 @@ namespace Snap.Widgets {
                 return true;
             });
 
-            var preview_caps = Gst.Caps.from_string ("video/x-raw, format=\"rgb\", width = (int) %d, height = (int) %d".printf (WIDTH, HEIGHT));
+            var preview_caps = Gst.Caps.from_string ("video/x-raw, format=\"rgb\"");
             this.camerabin.set_property ("preview-caps", preview_caps);
 
             // Workaround to fix a CSD releated bug.
@@ -64,6 +62,23 @@ namespace Snap.Widgets {
             if (visual != null)
                 this.set_visual (visual);
             // workaround END
+
+            try {
+                var info = new Gst.PbUtils.Discoverer (10 * Gst.SECOND).discover_uri ("v4l2:///dev/video0"); // FIXME
+                var video = info.get_video_streams ();
+
+                if (video != null && video.data != null) {
+                    var video_info = (Gst.PbUtils.DiscovererVideoInfo)video.data;
+
+                    video_width = video_info.get_width ();
+                    video_height = video_info.get_height ();
+                }
+
+print(video_width.to_string() + "\n"); // TODO: Use the size
+print(video_height.to_string() + "\n");
+            } catch (Error e) {
+                // TODO
+            }
 
             this.show_all ();
             this.play ();
