@@ -20,14 +20,13 @@ Authors :   Artem Anufrij <artem.anufrij@live.de>
 namespace Snap.Widgets {
 
     public class NoCamera : Gtk.ScrolledWindow {
-        
         Gtk.Label no_camera_label;
-        
+
         public class NoCamera () {
             no_camera_label = new Gtk.Label ("");
             no_camera_label.set_markup ("<span color='gray'>%s</span>".printf(_("Your webcam has not been detected. Please be sure you plugged it in.")));
             this.add (no_camera_label);
             this.show_all ();
-        }       
+        }
     }
 }

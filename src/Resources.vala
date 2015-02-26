@@ -22,7 +22,6 @@ using Snap.Widgets;
 using Snap.Services;
 
 namespace Resources {
-
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
             border-radius: 400px;
@@ -97,23 +96,23 @@ namespace Resources {
         } else {
             new_filename += "." + ext;
         }
-        
+
         string media_dir = get_media_dir (type);
         if (!FileUtils.test (media_dir, FileTest.EXISTS))
             DirUtils.create (media_dir, 0777);
-        
+
         return GLib.Path.build_filename (Path.DIR_SEPARATOR_S, media_dir, new_filename);
     }
-    
+
     /**
      * @return a valid photo/video uri.
      */
-    public string build_uri_from_filename (string filename) {        
+    public string build_uri_from_filename (string filename) {
         var file = File.new_for_path (filename);
-        
+
         return file.get_uri ();
     }
-    
+
     /** Thumbnail providers **/
     public ThumbnailProvider photo_thumb_provider;
     public ThumbnailProvider video_thumb_provider;
@@ -123,7 +122,6 @@ namespace Resources {
      **/
     public Gdk.Pixbuf get_pixbuf_shadow (Gdk.Pixbuf pixbuf, int surface_size,
                                           int shadow_size = 5, double alpha = 0.8) {
-
         int S_WIDTH = (surface_size > 0)? surface_size : pixbuf.width;
         int S_HEIGHT = (surface_size > 0)? surface_size : pixbuf.height;
 

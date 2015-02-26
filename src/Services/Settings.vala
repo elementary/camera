@@ -20,9 +20,7 @@
 
 
 namespace Snap.Services {
-
     public class Settings : Granite.Services.Settings {
-
         public string bg_color { get; set; }
         public bool countdown { get; set; }
         public int countdown_time { get; set; }
@@ -31,7 +29,5 @@ namespace Snap.Services {
         public Settings ()  {
             base ("org.pantheon.snap.settings");
         }
-
     }
-
 }

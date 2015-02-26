@@ -66,7 +66,6 @@ namespace Snap.Widgets {
             media_text = media_text.replace ("&", "&amp;");
 
             title_label.label = "<span size='20000' color='#fbfbfb'>" + media_text + "</span>";
-
         }
 
         public override bool draw (Cairo.Context ctx) {
