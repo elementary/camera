@@ -64,7 +64,7 @@ namespace Snap.Widgets {
             // workaround END
 
             try {
-                var info = new Gst.PbUtils.Discoverer (10 * Gst.SECOND).discover_uri ("v4l2:///dev/video0"); // FIXME
+                var info = new Gst.PbUtils.Discoverer (10 * Gst.SECOND).discover_uri ("v4l2:///dev/video0");
                 var video = info.get_video_streams ();
 
                 if (video != null && video.data != null) {
@@ -74,12 +74,26 @@ namespace Snap.Widgets {
                     video_height = video_info.get_height ();
                 }
 
-print(video_width.to_string() + "\n"); // TODO: Use the size
-print(video_height.to_string() + "\n");
+                var current_screen = this.get_screen ();
+                var screen_width = current_screen.get_width ();
+                var screen_height = current_screen.get_height ();
+
+                if (video_width >= screen_width * 0.8 || video_height >= screen_height * 0.8) {
+                    if ((float)screen_width / video_width < (float)screen_height / video_height) {
+                        var new_video_width = (int)(screen_width * 0.8);
+                        video_height = (int)(((float)new_video_width / video_width) * video_height);
+                        video_width = new_video_width;
+                    } else {
+                        var new_video_height = (int)(screen_height * 0.8);
+                        video_width = (int)(((float)new_video_height / video_height) * video_width);
+                        video_height = new_video_height;
+                    }
+                }
             } catch (Error e) {
-                // TODO
+                debug ("Getting the video-size failed: %s", e.message);
             }
 
+            this.set_size_request ((int)video_width, (int)video_height);
             this.show_all ();
             this.play ();
         }

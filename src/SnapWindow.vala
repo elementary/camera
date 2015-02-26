@@ -47,7 +47,6 @@ namespace Snap {
             this.set_application (this.snap_app);
 
             this.title = "Snap";
-            this.window_position = Gtk.WindowPosition.CENTER;
             this.icon_name = "snap-photobooth";
             this.set_size_request (640, 480);
             this.resizable = false;
@@ -65,6 +64,9 @@ namespace Snap {
             // Init thumbnail providers
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path, camera.video_width / 4, camera.video_height / 4);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path, camera.video_width / 4, camera.video_height / 4);
+
+            // Set the window position
+            this.window_position = Gtk.WindowPosition.CENTER;
         }
 
         void setup_window () {
