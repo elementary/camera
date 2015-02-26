@@ -24,7 +24,7 @@ namespace Snap.Services {
         public Gdk.Pixbuf pixbuf { get; protected set; }
         public bool is_temp { get; public set; }
         public File temp_file { get; public set; }
-        
+
         public Thumbnail (File file, Gdk.Pixbuf pixbuf) {
             this.file = file;
             this.pixbuf = pixbuf;
@@ -35,12 +35,12 @@ namespace Snap.Services {
         private File path;
         private Gee.Set<Thumbnail> cache;
         private int temp_thumb;
-        
+
         public static const int THUMB_WIDTH = Widgets.Camera.WIDTH / 4;
         public static const int THUMB_HEIGHT = Widgets.Camera.HEIGHT / 4;
-        
+
         public signal void thumbnail_loaded (Thumbnail thumbnail);
-        
+
         /**
          * Creates a new object of time ThumbnailProvider. This type of objects are used
          * to obtain thumbnails for files in a specific path
@@ -51,7 +51,7 @@ namespace Snap.Services {
             this.cache = new Gee.TreeSet<Thumbnail> ();
             this.temp_thumb = 0;
         }
-        
+
         /**
          * Asynchronously load thumbnails and add them in a Gee.TreeSet object. The thumbnail_loaded
          * is emitted whenever a new Thumbnail is fully loaded
@@ -79,7 +79,7 @@ namespace Snap.Services {
                 warning ("Error: parse_thumbs failed: %s", err.message);
             }
         }
-        
+
         private Thumbnail? get_thumbnail (File file) {
             Thumbnail? thumb = null;
             try {
@@ -93,13 +93,13 @@ namespace Snap.Services {
             } catch (Error err) {
                 warning ("Error: get_thumbnail failed: %s", err.message);
             }
-            
+
             if (thumb == null) {
                 // Try to obtain the thumbnail with ffmpegthumbnailer
                 try {
                     string tmp_path = GLib.Environment.get_tmp_dir ();
                     string out_path = tmp_path + "/temp" + this.temp_thumb.to_string () + ".png";
-                    string[] spawn_args = {"ffmpegthumbnailer", 
+                    string[] spawn_args = {"ffmpegthumbnailer",
                                             "-i", file.get_path (), // Input file
                                             "-o", out_path, // Output file
                                             "-c", "png",
@@ -135,7 +135,7 @@ namespace Snap.Services {
             }
             return thumb;
         }
-        
+
         /**
          * Execute this method on quitting to clean temp cache
          */

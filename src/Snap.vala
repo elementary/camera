@@ -19,11 +19,9 @@
 ***/
 
 namespace Snap {
-
     public Snap.Services.Settings settings;
 
     public class SnapApp : Granite.Application {
-
         /**
          * Translatable launcher (.desktop) strings to be added to template (.pot) file.
          * These strings should reflect any changes in these launcher keys in .desktop file
@@ -38,7 +36,6 @@ namespace Snap {
         public SnapWindow window = null;
 
         construct {
-
             build_data_dir = Constants.DATADIR;
             build_pkg_data_dir = Constants.PKGDATADIR;
             build_release_name = Constants.RELEASE_NAME;
@@ -59,11 +56,9 @@ namespace Snap {
             about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
             about_translators = "Launchpad Translators";
             about_license_type = Gtk.License.GPL_3_0;
-
         }
 
         public SnapApp () {
-
             Granite.Services.Logger.initialize ("Snap");
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
@@ -71,7 +66,6 @@ namespace Snap {
         }
 
         protected override void activate () {
-
             if (get_windows () == null) {
                 window = new SnapWindow (this);
                 window.show ();
@@ -79,18 +73,14 @@ namespace Snap {
             else {
                 window.present ();
             }
-   
         }
 
         public static int main (string[] args) {
-
             Gst.init (ref args);
-            
+
             var app = new SnapApp ();
 
             return app.run (args);
-
         }
-
     }
 }

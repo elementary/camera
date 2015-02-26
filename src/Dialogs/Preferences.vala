@@ -19,9 +19,7 @@
 ***/
 
 namespace Snap.Dialogs {
-
     public class Preferences : Gtk.Dialog {
-
         public Preferences (string? title, SnapWindow? window) {
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
@@ -29,6 +27,5 @@ namespace Snap.Dialogs {
             set_default_size (300, 200);
             modal = true;
         }
-
     }
 }

@@ -26,7 +26,7 @@ namespace Snap {
         private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
         private Snap.SnapApp snap_app;
-        
+
         private Snap.Widgets.Camera camera;
         private Snap.Widgets.Gallery gallery;
         private Snap.Widgets.NoCamera no_camera;
@@ -43,10 +43,9 @@ namespace Snap {
         private bool camera_detected;
 
         public SnapWindow (Snap.SnapApp snap_app) {
-
             this.snap_app = snap_app;
             this.set_application (this.snap_app);
-            
+
             this.title = "Snap";
             this.window_position = Gtk.WindowPosition.CENTER;
             this.icon_name = "snap-photobooth";
@@ -89,9 +88,9 @@ namespace Snap {
                 }
             });
             gallery_button_box.pack_start (gallery_button, true, true, 0);
-            
+
             toolbar.pack_start (gallery_button_box);
-            
+
             // Mode switcher
             mode_button = new Granite.Widgets.ModeButton ();
             mode_button.valign = Gtk.Align.CENTER;
@@ -115,7 +114,7 @@ namespace Snap {
             take_button.get_style_context ().add_class ("take-button");
             take_button.get_style_context ().add_class ("destructive-action");
             take_button.get_style_context ().add_class ("raised");
-            take_button.clicked.connect (() => { 
+            take_button.clicked.connect (() => {
                 if (this.stack.get_visible_child () != this.camera) {
                     gallery_button.set_active (false);
                     return;
@@ -125,7 +124,7 @@ namespace Snap {
                     if (this.camera.get_action_type() == Widgets.Camera.ActionType.VIDEO) {
                         set_take_button_icon (Snap.Widgets.Camera.ActionType.CAPTURING);
                     }
-                    
+
                 } else {
                     this.camera.take_stop ();
                     if (this.camera.get_action_type() == Widgets.Camera.ActionType.VIDEO) {
@@ -134,7 +133,7 @@ namespace Snap {
                 }
             });
             take_button.set_sensitive (camera_detected);
-            
+
             var take_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
             take_button_box.set_spacing (4);
             take_button_box.set_layout (Gtk.ButtonBoxStyle.START);
@@ -144,13 +143,13 @@ namespace Snap {
             take_button.set_size_request (54, -1);
 
             toolbar.set_custom_title (take_button_box);
-            
+
             // Setup NoCamera widget
             this.no_camera = new Snap.Widgets.NoCamera ();
-            
+
             // Setup gallery widget
             this.gallery = new Snap.Widgets.Gallery ();
-            
+
             // Setup preview area
             this.camera = new Snap.Widgets.Camera ();
             this.camera.capture_start.connect (() => {
@@ -176,7 +175,7 @@ namespace Snap {
                 this.stack.set_visible_child (this.camera); // Show camera on launch
             else
                 this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
-                
+
             // Statusbar
             statusbar = new Gtk.Statusbar ();
 
@@ -188,9 +187,8 @@ namespace Snap {
 
             this.add (this.stack);
             this.show_all ();
-            
         }
-        
+
         private bool detect_camera () {
             try {
                 var video_devices = File.new_for_path ("/dev/.");
@@ -201,34 +199,34 @@ namespace Snap {
                         debug ("camera found: %s", info.get_name ());
                         return true;
                     }
-                }                
+                }
             } catch (Error err) {
                 debug ("camera detection failed: %s", err.message);
             }
-           
+
             debug ("no camera");
             return false;
         }
-        
+
         protected override bool delete_event (Gdk.EventAny event) {
             Resources.photo_thumb_provider.clear_cache ();
             Resources.video_thumb_provider.clear_cache ();
             return false;
         }
-        
+
         private void on_mode_changed () {
             var type = (mode_button.selected == 0) ?
-                Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO; 
+                Snap.Widgets.Camera.ActionType.PHOTO : Snap.Widgets.Camera.ActionType.VIDEO;
 
             Snap.settings.mode = type;
 
             this.camera.set_action_type (type);
             this.set_take_button_icon (type);
         }
-        
+
         private void set_take_button_icon (Snap.Widgets.Camera.ActionType? type) {
             string icon_name;
-            
+
             if (type == Snap.Widgets.Camera.ActionType.PHOTO)
                 icon_name = PHOTO_ICON_SYMBOLIC;
             else if (type == Snap.Widgets.Camera.ActionType.VIDEO)
@@ -253,31 +251,30 @@ namespace Snap {
 
             return false;
         }
-        
+
         private void lock_camera_actions () {
             this.mode_button.set_sensitive (false);
         }
-        
+
         private void unlock_camera_actions () {
             this.mode_button.set_sensitive (true);
         }
-        
+
         private void load_thumbnails () {
             this.gallery.clear_view ();
             Resources.photo_thumb_provider.parse_thumbs.begin ();
             Resources.video_thumb_provider.parse_thumbs.begin ();
         }
-        
+
         private void show_gallery () {
             if (camera_detected) {
-                this.camera.stop ();                
+                this.camera.stop ();
             }
             this.lock_camera_actions ();
             this.stack.set_visible_child (this.gallery);
         }
-        
+
         private void show_camera () {
-            
             if (camera_detected) {
                 this.stack.set_visible_child (this.camera); // Show camera on launch
                 this.camera.play ();
@@ -285,16 +282,16 @@ namespace Snap {
             }
             else {
                 this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
-            }                
+            }
         }
 
         private bool gallery_files_exists () {
             FileInfo file_info;
-            
+
             try {
                 FileEnumerator enumerator_photo = photo_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
                 FileEnumerator enumerator_video = video_path.enumerate_children (FileAttribute.STANDARD_NAME, 0);
-                
+
                 if ((file_info = enumerator_photo.next_file ()) != null ||
                     (file_info = enumerator_video.next_file ()) != null) {
                     // Gallery is not empty
@@ -303,7 +300,7 @@ namespace Snap {
             } catch (Error perr) {
                     warning ("Error: check_gallery_files photo failed: %s", perr.message);
             }
-                        
+
             // Gallery is empty, button may be disabled
             return false;
         }
