@@ -63,9 +63,13 @@ namespace Snap {
             // Setup the camera
             this.camera = new Snap.Widgets.Camera (camera_uri);
 
+            // Calculate thumbnail sizes
+            var thumb_width = (camera.video_width - 19) / 4 - 18; // 19 = scrollbar_width + 2 * margin; 4 = row-count; 18 = 2 * item_padding + column_spacing
+            var thumb_height = (int)(((float)thumb_width / camera.video_width) * camera.video_height);
+
             // Init thumbnail providers
-            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path, camera.video_width / 4, camera.video_height / 4);
-            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path, camera.video_width / 4, camera.video_height / 4);
+            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path, thumb_width, thumb_height);
+            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path, thumb_width, thumb_height);
 
             // Setup UI
             setup_window ();
