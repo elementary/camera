@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2015-02-16 17:50+0000\n"
+"PO-Revision-Date: 2015-02-26 16:28+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-17 06:17+0000\n"
-"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-27 05:44+0000\n"
+"X-Generator: Launchpad (build 17361)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr ""
+msgstr "Marrja e fotove në"
 
 #: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
@@ -39,7 +39,7 @@ msgstr "Kamera"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Bëj foto dhe video me kamerën"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
