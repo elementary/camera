@@ -39,7 +39,7 @@ namespace Snap.Widgets {
         public signal void capture_start ();
         public signal void capture_stop ();
 
-        public class Camera () {
+        public class Camera (string camera_uri) {
             this.videoflip = Gst.ElementFactory.make ("videoflip", "videoflip");
             this.videoflip.set_property ("method", 4);
 
@@ -64,7 +64,7 @@ namespace Snap.Widgets {
             // workaround END
 
             try {
-                var info = new Gst.PbUtils.Discoverer (10 * Gst.SECOND).discover_uri ("v4l2:///dev/video0");
+                var info = new Gst.PbUtils.Discoverer (10 * Gst.SECOND).discover_uri (camera_uri);
                 var video = info.get_video_streams ();
 
                 if (video != null && video.data != null) {

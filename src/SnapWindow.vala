@@ -41,6 +41,7 @@ namespace Snap {
         private File video_path;
 
         private bool camera_detected;
+        private string camera_uri;
 
         public SnapWindow (Snap.SnapApp snap_app) {
             this.snap_app = snap_app;
@@ -56,7 +57,8 @@ namespace Snap {
             video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
 
             // camera
-            camera_detected = this.detect_camera ();
+            camera_uri = this.detect_camera ();
+            camera_detected = camera_uri != "";
 
             // Setup UI
             setup_window ();
@@ -155,7 +157,7 @@ namespace Snap {
             this.gallery = new Snap.Widgets.Gallery ();
 
             // Setup preview area
-            this.camera = new Snap.Widgets.Camera ();
+            this.camera = new Snap.Widgets.Camera (camera_uri);
             this.camera.capture_start.connect (() => {
                 // Disable uneeded buttons
                 gallery_button.sensitive = false;
@@ -193,7 +195,7 @@ namespace Snap {
             this.show_all ();
         }
 
-        private bool detect_camera () {
+        private string detect_camera () {
             try {
                 var video_devices = File.new_for_path ("/dev/.");
                 FileEnumerator enumerator = video_devices.enumerate_children (FileAttribute.STANDARD_NAME, 0);
@@ -201,7 +203,7 @@ namespace Snap {
                 while ((info = enumerator.next_file (null)) != null) {
                     if (info.get_name ().has_prefix ("video")){
                         debug ("camera found: %s", info.get_name ());
-                        return true;
+                        return "v4l2:///dev/%s".printf (info.get_name ());
                     }
                 }
             } catch (Error err) {
@@ -209,7 +211,7 @@ namespace Snap {
             }
 
             debug ("no camera");
-            return false;
+            return "";
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
