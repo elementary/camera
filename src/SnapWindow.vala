@@ -60,12 +60,15 @@ namespace Snap {
             camera_uri = this.detect_camera ();
             camera_detected = camera_uri != "";
 
-            // Setup UI
-            setup_window ();
+            // Setup the camera
+            this.camera = new Snap.Widgets.Camera (camera_uri);
 
             // Init thumbnail providers
             Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path, camera.video_width / 4, camera.video_height / 4);
             Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path, camera.video_width / 4, camera.video_height / 4);
+
+            // Setup UI
+            setup_window ();
 
             // Set the window position
             this.window_position = Gtk.WindowPosition.CENTER;
@@ -157,7 +160,6 @@ namespace Snap {
             this.gallery = new Snap.Widgets.Gallery ();
 
             // Setup preview area
-            this.camera = new Snap.Widgets.Camera (camera_uri);
             this.camera.capture_start.connect (() => {
                 // Disable uneeded buttons
                 gallery_button.sensitive = false;
