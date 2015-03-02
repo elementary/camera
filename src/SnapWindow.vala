@@ -50,7 +50,6 @@ namespace Snap {
             this.title = "Snap";
             this.icon_name = "snap-photobooth";
             this.set_size_request (640, 480);
-            this.resizable = false;
 
             // Get paths
             photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));

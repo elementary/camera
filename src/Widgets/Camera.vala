@@ -26,6 +26,8 @@ namespace Snap.Widgets {
             CAPTURING;
         }
 
+        private const double PERCENTAGE_SCREEN = 0.6;
+
         public uint video_width = 640;
         public uint video_height = 480;
 
@@ -78,13 +80,13 @@ namespace Snap.Widgets {
                 var screen_width = current_screen.get_width ();
                 var screen_height = current_screen.get_height ();
 
-                if (video_width >= screen_width * 0.8 || video_height >= screen_height * 0.8) {
+                if (video_width >= screen_width * PERCENTAGE_SCREEN || video_height >= screen_height * PERCENTAGE_SCREEN) {
                     if ((float)screen_width / video_width < (float)screen_height / video_height) {
-                        var new_video_width = (int)(screen_width * 0.8);
+                        var new_video_width = (int)(screen_width * PERCENTAGE_SCREEN);
                         video_height = (int)(((float)new_video_width / video_width) * video_height);
                         video_width = new_video_width;
                     } else {
-                        var new_video_height = (int)(screen_height * 0.8);
+                        var new_video_height = (int)(screen_height * PERCENTAGE_SCREEN);
                         video_width = (int)(((float)new_video_height / video_height) * video_width);
                         video_height = new_video_height;
                     }
