@@ -44,7 +44,7 @@ namespace Snap {
 
             program_name = PROGRAM_NAME;
             exec_name = "snap-photobooth";
-            app_years = "2011-2014";
+            app_years = "2011-2015";
             app_icon = "accessories-camera";
             app_launcher = "snap-photobooth.desktop";
             application_id = "net.launchpad.snap-elementary";
