@@ -99,6 +99,7 @@ namespace Snap {
             mode_button.append (load_toolbar_icon (PHOTO_ICON_SYMBOLIC));
             mode_button.append (load_toolbar_icon (VIDEO_ICON_SYMBOLIC));
 
+            // Hide video mode until fixed https://bugs.launchpad.net/snap-elementary/+bug/1374072
             //toolbar.pack_end (mode_button);
 
             var take_button_style = new Gtk.CssProvider ();
