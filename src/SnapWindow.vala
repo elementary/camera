@@ -99,7 +99,7 @@ namespace Snap {
             mode_button.append (load_toolbar_icon (PHOTO_ICON_SYMBOLIC));
             mode_button.append (load_toolbar_icon (VIDEO_ICON_SYMBOLIC));
 
-            toolbar.pack_end (mode_button);
+            //toolbar.pack_end (mode_button);
 
             var take_button_style = new Gtk.CssProvider ();
             try {
