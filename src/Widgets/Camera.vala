@@ -26,8 +26,10 @@ namespace Snap.Widgets {
             CAPTURING;
         }
 
-        public static const int WIDTH = 640;
-        public static const int HEIGHT = 480;
+        private const double PERCENTAGE_SCREEN = 0.6;
+
+        public uint video_width = 640;
+        public uint video_height = 480;
 
         private ActionType type;
 
@@ -39,9 +41,7 @@ namespace Snap.Widgets {
         public signal void capture_start ();
         public signal void capture_stop ();
 
-        public class Camera () {
-            this.set_size_request (WIDTH, HEIGHT); // FIXME
-
+        public class Camera (string camera_uri) {
             this.videoflip = Gst.ElementFactory.make ("videoflip", "videoflip");
             this.videoflip.set_property ("method", 4);
 
@@ -54,7 +54,7 @@ namespace Snap.Widgets {
                 return true;
             });
 
-            var preview_caps = Gst.Caps.from_string ("video/x-raw, format=\"rgb\", width = (int) %d, height = (int) %d".printf (WIDTH, HEIGHT));
+            var preview_caps = Gst.Caps.from_string ("video/x-raw, format=\"rgb\"");
             this.camerabin.set_property ("preview-caps", preview_caps);
 
             // Workaround to fix a CSD releated bug.
@@ -65,6 +65,37 @@ namespace Snap.Widgets {
                 this.set_visual (visual);
             // workaround END
 
+            try {
+                var info = new Gst.PbUtils.Discoverer (10 * Gst.SECOND).discover_uri (camera_uri);
+                var video = info.get_video_streams ();
+
+                if (video != null && video.data != null) {
+                    var video_info = (Gst.PbUtils.DiscovererVideoInfo)video.data;
+
+                    video_width = video_info.get_width ();
+                    video_height = video_info.get_height ();
+                }
+
+                var current_screen = this.get_screen ();
+                var screen_width = current_screen.get_width ();
+                var screen_height = current_screen.get_height ();
+
+                if (video_width >= screen_width * PERCENTAGE_SCREEN || video_height >= screen_height * PERCENTAGE_SCREEN) {
+                    if ((float)screen_width / video_width < (float)screen_height / video_height) {
+                        var new_video_width = (int)(screen_width * PERCENTAGE_SCREEN);
+                        video_height = (int)(((float)new_video_width / video_width) * video_height);
+                        video_width = new_video_width;
+                    } else {
+                        var new_video_height = (int)(screen_height * PERCENTAGE_SCREEN);
+                        video_width = (int)(((float)new_video_height / video_height) * video_width);
+                        video_height = new_video_height;
+                    }
+                }
+            } catch (Error e) {
+                debug ("Getting the video-size failed: %s", e.message);
+            }
+
+            this.set_size_request ((int)video_width, (int)video_height);
             this.show_all ();
             this.play ();
         }

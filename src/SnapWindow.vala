@@ -41,28 +41,40 @@ namespace Snap {
         private File video_path;
 
         private bool camera_detected;
+        private string camera_uri;
 
         public SnapWindow (Snap.SnapApp snap_app) {
             this.snap_app = snap_app;
             this.set_application (this.snap_app);
 
             this.title = "Snap";
-            this.window_position = Gtk.WindowPosition.CENTER;
             this.icon_name = "snap-photobooth";
             this.set_size_request (640, 480);
-            this.resizable = false;
 
-            // Init thumbnail providers
+            // Get paths
             photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
             video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
-            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path);
-            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path);
 
             // camera
-            camera_detected = this.detect_camera ();
+            camera_uri = this.detect_camera ();
+            camera_detected = camera_uri != "";
+
+            // Setup the camera
+            this.camera = new Snap.Widgets.Camera (camera_uri);
+
+            // Calculate thumbnail sizes
+            var thumb_width = (camera.video_width - 19) / 4 - 18; // 19 = scrollbar_width + 2 * margin; 4 = row-count; 18 = 2 * item_padding + column_spacing
+            var thumb_height = (int)(((float)thumb_width / camera.video_width) * camera.video_height);
+
+            // Init thumbnail providers
+            Resources.photo_thumb_provider = new Services.ThumbnailProvider (photo_path, thumb_width, thumb_height);
+            Resources.video_thumb_provider = new Services.ThumbnailProvider (video_path, thumb_width, thumb_height);
 
             // Setup UI
             setup_window ();
+
+            // Set the window position
+            this.window_position = Gtk.WindowPosition.CENTER;
         }
 
         void setup_window () {
@@ -152,7 +164,6 @@ namespace Snap {
             this.gallery = new Snap.Widgets.Gallery ();
 
             // Setup preview area
-            this.camera = new Snap.Widgets.Camera ();
             this.camera.capture_start.connect (() => {
                 // Disable uneeded buttons
                 gallery_button.sensitive = false;
@@ -190,7 +201,7 @@ namespace Snap {
             this.show_all ();
         }
 
-        private bool detect_camera () {
+        private string detect_camera () {
             try {
                 var video_devices = File.new_for_path ("/dev/.");
                 FileEnumerator enumerator = video_devices.enumerate_children (FileAttribute.STANDARD_NAME, 0);
@@ -198,7 +209,7 @@ namespace Snap {
                 while ((info = enumerator.next_file (null)) != null) {
                     if (info.get_name ().has_prefix ("video")){
                         debug ("camera found: %s", info.get_name ());
-                        return true;
+                        return "v4l2:///dev/%s".printf (info.get_name ());
                     }
                 }
             } catch (Error err) {
@@ -206,7 +217,7 @@ namespace Snap {
             }
 
             debug ("no camera");
-            return false;
+            return "";
         }
 
         protected override bool delete_event (Gdk.EventAny event) {

@@ -36,8 +36,8 @@ namespace Snap.Services {
         private Gee.Set<Thumbnail> cache;
         private int temp_thumb;
 
-        public static const int THUMB_WIDTH = Widgets.Camera.WIDTH / 4;
-        public static const int THUMB_HEIGHT = Widgets.Camera.HEIGHT / 4;
+        public uint thumb_width = 0;
+        public uint thumb_height = 0;
 
         public signal void thumbnail_loaded (Thumbnail thumbnail);
 
@@ -46,10 +46,12 @@ namespace Snap.Services {
          * to obtain thumbnails for files in a specific path
          * @param path the path where the provider will look for thumbnails
          */
-        public ThumbnailProvider (File path) {
+        public ThumbnailProvider (File path, uint thumb_width, uint thumb_height) {
             this.path = path;
             this.cache = new Gee.TreeSet<Thumbnail> ();
             this.temp_thumb = 0;
+            this.thumb_width = thumb_width;
+            this.thumb_height = thumb_height;
         }
 
         /**
@@ -88,7 +90,7 @@ namespace Snap.Services {
                 Gdk.Pixbuf pix = null;
                 if (attr == null) pix = new Gdk.Pixbuf.from_file (file.get_path ());
                 else pix = new Gdk.Pixbuf.from_file (attr);
-                pix = pix.scale_simple (THUMB_WIDTH, THUMB_HEIGHT, 0);
+                pix = pix.scale_simple ((int)thumb_width, (int)thumb_height, 0);
                 thumb = new Thumbnail (file, pix);
             } catch (Error err) {
                 warning ("Error: get_thumbnail failed: %s", err.message);
@@ -104,7 +106,7 @@ namespace Snap.Services {
                                             "-o", out_path, // Output file
                                             "-c", "png",
                                             "-f", "-t", "10",
-                                            "-s", THUMB_WIDTH.to_string () };
+                                            "-s", thumb_width.to_string () };
                     string[] spawn_env = Environ.get ();
                     Pid child_pid;
 
@@ -121,7 +123,7 @@ namespace Snap.Services {
                     });
 
                     Gdk.Pixbuf pix = new Gdk.Pixbuf.from_file (out_path);
-                    pix = pix.scale_simple (THUMB_WIDTH, THUMB_HEIGHT, 0);
+                    pix = pix.scale_simple ((int)thumb_width, (int)thumb_height, 0);
                     thumb = new Thumbnail (file, pix);
                     thumb.is_temp = true;
                     thumb.temp_file = File.new_for_path (out_path);
