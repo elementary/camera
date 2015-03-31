@@ -302,8 +302,11 @@ namespace Snap {
 
         private void create_directories () {
             try {
-                photo_path.make_directory ();
-                video_path.make_directory ();
+                if (!photo_path.query_exists ())
+                    photo_path.make_directory ();
+
+                if (!video_path.query_exists ())
+                    video_path.make_directory ();
             } catch (Error e) {
                 warning ("Error: Creating media-directories failed: %s", e.message);
             }
