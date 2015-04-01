@@ -28,6 +28,9 @@ namespace Snap.Services {
 
         public Settings ()  {
             base ("org.pantheon.snap.settings");
+
+            // Reset video mode to 0 until fixed https://bugs.launchpad.net/snap-elementary/+bug/1374072
+            this.mode = 0;
         }
     }
 }
