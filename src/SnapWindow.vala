@@ -55,6 +55,9 @@ namespace Snap {
             photo_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.PHOTO));
             video_path = File.new_for_path (Resources.get_media_dir (Widgets.Camera.ActionType.VIDEO));
 
+            // Create missing directories
+            create_directories ();
+
             // camera
             camera_uri = this.detect_camera ();
             camera_detected = camera_uri != "";
@@ -294,6 +297,18 @@ namespace Snap {
             }
             else {
                 this.stack.set_visible_child (this.no_camera); // Show no_camera on launch
+            }
+        }
+
+        private void create_directories () {
+            try {
+                if (!photo_path.query_exists ())
+                    photo_path.make_directory ();
+
+                if (!video_path.query_exists ())
+                    video_path.make_directory ();
+            } catch (Error e) {
+                warning ("Error: Creating media-directories failed: %s", e.message);
             }
         }
 
