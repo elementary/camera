@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2013-12-22 00:16+0000\n"
-"Last-Translator: zubr139 <zubr139@ukr.net>\n"
+"PO-Revision-Date: 2015-04-11 19:20+0000\n"
+"Last-Translator: sunsays <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-09 05:36+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-04-12 05:47+0000\n"
+"X-Generator: Launchpad (build 17423)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr "Захват фотографії через"
+msgstr "Буде зроблено фото через"
 
 #: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
@@ -28,6 +28,7 @@ msgstr "Запис почнеться через"
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
+"Веб-камери не виявлено. Будь ласка, переконайтеся, що вона підключена."
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
@@ -35,24 +36,24 @@ msgstr "Галерея"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "Камера"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Знімайте фото та відео за допомогою камери"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
-msgstr "Photo Booth"
+msgstr "Фотокабіна"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "Про Snap"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "Про Камеру"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr "Зробити фото вашою камерою"
+msgstr "Робіть фото за допомогою вебкамери"
