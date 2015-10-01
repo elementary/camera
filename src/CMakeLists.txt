@@ -17,6 +17,7 @@ PACKAGES
 OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
+    --enable-experimental
 )
 
 add_executable (snap-photobooth ${VALA_C})
