@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2012-05-31 11:18+0000\n"
-"Last-Translator: Sitdhi <gvdosk124@gmail.com>\n"
+"PO-Revision-Date: 2015-10-13 19:31+0000\n"
+"Last-Translator: ABCDEFGH <aefgh7233@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-09 05:36+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-10-14 05:49+0000\n"
+"X-Generator: Launchpad (build 17812)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "กล้องถ่ายรูป"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
