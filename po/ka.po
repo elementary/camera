@@ -3,51 +3,52 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-28 11:16-0500\n"
-"PO-Revision-Date: 2014-10-05 03:03+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-11-17 00:15+0000\n"
+"Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-09 05:36+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-11-17 05:46+0000\n"
+"X-Generator: Launchpad (build 17847)\n"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
-msgstr ""
+msgstr "ფოტოს გადაღების დრო"
 
 #: ../src/Widgets/Countdown.vala:64
 msgid "Recording starts in"
-msgstr ""
+msgstr "ჩაწერის დაწყების დრო"
 
 #: ../src/Widgets/NoCamera.vala:28
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
 msgstr ""
+"თქვენი ვებ-კამერა ვერ იქნა აღმოჩენილი. გთხოვთ, დარწმუნდით, რომ შეართეთ."
 
 #: ../src/SnapWindow.vala:79
 msgid "Gallery"
-msgstr ""
+msgstr "გალერეა"
 
 #: ../src/Snap.vala:31
 msgid "Camera"
-msgstr ""
+msgstr "კამერა"
 
 #: ../src/Snap.vala:32
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "გადაიღეთ ფოტოები და ვიდეოები კამერით"
 
 #: ../src/Snap.vala:33 ../src/config.vala:11
 msgid "Photo Booth"
-msgstr ""
+msgstr "ფოტო-ჯიხური"
 
 #: ../src/Snap.vala:35
 msgid "About Snap"
-msgstr ""
+msgstr "Snap-ის შესახებ"
 
 #: ../src/Snap.vala:36
 msgid "About Camera"
-msgstr ""
+msgstr "კამერის შესახებ"
 
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
-msgstr ""
+msgstr "გადაიღეთ ფოტოები თქვენი ვებ-კამერით"
