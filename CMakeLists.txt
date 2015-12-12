@@ -57,4 +57,5 @@ add_subdirectory (schemas)
 add_subdirectory (po)
 
 # Data
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.appdata.xml DESTINATION share/appdata)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/snap-photobooth.desktop DESTINATION share/applications)
