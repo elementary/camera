@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-28 11:16-0500\n"
+"POT-Creation-Date: 2015-12-21 11:53-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/Widgets/NoCamera.vala:27
+msgid "Your webcam has not been detected. Please be sure you plugged it in."
+msgstr ""
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -25,34 +29,34 @@ msgstr ""
 msgid "Recording starts in"
 msgstr ""
 
-#: ../src/Widgets/NoCamera.vala:28
-msgid "Your webcam has not been detected. Please be sure you plugged it in."
+#: ../src/config.vala:10
+msgid "Take photos with your web cam"
 msgstr ""
 
-#: ../src/SnapWindow.vala:79
-msgid "Gallery"
-msgstr ""
-
-#: ../src/Snap.vala:31
-msgid "Camera"
-msgstr ""
-
-#: ../src/Snap.vala:32
-msgid "Take photos and videos with the camera"
-msgstr ""
-
-#: ../src/Snap.vala:33 ../src/config.vala:11
+#: ../src/config.vala:11 ../src/Snap.vala:31
 msgid "Photo Booth"
 msgstr ""
 
-#: ../src/Snap.vala:35
+#: ../src/Snap.vala:29
+msgid "Camera"
+msgstr ""
+
+#: ../src/Snap.vala:30
+msgid "Take photos and videos with the camera"
+msgstr ""
+
+#: ../src/Snap.vala:33
 msgid "About Snap"
 msgstr ""
 
-#: ../src/Snap.vala:36
+#: ../src/Snap.vala:34
 msgid "About Camera"
 msgstr ""
 
-#: ../src/config.vala:10
-msgid "Take photos with your web cam"
+#: ../src/Snap.vala:57
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/SnapWindow.vala:94
+msgid "Gallery"
 msgstr ""
