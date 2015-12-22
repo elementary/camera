@@ -7,15 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-10-28 11:16-0500\n"
+"POT-Creation-Date: 2015-12-21 11:53-0200\n"
 "PO-Revision-Date: 2014-10-31 08:46+0000\n"
 "Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-17 05:26+0000\n"
+"X-Launchpad-Export-Date: 2015-12-22 04:55+0000\n"
 "X-Generator: Launchpad (build 17865)\n"
+
+#: ../src/Widgets/NoCamera.vala:27
+msgid "Your webcam has not been detected. Please be sure you plugged it in."
+msgstr "未检测到您的摄像头。请确认您已接入此类设备。"
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -25,34 +29,39 @@ msgstr "正在拍照于"
 msgid "Recording starts in"
 msgstr "录制开始于"
 
-#: ../src/Widgets/NoCamera.vala:28
-msgid "Your webcam has not been detected. Please be sure you plugged it in."
-msgstr "未检测到您的摄像头。请确认您已接入此类设备。"
-
-#: ../src/SnapWindow.vala:79
-msgid "Gallery"
-msgstr "相册"
-
-#: ../src/Snap.vala:31
-msgid "Camera"
-msgstr "相机"
-
-#: ../src/Snap.vala:32
-msgid "Take photos and videos with the camera"
-msgstr "使用摄像头拍摄照片和视频"
-
-#: ../src/Snap.vala:33 ../src/config.vala:11
-msgid "Photo Booth"
-msgstr "大头贴"
-
-#: ../src/Snap.vala:35
-msgid "About Snap"
-msgstr "关于 Snap"
-
-#: ../src/Snap.vala:36
-msgid "About Camera"
-msgstr "关于相机"
-
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
 msgstr "使用摄像头拍照"
+
+#: ../src/config.vala:11 ../src/Snap.vala:31
+msgid "Photo Booth"
+msgstr "大头贴"
+
+#: ../src/Snap.vala:29
+msgid "Camera"
+msgstr "相机"
+
+#: ../src/Snap.vala:30
+msgid "Take photos and videos with the camera"
+msgstr "使用摄像头拍摄照片和视频"
+
+#: ../src/Snap.vala:33
+msgid "About Snap"
+msgstr "关于 Snap"
+
+#: ../src/Snap.vala:34
+msgid "About Camera"
+msgstr "关于相机"
+
+#: ../src/Snap.vala:57
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Wang Dianjin https://launchpad.net/~tuhaihe\n"
+"  Yangyu Huang https://launchpad.net/~yangyu-huang\n"
+"  colindemian https://launchpad.net/~colindemian\n"
+"  kevinchou https://launchpad.net/~kevinchou-c-gmail"
+
+#: ../src/SnapWindow.vala:94
+msgid "Gallery"
+msgstr "相册"

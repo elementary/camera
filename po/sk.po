@@ -7,15 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-10-28 11:16-0500\n"
+"POT-Creation-Date: 2015-12-21 11:53-0200\n"
 "PO-Revision-Date: 2015-04-26 08:50+0000\n"
 "Last-Translator: pyler <pyler@azet.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-17 05:26+0000\n"
+"X-Launchpad-Export-Date: 2015-12-22 04:55+0000\n"
 "X-Generator: Launchpad (build 17865)\n"
+
+#: ../src/Widgets/NoCamera.vala:27
+msgid "Your webcam has not been detected. Please be sure you plugged it in."
+msgstr ""
+"Vaša webová kamera nebola detegovaná. Prosím, skontrolujte či je zapojená."
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -25,35 +30,39 @@ msgstr "Fotenie za"
 msgid "Recording starts in"
 msgstr "Nahrávanie začína za"
 
-#: ../src/Widgets/NoCamera.vala:28
-msgid "Your webcam has not been detected. Please be sure you plugged it in."
-msgstr ""
-"Vaša webová kamera nebola detegovaná. Prosím, skontrolujte či je zapojená."
-
-#: ../src/SnapWindow.vala:79
-msgid "Gallery"
-msgstr "Galéria"
-
-#: ../src/Snap.vala:31
-msgid "Camera"
-msgstr "Fotoaparát"
-
-#: ../src/Snap.vala:32
-msgid "Take photos and videos with the camera"
-msgstr "Fotiť a nahrávať videa s fotoaparátom"
-
-#: ../src/Snap.vala:33 ../src/config.vala:11
-msgid "Photo Booth"
-msgstr "Foto búdka"
-
-#: ../src/Snap.vala:35
-msgid "About Snap"
-msgstr "O aplikácii Snap"
-
-#: ../src/Snap.vala:36
-msgid "About Camera"
-msgstr "o programe Fotoaparát"
-
 #: ../src/config.vala:10
 msgid "Take photos with your web cam"
 msgstr "Urobiť snímok vašou web kamerou"
+
+#: ../src/config.vala:11 ../src/Snap.vala:31
+msgid "Photo Booth"
+msgstr "Foto búdka"
+
+#: ../src/Snap.vala:29
+msgid "Camera"
+msgstr "Fotoaparát"
+
+#: ../src/Snap.vala:30
+msgid "Take photos and videos with the camera"
+msgstr "Fotiť a nahrávať videa s fotoaparátom"
+
+#: ../src/Snap.vala:33
+msgid "About Snap"
+msgstr "O aplikácii Snap"
+
+#: ../src/Snap.vala:34
+msgid "About Camera"
+msgstr "o programe Fotoaparát"
+
+#: ../src/Snap.vala:57
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Ivan Cizik https://launchpad.net/~ivancizik\n"
+"  Milan Slovák https://launchpad.net/~milboys\n"
+"  majo dom https://launchpad.net/~majo-dom\n"
+"  pyler https://launchpad.net/~pyler"
+
+#: ../src/SnapWindow.vala:94
+msgid "Gallery"
+msgstr "Galéria"
