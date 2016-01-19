@@ -1,11 +1,10 @@
 Dependencies
 ------------
- - valac-0.20
+ - valac-0.30
  - libgtk-3.0-dev
- - libgstreamer1.0-dev
- - libzeitgeist-2.0-dev
  - libgranite-dev
- - libgee-dev
+ - libclutter-gst-3.0-dev
+ - libclutter-gtk-1.0-dev
 
 Testing and installation
 ------------------------

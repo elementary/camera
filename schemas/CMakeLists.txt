@@ -1,2 +1,3 @@
-include(GSettings)
-add_schema("org.pantheon.snap.gschema.xml")
+# Install settings schema
+include (GSettings)
+add_schema ("org.pantheon.snap.gschema.xml")
