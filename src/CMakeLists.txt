@@ -1,25 +1,24 @@
-vala_precompile(VALA_C
-    Resources.vala
-    Snap.vala
-    SnapWindow.vala
-    ######
-    Services/Settings.vala
-    Services/ThumbnailProvider.vala
-    ######
-    Widgets/Camera.vala
-    Widgets/Gallery.vala
-    Widgets/NoCamera.vala
-    ######
+# Configure precompilation
+vala_precompile (VALA_C
     config.vala
+    Utils.vala
+    Application.vala
+    MainWindow.vala
+    Widgets/HeaderBar.vala
+    Widgets/LoadingView.vala
+    Widgets/CameraView.vala
+    Backend/Settings.vala
 PACKAGES
     ${SNAP_DEPS}
     posix
 OPTIONS
-    --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
+    --target-glib=2.32
     --enable-experimental
 )
 
+# Register new executable
 add_executable (snap-photobooth ${VALA_C})
 
+# Installation
 install (TARGETS snap-photobooth RUNTIME DESTINATION bin)

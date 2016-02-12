@@ -1,22 +1,11 @@
 <schemalist>
+    <enum id="org.pantheon.snap.settings.mode">
+        <value nick="photo" value="0" />
+        <value nick="video" value="1" />
+    </enum>
     <schema path="/org/pantheon/snap/settings/" id="org.pantheon.snap.settings" gettext-domain="snap">
-        <key name="bg-color" type="s">
-        <default>'black'</default>
-            <summary>The background color of the camera preview.</summary>
-            <description>The background color of the camera preview.</description>
-        </key>
-        <key name="countdown-time" type="i">
-        <default>3</default>
-            <summary>The time for the countdown.</summary>
-            <description>The time for the countdown.</description>
-        </key>
-        <key name="countdown" type="b">
-            <default>true</default>
-            <summary>Use or not the countdown.</summary>
-            <description>Use or not the countdown.</description>
-        </key>
-        <key name="mode" type="i">
-            <default>0</default>
+        <key name="mode" enum="org.pantheon.snap.settings.mode">
+            <default>"photo"</default>
             <summary>The mode of the camera, photo or video</summary>
             <description>Photo mode is represented by 0, video mode by 1</description>
         </key>
