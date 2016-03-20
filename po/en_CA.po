@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-21 11:53-0200\n"
-"PO-Revision-Date: 2015-12-24 11:23+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-03-19 23:06+0000\n"
+"Last-Translator: chilledfrogs <Unknown>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-25 05:29+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-03-20 05:35+0000\n"
+"X-Generator: Launchpad (build 17947)\n"
 
 #: ../src/Widgets/NoCamera.vala:27
 msgid "Your webcam has not been detected. Please be sure you plugged it in."
-msgstr ""
+msgstr "Your webcam has not been detected. Please be sure you plugged it in."
 
 #: ../src/Widgets/Countdown.vala:62
 msgid "Taking photo in"
@@ -39,19 +39,19 @@ msgstr "Photo Booth"
 
 #: ../src/Snap.vala:29
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
 #: ../src/Snap.vala:30
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Take photos and videos with the camera"
 
 #: ../src/Snap.vala:33
 msgid "About Snap"
-msgstr ""
+msgstr "About Snap"
 
 #: ../src/Snap.vala:34
 msgid "About Camera"
-msgstr ""
+msgstr "About Camera"
 
 #: ../src/Snap.vala:57
 msgid "translator-credits"
@@ -59,6 +59,7 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Shawn McTear https://launchpad.net/~syst3mfailur3\n"
+"  chilledfrogs https://launchpad.net/~chilledfrogs\n"
 "  tim schoen https://launchpad.net/~timschoen123-deactivatedaccount"
 
 #: ../src/SnapWindow.vala:94
