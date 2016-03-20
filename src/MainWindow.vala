@@ -77,8 +77,8 @@ public class Snap.MainWindow : Gtk.Window {
 
         loading_view = new Widgets.LoadingView ();
 
-        no_device_view = new Granite.Widgets.AlertView (_("No camera device found"),
-                                                        _("Connect a webcam or any other supported video device to your computer to display it's picture here."),
+        no_device_view = new Granite.Widgets.AlertView (_("No Supported Camera Found"),
+                                                        _("Connect a webcam or other supported video device to take photos and video."),
                                                         "camera-web");
 
         clutter_embed = new GtkClutter.Embed ();
