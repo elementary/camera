@@ -48,9 +48,11 @@ public class Snap.Application : Granite.Application {
         build_version = Config.VERSION;
         build_version_info = Config.VERSION_INFO;
 
+        Intl.setlocale (LocaleCategory.ALL, "");
+
         program_name = PROGRAM_NAME;
         exec_name = "snap-photobooth";
-        app_years = "2011-2015";
+        app_years = "2011-2016";
         app_icon = "accessories-camera";
         app_launcher = "snap-photobooth.desktop";
         application_id = "net.launchpad.snap-elementary";
