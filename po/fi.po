@@ -7,54 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-21 11:53-0200\n"
-"PO-Revision-Date: 2015-12-24 11:29+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"POT-Creation-Date: 2016-07-25 19:05+0400\n"
+"PO-Revision-Date: 2015-12-22 13:16+0000\n"
+"Last-Translator: tim schoen <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-25 05:29+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-07-26 05:29+0000\n"
+"X-Generator: Launchpad (build 18153)\n"
 
-#: ../src/Widgets/NoCamera.vala:27
-msgid "Your webcam has not been detected. Please be sure you plugged it in."
+#: ../src/Widgets/LoadingView.vala:49
+msgid "Searching for video devices…"
 msgstr ""
-"Web-kameraasi ei havaittu. Varmista, että se on liitetty tietokoneeseen."
 
-#: ../src/Widgets/Countdown.vala:62
-msgid "Taking photo in"
-msgstr "Otetaan kuva"
+#: ../src/MainWindow.vala:80
+msgid "No Supported Camera Found"
+msgstr ""
 
-#: ../src/Widgets/Countdown.vala:64
-msgid "Recording starts in"
-msgstr "Nauhoitus alkaa"
+#: ../src/MainWindow.vala:81
+msgid ""
+"Connect a webcam or other supported video device to take photos and video."
+msgstr ""
 
-#: ../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "Ota valokuvia verkkokamerallasi"
+#: ../src/MainWindow.vala:133
+msgid "Connecting to \"%s\"…"
+msgstr ""
 
-#: ../src/config.vala:11 ../src/Snap.vala:31
-msgid "Photo Booth"
-msgstr "Kuvauskoppi"
-
-#: ../src/Snap.vala:29
+#: ../src/Application.vala:27
 msgid "Camera"
 msgstr "Kamera"
 
-#: ../src/Snap.vala:30
+#: ../src/Application.vala:28
 msgid "Take photos and videos with the camera"
 msgstr "Ota kuvia ja videoita kamerallasi"
 
-#: ../src/Snap.vala:33
+#: ../src/Application.vala:29 ../src/config.vala:11
+msgid "Photo Booth"
+msgstr "Kuvauskoppi"
+
+#: ../src/Application.vala:31
 msgid "About Snap"
 msgstr "Tietoja - Snap"
 
-#: ../src/Snap.vala:34
+#: ../src/Application.vala:32
 msgid "About Camera"
 msgstr "Tietoja - Kamera"
 
-#: ../src/Snap.vala:57
+#: ../src/Application.vala:63
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -63,6 +63,6 @@ msgstr ""
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  tim schoen https://launchpad.net/~timschoen123-deactivatedaccount"
 
-#: ../src/SnapWindow.vala:94
-msgid "Gallery"
-msgstr "Galleria"
+#: ../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr "Ota valokuvia verkkokamerallasi"

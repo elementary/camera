@@ -7,54 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-21 11:53-0200\n"
+"POT-Creation-Date: 2016-07-25 19:05+0400\n"
 "PO-Revision-Date: 2015-12-22 12:57+0000\n"
 "Last-Translator: Salih <hernandomtoto@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-23 05:11+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-07-26 05:29+0000\n"
+"X-Generator: Launchpad (build 18153)\n"
 
-#: ../src/Widgets/NoCamera.vala:27
-msgid "Your webcam has not been detected. Please be sure you plugged it in."
+#: ../src/Widgets/LoadingView.vala:49
+msgid "Searching for video devices…"
 msgstr ""
-"Web kameranız bulunamadı. Lütfen web kameranızın takılı olduğundan emin olun."
 
-#: ../src/Widgets/Countdown.vala:62
-msgid "Taking photo in"
-msgstr "Fotoğraf çekiliyor"
+#: ../src/MainWindow.vala:80
+msgid "No Supported Camera Found"
+msgstr ""
 
-#: ../src/Widgets/Countdown.vala:64
-msgid "Recording starts in"
-msgstr "Kayıt başlıyor"
+#: ../src/MainWindow.vala:81
+msgid ""
+"Connect a webcam or other supported video device to take photos and video."
+msgstr ""
 
-#: ../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "Web kameranız ile fotoğraf çekin"
+#: ../src/MainWindow.vala:133
+msgid "Connecting to \"%s\"…"
+msgstr ""
 
-#: ../src/config.vala:11 ../src/Snap.vala:31
-msgid "Photo Booth"
-msgstr "Fotoğraf Kabini"
-
-#: ../src/Snap.vala:29
+#: ../src/Application.vala:27
 msgid "Camera"
 msgstr "Kamera"
 
-#: ../src/Snap.vala:30
+#: ../src/Application.vala:28
 msgid "Take photos and videos with the camera"
 msgstr "Kamera ile fotoğraf veya video çekin"
 
-#: ../src/Snap.vala:33
+#: ../src/Application.vala:29 ../src/config.vala:11
+msgid "Photo Booth"
+msgstr "Fotoğraf Kabini"
+
+#: ../src/Application.vala:31
 msgid "About Snap"
 msgstr "Snap Hakkında"
 
-#: ../src/Snap.vala:34
+#: ../src/Application.vala:32
 msgid "About Camera"
 msgstr "Kamera Hakkında"
 
-#: ../src/Snap.vala:57
+#: ../src/Application.vala:63
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -69,6 +69,6 @@ msgstr ""
 "  seaflames https://launchpad.net/~protoman-s\n"
 "  Çağdaş Alagöz https://launchpad.net/~cagdasalagoz"
 
-#: ../src/SnapWindow.vala:94
-msgid "Gallery"
-msgstr "Galeri"
+#: ../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr "Web kameranız ile fotoğraf çekin"

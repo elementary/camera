@@ -7,55 +7,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-21 11:53-0200\n"
+"POT-Creation-Date: 2016-07-25 19:05+0400\n"
 "PO-Revision-Date: 2015-12-22 13:06+0000\n"
 "Last-Translator: Vijay Kumar <vijay98.2011@gmail.com>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-23 05:11+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-07-26 05:29+0000\n"
+"X-Generator: Launchpad (build 18153)\n"
 
-#: ../src/Widgets/NoCamera.vala:27
-msgid "Your webcam has not been detected. Please be sure you plugged it in."
+#: ../src/Widgets/LoadingView.vala:49
+msgid "Searching for video devices…"
 msgstr ""
-"आपका वेब कैमरा खोजा नहीं गया है। कृपया सुनिश्चित करें कि आपने वेब कैमरा प्लग "
-"कर दिया है।"
 
-#: ../src/Widgets/Countdown.vala:62
-msgid "Taking photo in"
-msgstr "में तस्वीर ले"
+#: ../src/MainWindow.vala:80
+msgid "No Supported Camera Found"
+msgstr ""
 
-#: ../src/Widgets/Countdown.vala:64
-msgid "Recording starts in"
-msgstr "रिकार्डिंग शुरु हो रही है"
+#: ../src/MainWindow.vala:81
+msgid ""
+"Connect a webcam or other supported video device to take photos and video."
+msgstr ""
 
-#: ../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "वेब कैमरा से  तस्वीरें लें"
+#: ../src/MainWindow.vala:133
+msgid "Connecting to \"%s\"…"
+msgstr ""
 
-#: ../src/config.vala:11 ../src/Snap.vala:31
-msgid "Photo Booth"
-msgstr "फोटो/तस्वीर बूथ"
-
-#: ../src/Snap.vala:29
+#: ../src/Application.vala:27
 msgid "Camera"
 msgstr "कैमरा"
 
-#: ../src/Snap.vala:30
+#: ../src/Application.vala:28
 msgid "Take photos and videos with the camera"
 msgstr "कैमरे से फोटो और वीडियो लें"
 
-#: ../src/Snap.vala:33
+#: ../src/Application.vala:29 ../src/config.vala:11
+msgid "Photo Booth"
+msgstr "फोटो/तस्वीर बूथ"
+
+#: ../src/Application.vala:31
 msgid "About Snap"
 msgstr "तस्वीर के बारे में"
 
-#: ../src/Snap.vala:34
+#: ../src/Application.vala:32
 msgid "About Camera"
 msgstr "कैमरा एप्लिकेशन के बारे में"
 
-#: ../src/Snap.vala:57
+#: ../src/Application.vala:63
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -63,6 +62,6 @@ msgstr ""
 "  Shubham Kanodia https://launchpad.net/~shubhamsizzles\n"
 "  Vijay Kumar https://launchpad.net/~vijay98-2011"
 
-#: ../src/SnapWindow.vala:94
-msgid "Gallery"
-msgstr "गैलरी"
+#: ../src/config.vala:10
+msgid "Take photos with your web cam"
+msgstr "वेब कैमरा से  तस्वीरें लें"
