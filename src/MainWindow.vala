@@ -46,7 +46,7 @@ public class Snap.MainWindow : Gtk.Window {
 
     public MainWindow (Application application) {
         this.set_application (application);
-        this.title = "Snap";
+        this.title = _(Config.APP_NAME);
         this.icon_name = "snap-photobooth";
         this.set_size_request (640, 480);
         this.window_position = Gtk.WindowPosition.CENTER;

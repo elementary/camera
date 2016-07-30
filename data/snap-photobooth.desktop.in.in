@@ -1,17 +1,16 @@
 [Desktop Entry]
 Type=Application
-Name=Snap
-Comment=Take photos and videos with the camera
-GenericName=Photo Booth
+_Name=@APP_NAME@
+_Comment=Take photos and videos with the camera
+_GenericName=Photo Booth
 Exec=snap-photobooth
 Icon=accessories-camera
 Terminal=false
 Categories=GNOME;AudioVideo;
+_Keywords=Photo;Video;Webcam;Camera;Booth;
 StartupNotify=true
-X-GNOME-Gettext-Domain=snap-photobooth
-
 Actions=AboutDialog;
 
 [Desktop Action AboutDialog]
 Exec=snap-photobooth --about
-Name=About Snap
+_Name=About @APP_NAME@

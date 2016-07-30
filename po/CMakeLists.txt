@@ -1,8 +1,10 @@
 include(Translations)
-add_translations_directory("snap-photobooth")
-add_translations_catalog("snap-photobooth"
+add_translations_directory (${GETTEXT_PACKAGE})
+add_translations_catalog (${GETTEXT_PACKAGE}
     ../src
-    ../src/Services
-    ../src/Widgets
-    ../src/Dialogs
+    DESKTOP_FILES
+        ${CMAKE_BINARY_DIR}/data/snap-photobooth.desktop.in
+        ${CMAKE_BINARY_DIR}/data/snap-photobooth-original.desktop.in
+    APPDATA_FILES
+        ../data/snap-photobooth.appdata.xml.in
 )
