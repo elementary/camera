@@ -20,17 +20,6 @@
  */
 
 public class Snap.Application : Granite.Application {
-    /**
-     * Translatable launcher (.desktop) strings to be added to template (.pot) file.
-     * These strings should reflect any changes in these launcher keys in .desktop file
-     */
-    public static const string CAMERA = N_("Camera");
-    public static const string COMMENT = N_("Take photos and videos with the camera");
-    public static const string GENERIC_NAME = N_("Photo Booth");
-    public static const string PROGRAM_NAME = "Snap";
-    public static const string QUICKLIST_ABOUT_STOCK = N_("About Snap");
-    public static const string QUICKLIST_ABOUT_GENERIC = N_("About Camera");
-
     public static int main (string[] args) {
         ClutterGst.init (ref args);
 
@@ -42,15 +31,15 @@ public class Snap.Application : Granite.Application {
     public MainWindow? main_window = null;
 
     construct {
+        Intl.setlocale (LocaleCategory.ALL, "");
+
         build_data_dir = Config.DATADIR;
         build_pkg_data_dir = Config.PKGDATADIR;
         build_release_name = Config.RELEASE_NAME;
         build_version = Config.VERSION;
         build_version_info = Config.VERSION_INFO;
 
-        Intl.setlocale (LocaleCategory.ALL, "");
-
-        program_name = PROGRAM_NAME;
+        program_name = _(Config.APP_NAME);
         exec_name = "snap-photobooth";
         app_years = "2011-2016";
         app_icon = "accessories-camera";

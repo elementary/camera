@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 elementary, LLC <contact@elementary.io> -->
+<component type="desktop">
+  <id>snap-photobooth.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_group>elementary</project_group>
+  <project_license>GPL-3.0+</project_license>
+  <_name>Camera</_name>
+  <_summary>Take photos and videos with the camera</_summary>
+  <description>
+    <_p>
+      Camera is a simple app to take photos with a webcam.
+    </_p>
+  </description>
+  <provides>
+    <binary>snap-photobooth</binary>
+  </provides>
+  <developer_name>elementary LLC.</developer_name>
+  <url type="homepage">http://elementary.io/</url>
+  <url type="bugtracker">https://bugs.launchpad.net/snap-elementary</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/snap</url>
+  <update_contact>contact_at_elementary.io</update_contact>
+</component>
