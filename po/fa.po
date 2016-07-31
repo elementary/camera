@@ -7,20 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-25 19:05+0400\n"
+"POT-Creation-Date: 2016-07-30 20:15+0200\n"
 "PO-Revision-Date: 2015-12-22 13:08+0000\n"
 "Last-Translator: mohsen shafiei <mohsen.sh12@hotmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-26 05:29+0000\n"
-"X-Generator: Launchpad (build 18153)\n"
+"X-Launchpad-Export-Date: 2016-07-31 05:54+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 "Language: \n"
-
-#: ../src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr ""
 
 #: ../src/MainWindow.vala:80
 msgid "No Supported Camera Found"
@@ -35,33 +31,13 @@ msgstr ""
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
-#: ../src/Application.vala:27
-msgid "Camera"
+#: ../src/Widgets/LoadingView.vala:49
+msgid "Searching for video devices…"
 msgstr ""
 
-#: ../src/Application.vala:28
-msgid "Take photos and videos with the camera"
-msgstr ""
-
-#: ../src/Application.vala:29 ../src/config.vala:11
-msgid "Photo Booth"
-msgstr "غرفه عکس"
-
-#: ../src/Application.vala:31
-msgid "About Snap"
-msgstr ""
-
-#: ../src/Application.vala:32
-msgid "About Camera"
-msgstr ""
-
-#: ../src/Application.vala:63
+#: ../src/Application.vala:54
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Mohammad Zali https://launchpad.net/~mohamadzali-gmail\n"
 "  mohsen shafiei https://launchpad.net/~mohsen-sh12"
-
-#: ../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "عکس گرفتن با وب‌کم"

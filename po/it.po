@@ -7,19 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-07-25 19:05+0400\n"
+"POT-Creation-Date: 2016-07-30 20:15+0200\n"
 "PO-Revision-Date: 2016-07-28 02:26+0000\n"
 "Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-29 05:53+0000\n"
-"X-Generator: Launchpad (build 18153)\n"
-
-#: ../src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Ricerca di dispositivi video..."
+"X-Launchpad-Export-Date: 2016-07-31 05:54+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:80
 msgid "No Supported Camera Found"
@@ -36,34 +32,14 @@ msgstr ""
 msgid "Connecting to \"%s\"…"
 msgstr "Connessione a \"%s\"..."
 
-#: ../src/Application.vala:27
-msgid "Camera"
-msgstr "Camera"
+#: ../src/Widgets/LoadingView.vala:49
+msgid "Searching for video devices…"
+msgstr "Ricerca di dispositivi video..."
 
-#: ../src/Application.vala:28
-msgid "Take photos and videos with the camera"
-msgstr "Scatta foto e video con la fotocamera"
-
-#: ../src/Application.vala:29 ../src/config.vala:11
-msgid "Photo Booth"
-msgstr "Photo Booth"
-
-#: ../src/Application.vala:31
-msgid "About Snap"
-msgstr "Informazioni"
-
-#: ../src/Application.vala:32
-msgid "About Camera"
-msgstr "Informazioni"
-
-#: ../src/Application.vala:63
+#: ../src/Application.vala:54
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Devid Antonio Filoni https://launchpad.net/~d.filoni\n"
 "  Fabio Zaramella https://launchpad.net/~fabiozaramella\n"
 "  Vesnar Teach https://launchpad.net/~vesnar"
-
-#: ../src/config.vala:10
-msgid "Take photos with your web cam"
-msgstr "Scatta foto con la tua webcam"
