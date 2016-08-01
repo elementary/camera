@@ -8,40 +8,39 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-07-30 20:15+0200\n"
-"PO-Revision-Date: 2015-12-22 13:08+0000\n"
-"Last-Translator: tim schoen <Unknown>\n"
+"PO-Revision-Date: 2016-07-31 17:15+0000\n"
+"Last-Translator: UweS <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-31 05:54+0000\n"
+"X-Launchpad-Export-Date: 2016-08-01 05:29+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:80
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Keine unterstützte Kamera gefunden"
 
 #: ../src/MainWindow.vala:81
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Zum Aufnehmen von Fotos und Videos eine Webcam oder eine andere unterstützte "
+"Videokamera anschließen"
 
 #: ../src/MainWindow.vala:133
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Mit »%s«  verbinden …"
 
 #: ../src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Nach Videokameras suchen …"
 
 #: ../src/Application.vala:54
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
-"  Eduard Gotwig https://launchpad.net/~gotwig\n"
-"  Ghenrik https://launchpad.net/~henrik-grasshoff-deactivatedaccount\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Phillip Sz https://launchpad.net/~phillip-sz\n"
-"  mporten https://launchpad.net/~mathias-porten\n"
+"  UweS https://launchpad.net/~uwes\n"
 "  tim schoen https://launchpad.net/~timschoen123-deactivatedaccount"
