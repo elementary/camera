@@ -8,34 +8,37 @@ msgstr ""
 "Project-Id-Version: snap-elementary\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-07-30 20:15+0200\n"
-"PO-Revision-Date: 2016-07-31 16:22+0000\n"
+"PO-Revision-Date: 2016-08-01 20:48+0000\n"
 "Last-Translator: Glauco Pires <gr_pires@hotmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-01 05:29+0000\n"
+"X-Launchpad-Export-Date: 2016-08-02 05:51+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:80
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Nenhuma câmera suportada foi encontrada"
 
 #: ../src/MainWindow.vala:81
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Conecte uma web ou outro dispositivo de vídeo suportado para tirar fotos ou "
+"gravar vídeos."
 
 #: ../src/MainWindow.vala:133
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Conectando a \"%s\"…"
 
 #: ../src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Procurando por dispositivos de vídeo…"
 
 #: ../src/Application.vala:54
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Glauco Pires https://launchpad.net/~grpires"
+"  Glauco Pires https://launchpad.net/~grpires\n"
+"  Leonardo Lemos https://launchpad.net/~leonardolemos"
