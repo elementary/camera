@@ -44,7 +44,7 @@ public class Snap.Application : Granite.Application {
         app_years = "2011-2016";
         app_icon = "accessories-camera";
         app_launcher = "snap-photobooth.desktop";
-        application_id = "net.launchpad.snap-elementary";
+        application_id = "org.pantheon.snap";
         main_url = "https://launchpad.net/snap-elementary";
         bug_url = "https://bugs.launchpad.net/snap-elementary";
         help_url = "https://answers.launchpad.net/snap-elementary";
