@@ -8,7 +8,7 @@ env:
 
 install:
  - docker pull ubuntu:16.04
- - docker run -v "$PWD":/tmp/build-dir ubuntu:16.04 /bin/sh -c "apt-get update -qq && apt-get install -y -qq software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update -qq && apt-get -y -qq install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && make all test"
+ - docker run -v "$PWD":/tmp/build-dir ubuntu:16.04 /bin/sh -c "apt-get -qq update && apt-get -qq install -y software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get -qq update && apt-get -y -qq install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && make all test"
 
 script:
  - echo BUILD PASSED
