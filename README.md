@@ -1,5 +1,7 @@
 # Pantheon Camera
 
+[![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=45629460)](https://www.bountysource.com/trackers/45629460-elementary-camera)
+
 The camera app designed for elementary OS
 
 ## Building, Testing, and Installation
