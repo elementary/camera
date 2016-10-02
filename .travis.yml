@@ -1,7 +1,3 @@
-sudo: required
-
-language: c
-
 services:
  - docker
 
