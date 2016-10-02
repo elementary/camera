@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 Snap Developers (http://launchpad.net/snap-elementary)
+ * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Snap.Application : Granite.Application {
+public class Camera.Application : Granite.Application {
     public static int main (string[] args) {
         ClutterGst.init (ref args);
 
@@ -40,14 +40,14 @@ public class Snap.Application : Granite.Application {
         build_version_info = Config.VERSION_INFO;
 
         program_name = _(Config.APP_NAME);
-        exec_name = "snap-photobooth";
+        exec_name = "pantheon-camera";
         app_years = "2011-2016";
         app_icon = "accessories-camera";
-        app_launcher = "snap-photobooth.desktop";
-        application_id = "org.pantheon.snap";
-        main_url = "https://launchpad.net/snap-elementary";
-        bug_url = "https://bugs.launchpad.net/snap-elementary";
-        help_url = "https://answers.launchpad.net/snap-elementary";
+        app_launcher = "org.pantheon.camera.desktop";
+        application_id = "org.pantheon.camera";
+        main_url = "https://github.com/elementary/camera";
+        bug_url = "https://github.com/elementary/camera/issues";
+        help_url = "http://elementaryos.stackexchange.com/questions/tagged/camera";
         translate_url = "https://translations.launchpad.net/snap-elementary";
         about_authors = { "Marcus Wichelmann <marcus.wichelmann@hotmail.de>", "Mario Guerriero <mario@elementaryos.org>", null };
         about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };

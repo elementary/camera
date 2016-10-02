@@ -1,14 +1,14 @@
 # Project name
-project (snap-photobooth)
+project (pantheon-camera)
 
 # CMake version
 cmake_minimum_required (VERSION 2.8)
 cmake_policy (VERSION 2.8)
 
 # Project configuration
-set (DATADIR "${CMAKE_INSTALL_PREFIX}/share/snap-photobooth")
-set (PKGDATADIR "${DATADIR}/snap-photobooth")
-set (GETTEXT_PACKAGE "snap-photobooth")
+set (DATADIR "${CMAKE_INSTALL_PREFIX}/share/pantheon-camera")
+set (PKGDATADIR "${DATADIR}/pantheon-camera")
+set (GETTEXT_PACKAGE "pantheon-camera")
 set (RELEASE_NAME "The elementary Camera Viewer.")
 set (VERSION "0.3.0.1")
 set (VERSION_INFO "Release")

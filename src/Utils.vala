@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 Snap Developers (http://launchpad.net/snap-elementary)
+ * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-namespace Snap.Utils {
+namespace Camera.Utils {
     public enum ActionType {
         PHOTO,
         VIDEO

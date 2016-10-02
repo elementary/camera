@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 Snap Developers (http://launchpad.net/snap-elementary)
+ * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Snap.Widgets.LoadingView : Gtk.Box {
+public class Camera.Widgets.LoadingView : Gtk.Box {
     private Gtk.Grid inner_grid;
 
     private Gtk.Spinner spinner;

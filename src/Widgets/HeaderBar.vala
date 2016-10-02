@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 Snap Developers (http://launchpad.net/snap-elementary)
+ * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Snap.Widgets.HeaderBar : Gtk.HeaderBar {
+public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private static const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
     private static const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private static const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
