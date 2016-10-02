@@ -1,4 +1,4 @@
-namespace Snap.Config {
+namespace Camera.Config {
     public const string APP_NAME = "@APP_NAME@";
     public const string DATADIR = "@DATADIR@";
     public const string PKGDATADIR = "@PKGDATADIR@";
