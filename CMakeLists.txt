@@ -35,8 +35,6 @@ add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 # CTest
 include (CTest)
 if (BUILD_TESTING)
-    set(CTEST_SOURCE_DIRECTORY "..")
-    set(CTEST_BINARY_DIRECTORY ".")
     add_test (NAME validate-desktop-file COMMAND desktop-file-validate ${CMAKE_BINARY_DIR}/data/org.pantheon.snap.desktop)
 endif ()
 
