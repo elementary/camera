@@ -5,9 +5,13 @@ language: c
 services:
  - docker
 
+env:
+ - DEPENDENCY_PACKAGES="cmake valac libgtk-3-dev libgranite-dev libclutter-gst-3.0-dev libclutter-gtk-1.0-dev"
+
 before_install:
  - docker pull ubuntu:16.04
- - docker run -v "$PWD":/tmp/git-dir ubuntu:16.04 /bin/sh -c "mkdir -p /tmp/git-dir && apt-get update && apt-get install -y -qq software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update && apt-get -y install cmake valac libgtk-3-dev libgranite-dev libclutter-gst-3.0-dev libclutter-gtk-1.0-dev && cd /tmp/git-dir && cmake -DCMAKE_INSTALL_PREFIX=/usr && make"
+# - docker run -v "$PWD":/tmp/git-dir ubuntu:16.04 /bin/sh -c "mkdir -p /tmp/git-dir && apt-get update && apt-get install -y -qq software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update && apt-get -y install cmake valac libgtk-3-dev libgranite-dev libclutter-gst-3.0-dev libclutter-gtk-1.0-dev && cd /tmp/git-dir && cmake -DCMAKE_INSTALL_PREFIX=/usr && make"
+ - docker run -v "$PWD":/tmp/git-dir ubuntu:16.04 /bin/sh -c "mkdir -p /tmp/git-dir && apt-get update && apt-get install -y -qq software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update && apt-get -y install "$DEPENDENCY_PACKAGES" && cd /tmp/git-dir && cmake -DCMAKE_INSTALL_PREFIX=/usr && make"
 
 script:
  - echo "build succeeded"
