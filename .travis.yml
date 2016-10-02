@@ -8,7 +8,7 @@ env:
 
 before_install:
  - docker pull ubuntu:16.04
- - docker run -v "$PWD":/tmp/git-dir ubuntu:16.04 /bin/sh -c "apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/git-dir && cmake -DCMAKE_INSTALL_PREFIX=/usr && make"
+ - docker run -v "$PWD":/tmp/git-dir ubuntu:16.04 /bin/sh -c "apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/git-dir && cmake . && make"
 
 script:
  - echo BUILD PASSED
