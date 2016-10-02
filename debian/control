@@ -1,0 +1,36 @@
+Source: pantheon-camera
+Section: x11
+Maintainer: Cody Garver <cody@elementary.io>
+Build-Depends: cmake,
+               debhelper (>= 9),
+               intltool,
+               libclutter-gtk-1.0-dev,
+               libclutter-gst-3.0-dev,
+               libgnome-desktop-3-dev,
+               libgranite-dev,
+               libgstreamer1.0-dev,
+               libgstreamer-plugins-base1.0-dev,
+               libgtk-3-dev (>= 3.10),
+               valac (>= 0.22)
+Standards-Version: 3.9.6
+Homepage: https://github.com/elementary/camera
+
+Package: pantheon-camera
+Architecture: any
+Priority: extra
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Replaces: snap-photobooth
+Conflicts: snap-photobooth
+Description: Camera app for Pantheon
+ Capture photos and videos using your webcam in elementary style.
+
+Package: pantheon-camera-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: pantheon-camera (= ${binary:Version}), ${misc:Depends}
+Enhances: pantheon-camera
+Description: Camera app for Pantheon (debugging symbols)
+ Capture photos and videos using your webcam in elementary style.
+ .
+ This package contains debugging symbols for pantheon-camera.
