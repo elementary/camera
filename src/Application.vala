@@ -48,7 +48,7 @@ public class Camera.Application : Granite.Application {
         main_url = "https://github.com/elementary/camera";
         bug_url = "https://github.com/elementary/camera/issues";
         help_url = "http://elementaryos.stackexchange.com/questions/tagged/camera";
-        translate_url = "https://translations.launchpad.net/snap-elementary";
+        translate_url = "https://translations.launchpad.net/pantheon-camera";
         about_authors = { "Marcus Wichelmann <marcus.wichelmann@hotmail.de>", "Mario Guerriero <mario@elementaryos.org>", null };
         about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
         about_translators = _("translator-credits");
