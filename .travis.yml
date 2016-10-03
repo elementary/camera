@@ -7,8 +7,10 @@ env:
  - DEPENDENCY_PACKAGES="cmake intltool libclutter-gst-3.0-dev libclutter-gtk-1.0-dev libgranite-dev libgtk-3-dev valac desktop-file-utils"
 
 install:
- - docker pull ubuntu:16.04
- - docker run -v "$PWD":/tmp/build-dir ubuntu:16.04 /bin/sh -c "apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:elementary-os/daily && add-apt-repository -y ppa:elementary-os/os-patches && apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && env CTEST_OUTPUT_ON_FAILURE=true make all test"
+ - docker pull elementary/docker:loki
+ - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && env CTEST_OUTPUT_ON_FAILURE=true make all test"
+ - docker pull elementary/docker:loki-unstable
+ - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki-unstable /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && env CTEST_OUTPUT_ON_FAILURE=true make all test"
 
 script:
  - echo BUILD PASSED
