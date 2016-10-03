@@ -22,11 +22,7 @@ set (CPACK_SOURCE_GENERATOR "TGZ")
 set (CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${CPACK_PACKAGE_VERSION}")
 set (CPACK_SOURCE_IGNORE_FILES "/build/;/.bzr/;/.bzrignore;~$;${CPACK_SOURCE_IGNORE_FILES}")
 
-option (BUILD_FOR_ELEMENTARY "Snap name will be replaced by Camera" ON)
-set (APP_NAME "Snap")
-if (BUILD_FOR_ELEMENTARY)
-    set (APP_NAME "Camera")
-endif ()
+set (APP_NAME "Camera")
 
 # CPack
 include (CPack)
