@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 Snap Developers (http://launchpad.net/snap-elementary)
+ * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -19,13 +19,13 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Snap.Backend.Settings : Granite.Services.Settings {
+public class Camera.Backend.Settings : Granite.Services.Settings {
     protected string mode { get; set; }
 
     public signal void action_type_changed (Utils.ActionType action_type);
 
     public Settings () {
-        base ("org.pantheon.snap.settings");
+        base ("org.pantheon.camera.settings");
 
         connect_signals ();
     }

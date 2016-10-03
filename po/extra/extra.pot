@@ -8,32 +8,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 15:07-0300\n"
+"POT-Creation-Date: 2016-10-02 20:32-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
+msgid "Camera"
 msgstr ""
 
-#: ../src/MainWindow.vala:80
-msgid "No Supported Camera Found"
+msgid "Take photos and videos with the camera"
 msgstr ""
 
-#: ../src/MainWindow.vala:81
-msgid ""
-"Connect a webcam or other supported video device to take photos and video."
+msgid "Photo Booth"
 msgstr ""
 
-#: ../src/MainWindow.vala:133
-msgid "Connecting to \"%s\"…"
+msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr ""
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+msgid "About Camera"
+msgstr ""
+
+msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""

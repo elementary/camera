@@ -24,7 +24,7 @@ Run `cmake` to configure the build environment and then `make all test` to build
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     make all test
     
-To install, use `make install`, then execute with `snap-photobooth`
+To install, use `make install`, then execute with `pantheon-camera`
 
     sudo make install
-    snap-photobooth
+    pantheon-camera

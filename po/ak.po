@@ -1,11 +1,11 @@
-# Akan translation for snap-elementary
+# Akan translation for pantheon-camera
 # Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
-# This file is distributed under the same license as the snap-elementary package.
+# This file is distributed under the same license as the pantheon-camera package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: snap-elementary\n"
+"Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-07-30 20:15+0200\n"
 "PO-Revision-Date: 2016-07-20 16:33+0000\n"

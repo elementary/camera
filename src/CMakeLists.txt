@@ -18,7 +18,7 @@ OPTIONS
 )
 
 # Register new executable
-add_executable (snap-photobooth ${VALA_C})
+add_executable (pantheon-camera ${VALA_C})
 
 # Installation
-install (TARGETS snap-photobooth RUNTIME DESTINATION bin)
+install (TARGETS pantheon-camera RUNTIME DESTINATION bin)

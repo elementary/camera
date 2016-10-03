@@ -3,7 +3,7 @@ Type=Application
 _Name=@APP_NAME@
 _Comment=Take photos and videos with the camera
 _GenericName=Photo Booth
-Exec=snap-photobooth
+Exec=pantheon-camera
 Icon=accessories-camera
 Terminal=false
 Categories=GNOME;AudioVideo;
@@ -12,5 +12,5 @@ StartupNotify=true
 Actions=AboutDialog;
 
 [Desktop Action AboutDialog]
-Exec=snap-photobooth --about
+Exec=pantheon-camera --about
 _Name=About @APP_NAME@
