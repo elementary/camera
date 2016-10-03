@@ -32,6 +32,7 @@ add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 include (CTest)
 if (BUILD_TESTING)
     add_test (NAME validate-desktop-file COMMAND desktop-file-validate ${CMAKE_BINARY_DIR}/data/org.pantheon.camera.desktop)
+    add_test (NAME validate-appdata COMMAND appstreamcli validate ${CMAKE_BINARY_DIR}/data/org.pantheon.camera.appstream.xml)
 endif ()
 
 # Some configuration
