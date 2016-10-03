@@ -47,7 +47,7 @@ public class Snap.MainWindow : Gtk.Window {
     public MainWindow (Application application) {
         this.set_application (application);
         this.title = _(Config.APP_NAME);
-        this.icon_name = "snap-photobooth";
+        this.icon_name = "accessories-camera";
         this.set_size_request (640, 480);
         this.window_position = Gtk.WindowPosition.CENTER;
 
@@ -79,7 +79,7 @@ public class Snap.MainWindow : Gtk.Window {
 
         no_device_view = new Granite.Widgets.AlertView (_("No Supported Camera Found"),
                                                         _("Connect a webcam or other supported video device to take photos and video."),
-                                                        "camera-web");
+                                                        "accessories-camera");
 
         clutter_embed = new GtkClutter.Embed ();
 

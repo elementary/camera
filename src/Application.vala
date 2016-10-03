@@ -50,7 +50,7 @@ public class Snap.Application : Granite.Application {
         help_url = "https://answers.launchpad.net/snap-elementary";
         translate_url = "https://translations.launchpad.net/snap-elementary";
         about_authors = { "Marcus Wichelmann <marcus.wichelmann@hotmail.de>", "Mario Guerriero <mario@elementaryos.org>", null };
-        about_artists = { "Daniel Fore <daniel.p.fore@gmail.com >", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
+        about_artists = { "Daniel Foré <daniel@elementary.io>", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
         about_translators = _("translator-credits");
         about_license_type = Gtk.License.GPL_3_0;
     }
