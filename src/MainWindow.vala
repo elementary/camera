@@ -124,7 +124,7 @@ public class Camera.MainWindow : Gtk.Window {
     private void initialize_camera_view () {
         camera_view = new Widgets.CameraView ();
         camera_view.initialized.connect (() => {
-            header_bar.set_camera_controls_sensitive (true);
+            header_bar.camera_controls_sensitive = true;
             stack.set_visible_child_name ("camera");
         });
 
