@@ -20,54 +20,36 @@
  */
 
 public class Camera.MainWindow : Gtk.Window {
-    private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
-    private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
-    private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
+    private bool is_fullscreened = false;
 
     private Backend.Settings settings;
 
-    private Widgets.HeaderBar header_bar;
-
     private Gtk.Stack stack;
-
-    private Widgets.LoadingView loading_view;
-
     private Granite.Widgets.AlertView no_device_view;
 
     private GtkClutter.Embed clutter_embed;
+    private Clutter.Actor camera_actor;
     private Clutter.Stage clutter_stage;
+    private ClutterGst.Aspectratio camera_content;
 
     private Widgets.CameraView? camera_view = null;
-
-    private ClutterGst.Aspectratio camera_content;
-    private Clutter.Actor camera_actor;
-
-    private bool is_fullscreened = false;
+    private Widgets.HeaderBar header_bar;
+    private Widgets.LoadingView loading_view;
 
     public MainWindow (Application application) {
+        Object (application: application);
+    }
+
+    construct {
+        settings = new Backend.Settings ();
+
         this.set_application (application);
         this.title = _(Config.APP_NAME);
         this.icon_name = "accessories-camera";
+        this.set_default_size (1000, 700);
         this.set_size_request (640, 480);
         this.window_position = Gtk.WindowPosition.CENTER;
-
-        settings = new Backend.Settings ();
-
-        build_ui ();
-        connect_signals ();
-
-        new Thread<int> (null, () => {
-            debug ("Initializing camera manager...");
-
-            initialize_camera_manager ();
-
-            return 0;
-        });
-    }
-
-    private void build_ui () {
         this.add_events (Gdk.EventMask.KEY_PRESS_MASK);
-        this.set_default_size (1000, 700);
 
         header_bar = new Widgets.HeaderBar (settings);
 
@@ -101,6 +83,16 @@ public class Camera.MainWindow : Gtk.Window {
 
         this.set_titlebar (header_bar);
         this.add (stack);
+
+        connect_signals ();
+
+        new Thread<int> (null, () => {
+            debug ("Initializing camera manager...");
+
+            initialize_camera_manager ();
+
+            return 0;
+        });
     }
 
     private void initialize_camera_manager () {
@@ -137,19 +129,15 @@ public class Camera.MainWindow : Gtk.Window {
         this.key_press_event.connect ((event) => {
             switch (event.keyval) {
                 case Gdk.Key.F11 :
-
                     if (is_fullscreened) {
                         this.unfullscreen ();
                     } else {
                         this.fullscreen ();
                     }
-
                     is_fullscreened = !is_fullscreened;
-
                     break;
 
                 default:
-
                     return Gdk.EVENT_PROPAGATE;
             }
 
