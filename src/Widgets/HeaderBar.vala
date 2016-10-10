@@ -24,6 +24,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private static const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private static const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
+    private Gtk.Button take_button;
+    private Granite.Widgets.ModeButton mode_button;
+
+    private bool is_recording = false;
+
+    public bool camera_controls_sensitive {
+        set {
+            take_button.sensitive = value;
+            mode_button.sensitive = value;
+        }
+    }
+
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
             border-radius: 400px;
@@ -32,40 +44,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public Backend.Settings settings { private get; construct; }
 
-    private Gtk.Button take_button;
-    private Granite.Widgets.ModeButton mode_button;
-
-    private bool is_recording = false;
-
     public signal void take_photo_clicked ();
     public signal void start_recording_clicked ();
     public signal void stop_recording_clicked ();
 
     public HeaderBar (Backend.Settings settings) {
         Object (settings: settings);
-
-        build_ui ();
-        update_take_button_icon ();
-        connect_signals ();
     }
 
-    public void set_is_recording (bool is_recording) {
-        this.is_recording = is_recording;
-
-        update_take_button_icon ();
-    }
-
-    public void set_camera_controls_sensitive (bool sensitive) {
-        take_button.set_sensitive (sensitive);
-        mode_button.set_sensitive (sensitive);
-    }
-
-    private void build_ui () {
-        this.show_close_button = true;
-
+    construct {
         take_button = new Gtk.Button.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        take_button.set_size_request (54, -1);
         take_button.sensitive = false;
+        take_button.width_request = 54;
 
         Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
 
@@ -75,19 +65,27 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             warning ("Styling take button failed: %s", e.message);
         }
 
-        Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
+        var take_button_style_context = take_button.get_style_context ();
         take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-        take_button_style_context.add_class (Gtk.STYLE_CLASS_RAISED);
 
         mode_button = new Granite.Widgets.ModeButton ();
         mode_button.append_icon (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
         mode_button.append_icon (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
         mode_button.sensitive = false;
 
-        this.set_custom_title (take_button);
-        this.pack_end (mode_button);
+        show_close_button = true;
+        set_custom_title (take_button);
+        pack_end (mode_button);
+
+        update_take_button_icon ();
+        connect_signals ();
+    }
+
+    public void set_is_recording (bool is_recording) {
+        this.is_recording = is_recording;
+        update_take_button_icon ();
     }
 
     private void connect_signals () {
