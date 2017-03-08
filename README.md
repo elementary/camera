@@ -1,5 +1,7 @@
 # Pantheon Camera
-
+<a href="https://i18n.elementary.io/projects/desktop/camera/" target="_blank">
+<img src="http://i18n.elementary.io/widgets/desktop/camera/svg-badge.svg" alt="Translation status" />
+</a>
 [![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=45629460)](https://www.bountysource.com/trackers/45629460-elementary-camera)
 
 The camera app designed for elementary OS
