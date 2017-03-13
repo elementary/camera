@@ -53,6 +53,16 @@ public class Camera.Application : Granite.Application {
         about_artists = { "Daniel Foré <daniel@elementary.io>", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
         about_translators = _("translator-credits");
         about_license_type = Gtk.License.GPL_3_0;
+
+        var quit_action = new SimpleAction ("quit", null);
+        quit_action.activate.connect (() => {
+            if (main_window != null) {
+                main_window.destroy ();
+            }
+        });
+
+        add_action (quit_action);
+        add_accelerator ("<Control>q", "app.quit", null);
     }
 
     public Application () {
