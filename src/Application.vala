@@ -43,8 +43,8 @@ public class Camera.Application : Granite.Application {
         exec_name = "pantheon-camera";
         app_years = "2011-2016";
         app_icon = "accessories-camera";
-        app_launcher = "org.pantheon.camera.desktop";
-        application_id = "org.pantheon.camera";
+        app_launcher = "com.github.elementary.camera.desktop";
+        application_id = "com.github.elementary.camera";
         main_url = "https://github.com/elementary/camera";
         bug_url = "https://github.com/elementary/camera/issues";
         help_url = "http://elementaryos.stackexchange.com/questions/tagged/camera";

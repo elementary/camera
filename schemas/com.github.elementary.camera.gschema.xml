@@ -1,10 +1,10 @@
 <schemalist>
-    <enum id="org.pantheon.camera.settings.mode">
+    <enum id="com.github.elementary.camera.settings.mode">
         <value nick="photo" value="0" />
         <value nick="video" value="1" />
     </enum>
-    <schema path="/org/pantheon/camera/settings/" id="org.pantheon.camera.settings" gettext-domain="pantheon-camera">
-        <key name="mode" enum="org.pantheon.camera.settings.mode">
+    <schema path="/com/github/elementary/camera/settings/" id="com.github.elementary.camera.settings" gettext-domain="pantheon-camera">
+        <key name="mode" enum="com.github.elementary.camera.settings.mode">
             <default>"photo"</default>
             <summary>The mode of the camera, photo or video</summary>
             <description>Photo mode is represented by 0, video mode by 1</description>

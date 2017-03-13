@@ -25,7 +25,7 @@ public class Camera.Backend.Settings : Granite.Services.Settings {
     public signal void action_type_changed (Utils.ActionType action_type);
 
     public Settings () {
-        base ("org.pantheon.camera.settings");
+        base ("com.github.elementary.camera.settings");
 
         connect_signals ();
     }
