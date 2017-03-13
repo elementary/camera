@@ -20,9 +20,9 @@
  */
 
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
-    private static const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
-    private static const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
-    private static const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
+    private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
+    private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
+    private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
     private Gtk.Button take_button;
     private Granite.Widgets.ModeButton mode_button;
