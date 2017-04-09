@@ -37,7 +37,7 @@ msgstr "Verbinden met \"%s\"…"
 
 #: ../src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "Video apparaten aan het zoeken…"
+msgstr "Videoapparaten aan het zoeken…"
 
 #: ../src/Application.vala:54
 msgid "translator-credits"
