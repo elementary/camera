@@ -6,12 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-07-30 20:15+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-02 20:32-0500\n"
 "PO-Revision-Date: 2017-04-09 11:02+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
-"Language-Team: Italian "
-"<http://weblate.elementary.io/projects/desktop/camera/it/>\n"
+"Language-Team: Italian <http://weblate.elementary.io/projects/desktop/camera/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
+
+#: ../src/Application.vala:54
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Fabio Zaramella https://launchpad.net/~fabiozaramella"
 
 #: ../src/MainWindow.vala:80
 msgid "No Supported Camera Found"
@@ -38,9 +44,3 @@ msgstr "Connessione a \"%s\"…"
 #: ../src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "Ricerca di dispositivi video…"
-
-#: ../src/Application.vala:54
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Fabio Zaramella https://launchpad.net/~fabiozaramella"
