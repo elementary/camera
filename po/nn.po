@@ -23,7 +23,7 @@ msgstr ""
 #: ../src/Application.vala:54
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
+"Launchpad bidrag:\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  tim schoen https://launchpad.net/~timschoen123-deactivatedaccount"
 
