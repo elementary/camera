@@ -53,7 +53,7 @@ add_definitions (-w)
 
 # Dependencies
 find_package (PkgConfig)
-set (SNAP_DEPS gio-2.0 gee-0.8 gtk+-3.0 granite clutter-gst-3.0 clutter-gtk-1.0)
+set (SNAP_DEPS gio-2.0 gee-0.8 gtk+-3.0 granite clutter-gst-3.0 clutter-gtk-1.0 libcanberra)
 pkg_check_modules (DEPS REQUIRED ${SNAP_DEPS})
 
 # Linking paramaters
