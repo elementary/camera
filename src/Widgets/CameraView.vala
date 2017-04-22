@@ -21,11 +21,8 @@
 
 public class Camera.Widgets.CameraView : ClutterGst.Camera {
     public signal void initialized ();
-    private Utils.Shutter shutter;
 
     public CameraView () {
-        shutter = new Utils.Shutter();
-
         new Thread<int> (null, () => {
             debug ("Initializing camera view...");
 
@@ -42,8 +39,8 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
             return false;
         }
 
-        shutter.play.begin ();
         base.take_photo (Utils.get_new_media_filename (Utils.ActionType.PHOTO));
+        play_shutter_sound ();
 
         return true;
     }
@@ -88,5 +85,20 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
         } else {
             warning ("Initializing camera view failed.");
         }
+    }
+
+    private void play_shutter_sound () {
+        Canberra.Context context;
+        Canberra.Proplist props;
+
+        Canberra.Context.create (out context);
+        Canberra.Proplist.create (out props);
+
+        props.sets (Canberra.PROP_EVENT_ID, "camera-shutter");
+        props.sets (Canberra.PROP_EVENT_DESCRIPTION, _("Photo taken"));
+        props.sets (Canberra.PROP_CANBERRA_CACHE_CONTROL, "permanent");
+        props.sets (Canberra.PROP_MEDIA_ROLE, "event");
+
+        context.play_full (0, props, null);
     }
 }

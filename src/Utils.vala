@@ -56,41 +56,4 @@ namespace Camera.Utils {
 
         return GLib.Path.build_path (Path.DIR_SEPARATOR_S, media_directory, "Webcam");
     }
-
-    public class Shutter : Object {
-        private GLib.Settings settings;
-        private GSound.Context? gsound;
-        private GLib.Cancellable cancellable;
-        private string soundtheme;
-
-        public Shutter () {
-            settings = new GLib.Settings("org.gnome.desktop.sound");
-
-            try {
-                gsound = new GSound.Context();
-            } catch (GLib.Error e) {
-                warning ("Sound could not be initialized, error: %s", e.message);
-            }
-
-            soundtheme = settings.get_string ("theme-name");
-            cancellable = new GLib.Cancellable();
-        }
-
-        public async void play () {
-            if (gsound == null) {
-                return;
-            }
-
-            try {
-                yield gsound.play_full (cancellable,
-                                        GSound.Attribute.EVENT_ID, "camera-shutter",
-                                        GSound.Attribute.CANBERRA_XDG_THEME_NAME, soundtheme,
-                                        GSound.Attribute.MEDIA_ROLE, "event");
-            } catch (GLib.IOError.CANCELLED e) {
-                // ignore
-            } catch (GLib.Error e) {
-                warning ("Error playing sound: %s", e.message);
-            }
-        }
-    }
 }
