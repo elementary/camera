@@ -21,8 +21,11 @@
 
 public class Camera.Widgets.CameraView : ClutterGst.Camera {
     public signal void initialized ();
+    private Utils.Shutter shutter;
 
     public CameraView () {
+        shutter = new Utils.Shutter();
+
         new Thread<int> (null, () => {
             debug ("Initializing camera view...");
 
@@ -39,6 +42,7 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
             return false;
         }
 
+        shutter.play.begin ();
         base.take_photo (Utils.get_new_media_filename (Utils.ActionType.PHOTO));
 
         return true;

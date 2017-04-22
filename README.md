@@ -13,6 +13,7 @@ You'll need the following dependencies:
  - libgranite-dev
  - libclutter-gst-3.0-dev
  - libclutter-gtk-1.0-dev
+ - libgsound-dev
 
 It's recommended to create a clean build environment
 
