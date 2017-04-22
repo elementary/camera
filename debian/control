@@ -4,6 +4,7 @@ Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: cmake,
                debhelper (>= 9),
                intltool,
+               libcanberra-dev,
                libclutter-gtk-1.0-dev,
                libclutter-gst-3.0-dev,
                libgnome-desktop-3-dev,
