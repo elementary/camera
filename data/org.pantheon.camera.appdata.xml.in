@@ -20,5 +20,6 @@
   <url type="bugtracker">https://github.com/elementary/camera/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
   <url type="help">https://elementaryos.stackexchange.com/questions/tagged/camera</url>
+  <url type="translate">https://l10n.elementary.io/projects/camera</url>
   <update_contact>contact_at_elementary.io</update_contact>
 </component>
