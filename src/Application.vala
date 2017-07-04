@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Camera.Application : Granite.Application {
+public class Camera.Application : Gtk.Application {
     public static int main (string[] args) {
         ClutterGst.init (ref args);
 
@@ -32,27 +32,7 @@ public class Camera.Application : Granite.Application {
 
     construct {
         Intl.setlocale (LocaleCategory.ALL, "");
-
-        build_data_dir = Config.DATADIR;
-        build_pkg_data_dir = Config.PKGDATADIR;
-        build_release_name = Config.RELEASE_NAME;
-        build_version = Config.VERSION;
-        build_version_info = Config.VERSION_INFO;
-
-        program_name = _(Config.APP_NAME);
-        exec_name = "pantheon-camera";
-        app_years = "2011-2016";
-        app_icon = "accessories-camera";
-        app_launcher = "org.pantheon.camera.desktop";
         application_id = "org.pantheon.camera";
-        main_url = "https://github.com/elementary/camera";
-        bug_url = "https://github.com/elementary/camera/issues";
-        help_url = "http://elementaryos.stackexchange.com/questions/tagged/camera";
-        translate_url = "https://l10n.elementary.io/projects/camera";
-        about_authors = { "Marcus Wichelmann <marcus.wichelmann@hotmail.de>", "Mario Guerriero <mario@elementaryos.org>", null };
-        about_artists = { "Daniel Foré <daniel@elementary.io>", "Harvey Cabaguio <harveycabaguio@gmail.com>", null };
-        about_translators = _("translator-credits");
-        about_license_type = Gtk.License.GPL_3_0;
 
         var quit_action = new SimpleAction ("quit", null);
         quit_action.activate.connect (() => {
@@ -63,10 +43,6 @@ public class Camera.Application : Granite.Application {
 
         add_action (quit_action);
         add_accelerator ("<Control>q", "app.quit", null);
-    }
-
-    public Application () {
-        /* TODO */
     }
 
     protected override void activate () {

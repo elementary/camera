@@ -9,8 +9,3 @@ Terminal=false
 Categories=GNOME;AudioVideo;
 _Keywords=Photo;Video;Webcam;Camera;Booth;
 StartupNotify=true
-Actions=AboutDialog;
-
-[Desktop Action AboutDialog]
-Exec=pantheon-camera --about
-_Name=About @APP_NAME@
