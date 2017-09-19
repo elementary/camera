@@ -1,5 +1,5 @@
 i18n.gettext(
-    meson.project_name(),
+    'snap-photobooth',
     args : '--directory' + meson.source_root()
 )
 
