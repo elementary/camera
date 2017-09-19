@@ -8,6 +8,7 @@ The camera app designed for elementary OS
 
 You'll need the following dependencies:
 
+ - meson
  - valac-0.30
  - libgtk-3.0-dev
  - libgranite-dev
@@ -15,17 +16,13 @@ You'll need the following dependencies:
  - libclutter-gtk-1.0-dev
  - libcanberra-dev
 
-It's recommended to create a clean build environment
+Run `meson` to configure the build environment and then `ninja` to build and run automated tests
 
-    mkdir build
-    cd build/
-    
-Run `cmake` to configure the build environment and then `make all test` to build and run automated tests
+    meson build --prefix=/usr
+    cd build
+    ninja
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make all test
-    
-To install, use `make install`, then execute with `pantheon-camera`
+To install, use `ninja install`, then execute with `pantheon-camera`
 
-    sudo make install
+    sudo ninja install
     pantheon-camera

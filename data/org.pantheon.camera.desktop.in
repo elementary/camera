@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
-_Name=@APP_NAME@
-_Comment=Take photos and videos with the camera
-_GenericName=Photo Booth
+Name=Camera
+Comment=Take photos and videos with the camera
+GenericName=Photo Booth
 Exec=pantheon-camera
 Icon=accessories-camera
 Terminal=false
 Categories=GNOME;AudioVideo;
-_Keywords=Photo;Video;Webcam;Camera;Booth;
+Keywords=Photo;Video;Webcam;Camera;Booth;
 StartupNotify=true
