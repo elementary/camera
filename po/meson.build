@@ -1,5 +1,5 @@
 i18n.gettext(
-    'snap-photobooth',
+    'pantheon-camera',
     args : '--directory' + meson.source_root()
 )
 

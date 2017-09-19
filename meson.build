@@ -5,7 +5,7 @@ app_name = 'org.pantheon.camera'
 i18n = import('i18n')
 
 add_global_arguments(
-    '-DGETTEXT_PACKAGE="' + 'snap-photobooth' + '"',
+    '-DGETTEXT_PACKAGE="' + 'pantheon-camera' + '"',
     language : 'c')
 
 executable(
