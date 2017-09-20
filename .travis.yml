@@ -4,7 +4,7 @@ services:
  - docker
 
 env:
- - DEPENDENCY_PACKAGES="appstream meson intltool libclutter-gst-3.0-dev libclutter-gtk-1.0-dev libgranite-dev libgtk-3-dev valac desktop-file-utils libcanberra-dev"
+ - DEPENDENCY_PACKAGES="appstream meson libclutter-gst-3.0-dev libclutter-gtk-1.0-dev libgranite-dev libgtk-3-dev valac desktop-file-utils libcanberra-dev"
 
 install:
  - docker pull elementary/docker:loki
