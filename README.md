@@ -16,11 +16,11 @@ You'll need the following dependencies:
  - libclutter-gtk-1.0-dev
  - libcanberra-dev
 
-Run `meson` to configure the build environment and then `ninja` to build and run automated tests
+Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build and run automated tests
 
     meson build --prefix=/usr
     cd build
-    ninja
+    ninja test
 
 To install, use `ninja install`, then execute with `pantheon-camera`
 
