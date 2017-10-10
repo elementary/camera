@@ -1,7 +1,8 @@
 Source: pantheon-camera
 Section: x11
 Maintainer: Cody Garver <cody@elementary.io>
-Build-Depends: debhelper (>= 9),
+Build-Depends: appstream,
+               debhelper (>= 9),
                gettext,
                libcanberra-dev,
                libclutter-gtk-1.0-dev,
