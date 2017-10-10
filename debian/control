@@ -3,6 +3,7 @@ Section: x11
 Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: appstream,
                debhelper (>= 9),
+               desktop-file-utils,
                gettext,
                libcanberra-dev,
                libclutter-gtk-1.0-dev,
