@@ -1,5 +1,5 @@
-/usr/bin/pantheon-camera
-/usr/share/metainfo
-/usr/share/applications/org.pantheon.camera.desktop
-/usr/share/glib-2.0/schemas/*
-/usr/share/locale/*
+usr/bin/pantheon-camera
+usr/share/metainfo
+usr/share/applications/org.pantheon.camera.desktop
+usr/share/glib-2.0/schemas
+usr/share/locale
