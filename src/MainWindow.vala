@@ -44,7 +44,7 @@ public class Camera.MainWindow : Gtk.Window {
         settings = new Backend.Settings ();
 
         this.set_application (application);
-        this.title = _(Config.APP_NAME);
+        this.title = _("Camera");
         this.icon_name = "accessories-camera";
         this.set_default_size (1000, 700);
         this.set_size_request (640, 480);
