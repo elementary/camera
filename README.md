@@ -8,7 +8,7 @@ The camera app designed for elementary OS
 
 You'll need the following dependencies:
 
- - meson
+ - meson >= 0.43
  - valac-0.30
  - libgtk-3.0-dev
  - libgranite-dev

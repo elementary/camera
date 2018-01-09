@@ -1,4 +1,7 @@
-project('pantheon-camera', 'vala', 'c')
+project(
+    'pantheon-camera', 'vala', 'c',
+    meson_version : '>= 0.43'
+)
 
 app_name = 'org.pantheon.camera'
 
