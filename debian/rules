@@ -17,6 +17,3 @@ export DEB_BUILD_OPTIONS=nocheck
 
 override_dh_install:
 	dh_install --fail-missing
-
-override_dh_strip:
-	dh_strip --dbg-package=pantheon-camera-dbg

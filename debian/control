@@ -1,4 +1,4 @@
-Source: pantheon-camera
+Source: io.elementary.camera
 Section: x11
 Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: appstream,
@@ -18,22 +18,25 @@ Build-Depends: appstream,
 Standards-Version: 3.9.6
 Homepage: https://github.com/elementary/camera
 
-Package: pantheon-camera
+Package: io.elementary.camera
 Architecture: any
 Priority: extra
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Replaces: snap-photobooth
-Conflicts: snap-photobooth
+Conflicts: pantheon-camera, snap-photobooth
+Replaces: pantheon-camera, snap-photobooth
 Description: Camera app for Pantheon
  Capture photos and videos using your webcam in elementary style.
 
-Package: pantheon-camera-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Depends: pantheon-camera (= ${binary:Version}), ${misc:Depends}
-Enhances: pantheon-camera
-Description: Camera app for Pantheon (debugging symbols)
- Capture photos and videos using your webcam in elementary style.
- .
- This package contains debugging symbols for pantheon-camera.
+Package: pantheon-camera
+Architecture: all
+Depends: io.elementary.camera, ${misc:Depends}
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
+
+Package: snap-photobooth
+Architecture: all
+Depends: io.elementary.camera, ${misc:Depends}
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
