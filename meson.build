@@ -1,9 +1,7 @@
 project(
-    'pantheon-camera', 'vala', 'c',
+    'io.elementary.camera', 'vala', 'c',
     meson_version : '>= 0.43'
 )
-
-app_name = 'org.pantheon.camera'
 
 i18n = import('i18n')
 
