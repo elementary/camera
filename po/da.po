@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-02 20:32-0500\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Danish <da@li.org>\n"
+"PO-Revision-Date: 2018-03-24 15:24+0000\n"
+"Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
+"Language-Team: Danish "
+"<https://weblate.elementary.io/projects/camera/camera/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
 #: ../src/Application.vala:54
 msgid "translator-credits"
@@ -27,17 +29,19 @@ msgstr ""
 
 #: ../src/MainWindow.vala:80
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Intet Understøttet Kamera Fundet"
 
 #: ../src/MainWindow.vala:81
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Forbind et webcam eller anden understøttet videoenhed for at tage billeder "
+"og optage video."
 
 #: ../src/MainWindow.vala:133
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Forbinder til \"%s\"…"
 
 #: ../src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Søger efter videoenheder…"
