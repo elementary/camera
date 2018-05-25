@@ -25,14 +25,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
     private Gtk.Button take_button;
-    private Granite.Widgets.ModeButton mode_button;
-
+    private Gtk.Switch mode_switch;
     private bool is_recording = false;
 
     public bool camera_controls_sensitive {
         set {
             take_button.sensitive = value;
-            mode_button.sensitive = value;
+            mode_switch.sensitive = value;
         }
     }
 
@@ -70,14 +69,19 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        mode_button = new Granite.Widgets.ModeButton ();
-        mode_button.append_icon (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.append_icon (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.sensitive = false;
+        var photo_icon = new Gtk.Image.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
+        photo_icon.tooltip_text = _("Camera");
+
+        mode_switch = new Gtk.Switch ();
+
+        var video_icon = new Gtk.Image.from_icon_name (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
+        video_icon.tooltip_text = _("Video");
 
         show_close_button = true;
         set_custom_title (take_button);
-        pack_end (mode_button);
+        pack_end (video_icon);
+        pack_end (mode_switch);
+        pack_end (photo_icon);
 
         update_take_button_icon ();
         connect_signals ();
@@ -103,8 +107,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             }
         });
 
-        mode_button.mode_changed.connect (() => {
-            settings.set_action_type (mode_button.selected == 0 ? Utils.ActionType.PHOTO : Utils.ActionType.VIDEO);
+        mode_switch.notify["active"].connect( () => {
+            if (mode_switch.active) {
+                settings.set_action_type (Utils.ActionType.VIDEO);
+            } else {
+                settings.set_action_type (Utils.ActionType.PHOTO);
+            }
         });
     }
 
@@ -119,6 +127,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
 
         ((Gtk.Image)take_button.image).set_from_icon_name (icon_name, Gtk.IconSize.BUTTON);
-        mode_button.set_active ((int)(action_type == Utils.ActionType.VIDEO));
+
+        if (action_type == Utils.ActionType.VIDEO) {
+            mode_switch.active = true;
+        }
     }
 }
