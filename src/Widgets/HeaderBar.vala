@@ -24,7 +24,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
-    private Gtk.Button take_button;
+    private Widgets.TakeButton take_button;
     private Gtk.Switch mode_switch;
     private bool is_recording = false;
 
@@ -34,13 +34,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             mode_switch.sensitive = value;
         }
     }
-
-    public const string TAKE_BUTTON_STYLESHEET = """
-        .take-button {
-            border-radius: 400px;
-        }
-    """;
-
     public Backend.Settings settings { private get; construct; }
 
     public signal void take_photo_clicked ();
@@ -52,27 +45,14 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     construct {
-        take_button = new Gtk.Button.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        take_button.sensitive = false;
-        take_button.width_request = 54;
-
-        Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
-
-        try {
-            take_button_style_provider.load_from_data (TAKE_BUTTON_STYLESHEET, -1);
-        } catch (Error e) {
-            warning ("Styling take button failed: %s", e.message);
-        }
-
-        var take_button_style_context = take_button.get_style_context ();
-        take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        take_button_style_context.add_class ("take-button");
-        take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        take_button = new Widgets.TakeButton ();
+        take_button.set_image (PHOTO_ICON_SYMBOLIC);
 
         var photo_icon = new Gtk.Image.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
         photo_icon.tooltip_text = _("Camera");
 
         mode_switch = new Gtk.Switch ();
+        mode_switch.valign = Gtk.Align.CENTER;
 
         var video_icon = new Gtk.Image.from_icon_name (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
         video_icon.tooltip_text = _("Video");
@@ -95,13 +75,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private void connect_signals () {
         settings.action_type_changed.connect (update_take_button_icon);
 
-        take_button.clicked.connect (() => {
+        take_button.clicked.connect ( () => {
             if (settings.get_action_type () == Utils.ActionType.PHOTO) {
                 take_photo_clicked ();
             } else {
                 if (is_recording) {
+                    take_button.stop_timer ();
                     stop_recording_clicked ();
                 } else {
+                    take_button.start_timer ();
                     start_recording_clicked ();
                 }
             }
@@ -126,7 +108,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             icon_name = (is_recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
         }
 
-        ((Gtk.Image)take_button.image).set_from_icon_name (icon_name, Gtk.IconSize.BUTTON);
+        take_button.set_image (icon_name);
 
         if (action_type == Utils.ActionType.VIDEO) {
             mode_switch.active = true;

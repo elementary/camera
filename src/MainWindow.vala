@@ -84,6 +84,8 @@ public class Camera.MainWindow : Gtk.Window {
         this.set_titlebar (header_bar);
         this.add (stack);
 
+
+
         connect_signals ();
 
         new Thread<int> (null, () => {
