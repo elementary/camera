@@ -16,7 +16,7 @@
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA.
  *
- * Authored by: Alain M. <alain23@protonmail.com.com>
+ * Authored by: Alain M. <alain23@protonmail.com>
  */
 public class Camera.Widgets.TakeButton : Gtk.Button {
     private Gtk.Label timer_label;
@@ -33,10 +33,10 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
     public string icon_name {
         set { take_image.icon_name = value; }
     }
-    
+
     public TakeButton () {
         Object (
-            sensitive: true,
+            sensitive: false,
             width_request: 54
         );
      }

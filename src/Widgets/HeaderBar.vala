@@ -52,6 +52,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         photo_icon.tooltip_text = _("Take a photo");
 
         mode_switch = new Gtk.Switch ();
+        mode_switch.sensitive = false;
         mode_switch.valign = Gtk.Align.CENTER;
 
         var video_icon = new Gtk.Image.from_icon_name (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
