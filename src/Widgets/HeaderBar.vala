@@ -46,16 +46,16 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     construct {
         take_button = new Widgets.TakeButton ();
-        take_button.set_image (PHOTO_ICON_SYMBOLIC);
+        take_button.icon_name = PHOTO_ICON_SYMBOLIC;
 
         var photo_icon = new Gtk.Image.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
-        photo_icon.tooltip_text = _("Camera");
+        photo_icon.tooltip_text = _("Take a photo");
 
         mode_switch = new Gtk.Switch ();
         mode_switch.valign = Gtk.Align.CENTER;
 
         var video_icon = new Gtk.Image.from_icon_name (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
-        video_icon.tooltip_text = _("Video");
+        video_icon.tooltip_text = _("Make a video");
 
         show_close_button = true;
         set_custom_title (take_button);
@@ -108,7 +108,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             icon_name = (is_recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
         }
 
-        take_button.set_image (icon_name);
+        take_button.icon_name = icon_name;
 
         if (action_type == Utils.ActionType.VIDEO) {
             mode_switch.active = true;

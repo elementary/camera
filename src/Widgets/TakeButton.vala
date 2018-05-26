@@ -30,6 +30,10 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
         }
     """;
 
+    public string icon_name {
+        set { take_image.icon_name = value; }
+    }
+    
     public TakeButton () {
         Object (
             sensitive: true,
@@ -103,9 +107,5 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
      public void stop_timer () {
          timer_label.visible = false;
          timer_active = false;
-     }
-
-     public void set_image (string icon_name) {
-         take_image.icon_name = icon_name;
      }
  }
