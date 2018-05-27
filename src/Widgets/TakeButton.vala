@@ -18,6 +18,7 @@
  *
  * Authored by: Alain M. <alain23@protonmail.com>
  */
+
 public class Camera.Widgets.TakeButton : Gtk.Button {
     private Gtk.Label timer_label;
     private Gtk.Image take_image;

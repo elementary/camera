@@ -105,14 +105,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         if (action_type == Utils.ActionType.PHOTO) {
             icon_name = PHOTO_ICON_SYMBOLIC;
+            mode_switch.active = false;
         } else {
             icon_name = (is_recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
+            mode_switch.active = true;
         }
 
         take_button.icon_name = icon_name;
-
-        if (action_type == Utils.ActionType.VIDEO) {
-            mode_switch.active = true;
-        }
     }
 }
