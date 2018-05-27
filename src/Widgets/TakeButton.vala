@@ -117,6 +117,8 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
             timer_label.visible = true;
             timer_label.label = time.to_string ();
 
+            play_timer_sound ();
+
             Timeout.add_seconds (1, () => {
                 time = time - 1;
                 if (time == 0) {
@@ -125,9 +127,25 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
                     return false;
                 }
 
+                play_timer_sound ();
                 timer_label.label = time.to_string ();
                 return true;
             });
         }
+    }
+
+    private void play_timer_sound () {
+        Canberra.Context context;
+        Canberra.Proplist props;
+
+        Canberra.Context.create (out context);
+        Canberra.Proplist.create (out props);
+
+        props.sets (Canberra.PROP_EVENT_ID, "camera-shutter");
+        props.sets (Canberra.PROP_EVENT_DESCRIPTION, _("Photo timer"));
+        props.sets (Canberra.PROP_CANBERRA_CACHE_CONTROL, "permanent");
+        props.sets (Canberra.PROP_MEDIA_ROLE, "event");
+
+        context.play_full (0, props, null);
     }
 }
