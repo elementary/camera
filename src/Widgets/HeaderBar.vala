@@ -25,7 +25,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
     private Widgets.TakeButton take_button;
-    private Widgets.TimerButton timer_button;
 
     private Gtk.Switch mode_switch;
     private bool is_recording = false;
@@ -33,7 +32,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     public bool camera_controls_sensitive {
         set {
             take_button.sensitive = value;
-            timer_button.sensitive = value;
             mode_switch.sensitive = value;
         }
     }
@@ -48,8 +46,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     construct {
-        timer_button = new Widgets.TimerButton ();
-
         take_button = new Widgets.TakeButton ();
         take_button.icon_name = PHOTO_ICON_SYMBOLIC;
 
@@ -65,7 +61,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         show_close_button = true;
         set_custom_title (take_button);
-        pack_start (timer_button);
         pack_end (video_icon);
         pack_end (mode_switch);
         pack_end (photo_icon);
@@ -84,11 +79,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         take_button.clicked.connect (() => {
             if (settings.get_action_type () == Utils.ActionType.PHOTO) {
-                take_button.start_delay_time (timer_button.time);
-                Timeout.add_seconds (timer_button.time, () => {
-                    take_photo_clicked ();
-                    return false;
-                });
+                take_photo_clicked ();
             } else {
                 if (is_recording) {
                     take_button.stop_timer ();
@@ -116,11 +107,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         if (action_type == Utils.ActionType.PHOTO) {
             icon_name = PHOTO_ICON_SYMBOLIC;
             mode_switch.active = false;
-            timer_button.visible = true;
         } else {
             icon_name = (is_recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
             mode_switch.active = true;
-            timer_button.visible = false;
         }
 
         take_button.icon_name = icon_name;
