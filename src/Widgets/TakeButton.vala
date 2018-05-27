@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
+* Copyright (c) 2011-2018 elementary LLC. (https://github.com/elementary/camera)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -43,14 +43,9 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
     }
 
     construct {
-        var main_grid = new Gtk.Grid ();
-        main_grid.halign = Gtk.Align.CENTER;
-        main_grid.margin_left = 6;
-        main_grid.margin_right = 6;
-
         take_image = new Gtk.Image ();
 
-        timer_label = new Gtk.Label (null);
+        timer_label = new Gtk.Label ("00:00");
         timer_label.no_show_all = true;
 
         Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
@@ -66,6 +61,11 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
+        var main_grid = new Gtk.Grid ();
+        main_grid.halign = Gtk.Align.CENTER;
+        main_grid.margin_left = 6;
+        main_grid.margin_right = 6;
+
         main_grid.add (take_image);
         main_grid.add (timer_label);
 
@@ -74,40 +74,41 @@ public class Camera.Widgets.TakeButton : Gtk.Button {
 
     public void start_timer () {
         timer_label.visible = true;
+        timer_label.label = "00:00";
         timer_active = true;
 
-        int min = 0;
-        int sec = 0;
+        int minute = 0;
+        int seconds = 0;
 
-        string min_string = "00";
-        string sec_string = "00";
+        string minute_string = "00";
+        string seconds_string = "00";
 
         Timeout.add_seconds (1, () => {
-            sec = sec + 1;
-            if (sec > 59) {
-                sec = 0;
-                min = min + 1;
-            }
-            sec_string = sec.to_string ();
-            min_string = min.to_string ();
-
-            if (sec_string.length <= 1) {
-                sec_string = "0" + sec_string;
+            seconds = seconds + 1;
+            if (seconds > 59) {
+                seconds = 0;
+                minute = minute + 1;
             }
 
-            if (min_string.length <= 1) {
-                min_string = "0" + min_string;
+            seconds_string = seconds.to_string ();
+            minute_string = minute.to_string ();
+
+            if (seconds_string.length <= 1) {
+                seconds_string = "0" + seconds_string;
             }
 
-            timer_label.label = "%s:%s".printf(min_string, sec_string);
+            if (minute_string.length <= 1) {
+                minute_string = "0" + minute_string;
+            }
 
+            timer_label.label = "%s:%s".printf(minute_string, seconds_string);
             return timer_active;
         });
     }
 
     public void stop_timer () {
-        timer_label.visible = false;
         timer_active = false;
+        timer_label.visible = false;
     }
 
     public void start_delay_time (int time) {

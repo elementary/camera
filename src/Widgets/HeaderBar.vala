@@ -82,7 +82,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private void connect_signals () {
         settings.action_type_changed.connect (update_take_button_icon);
 
-        take_button.clicked.connect ( () => {
+        take_button.clicked.connect (() => {
             if (settings.get_action_type () == Utils.ActionType.PHOTO) {
                 take_button.start_delay_time (timer_button.time);
                 Timeout.add_seconds (timer_button.time, () => {
@@ -100,7 +100,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             }
         });
 
-        mode_switch.notify["active"].connect( () => {
+        mode_switch.notify["active"].connect(() => {
             if (mode_switch.active) {
                 settings.set_action_type (Utils.ActionType.VIDEO);
             } else {

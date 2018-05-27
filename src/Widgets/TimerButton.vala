@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
+* Copyright (c) 2011-2018 elementary LLC. (https://github.com/elementary/camera)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -43,17 +43,15 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     }
 
     construct {
-        var main_grid = new Gtk.Grid ();
-
         var timer_image = new Gtk.Image.from_icon_name ("document-open-recent-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
         timer_label = new Gtk.Label (disabled);
 
         all_time = new Gee.ArrayList<int> ();
-        all_time.add (0); // disabled
-        all_time.add (3);
-        all_time.add (5);
-        all_time.add (10);
+        all_time.add (0);   // disabled
+        all_time.add (3);   // 3 Sec
+        all_time.add (5);   // 5 Sec
+        all_time.add (10);  // 10 Sec
 
         Gtk.CssProvider timer_button_style_provider = new Gtk.CssProvider ();
         try {
@@ -82,10 +80,13 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
             if (index == 0) {
                 val = disabled;
             } else {
-                val = "%s Sec".printf(all_time[index].to_string ());
+                val = _("%s Sec".printf(all_time[index].to_string ()));
             }
+
             timer_label.label = val;
         });
+
+        var main_grid = new Gtk.Grid ();
 
         main_grid.add (timer_image);
         main_grid.add (timer_label);
