@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 17:05-0700\n"
-"PO-Revision-Date: 2018-03-24 15:24+0000\n"
+"PO-Revision-Date: 2018-05-28 21:58+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish <https://weblate.elementary.io/projects/camera/camera/"
-"da/>\n"
+"Language-Team: Danish "
+"<https://weblate.elementary.io/projects/camera/camera/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: src/MainWindow.vala:47
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/MainWindow.vala:62
 msgid "No Supported Camera Found"
@@ -42,7 +42,7 @@ msgstr "Forbinder til \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Foto taget"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
