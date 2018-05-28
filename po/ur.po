@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
+"POT-Creation-Date: 2018-05-27 17:05-0700\n"
 "PO-Revision-Date: 2016-09-23 19:42+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -18,27 +18,35 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-09-24 06:53+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+#: src/MainWindow.vala:47
+msgid "Camera"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Waqar Ahmed https://launchpad.net/~waqar-17a"
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:62
 msgid "No Supported Camera Found"
 msgstr "کوئی معاون کردہ کیمرہ نہیں ملا"
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:63
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "تصویریں یا ویڈیو بنانے کے لیے ویب کیم یا کوئی اور معاون کردہ ویڈیو ڈیوائس "
 "منسلک کریں۔"
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:125
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "جڑ رہا ہے \"%s\" سے ۔ ۔ ۔"
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "ویڈیو ڈیوائس تلاش کر رہا ہے۔ ۔ ۔"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Waqar Ahmed https://launchpad.net/~waqar-17a"

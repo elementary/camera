@@ -7,9 +7,7 @@ app_name = 'org.pantheon.camera'
 
 i18n = import('i18n')
 
-add_global_arguments(
-    '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
-    language : 'c')
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
 
 executable(
     meson.project_name(),
