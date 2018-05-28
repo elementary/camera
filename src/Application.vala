@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
+ * Copyright (c) 2011-2018 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -20,14 +20,6 @@
  */
 
 public class Camera.Application : Gtk.Application {
-    public static int main (string[] args) {
-        ClutterGst.init (ref args);
-
-        var application = new Application ();
-
-        return application.run (args);
-    }
-
     public MainWindow? main_window = null;
 
     construct {
@@ -35,14 +27,15 @@ public class Camera.Application : Gtk.Application {
         application_id = "org.pantheon.camera";
 
         var quit_action = new SimpleAction ("quit", null);
+
+        add_action (quit_action);
+        set_accels_for_action ("app.quit", {"<Control>q"});
+
         quit_action.activate.connect (() => {
             if (main_window != null) {
                 main_window.destroy ();
             }
         });
-
-        add_action (quit_action);
-        add_accelerator ("<Control>q", "app.quit", null);
     }
 
     protected override void activate () {
@@ -52,5 +45,13 @@ public class Camera.Application : Gtk.Application {
         } else {
             main_window.present ();
         }
+    }
+
+    public static int main (string[] args) {
+        ClutterGst.init (ref args);
+
+        var application = new Application ();
+
+        return application.run (args);
     }
 }
