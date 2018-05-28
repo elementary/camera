@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
+"POT-Creation-Date: 2018-05-27 17:05-0700\n"
 "PO-Revision-Date: 2017-03-07 04:43+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Spanish <http://weblate.elementary.io/projects/desktop/camera/"
@@ -20,28 +20,36 @@ msgstr ""
 "X-Generator: Weblate 2.12\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+#: src/MainWindow.vala:47
+msgid "Camera"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Adolfo Jayme https://launchpad.net/~fitojb\n"
-"  Guillermo López Fuentes https://launchpad.net/~guillermolopezf"
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:62
 msgid "No Supported Camera Found"
 msgstr "No se ha encontrado ninguna cámara soportada"
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:63
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conecte una webcam u otro dispositivo de vídeo soportado para poder tomar "
 "fotos y vídeo."
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:125
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Conectando a \"%s\"…"
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "Buscando dispositivos de vídeo…"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Adolfo Jayme https://launchpad.net/~fitojb\n"
+#~ "  Guillermo López Fuentes https://launchpad.net/~guillermolopezf"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
+"POT-Creation-Date: 2018-05-27 17:05-0700\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
@@ -18,26 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+#: src/MainWindow.vala:47
+msgid "Camera"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Cheng-Chia Tseng https://launchpad.net/~zerng07\n"
-"  賴家亨 https://launchpad.net/~laichiaheng"
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:62
 msgid "No Supported Camera Found"
 msgstr "找不到支援的攝影機"
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:63
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "連接網路攝影機、或其他支援的視訊裝置來照相和攝影。"
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:125
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "連接到「%s」中…"
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "搜尋視訊裝置中…"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Cheng-Chia Tseng https://launchpad.net/~zerng07\n"
+#~ "  賴家亨 https://launchpad.net/~laichiaheng"

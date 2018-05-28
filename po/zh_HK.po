@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
+"POT-Creation-Date: 2018-05-27 17:05-0700\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,23 +13,28 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+#: src/MainWindow.vala:47
+msgid "Camera"
 msgstr ""
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:62
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:63
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:125
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr ""
