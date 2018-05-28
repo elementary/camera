@@ -24,24 +24,19 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
-    private Gtk.Button take_button;
-    private Granite.Widgets.ModeButton mode_button;
+    private Widgets.TakeButton take_button;
+    private Widgets.TimerButton timer_button;
 
+    private Gtk.Switch mode_switch;
     private bool is_recording = false;
 
     public bool camera_controls_sensitive {
         set {
             take_button.sensitive = value;
-            mode_button.sensitive = value;
+            timer_button.sensitive = value;
+            mode_switch.sensitive = value;
         }
     }
-
-    public const string TAKE_BUTTON_STYLESHEET = """
-        .take-button {
-            border-radius: 400px;
-        }
-    """;
-
     public Backend.Settings settings { private get; construct; }
 
     public signal void take_photo_clicked ();
@@ -53,31 +48,27 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     construct {
-        take_button = new Gtk.Button.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        take_button.sensitive = false;
-        take_button.width_request = 54;
+        timer_button = new Widgets.TimerButton ();
 
-        Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
+        take_button = new Widgets.TakeButton ();
+        take_button.icon_name = PHOTO_ICON_SYMBOLIC;
 
-        try {
-            take_button_style_provider.load_from_data (TAKE_BUTTON_STYLESHEET, -1);
-        } catch (Error e) {
-            warning ("Styling take button failed: %s", e.message);
-        }
+        var photo_icon = new Gtk.Image.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
+        photo_icon.tooltip_text = _("Take a photo");
 
-        var take_button_style_context = take_button.get_style_context ();
-        take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        take_button_style_context.add_class ("take-button");
-        take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        mode_switch = new Gtk.Switch ();
+        mode_switch.sensitive = false;
+        mode_switch.valign = Gtk.Align.CENTER;
 
-        mode_button = new Granite.Widgets.ModeButton ();
-        mode_button.append_icon (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.append_icon (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.sensitive = false;
+        var video_icon = new Gtk.Image.from_icon_name (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.SMALL_TOOLBAR);
+        video_icon.tooltip_text = _("Make a video");
 
         show_close_button = true;
         set_custom_title (take_button);
-        pack_end (mode_button);
+        pack_start (timer_button);
+        pack_end (video_icon);
+        pack_end (mode_switch);
+        pack_end (photo_icon);
 
         update_take_button_icon ();
         connect_signals ();
@@ -93,18 +84,28 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         take_button.clicked.connect (() => {
             if (settings.get_action_type () == Utils.ActionType.PHOTO) {
-                take_photo_clicked ();
+                take_button.start_delay_time (timer_button.time);
+                Timeout.add_seconds (timer_button.time, () => {
+                    take_photo_clicked ();
+                    return false;
+                });
             } else {
                 if (is_recording) {
+                    take_button.stop_timer ();
                     stop_recording_clicked ();
                 } else {
+                    take_button.start_timer ();
                     start_recording_clicked ();
                 }
             }
         });
 
-        mode_button.mode_changed.connect (() => {
-            settings.set_action_type (mode_button.selected == 0 ? Utils.ActionType.PHOTO : Utils.ActionType.VIDEO);
+        mode_switch.notify["active"].connect(() => {
+            if (mode_switch.active) {
+                settings.set_action_type (Utils.ActionType.VIDEO);
+            } else {
+                settings.set_action_type (Utils.ActionType.PHOTO);
+            }
         });
     }
 
@@ -114,11 +115,14 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         if (action_type == Utils.ActionType.PHOTO) {
             icon_name = PHOTO_ICON_SYMBOLIC;
+            mode_switch.active = false;
+            timer_button.visible = true;
         } else {
             icon_name = (is_recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
+            mode_switch.active = true;
+            timer_button.visible = false;
         }
 
-        ((Gtk.Image)take_button.image).set_from_icon_name (icon_name, Gtk.IconSize.BUTTON);
-        mode_button.set_active ((int)(action_type == Utils.ActionType.VIDEO));
+        take_button.icon_name = icon_name;
     }
 }

@@ -18,6 +18,8 @@ executable(
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
     'src/Widgets/LoadingView.vala',
+    'src/Widgets/TakeButton.vala',
+    'src/Widgets/TimerButton.vala',
     dependencies : [
         dependency('clutter-gst-3.0'),
         dependency('clutter-gtk-1.0'),
