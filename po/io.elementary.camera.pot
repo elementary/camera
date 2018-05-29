@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the pantheon-camera package.
+# This file is distributed under the same license as the io.elementary.camera package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: pantheon-camera\n"
+"Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-27 17:05-0700\n"
+"POT-Creation-Date: 2018-05-29 10:59-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.vala:47
+#: src/MainWindow.vala:50
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:128
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""

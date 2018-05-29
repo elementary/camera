@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-27 17:05-0700\n"
+"POT-Creation-Date: 2018-05-29 10:58-0700\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -18,20 +18,20 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
-#: src/MainWindow.vala:47
+#: src/MainWindow.vala:50
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
 msgstr "Nuk u gjetën kamera të përballuara"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "Lidh një webcam ose pajisje tjetër videoje për të bërë foto dhe video."
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:128
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Duke u lidhur me \"%s\"…"

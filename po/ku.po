@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-27 17:05-0700\n"
+"POT-Creation-Date: 2018-05-29 10:58-0700\n"
 "PO-Revision-Date: 2018-02-05 00:10+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/camera/camera/"
@@ -13,20 +13,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/MainWindow.vala:47
+#: src/MainWindow.vala:50
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:128
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
