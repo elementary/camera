@@ -157,7 +157,7 @@ public class Camera.MainWindow : Gtk.Window {
             }
 
             if (camera_view.start_recording ()) {
-                header_bar.set_is_recording (true);
+                header_bar.recording = true;
             }
         });
         header_bar.stop_recording_clicked.connect (() => {
@@ -166,7 +166,6 @@ public class Camera.MainWindow : Gtk.Window {
             }
 
             camera_view.stop_recording ();
-            header_bar.set_is_recording (false);
         });
     }
 }

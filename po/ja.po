@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 17:05-0700\n"
-"PO-Revision-Date: 2018-05-13 00:10+0000\n"
+"PO-Revision-Date: 2018-05-28 19:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/camera/"
-"camera/ja/>\n"
+"Language-Team: Japanese "
+"<https://weblate.elementary.io/projects/camera/camera/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: src/MainWindow.vala:47
 msgid "Camera"
-msgstr ""
+msgstr "カメラ"
 
 #: src/MainWindow.vala:62
 msgid "No Supported Camera Found"
-msgstr "サポートされているカメラが見つかりません"
+msgstr "サポートされているカメラが見つかりませんでした"
 
 #: src/MainWindow.vala:63
 msgid ""
@@ -42,7 +42,7 @@ msgstr "\"%s\" へ接続しています…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "写真を撮影しました"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
