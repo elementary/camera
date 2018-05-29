@@ -20,42 +20,41 @@
  */
 
 public class Camera.Widgets.TimerButton : Gtk.Button {
-    private Gee.ArrayList<int> all_time;
-    private int index = 0;
-
     private const string DISABLED = _("Disabled");
 
-    public int time {
-        get { return all_time[index]; }
+    public enum SuggestedTime {
+        DISABLED = 0,
+        3_SEC = 3,
+        5_SEC = 5,
+        10_SEC = 10;
+        public SuggestedTime next () {
+            switch (this) {
+                case 3_SEC:
+                    return 5_SEC;
+                case 5_SEC:
+                    return 10_SEC;
+                case 10_SEC:
+                    return DISABLED;
+                default:
+                    return 3_SEC;
+            }
+        }
     }
+
+    public SuggestedTime time = SuggestedTime.DISABLED;
 
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-
         var timer_label = new Gtk.Label (DISABLED);
 
-        all_time = new Gee.ArrayList<int> ();
-        all_time.add (0);   // disabled
-        all_time.add (3);   // 3 Sec
-        all_time.add (5);   // 5 Sec
-        all_time.add (10);  // 10 Sec
-
         this.clicked.connect (() => {
-            index++;
+            time = time.next ();
 
-            if (index > 3) {
-                index = 0;
-            }
-
-            if (index <= -1) {
-                index = 3;
-            }
-
-            if (index == 0) {
+            if (time == 0) {
                 timer_label.label = DISABLED;
             } else {
                 ///TRANSLATORS: Seconds in a timer
-                timer_label.label = ngettext ("%d Sec", "%d Sec", all_time[index]).printf (all_time[index]);
+                timer_label.label = ngettext ("%d Sec", "%d Sec", time).printf (time);
             }
         });
 
