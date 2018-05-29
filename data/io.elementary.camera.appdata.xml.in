@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2015-2016 elementary, LLC <contact@elementary.io> -->
+<!-- Copyright 2015-2018 elementary, LLC <contact@elementary.io> -->
 <component type="desktop">
-  <id>org.pantheon.camera.desktop</id>
+  <id>io.elementary.camera.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
@@ -13,7 +13,7 @@
     </p>
   </description>
   <provides>
-    <binary>pantheon-camera</binary>
+    <binary>io.elementary.camera</binary>
   </provides>
   <developer_name>elementary LLC.</developer_name>
   <url type="homepage">http://elementary.io/</url>

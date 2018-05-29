@@ -32,7 +32,7 @@ public class Camera.Application : Gtk.Application {
 
     construct {
         Intl.setlocale (LocaleCategory.ALL, "");
-        application_id = "org.pantheon.camera";
+        application_id = "io.elementary.camera";
 
         var quit_action = new SimpleAction ("quit", null);
         quit_action.activate.connect (() => {
