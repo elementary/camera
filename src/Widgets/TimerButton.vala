@@ -22,12 +22,12 @@
 public class Camera.Widgets.TimerButton : Gtk.Button {
     private const string DISABLED = _("Disabled");
 
-    public enum SuggestedTime {
+    public enum Delay {
         DISABLED = 0,
         3_SEC = 3,
         5_SEC = 5,
         10_SEC = 10;
-        public SuggestedTime next () {
+        public Delay next () {
             switch (this) {
                 case 3_SEC:
                     return 5_SEC;
@@ -41,20 +41,20 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         }
     }
 
-    public SuggestedTime time = SuggestedTime.DISABLED;
+    public Delay delay = Delay.DISABLED;
 
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         var timer_label = new Gtk.Label (DISABLED);
 
         this.clicked.connect (() => {
-            time = time.next ();
+            delay = delay.next ();
 
-            if (time == 0) {
+            if (delay == 0) {
                 timer_label.label = DISABLED;
             } else {
                 ///TRANSLATORS: Seconds in a timer
-                timer_label.label = ngettext ("%d Sec", "%d Sec", time).printf (time);
+                timer_label.label = ngettext ("%d Sec", "%d Sec", delay).printf (delay);
             }
         });
 
