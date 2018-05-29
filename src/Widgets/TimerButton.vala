@@ -30,13 +30,6 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         get { return all_time[index]; }
     }
 
-    public TimerButton () {
-        Object (
-            sensitive: false,
-            tooltip_text: _("Delay time before taking a photo")
-        );
-    }
-
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
@@ -47,8 +40,6 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         all_time.add (3);   // 3 Sec
         all_time.add (5);   // 5 Sec
         all_time.add (10);  // 10 Sec
-
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         this.clicked.connect (() => {
             string val = "";
@@ -65,17 +56,20 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
             if (index == 0) {
                 val = DISABLED;
             } else {
-                val = _("%s Sec".printf(all_time[index].to_string ()));
+                ///TRANSLATORS: Seconds in a timer
+                val = ngettext ("%d Sec", "%d Sec", all_time[index]).printf (all_time[index]);
             }
 
             timer_label.label = val;
         });
 
         var main_grid = new Gtk.Grid ();
-
         main_grid.add (timer_image);
         main_grid.add (timer_label);
 
+        sensitive = false;
+        tooltip_text = _("Delay time before taking a photo");
+        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         add (main_grid);
     }
 }
