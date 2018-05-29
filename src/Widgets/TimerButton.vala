@@ -20,8 +20,6 @@
  */
 
 public class Camera.Widgets.TimerButton : Gtk.Button {
-    private const string DISABLED = _("Disabled");
-
     public enum Delay {
         DISABLED = 0,
         3_SEC = 3,
@@ -39,23 +37,25 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
                     return 3_SEC;
             }
         }
+        public string to_string () {
+            if (this == Delay.DISABLED) {
+                return _("Disabled");
+            } else {
+                ///TRANSLATORS: Seconds in a timer
+                return ngettext ("%d Sec", "%d Sec", this).printf (this);
+            }
+        }
     }
 
     public Delay delay = Delay.DISABLED;
 
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        var timer_label = new Gtk.Label (DISABLED);
+        var timer_label = new Gtk.Label (delay.to_string ());
 
         this.clicked.connect (() => {
             delay = delay.next ();
-
-            if (delay == 0) {
-                timer_label.label = DISABLED;
-            } else {
-                ///TRANSLATORS: Seconds in a timer
-                timer_label.label = ngettext ("%d Sec", "%d Sec", delay).printf (delay);
-            }
+            timer_label.label = delay.to_string ();
         });
 
         var main_grid = new Gtk.Grid ();
