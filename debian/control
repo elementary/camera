@@ -20,7 +20,7 @@ Homepage: https://github.com/elementary/camera
 
 Package: io.elementary.camera
 Architecture: any
-Priority: extra
+Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Conflicts: pantheon-camera, snap-photobooth
 Replaces: pantheon-camera, snap-photobooth
@@ -28,15 +28,17 @@ Description: Camera app for Pantheon
  Capture photos and videos using your webcam in elementary style.
 
 Package: pantheon-camera
-Architecture: all
+Architecture: any
 Depends: io.elementary.camera, ${misc:Depends}
 Section: oldlibs
+Priority: optional
 Description: transitional dummy package
  This is a transitional dummy package. It can safely be removed.
 
 Package: snap-photobooth
-Architecture: all
+Architecture: any
 Depends: io.elementary.camera, ${misc:Depends}
 Section: oldlibs
+Priority: optional
 Description: transitional dummy package
  This is a transitional dummy package. It can safely be removed.
