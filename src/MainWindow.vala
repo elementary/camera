@@ -43,6 +43,9 @@ public class Camera.MainWindow : Gtk.Window {
     construct {
         settings = new Backend.Settings ();
 
+        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+        default_theme.add_resource_path ("/io/elementary/camera");
+
         this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";

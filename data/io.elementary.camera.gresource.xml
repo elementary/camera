@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="io/elementary/camera">
+    <file alias="timer-symbolic.svg">icons/symbolic/timer-symbolic.svg</file>
+  </gresource>
+</gresources>
