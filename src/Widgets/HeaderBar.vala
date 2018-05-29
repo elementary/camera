@@ -110,9 +110,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         take_button.clicked.connect (() => {
             if (settings.get_action_type () == Utils.ActionType.PHOTO) {
-                start_delay_time (timer_button.time);
+                start_delay_time (timer_button.delay);
                 // Time to take a photo
-                Timeout.add_seconds (timer_button.time, () => {
+                Timeout.add_seconds (timer_button.delay, () => {
                     take_photo_clicked ();
                     return false;
                 });

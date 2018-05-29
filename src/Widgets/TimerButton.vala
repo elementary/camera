@@ -20,62 +20,51 @@
  */
 
 public class Camera.Widgets.TimerButton : Gtk.Button {
-    private Gtk.Label timer_label;
-    private Gee.ArrayList<int> all_time;
-    private int index = 0;
-
-    private const string DISABLED = _("Disabled");
-
-    public int time {
-        get { return all_time[index]; }
+    public enum Delay {
+        DISABLED = 0,
+        3_SEC = 3,
+        5_SEC = 5,
+        10_SEC = 10;
+        public Delay next () {
+            switch (this) {
+                case 3_SEC:
+                    return 5_SEC;
+                case 5_SEC:
+                    return 10_SEC;
+                case 10_SEC:
+                    return DISABLED;
+                default:
+                    return 3_SEC;
+            }
+        }
+        public string to_string () {
+            if (this == Delay.DISABLED) {
+                return _("Disabled");
+            } else {
+                ///TRANSLATORS: Seconds in a timer
+                return ngettext ("%d Sec", "%d Sec", this).printf (this);
+            }
+        }
     }
 
-    public TimerButton () {
-        Object (
-            sensitive: false,
-            tooltip_text: _("Delay time before taking a photo")
-        );
-    }
+    public Delay delay = Delay.DISABLED;
 
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-
-        timer_label = new Gtk.Label (DISABLED);
-
-        all_time = new Gee.ArrayList<int> ();
-        all_time.add (0);   // disabled
-        all_time.add (3);   // 3 Sec
-        all_time.add (5);   // 5 Sec
-        all_time.add (10);  // 10 Sec
-
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        var timer_label = new Gtk.Label (delay.to_string ());
 
         this.clicked.connect (() => {
-            string val = "";
-            index = index + 1;
-
-            if (index > 3) {
-                index = 0;
-            }
-
-            if (index <= -1) {
-                index = 3;
-            }
-
-            if (index == 0) {
-                val = DISABLED;
-            } else {
-                val = _("%s Sec".printf(all_time[index].to_string ()));
-            }
-
-            timer_label.label = val;
+            delay = delay.next ();
+            timer_label.label = delay.to_string ();
         });
 
         var main_grid = new Gtk.Grid ();
-
         main_grid.add (timer_image);
         main_grid.add (timer_label);
 
+        sensitive = false;
+        tooltip_text = _("Delay time before taking a photo");
+        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         add (main_grid);
     }
 }
