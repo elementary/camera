@@ -25,7 +25,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
     private Widgets.TimerButton timer_button;
-    private Gtk.Revealer timer_revealer;
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
     private Gtk.Button take_button;
@@ -60,10 +59,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     construct {
         timer_button = new Widgets.TimerButton ();
-
-        timer_revealer = new Gtk.Revealer ();
-        timer_revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
-        timer_revealer.add (timer_button);
 
         take_image = new Gtk.Image ();
         take_image.icon_name = PHOTO_ICON_SYMBOLIC;
@@ -105,7 +100,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_button.sensitive = false;
 
         show_close_button = true;
-        pack_start (timer_revealer);
+        pack_start (timer_button);
         set_custom_title (take_button);
         pack_end (mode_button);
 
@@ -165,10 +160,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         if (action_type == Utils.ActionType.PHOTO) {
             icon_name = PHOTO_ICON_SYMBOLIC;
-            timer_revealer.reveal_child = true;
+            timer_button.sensitive = true;
         } else {
             icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
-            timer_revealer.reveal_child = false;
+            timer_button.sensitive = false;
         }
 
         take_image.icon_name = icon_name;
@@ -178,14 +173,19 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private void start_delay_time (int time) {
         if (time != 0) {
             take_image.visible = false;
+            mode_button.sensitive = false;
+            timer_button.sensitive = false;
             video_timer_revealer.reveal_child = true;
+
             take_timer.label = time.to_string ();
 
             Timeout.add_seconds (1, () => {
                  time = time - 1;
-                 
+
                  if (time <= 0) {
                      take_image.visible = true;
+                     mode_button.sensitive = true;
+                     timer_button.sensitive = true;
                      video_timer_revealer.reveal_child = false;
                      return false;
                  }

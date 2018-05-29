@@ -23,13 +23,8 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     private Gtk.Label timer_label;
     private Gee.ArrayList<int> all_time;
     private int index = 0;
-    private string disabled = _("Disable");
 
-    public const string TIMER_BUTTON_STYLESHEET = """
-    .timer-button {
-        border-radius: 100px;
-    }
-    """;
+    private const string DISABLED = _("Disabled");
 
     public int time {
         get { return all_time[index]; }
@@ -45,7 +40,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
-        timer_label = new Gtk.Label (disabled);
+        timer_label = new Gtk.Label (DISABLED);
 
         all_time = new Gee.ArrayList<int> ();
         all_time.add (0);   // disabled
@@ -53,17 +48,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         all_time.add (5);   // 5 Sec
         all_time.add (10);  // 10 Sec
 
-        Gtk.CssProvider timer_button_style_provider = new Gtk.CssProvider ();
-        try {
-            timer_button_style_provider.load_from_data (TIMER_BUTTON_STYLESHEET, -1);
-        } catch (Error e) {
-            warning ("Styling take button failed: %s", e.message);
-        }
-
-        var timer_button_style_context = this.get_style_context ();
-        timer_button_style_context.add_provider (timer_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        timer_button_style_context.add_class ("timer-button");
-        timer_button_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         this.clicked.connect (() => {
             string val = "";
@@ -78,7 +63,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
             }
 
             if (index == 0) {
-                val = disabled;
+                val = DISABLED;
             } else {
                 val = _("%s Sec".printf(all_time[index].to_string ()));
             }
