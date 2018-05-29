@@ -20,7 +20,6 @@
  */
 
 public class Camera.Widgets.TimerButton : Gtk.Button {
-    private Gtk.Label timer_label;
     private Gee.ArrayList<int> all_time;
     private int index = 0;
 
@@ -33,7 +32,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     construct {
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
-        timer_label = new Gtk.Label (DISABLED);
+        var timer_label = new Gtk.Label (DISABLED);
 
         all_time = new Gee.ArrayList<int> ();
         all_time.add (0);   // disabled
@@ -42,8 +41,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         all_time.add (10);  // 10 Sec
 
         this.clicked.connect (() => {
-            string val = "";
-            index = index + 1;
+            index++;
 
             if (index > 3) {
                 index = 0;
@@ -54,13 +52,11 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
             }
 
             if (index == 0) {
-                val = DISABLED;
+                timer_label.label = DISABLED;
             } else {
                 ///TRANSLATORS: Seconds in a timer
-                val = ngettext ("%d Sec", "%d Sec", all_time[index]).printf (all_time[index]);
+                timer_label.label = ngettext ("%d Sec", "%d Sec", all_time[index]).printf (all_time[index]);
             }
-
-            timer_label.label = val;
         });
 
         var main_grid = new Gtk.Grid ();
