@@ -106,7 +106,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         update_take_button_icon ();
 
-        settings.action_type_changed.connect (update_take_button_icon);
+        settings.notify["mode"].connect (update_take_button_icon);
 
         take_button.clicked.connect (() => {
             if (settings.get_action_type () == Utils.ActionType.PHOTO) {

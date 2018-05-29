@@ -22,12 +22,8 @@
 public class Camera.Backend.Settings : Granite.Services.Settings {
     protected string mode { get; set; }
 
-    public signal void action_type_changed (Utils.ActionType action_type);
-
     public Settings () {
         base ("io.elementary.camera.settings");
-
-        connect_signals ();
     }
 
     public Utils.ActionType get_action_type () {
@@ -36,11 +32,5 @@ public class Camera.Backend.Settings : Granite.Services.Settings {
 
     public void set_action_type (Utils.ActionType action_type) {
         mode = (action_type == Utils.ActionType.PHOTO ? "photo" : "video");
-    }
-
-    private void connect_signals () {
-        this.notify["mode"].connect (() => {
-            action_type_changed (get_action_type ());
-        });
     }
 }
