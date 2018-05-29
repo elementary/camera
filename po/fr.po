@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 10:58-0700\n"
+"POT-Creation-Date: 2018-05-29 11:00-0700\n"
 "PO-Revision-Date: 2018-05-28 23:45+0000\n"
 "Last-Translator: Corentin Noël <corentin@elementary.io>\n"
 "Language-Team: French <https://weblate.elementary.io/projects/camera/camera/"
@@ -47,6 +47,19 @@ msgstr "Photo prise"
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "Recherche des périphériques vidéo…"
+
+#: src/Widgets/TimerButton.vala:27
+msgid "Disabled"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:36
+msgid "Delay time before taking a photo"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:68
+#, c-format
+msgid "%s Sec"
+msgstr ""
 
 #~ msgid "translator-credits"
 #~ msgstr ""

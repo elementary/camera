@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 10:58-0700\n"
+"POT-Creation-Date: 2018-05-29 11:00-0700\n"
 "PO-Revision-Date: 2017-04-29 13:15+0000\n"
 "Last-Translator: Zahidul Hossain <choyan.009@gmail.com>\n"
 "Language-Team: bn (generated) <https://l10n.elementary.io/projects/camera/"
@@ -42,6 +42,19 @@ msgstr ""
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "ভিডিও ডিভাইস খুঁজছে…"
+
+#: src/Widgets/TimerButton.vala:27
+msgid "Disabled"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:36
+msgid "Delay time before taking a photo"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:68
+#, c-format
+msgid "%s Sec"
+msgstr ""
 
 #~ msgid "translator-credits"
 #~ msgstr "অনুবাদ করেছেন"

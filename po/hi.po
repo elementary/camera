@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 10:58-0700\n"
+"POT-Creation-Date: 2018-05-29 11:00-0700\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
@@ -42,6 +42,19 @@ msgstr ""
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:27
+msgid "Disabled"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:36
+msgid "Delay time before taking a photo"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:68
+#, c-format
+msgid "%s Sec"
 msgstr ""
 
 #~ msgid "translator-credits"
