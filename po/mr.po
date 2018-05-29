@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 17:05-0700\n"
-"PO-Revision-Date: 2018-05-28 18:23+0000\n"
+"PO-Revision-Date: 2018-05-29 00:10+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi "
 "<https://weblate.elementary.io/projects/camera/camera/mr/>\n"
@@ -36,7 +36,7 @@ msgstr "फोटो किंवा व्हिडिओ काढण्या
 #: src/MainWindow.vala:125
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "\"%s\"... ला जोडले जात आहे."
+msgstr "\"%s\"... ला जोडले जात आहे"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
