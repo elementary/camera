@@ -8,13 +8,13 @@ The camera app designed for elementary OS
 
 You'll need the following dependencies:
 
- - meson >= 0.43
- - valac-0.30
- - libgtk-3.0-dev
- - libgranite-dev
+ - libcanberra-dev
  - libclutter-gst-3.0-dev
  - libclutter-gtk-1.0-dev
- - libcanberra-dev
+ - libgranite-dev
+ - libgtk-3.0-dev
+ - meson >= 0.43
+ - valac-0.30
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build and run automated tests
 
