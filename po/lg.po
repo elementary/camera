@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 11:00-0700\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
 "PO-Revision-Date: 2018-01-20 19:39+0000\n"
 "Last-Translator: Laurence Bahiirwa <laurence@mediauganda.com>\n"
 "Language-Team: Ganda <https://weblate.elementary.io/projects/camera/camera/"
@@ -40,17 +40,19 @@ msgstr ""
 msgid "Searching for video devices…"
 msgstr "Tuli kunoonya ebikwata vidiyo…"
 
-#: src/Widgets/TimerButton.vala:27
+#: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
 msgstr ""
 
-#: src/Widgets/TimerButton.vala:36
-msgid "Delay time before taking a photo"
-msgstr ""
-
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:45
 #, c-format
-msgid "%s Sec"
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
 msgstr ""
 
 #~ msgid "translator-credits"

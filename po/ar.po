@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 11:00-0700\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
 "PO-Revision-Date: 2017-04-10 18:39+0000\n"
 "Last-Translator: HAYDER <albasimy16@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/"
@@ -47,17 +47,23 @@ msgstr ""
 msgid "Searching for video devices…"
 msgstr "البحث عن اجهزة الفديو…"
 
-#: src/Widgets/TimerButton.vala:27
+#: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
 msgstr ""
 
-#: src/Widgets/TimerButton.vala:36
-msgid "Delay time before taking a photo"
-msgstr ""
-
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:45
 #, c-format
-msgid "%s Sec"
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
 msgstr ""
 
 #~ msgid "translator-credits"

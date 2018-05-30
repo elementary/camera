@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 11:00-0700\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
 "PO-Revision-Date: 2018-05-28 00:17+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://weblate.elementary.io/projects/camera/camera/"
-"he/>\n"
+"Language-Team: Hebrew "
+"<https://weblate.elementary.io/projects/camera/camera/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,17 +46,19 @@ msgstr "תמונה צולמה"
 msgid "Searching for video devices…"
 msgstr "מתבצע חיפוש אחר התקני וידאו…"
 
-#: src/Widgets/TimerButton.vala:27
+#: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "מושבת"
 
-#: src/Widgets/TimerButton.vala:36
-msgid "Delay time before taking a photo"
-msgstr ""
-
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:45
 #, c-format
-msgid "%s Sec"
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
 msgstr ""
 
 #~ msgid "translator-credits"
