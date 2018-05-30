@@ -24,6 +24,7 @@ executable(
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
     'src/Widgets/LoadingView.vala',
+    'src/Widgets/ModeSwitch.vala',
     'src/Widgets/TimerButton.vala',
     dependencies : [
         dependency('clutter-gst-3.0'),

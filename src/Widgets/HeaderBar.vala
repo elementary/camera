@@ -29,7 +29,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Label take_timer;
     private Gtk.Button take_button;
     private Gtk.Image take_image;
-    private Granite.Widgets.ModeButton mode_button;
+    private ModeSwitch mode_switch;
 
     public bool recording { get; set; default = false; }
 
@@ -37,7 +37,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         set {
             timer_button.sensitive = value;
             take_button.sensitive = value;
-            mode_button.sensitive = value;
+            mode_switch.sensitive = value;
         }
     }
 
@@ -94,15 +94,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        mode_button = new Granite.Widgets.ModeButton ();
-        mode_button.append_icon (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.append_icon (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.sensitive = false;
+        mode_switch = new ModeSwitch (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
+        mode_switch.valign = Gtk.Align.CENTER;
 
         show_close_button = true;
         pack_start (timer_button);
         set_custom_title (take_button);
-        pack_end (mode_button);
+        pack_end (mode_switch);
 
         update_take_button_icon ();
 
@@ -126,8 +124,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             }
         });
 
-        mode_button.mode_changed.connect (() => {
-            settings.set_action_type (mode_button.selected == 0 ? Utils.ActionType.PHOTO : Utils.ActionType.VIDEO);
+        mode_switch.notify["active"].connect (() => {
+            if (mode_switch.active) {
+                settings.set_action_type (Utils.ActionType.VIDEO);
+            } else {
+                settings.set_action_type (Utils.ActionType.PHOTO);
+            }
         });
 
         bool timer_active = false;
@@ -155,25 +157,23 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     private void update_take_button_icon () {
-        string icon_name;
         Utils.ActionType action_type = settings.get_action_type ();
 
         if (action_type == Utils.ActionType.PHOTO) {
-            icon_name = PHOTO_ICON_SYMBOLIC;
+            take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+            mode_switch.active = false;
             timer_button.sensitive = true;
         } else {
-            icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
+            take_image.icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
+            mode_switch.active = true;
             timer_button.sensitive = false;
         }
-
-        take_image.icon_name = icon_name;
-        mode_button.set_active ((int)(action_type == Utils.ActionType.VIDEO));
     }
 
     private void start_delay_time (int time) {
         if (time != 0) {
             take_image.visible = false;
-            mode_button.sensitive = false;
+            mode_switch.sensitive = false;
             timer_button.sensitive = false;
             video_timer_revealer.reveal_child = true;
 
@@ -184,7 +184,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
                  if (time <= 0) {
                      take_image.visible = true;
-                     mode_button.sensitive = true;
+                     mode_switch.sensitive = true;
                      timer_button.sensitive = true;
                      video_timer_revealer.reveal_child = false;
                      return false;
