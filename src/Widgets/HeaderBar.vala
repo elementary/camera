@@ -35,7 +35,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public bool camera_controls_sensitive {
         set {
-            timer_button.sensitive = value;
             take_button.sensitive = value;
             mode_button.sensitive = value;
         }
