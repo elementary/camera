@@ -4,6 +4,8 @@
 
 The camera app designed for elementary OS
 
+![Camera Screenshot](data/screenshot.png?raw=true)
+
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
