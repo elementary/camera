@@ -21,6 +21,7 @@
 
 public class Camera.Widgets.CameraView : ClutterGst.Camera {
     public signal void initialized ();
+    public Backend.Settings settings;
 
     public CameraView () {
         new Thread<int> (null, () => {
@@ -28,8 +29,14 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
 
             initialize_view ();
 
+            settings.changed.connect (() => {
+                set_brightness  (settings.brightness);
+            });
+
             return 0;
         });
+
+        settings = new Backend.Settings ();
     }
 
     public new bool take_photo () {

@@ -9,5 +9,11 @@
             <summary>The mode of the camera, photo or video</summary>
             <description>Photo mode is represented by 0, video mode by 1</description>
         </key>
+
+        <key name="brightness" type="d">
+          <default>0</default>
+          <summary>Brightness</summary>
+          <description>Brightness</description>
+        </key>
     </schema>
 </schemalist>

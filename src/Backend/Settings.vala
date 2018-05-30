@@ -21,6 +21,7 @@
 
 public class Camera.Backend.Settings : Granite.Services.Settings {
     protected string mode { get; set; }
+    public double brightness { get; set; }
 
     public signal void action_type_changed (Utils.ActionType action_type);
 

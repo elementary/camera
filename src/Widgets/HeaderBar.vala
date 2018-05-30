@@ -30,6 +30,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Button take_button;
     private Gtk.Image take_image;
     private Granite.Widgets.ModeButton mode_button;
+    private Gtk.MenuButton app_menu;
 
     public bool recording { get; set; default = false; }
 
@@ -99,9 +100,48 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_button.append_icon (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
         mode_button.sensitive = false;
 
+        var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        var brightness_label = new Gtk.Label (_("Brightness"));
+        brightness_label.get_style_context ().add_class ("h3");
+
+        var brightness_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        brightness_box.margin_left = 6;
+        brightness_box.pack_start (brightness_image, false, false, 0);
+        brightness_box.pack_start (brightness_label, false, false, 0);
+
+        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, -1, 1, 0.1);
+        brightness_scale.draw_value = false;
+        brightness_scale.hexpand = true;
+        brightness_scale.margin_left = 6;
+        brightness_scale.margin_right = 6;
+        brightness_scale.set_value (0);
+        brightness_scale.add_mark (-1, Gtk.PositionType.BOTTOM, "");
+        brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
+        brightness_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
+
+        var menu_grid = new Gtk.Grid ();
+        menu_grid.orientation = Gtk.Orientation.VERTICAL;
+        menu_grid.row_spacing = 6;
+        menu_grid.margin_bottom = 6;
+        menu_grid.margin_top = 6;
+        menu_grid.width_request = 250;
+        menu_grid.add (brightness_box);
+        menu_grid.add (brightness_scale);
+        //menu_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        menu_grid.show_all ();
+
+        var menu_popover = new Gtk.Popover (null);
+        menu_popover.add (menu_grid);
+
+        app_menu = new Gtk.MenuButton ();
+        app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.MENU);
+        app_menu.tooltip_text = _("Menu");
+        app_menu.popover = menu_popover;
+
         show_close_button = true;
         pack_start (timer_button);
         set_custom_title (take_button);
+        pack_end (app_menu);
         pack_end (mode_button);
 
         update_take_button_icon ();
@@ -151,6 +191,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
                 timer_active = false;
                 video_timer_revealer.reveal_child = false;
             }
+        });
+
+        brightness_scale.value_changed.connect (() => {
+            settings.brightness = brightness_scale.get_value ();
         });
     }
 
