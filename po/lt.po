@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 11:00-0700\n"
-"PO-Revision-Date: 2018-05-30 10:52+0000\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"PO-Revision-Date: 2018-05-28 07:26+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian "
 "<https://weblate.elementary.io/projects/camera/camera/lt/>\n"
@@ -49,18 +49,22 @@ msgstr "Nufotografuota"
 msgid "Searching for video devices…"
 msgstr "Ieškoma vaizdo įrenginių…"
 
-#: src/Widgets/TimerButton.vala:27
+#: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
 msgstr "Išjungta"
 
-#: src/Widgets/TimerButton.vala:36
-msgid "Delay time before taking a photo"
-msgstr "Delsimo laikas prieš fotografuojant"
-
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:45
 #, c-format
-msgid "%s Sec"
-msgstr "%s sek."
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
+msgstr ""
 
 #~ msgid "translator-credits"
 #~ msgstr ""

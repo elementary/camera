@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 11:00-0700\n"
-"PO-Revision-Date: 2018-05-29 23:58+0000\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"PO-Revision-Date: 2018-05-28 03:45+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://weblate.elementary.io/projects/camera/camera/nb/>\n"
@@ -48,19 +48,20 @@ msgstr "Bilde tatt"
 msgid "Searching for video devices…"
 msgstr "Søker etter videoenheter…"
 
-#: src/Widgets/TimerButton.vala:27
+#: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
 msgstr "Avskrudd"
 
-#: src/Widgets/TimerButton.vala:36
-#, fuzzy
-msgid "Delay time before taking a photo"
-msgstr "Forsinkelse før bilde tas"
-
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:45
 #, c-format
-msgid "%s Sec"
-msgstr "%s sek"
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
+msgstr ""
 
 #~ msgid "translator-credits"
 #~ msgstr ""

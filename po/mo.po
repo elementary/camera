@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 11:00-0700\n"
-"PO-Revision-Date: 2018-05-30 10:52+0000\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"PO-Revision-Date: 2018-05-28 06:03+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan "
 "<https://weblate.elementary.io/projects/camera/camera/mo/>\n"
@@ -41,18 +41,20 @@ msgstr "Fotografie făcută"
 msgid "Searching for video devices…"
 msgstr "Căutarea dispozitivelor video …"
 
-#: src/Widgets/TimerButton.vala:27
+#: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
 msgstr "Dezactivat"
 
-#: src/Widgets/TimerButton.vala:36
-msgid "Delay time before taking a photo"
-msgstr "Timp de retras înainte de a face fotografia"
-
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:45
 #, c-format
-msgid "%s Sec"
-msgstr "%s 1 sec"
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
+msgstr ""
 
 #~ msgid "translator-credits"
 #~ msgstr "traducător-credite"
