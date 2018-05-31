@@ -47,14 +47,17 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         }
     }
 
-    public Delay delay = Delay.DISABLED;
+    public Delay delay;
 
     construct {
+        delay = (Delay) Camera.Application.settings.get_enum ("delay");
+
         var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         var timer_label = new Gtk.Label (delay.to_string ());
 
         this.clicked.connect (() => {
             delay = delay.next ();
+            Camera.Application.settings.set_enum ("delay", delay);
             timer_label.label = delay.to_string ();
         });
 
