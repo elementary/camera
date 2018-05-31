@@ -20,7 +20,12 @@
  */
 
 public class Camera.Application : Gtk.Application {
+    public static GLib.Settings settings;
     public MainWindow? main_window = null;
+
+    static construct {
+        settings = new Settings ("io.elementary.camera.settings");
+    }
 
     construct {
         Intl.setlocale (LocaleCategory.ALL, "");
