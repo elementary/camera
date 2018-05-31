@@ -22,8 +22,6 @@
 public class Camera.MainWindow : Gtk.Window {
     private bool is_fullscreened = false;
 
-    private Backend.Settings settings;
-
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
 
@@ -41,8 +39,6 @@ public class Camera.MainWindow : Gtk.Window {
     }
 
     construct {
-        settings = new Backend.Settings ();
-
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
@@ -54,7 +50,7 @@ public class Camera.MainWindow : Gtk.Window {
         this.window_position = Gtk.WindowPosition.CENTER;
         this.add_events (Gdk.EventMask.KEY_PRESS_MASK);
 
-        header_bar = new Widgets.HeaderBar (settings);
+        header_bar = new Widgets.HeaderBar ();
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.CROSSFADE;

@@ -47,15 +47,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
     """;
 
-    public Backend.Settings settings { private get; construct; }
-
     public signal void take_photo_clicked ();
     public signal void start_recording_clicked ();
     public signal void stop_recording_clicked ();
-
-    public HeaderBar (Backend.Settings settings) {
-        Object (settings: settings);
-    }
 
     construct {
         timer_button = new Widgets.TimerButton ();
@@ -104,10 +98,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         update_take_button_icon ();
 
-        settings.action_type_changed.connect (update_take_button_icon);
+        Camera.Application.settings.changed.connect (update_take_button_icon);
 
         take_button.clicked.connect (() => {
-            if (settings.get_action_type () == Utils.ActionType.PHOTO) {
+            if (Camera.Application.settings.get_enum ("mode") == Utils.ActionType.PHOTO) {
                 start_delay_time (timer_button.delay);
                 // Time to take a photo
                 Timeout.add_seconds (timer_button.delay, () => {
@@ -126,9 +120,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         mode_switch.notify["active"].connect (() => {
             if (mode_switch.active) {
-                settings.set_action_type (Utils.ActionType.VIDEO);
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
             } else {
-                settings.set_action_type (Utils.ActionType.PHOTO);
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
             }
         });
 
@@ -157,7 +151,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     private void update_take_button_icon () {
-        Utils.ActionType action_type = settings.get_action_type ();
+        var action_type = (Utils.ActionType) Camera.Application.settings.get_enum ("mode");
 
         if (action_type == Utils.ActionType.PHOTO) {
             take_image.icon_name = PHOTO_ICON_SYMBOLIC;
