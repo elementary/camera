@@ -1,9 +1,20 @@
 <schemalist>
+    <enum id="io.elementary.camera.settings.delay">
+        <value nick="DISABLED" value="0" />
+        <value nick="3_SEC" value="3" />
+        <value nick="5_SEC" value="5" />
+        <value nick="10_SEC" value="10" />
+    </enum>
     <enum id="io.elementary.camera.settings.mode">
         <value nick="photo" value="0" />
         <value nick="video" value="1" />
     </enum>
     <schema path="/io/elementary/camera/settings/" id="io.elementary.camera.settings">
+        <key name="delay" enum="io.elementary.camera.settings.delay">
+            <default>"DISABLED"</default>
+            <summary>The timed delay before taking a photo</summary>
+            <description>The timed delay before taking a photo</description>
+        </key>
         <key name="mode" enum="io.elementary.camera.settings.mode">
             <default>"photo"</default>
             <summary>The mode of the camera, photo or video</summary>
