@@ -1,25 +1,30 @@
 project(
-    'pantheon-camera', 'vala', 'c',
+    'io.elementary.camera', 'vala', 'c',
     meson_version : '>= 0.43'
 )
 
-app_name = 'org.pantheon.camera'
-
+gnome = import('gnome')
 i18n = import('i18n')
 
-add_global_arguments(
-    '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
-    language : 'c')
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
+
+asresources = gnome.compile_resources(
+    'as-resources', 'data/' + meson.project_name() + '.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as'
+)
 
 executable(
     meson.project_name(),
+    asresources,
     'src/Application.vala',
     'src/MainWindow.vala',
     'src/Utils.vala',
-    'src/Backend/Settings.vala',
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
     'src/Widgets/LoadingView.vala',
+    'src/Widgets/ModeSwitch.vala',
+    'src/Widgets/TimerButton.vala',
     dependencies : [
         dependency('clutter-gst-3.0'),
         dependency('clutter-gtk-1.0'),

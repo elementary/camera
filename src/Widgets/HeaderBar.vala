@@ -24,15 +24,20 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
+    private Widgets.TimerButton timer_button;
+    private Gtk.Revealer video_timer_revealer;
+    private Gtk.Label take_timer;
     private Gtk.Button take_button;
-    private Granite.Widgets.ModeButton mode_button;
+    private Gtk.Image take_image;
+    private ModeSwitch mode_switch;
 
-    private bool is_recording = false;
+    public bool recording { get; set; default = false; }
 
     public bool camera_controls_sensitive {
         set {
+            timer_button.sensitive = value;
             take_button.sensitive = value;
-            mode_button.sensitive = value;
+            mode_switch.sensitive = value;
         }
     }
 
@@ -42,20 +47,33 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
     """;
 
-    public Backend.Settings settings { private get; construct; }
-
     public signal void take_photo_clicked ();
     public signal void start_recording_clicked ();
     public signal void stop_recording_clicked ();
 
-    public HeaderBar (Backend.Settings settings) {
-        Object (settings: settings);
-    }
-
     construct {
-        take_button = new Gtk.Button.from_icon_name (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
+        timer_button = new Widgets.TimerButton ();
+
+        take_image = new Gtk.Image ();
+        take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+        take_image.icon_size = Gtk.IconSize.BUTTON;
+
+        take_timer = new Gtk.Label (null);
+
+        video_timer_revealer = new Gtk.Revealer ();
+        video_timer_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
+        video_timer_revealer.add (take_timer);
+
+        var take_grid = new Gtk.Grid ();
+        take_grid.halign = Gtk.Align.CENTER;
+        take_grid.margin_start = take_grid.margin_end = 6;
+        take_grid.add (take_image);
+        take_grid.add (video_timer_revealer);
+
+        take_button = new Gtk.Button ();
         take_button.sensitive = false;
         take_button.width_request = 54;
+        take_button.add (take_grid);
 
         Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
 
@@ -70,55 +88,105 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        mode_button = new Granite.Widgets.ModeButton ();
-        mode_button.append_icon (PHOTO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.append_icon (VIDEO_ICON_SYMBOLIC, Gtk.IconSize.BUTTON);
-        mode_button.sensitive = false;
+        mode_switch = new ModeSwitch (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
+        mode_switch.valign = Gtk.Align.CENTER;
 
         show_close_button = true;
+        pack_start (timer_button);
         set_custom_title (take_button);
-        pack_end (mode_button);
+        pack_end (mode_switch);
 
         update_take_button_icon ();
-        connect_signals ();
-    }
 
-    public void set_is_recording (bool is_recording) {
-        this.is_recording = is_recording;
-        update_take_button_icon ();
-    }
-
-    private void connect_signals () {
-        settings.action_type_changed.connect (update_take_button_icon);
+        Camera.Application.settings.changed.connect (update_take_button_icon);
 
         take_button.clicked.connect (() => {
-            if (settings.get_action_type () == Utils.ActionType.PHOTO) {
-                take_photo_clicked ();
+            if (Camera.Application.settings.get_enum ("mode") == Utils.ActionType.PHOTO) {
+                start_delay_time (timer_button.delay);
+                // Time to take a photo
+                Timeout.add_seconds (timer_button.delay, () => {
+                    take_photo_clicked ();
+                    return false;
+                });
             } else {
-                if (is_recording) {
+                if (recording) {
                     stop_recording_clicked ();
+                    recording = false;
                 } else {
                     start_recording_clicked ();
                 }
             }
         });
 
-        mode_button.mode_changed.connect (() => {
-            settings.set_action_type (mode_button.selected == 0 ? Utils.ActionType.PHOTO : Utils.ActionType.VIDEO);
+        mode_switch.notify["active"].connect (() => {
+            if (mode_switch.active) {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+            } else {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+            }
+        });
+
+        bool timer_active = false;
+
+        notify["recording"].connect (() => {
+            update_take_button_icon ();
+
+            if (recording) {
+                video_timer_revealer.reveal_child = true;
+                timer_active = true;
+
+                int seconds = 0;
+                take_timer.label = Granite.DateTime.seconds_to_time (seconds);
+
+                Timeout.add_seconds (1, () => {
+                    seconds = seconds + 1;
+                    take_timer.label = Granite.DateTime.seconds_to_time (seconds);
+                    return timer_active;
+                });
+            } else {
+                timer_active = false;
+                video_timer_revealer.reveal_child = false;
+            }
         });
     }
 
     private void update_take_button_icon () {
-        string icon_name;
-        Utils.ActionType action_type = settings.get_action_type ();
+        var action_type = (Utils.ActionType) Camera.Application.settings.get_enum ("mode");
 
         if (action_type == Utils.ActionType.PHOTO) {
-            icon_name = PHOTO_ICON_SYMBOLIC;
+            take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+            mode_switch.active = false;
+            timer_button.sensitive = true;
         } else {
-            icon_name = (is_recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
+            take_image.icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
+            mode_switch.active = true;
+            timer_button.sensitive = false;
         }
+    }
 
-        ((Gtk.Image)take_button.image).set_from_icon_name (icon_name, Gtk.IconSize.BUTTON);
-        mode_button.set_active ((int)(action_type == Utils.ActionType.VIDEO));
+    private void start_delay_time (int time) {
+        if (time != 0) {
+            take_image.visible = false;
+            mode_switch.sensitive = false;
+            timer_button.sensitive = false;
+            video_timer_revealer.reveal_child = true;
+
+            take_timer.label = time.to_string ();
+
+            Timeout.add_seconds (1, () => {
+                 time = time - 1;
+
+                 if (time <= 0) {
+                     take_image.visible = true;
+                     mode_switch.sensitive = true;
+                     timer_button.sensitive = true;
+                     video_timer_revealer.reveal_child = false;
+                     return false;
+                 }
+
+                 take_timer.label = time.to_string ();
+                 return true;
+            });
+        }
     }
 }

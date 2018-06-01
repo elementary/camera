@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
-"PO-Revision-Date: 2018-03-24 15:24+0000\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"PO-Revision-Date: 2018-05-30 20:54+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish "
 "<https://weblate.elementary.io/projects/camera/camera/da/>\n"
@@ -20,28 +20,51 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Lars Nørgaard https://launchpad.net/~q-mai5-0\n"
-"  Silas Riisager Dahl https://launchpad.net/~dahl-silas"
+#: src/MainWindow.vala:50
+msgid "Camera"
+msgstr "Kamera"
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
 msgstr "Intet Understøttet Kamera Fundet"
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Forbind et webcam eller anden understøttet videoenhed for at tage billeder "
 "og optage video."
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:128
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Forbinder til \"%s\"…"
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr "Foto taget"
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "Søger efter videoenheder…"
+
+#: src/Widgets/TimerButton.vala:42
+msgid "Disabled"
+msgstr "Deaktiveret"
+
+#: src/Widgets/TimerButton.vala:45
+#, c-format
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] "%s Sek"
+msgstr[1] "%s Sek"
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
+msgstr "Udsæt tiden før foto tages"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Lars Nørgaard https://launchpad.net/~q-mai5-0\n"
+#~ "  Silas Riisager Dahl https://launchpad.net/~dahl-silas"

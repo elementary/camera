@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
 "PO-Revision-Date: 2017-03-08 19:39+0000\n"
 "Last-Translator: Leonardo <leonardo@elementary.io>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.elementary.io/projects/"
@@ -20,31 +20,54 @@ msgstr ""
 "X-Generator: Weblate 2.12\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+#: src/MainWindow.vala:50
+msgid "Camera"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Cleiton Floss https://launchpad.net/~cleitonfloss\n"
-"  Israel https://launchpad.net/~israeduardo\n"
-"  Leonardo Lemos https://launchpad.net/~leonardolemos\n"
-"  Lucas Santos https://launchpad.net/~lucas-santos-silva2011\n"
-"  Maxwell Barvian https://launchpad.net/~mbarvian-deactivatedaccount"
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
 msgstr "Nenhuma câmera suportada foi encontrada"
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conecte uma web ou outro dispositivo de vídeo suportado para tirar fotos ou "
 "gravar vídeos."
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:128
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Conectando a \"%s\"…"
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
 msgstr "Procurando por dispositivos de vídeo…"
+
+#: src/Widgets/TimerButton.vala:42
+msgid "Disabled"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:45
+#, c-format
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
+msgstr ""
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Cleiton Floss https://launchpad.net/~cleitonfloss\n"
+#~ "  Israel https://launchpad.net/~israeduardo\n"
+#~ "  Leonardo Lemos https://launchpad.net/~leonardolemos\n"
+#~ "  Lucas Santos https://launchpad.net/~lucas-santos-silva2011\n"
+#~ "  Maxwell Barvian https://launchpad.net/~mbarvian-deactivatedaccount"

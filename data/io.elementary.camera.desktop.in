@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Camera
+Comment=Take photos and videos with the camera
+GenericName=Photo Booth
+Exec=io.elementary.camera
+Icon=accessories-camera
+Terminal=false
+Categories=GNOME;AudioVideo;
+Keywords=Photo;Video;Webcam;Camera;Booth;
+StartupNotify=true

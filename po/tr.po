@@ -7,41 +7,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-02 20:32-0500\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Turkish <tr@li.org>\n"
+"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"PO-Revision-Date: 2018-05-27 00:04+0000\n"
+"Last-Translator: İbrahim Ethem Göl <ethem578@gmail.com>\n"
+"Language-Team: Turkish <https://weblate.elementary.io/projects/camera/camera/"
+"tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
-#: ../src/Application.vala:54
-msgid "translator-credits"
+#: src/MainWindow.vala:50
+msgid "Camera"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Mehmet https://launchpad.net/~darkmehmet3\n"
-"  Melih Güçlü https://launchpad.net/~melihguclu\n"
-"  Salih https://launchpad.net/~hernandomtoto\n"
-"  Yasin Bacak https://launchpad.net/~yasinbacak"
 
-#: ../src/MainWindow.vala:80
+#: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
 msgstr "Desteklenen Kamera Bulunamadı"
 
-#: ../src/MainWindow.vala:81
+#: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Fotoğraf veya video çekmek için bir webcam veya desteklenen başka bir video "
 "aygıtı bağlayın ."
 
-#: ../src/MainWindow.vala:133
+#: src/MainWindow.vala:128
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" cihazına bağlanıyor…"
 
-#: ../src/Widgets/LoadingView.vala:49
+#: src/Widgets/CameraView.vala:98
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "Video cihazları aranıyor..."
+msgstr "Video cihazları aranıyor…"
+
+#: src/Widgets/TimerButton.vala:42
+msgid "Disabled"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:45
+#, c-format
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:66
+msgid "Delay time before taking a photo"
+msgstr ""
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Mehmet https://launchpad.net/~darkmehmet3\n"
+#~ "  Melih Güçlü https://launchpad.net/~melihguclu\n"
+#~ "  Salih https://launchpad.net/~hernandomtoto\n"
+#~ "  Yasin Bacak https://launchpad.net/~yasinbacak"
