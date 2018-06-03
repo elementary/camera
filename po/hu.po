@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-29 16:58-0700\n"
-"PO-Revision-Date: 2018-05-31 15:46+0000\n"
+"PO-Revision-Date: 2018-06-02 00:04+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/camera/camera/hu/>\n"
@@ -38,7 +38,7 @@ msgstr ""
 #: src/MainWindow.vala:128
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "Csatlakozás ehhez: \"%s\""
+msgstr "Csatlakozás ehhez: \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
