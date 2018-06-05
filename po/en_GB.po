@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-29 16:58-0700\n"
-"PO-Revision-Date: 2018-05-28 23:40+0000\n"
-"Last-Translator: Ciaran Ainsworth <cda@whistlingkappa.com>\n"
-"Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
-"projects/camera/camera/en_GB/>\n"
+"PO-Revision-Date: 2018-06-06 00:07+0000\n"
+"Last-Translator: Cesar Vergara <cesarvergarab@gmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<https://weblate.elementary.io/projects/camera/camera/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: src/MainWindow.vala:50
 msgid "Camera"
-msgstr "Camera"
+msgstr "Camara"
 
 #: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
@@ -49,7 +49,7 @@ msgstr "Searching for video devices…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Desabilitado"
 
 #: src/Widgets/TimerButton.vala:45
 #, c-format
@@ -60,7 +60,7 @@ msgstr[1] ""
 
 #: src/Widgets/TimerButton.vala:66
 msgid "Delay time before taking a photo"
-msgstr ""
+msgstr "Demora antes de tomar una foto"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
