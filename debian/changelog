@@ -1,5 +1,5 @@
-io.elementary.camera (1.0) xenial; urgency=medium
+io.elementary.camera (1.0) bionic; urgency=medium
 
   * Initial release.
 
- -- Cody Garver <cody@elementary.io>  Tue, 20 Mar 2018 03:03:01 -0500
+ -- Cody Garver <cody@elementary.io>  Wed, 06 Jun 2018 06:58:36 -0500
