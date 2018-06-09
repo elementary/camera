@@ -40,6 +40,12 @@ executable(
     install : true
 )
 
+test (
+    'Vala lint',
+    find_program('io.elementary.vala-lint'),
+    args: ['-d', join_paths(meson.source_root(), 'src')]
+)
+
 meson.add_install_script('meson/post_install.py')
 
 subdir('data')
