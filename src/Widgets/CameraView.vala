@@ -24,7 +24,7 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
 
     public CameraView () {
         new Thread<int> (null, () => {
-            debug ("Initializing camera view...");
+            debug ("Initializing camera view…");
 
             initialize_view ();
 

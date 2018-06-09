@@ -86,7 +86,7 @@ public class Camera.MainWindow : Gtk.Window {
         connect_signals ();
 
         new Thread<int> (null, () => {
-            debug ("Initializing camera manager...");
+            debug ("Initializing camera manager…");
 
             initialize_camera_manager ();
 
