@@ -3,53 +3,57 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-29 16:58-0700\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2018-06-09 14:50+0000\n"
+"Last-Translator: Gamunu Udaya Balagalla <gamunu.balagalla@gmail.com>\n"
+"Language-Team: Sinhala "
+"<https://weblate.elementary.io/projects/camera/camera/si/>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
 #: src/MainWindow.vala:50
 msgid "Camera"
-msgstr ""
+msgstr "කැමරා"
 
 #: src/MainWindow.vala:65
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "ආධාරක කැමරාවක් සොයාගත නොහැකි විය"
 
 #: src/MainWindow.vala:66
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"ඡායාරූප සහ වීඩියෝ ලබා ගැනීමට වෙබ් කැමරාවක් හෝ වෙනත් ආධාරක වීඩියෝ උපාංගයක් "
+"සම්බන්ධ කරන්න."
 
 #: src/MainWindow.vala:128
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "\"%s\" සම්බන්ධ කරමින්…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "ඡායාරූපය ගනු ලැබීය"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "වීඩියෝ උපකරණ සොයමින්…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "විසන්දිකර ඇත"
 
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d තත්"
+msgstr[1] "%d තත්"
 
 #: src/Widgets/TimerButton.vala:66
 msgid "Delay time before taking a photo"
-msgstr ""
+msgstr "ඡායාරූපයක් ගැනීමට පෙර කාලය ප්රමාද කරන්න"
