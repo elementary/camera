@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"POT-Creation-Date: 2018-06-27 10:02-0700\n"
 "PO-Revision-Date: 2018-06-02 00:04+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
-"Language-Team: Hungarian "
-"<https://weblate.elementary.io/projects/camera/camera/hu/>\n"
+"Language-Team: Hungarian <https://weblate.elementary.io/projects/camera/"
+"camera/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,22 +20,22 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:46
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
 msgstr "Nem található támogatott kamera"
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Csatlakoztasson egy webkamerát vagy más videoeszközt fotók és videók "
 "készítéséhez."
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Csatlakozás ehhez: \"%s\"…"
@@ -59,8 +59,9 @@ msgid_plural "%d Sec"
 msgstr[0] "%d mp"
 msgstr[1] "%d mp"
 
-#: src/Widgets/TimerButton.vala:66
-msgid "Delay time before taking a photo"
+#: src/Widgets/TimerButton.vala:69
+#, fuzzy
+msgid "Delay before photo is taken"
 msgstr "Késleltetés a fénykép elkészítése előtt"
 
 #~ msgid "translator-credits"
