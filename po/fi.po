@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 10:02-0700\n"
-"PO-Revision-Date: 2018-06-01 14:39+0000\n"
+"PO-Revision-Date: 2018-07-01 14:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/camera/camera/"
 "fi/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:46
@@ -60,7 +60,6 @@ msgstr[0] "%d s"
 msgstr[1] "%d s"
 
 #: src/Widgets/TimerButton.vala:69
-#, fuzzy
 msgid "Delay before photo is taken"
 msgstr "Viive ennen kuvan ottamista"
 
