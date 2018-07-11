@@ -8,40 +8,43 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 10:01-0700\n"
-"PO-Revision-Date: 2018-05-27 16:59-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-07-11 10:08+0000\n"
+"Last-Translator: David M <rbndavid@gmail.com>\n"
+"Language-Team: Catalan <https://weblate.elementary.io/projects/camera/extra/"
+"ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr ""
+msgstr "Càmera"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Feu fotografies i vídeos amb la càmera"
 
 #: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr ""
+msgstr "Càmera és una aplicació simple per fer fotografies amb una càmera web."
 
 #: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Cabina de fotos"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr ""
+msgstr "accessoris-camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Foto;Vídeo,Webcam;Càmera;Cabina;"
