@@ -7,35 +7,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 16:58-0700\n"
-"PO-Revision-Date: 2018-05-31 06:17+0000\n"
+"POT-Creation-Date: 2018-06-27 10:02-0700\n"
+"PO-Revision-Date: 2018-06-29 18:39+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech "
-"<https://weblate.elementary.io/projects/camera/camera/cs/>\n"
+"Language-Team: Czech <https://weblate.elementary.io/projects/camera/camera/"
+"cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:46
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
 msgstr "Žádná podporovaná kamera nenalezena"
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Pro pořizování fotek a videí, připojte webkameru nebo jiné podporované "
 "nahrávací zařízení."
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Připojování k „%s“…"
@@ -60,9 +60,9 @@ msgstr[0] "%d sekunda"
 msgstr[1] "%d sekundy"
 msgstr[2] "%d sekund"
 
-#: src/Widgets/TimerButton.vala:66
-msgid "Delay time before taking a photo"
-msgstr "Doba prodlevy před pořízením fotky"
+#: src/Widgets/TimerButton.vala:69
+msgid "Delay before photo is taken"
+msgstr "Prodleva před pořízením fotky"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

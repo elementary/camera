@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"POT-Creation-Date: 2018-06-27 10:02-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,20 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:46
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
@@ -55,6 +55,6 @@ msgid_plural "%d Sec"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/TimerButton.vala:66
-msgid "Delay time before taking a photo"
+#: src/Widgets/TimerButton.vala:69
+msgid "Delay before photo is taken"
 msgstr ""

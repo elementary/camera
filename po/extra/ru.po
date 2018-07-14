@@ -7,43 +7,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-27 16:59-0700\n"
-"PO-Revision-Date: 2018-05-27 16:59-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2018-06-27 10:01-0700\n"
+"PO-Revision-Date: 2018-07-13 18:12+0000\n"
+"Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
+"Language-Team: Russian <https://weblate.elementary.io/projects/camera/extra/"
+"ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
-#: data/org.pantheon.camera.appdata.xml.in:8
-#: data/org.pantheon.camera.desktop.in:4
+#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr ""
+msgstr "Камера"
 
-#: data/org.pantheon.camera.appdata.xml.in:9
-#: data/org.pantheon.camera.desktop.in:5
+#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Делайте фотографии и записывайте видео с помощью камеры"
 
-#: data/org.pantheon.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
+"Камера это простой приложение для снятия фотографий с помощью веб-камеры."
 
-#: data/org.pantheon.camera.appdata.xml.in:18
+#: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
-#: data/org.pantheon.camera.desktop.in:6
+#: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Фото будка"
 
-#: data/org.pantheon.camera.desktop.in:8
+#: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr ""
+msgstr "accessories-camera"
 
-#: data/org.pantheon.camera.desktop.in:11
+#: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Фото;Видео;Веб-камера;Камера;Будка;"

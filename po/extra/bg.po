@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-27 16:59-0700\n"
+"POT-Creation-Date: 2018-06-27 10:01-0700\n"
 "PO-Revision-Date: 2018-05-27 16:59-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/org.pantheon.camera.appdata.xml.in:8
-#: data/org.pantheon.camera.desktop.in:4
+#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr ""
 
-#: data/org.pantheon.camera.appdata.xml.in:9
-#: data/org.pantheon.camera.desktop.in:5
+#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr ""
 
-#: data/org.pantheon.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 
-#: data/org.pantheon.camera.appdata.xml.in:18
+#: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
 msgstr ""
 
-#: data/org.pantheon.camera.desktop.in:6
+#: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
 msgstr ""
 
-#: data/org.pantheon.camera.desktop.in:8
+#: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
 msgstr ""
 
-#: data/org.pantheon.camera.desktop.in:11
+#: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr ""

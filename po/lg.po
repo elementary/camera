@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 16:58-0700\n"
+"POT-Creation-Date: 2018-06-27 10:02-0700\n"
 "PO-Revision-Date: 2018-01-20 19:39+0000\n"
 "Last-Translator: Laurence Bahiirwa <laurence@mediauganda.com>\n"
 "Language-Team: Ganda <https://weblate.elementary.io/projects/camera/camera/"
@@ -13,21 +13,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:46
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
 msgstr "Tewali Kamera esobola kukola"
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Tekako kamera ya kompyuta oba masini esoboola okukwata ebifananyi oba vidiyo."
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Kweyunga ku \"%s\"…"
@@ -51,8 +51,8 @@ msgid_plural "%d Sec"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/TimerButton.vala:66
-msgid "Delay time before taking a photo"
+#: src/Widgets/TimerButton.vala:69
+msgid "Delay before photo is taken"
 msgstr ""
 
 #~ msgid "translator-credits"

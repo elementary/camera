@@ -7,35 +7,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 16:58-0700\n"
-"PO-Revision-Date: 2018-05-30 20:54+0000\n"
+"POT-Creation-Date: 2018-06-27 10:02-0700\n"
+"PO-Revision-Date: 2018-06-27 22:05+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish "
-"<https://weblate.elementary.io/projects/camera/camera/da/>\n"
+"Language-Team: Danish <https://weblate.elementary.io/projects/camera/camera/"
+"da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:46
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
 msgstr "Intet Understøttet Kamera Fundet"
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Forbind et webcam eller anden understøttet videoenhed for at tage billeder "
 "og optage video."
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Forbinder til \"%s\"…"
@@ -56,12 +56,12 @@ msgstr "Deaktiveret"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] "%s Sek"
-msgstr[1] "%s Sek"
+msgstr[0] "%d sek"
+msgstr[1] "%d sek"
 
-#: src/Widgets/TimerButton.vala:66
-msgid "Delay time before taking a photo"
-msgstr "Udsæt tiden før foto tages"
+#: src/Widgets/TimerButton.vala:69
+msgid "Delay before photo is taken"
+msgstr "Tidsforsinkelse før foto tages"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

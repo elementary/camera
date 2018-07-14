@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-29 16:58-0700\n"
-"PO-Revision-Date: 2018-02-23 21:08+0000\n"
+"POT-Creation-Date: 2018-06-27 10:02-0700\n"
+"PO-Revision-Date: 2018-06-22 13:00+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
 "camera/camera/en_CA/>\n"
@@ -20,28 +20,28 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:46
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
 msgstr "No Supported Camera Found"
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connect a webcam or other supported video device to take photos and video."
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Connecting to \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Photo taken"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
@@ -49,18 +49,19 @@ msgstr "Searching for video devices…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Disabled"
 
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Sec"
+msgstr[1] "%d Sec"
 
-#: src/Widgets/TimerButton.vala:66
-msgid "Delay time before taking a photo"
-msgstr ""
+#: src/Widgets/TimerButton.vala:69
+#, fuzzy
+msgid "Delay before photo is taken"
+msgstr "Delay time before taking a photo"
 
 #~ msgid "translator-credits"
 #~ msgstr "translator-credits"
