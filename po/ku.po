@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 10:02-0700\n"
+"POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2018-02-05 00:10+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/camera/camera/"
@@ -43,6 +43,7 @@ msgstr ""
 msgid "Disabled"
 msgstr ""
 
+#. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"

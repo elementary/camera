@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 10:02-0700\n"
+"POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2018-06-10 00:10+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/camera/camera/"
@@ -46,6 +46,7 @@ msgstr "වීඩියෝ උපකරණ සොයමින්…"
 msgid "Disabled"
 msgstr "විසන්දිකර ඇත"
 
+#. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"

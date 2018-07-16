@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 10:02-0700\n"
+"POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2017-04-19 22:10+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: nn (generated) <https://l10n.elementary.io/projects/camera/"
@@ -52,6 +52,7 @@ msgstr "Søker etter videoeiningar…"
 msgid "Disabled"
 msgstr ""
 
+#. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
