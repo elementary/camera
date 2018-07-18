@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-07-18 17:52+0000\n"
+"PO-Revision-Date: 2018-07-19 00:07+0000\n"
 "Last-Translator: Christophe Silva <Christophesilva80@gmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/camera/"
 "extra/pt/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr "Câmera"
+msgstr "Câmera Fotográfica"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:5
