@@ -1,3 +1,9 @@
+io.elementary.camera (1.0.1) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Fri, 20 Jul 2018 13:22:59 -0500
+
 io.elementary.camera (1.0) bionic; urgency=medium
 
   * Initial release.
