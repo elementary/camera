@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-07-21 18:30+0000\n"
-"Last-Translator: Nils K <slx@nilsk.net>\n"
+"PO-Revision-Date: 2018-07-22 00:03+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
 "camera/camera/nb/>\n"
 "Language: nb\n"
@@ -42,7 +42,7 @@ msgstr "Kobler til \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr "Bilde er tatt"
+msgstr "Bilde tatt"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
@@ -50,7 +50,7 @@ msgstr "Søker etter videoenheter…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr "Deaktivert"
+msgstr "Avskrudd"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
