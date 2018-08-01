@@ -92,6 +92,13 @@ public class Camera.MainWindow : Gtk.Window {
 
             return 0;
         });
+
+        this.configure_event.connect ((event) => {
+            if (camera_view != null) {
+                camera_view.set_optimal_resolution (event.width, event.height);
+            }
+            return false;
+        });
     }
 
     private void initialize_camera_manager () {
@@ -117,6 +124,7 @@ public class Camera.MainWindow : Gtk.Window {
         camera_view.initialized.connect (() => {
             header_bar.camera_controls_sensitive = true;
             stack.set_visible_child_name ("camera");
+            camera_view.set_optimal_resolution (1000, 700);
         });
 
         camera_content.set_player (camera_view);

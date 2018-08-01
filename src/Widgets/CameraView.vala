@@ -22,6 +22,8 @@
 public class Camera.Widgets.CameraView : ClutterGst.Camera {
     public signal void initialized ();
 
+    GenericArray<ClutterGst.VideoResolution?> resolutions;
+
     public CameraView () {
         new Thread<int> (null, () => {
             debug ("Initializing camera view...");
@@ -82,9 +84,24 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
 
                 return false;
             });
+
+            resolutions = device.get_supported_resolutions ();
+            resolutions.sort ((a, b) => {
+                return a.width - b.width;
+            });
         } else {
             warning ("Initializing camera view failed.");
         }
+    }
+
+    public void set_optimal_resolution (int current_window_width, int current_window_height) {
+        bool changed = false;
+        resolutions.@foreach ((resolution) => {
+            if (!changed && (resolution.width > current_window_width || resolution.height > current_window_height)){
+                device.set_capture_resolution (resolution.width, resolution.height);
+                changed = true;
+            }
+        });
     }
 
     private void play_shutter_sound () {
