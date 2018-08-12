@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2018-08-12 11:11+0000\n"
-"Last-Translator: James Qian <sotux82@gmail.com>\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "camera/camera/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -40,7 +40,7 @@ msgstr "正在连接 \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "已拍照"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
@@ -48,18 +48,18 @@ msgstr "正在搜索视频设备…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "已禁用"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
+msgstr[0] "%d 秒"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "拍照倒计时长"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
