@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-08-12 11:12+0000\n"
-"Last-Translator: James Qian <sotux82@gmail.com>\n"
+"PO-Revision-Date: 2018-08-13 00:02+0000\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "camera/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -31,19 +31,20 @@ msgstr "使用相机拍摄照片和视频"
 
 #: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr "相机是一个使用网络摄像头拍照的简单应用程序。"
+msgstr "相机是一个简约的拍照应用。"
 
 #: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
+#, fuzzy
 msgid "Photo Booth"
-msgstr ""
+msgstr "相馆特效"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr ""
+msgstr "附件-相机"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
