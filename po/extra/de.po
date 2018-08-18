@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-08-18 11:28+0000\n"
+"PO-Revision-Date: 2018-08-18 11:32+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/camera/extra/"
 "de/>\n"
@@ -31,7 +31,7 @@ msgstr "Fotos und Videos mit der Kamera aufnehmen"
 
 #: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr "Die Kamera ist eine simple App um Fotos mit einer Webcam zu machen."
+msgstr "Kamera ist eine simple App um Fotos mit einer Webcam aufzunehmen."
 
 #: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
@@ -39,7 +39,7 @@ msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Fotoautomat"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
@@ -47,4 +47,4 @@ msgstr ""
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Foto;Video;Webcam;Kamera;Automat;"
