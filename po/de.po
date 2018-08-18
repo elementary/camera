@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-08-18 11:25+0000\n"
+"PO-Revision-Date: 2018-08-19 00:08+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/camera/camera/"
 "de/>\n"
@@ -38,7 +38,7 @@ msgstr ""
 #: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "Mit »%s«  verbinden …"
+msgstr "Mit \"%s\" verbinden…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
@@ -46,7 +46,7 @@ msgstr "Foto aufgenommen"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "Nach Videokameras suchen …"
+msgstr "Nach Videokameras suchen…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
