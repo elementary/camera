@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-06-02 18:49+0000\n"
+"PO-Revision-Date: 2018-08-18 11:25+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/camera/camera/"
 "de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:46
@@ -61,9 +61,8 @@ msgstr[0] "%d Sek"
 msgstr[1] "%d Sek"
 
 #: src/Widgets/TimerButton.vala:69
-#, fuzzy
 msgid "Delay before photo is taken"
-msgstr "Verzögerungszeit vor dem Fotografieren"
+msgstr "Aufnahmeverzögerung"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
