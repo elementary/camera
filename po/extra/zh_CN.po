@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-08-13 00:02+0000\n"
-"Last-Translator: James Qian <sotux82@gmail.com>\n"
+"PO-Revision-Date: 2018-08-24 00:01+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "camera/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -44,8 +44,8 @@ msgstr "相馆特效"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr "附件-相机"
+msgstr "accessories-camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr "照片；视频；网络摄像头；相机；Booth；"
+msgstr "照片;视频;网络摄像头;相机;Booth;"
