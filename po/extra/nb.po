@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-07-23 20:14+0000\n"
-"Last-Translator: Nils K <slx@nilsk.net>\n"
+"PO-Revision-Date: 2018-08-24 00:01+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
 "camera/extra/nb/>\n"
 "Language: nb\n"
@@ -43,7 +43,7 @@ msgstr "Bildeavlukke"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr "tilbehør-kamera"
+msgstr "accessories-camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
