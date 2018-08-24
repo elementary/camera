@@ -24,7 +24,6 @@ executable(
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
     'src/Widgets/LoadingView.vala',
-    'src/Widgets/ModeSwitch.vala',
     'src/Widgets/TimerButton.vala',
     dependencies : [
         dependency('clutter-gst-3.0'),
@@ -32,7 +31,7 @@ executable(
         dependency('gee-0.8'),
         dependency('gio-2.0'),
         dependency('glib-2.0'),
-        dependency('granite'),
+        dependency('granite', version: '>=5.1.0'),
         dependency('gtk+-3.0'),
         dependency('libcanberra'),
         meson.get_compiler('vala').find_library('posix')
