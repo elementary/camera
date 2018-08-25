@@ -29,7 +29,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Label take_timer;
     private Gtk.Button take_button;
     private Gtk.Image take_image;
-    private ModeSwitch mode_switch;
+    private Granite.ModeSwitch mode_switch;
 
     public bool recording { get; set; default = false; }
 
@@ -88,7 +88,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        mode_switch = new ModeSwitch (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
+        mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
         show_close_button = true;
