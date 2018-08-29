@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2018-08-29 03:38+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"Last-Translator: Bruno Lopes da Silva <brunolopesbldsb@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
 "camera/camera/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -62,7 +62,7 @@ msgstr[1] "%d Segs"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Atraso antes de capturar a foto"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
