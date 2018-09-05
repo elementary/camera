@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-09-05 22:47+0000\n"
+"PO-Revision-Date: 2018-09-06 00:08+0000\n"
 "Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/camera/camera/"
 "it/>\n"
@@ -62,7 +62,7 @@ msgstr[1] "%d secondi"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr "Attesa prima che la foto sia scattata"
+msgstr "Ritardo prima di scattare la foto"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
