@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2018-09-12 00:25+0000\n"
-"Last-Translator: Marco De Paolini <marco.depaolini@gmail.com>\n"
+"Last-Translator: Federico <candiago@live.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/camera/extra/"
 "it/>\n"
 "Language: it\n"
@@ -39,7 +39,7 @@ msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr "Cabina fotografica"
+msgstr "Photo Booth"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
