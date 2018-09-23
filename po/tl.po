@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-09-23 02:37+0000\n"
+"PO-Revision-Date: 2018-09-24 00:04+0000\n"
 "Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/camera/camera/"
 "tl/>\n"
@@ -27,14 +27,14 @@ msgstr "Kamera"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
-msgstr "Walang makitang suportadong kamera"
+msgstr "Walang Makitang Suportadong Kamera"
 
 #: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Magkonekta ng webcam o ibang suportadong video device para makakuha ng "
-"litrato o video."
+"larawan o video."
 
 #: src/MainWindow.vala:124
 #, c-format
@@ -63,7 +63,7 @@ msgstr[1] "%d Seg"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr "Pagkaantala bago kuhanin ang litrato"
+msgstr "Pagkaantala bago kuhanin ang larawan"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
