@@ -8,19 +8,22 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2016-05-24 20:34+0000\n"
-"Last-Translator: yavinfour <anjelo.passionist@gmail.com>\n"
-"Language-Team: Tagalog <tl@li.org>\n"
+"PO-Revision-Date: 2018-09-23 02:34+0000\n"
+"Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
+"Language-Team: Tagalog <https://weblate.elementary.io/projects/camera/camera/"
+"tl/>\n"
 "Language: tl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
 #: src/MainWindow.vala:46
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
@@ -30,6 +33,8 @@ msgstr "Walang makitang suportadong kamera"
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Magkonekta ng webcam o ibang suportadong video device para makakuha ng "
+"litrato o video."
 
 #: src/MainWindow.vala:124
 #, c-format
@@ -42,19 +47,19 @@ msgstr ""
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Naghahanap ng video devices…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Nakapatay"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Seg"
+msgstr[1] "%d Seg"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
