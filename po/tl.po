@@ -43,7 +43,7 @@ msgstr "Kumokonekta sa \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Kinuha ang larawan"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
