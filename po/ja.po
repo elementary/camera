@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-06-28 08:21+0000\n"
+"PO-Revision-Date: 2018-10-08 00:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/camera/"
 "camera/ja/>\n"
@@ -31,9 +31,7 @@ msgstr "サポートされているカメラが見つかりませんでした"
 #: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
-msgstr ""
-"写真やビデオを撮るには Web カメラまたはサポートされているビデオデバイスを接続"
-"してください。"
+msgstr "写真や動画を撮るには Web カメラまたはサポートされているビデオデバイスを接続してください。"
 
 #: src/MainWindow.vala:124
 #, c-format
