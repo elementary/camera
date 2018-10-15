@@ -121,7 +121,7 @@ public class Camera.MainWindow : Gtk.Window {
 
         camera_content.set_player (camera_view);
 
-        loading_view.set_status (_("Connecting to \"%s\"…".printf (camera_view.get_camera_device ().get_name ())));
+        loading_view.set_status (_("Connecting to \"%s\"…").printf (camera_view.get_camera_device ().get_name ()));
     }
 
     private void connect_signals () {
