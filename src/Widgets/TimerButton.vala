@@ -42,7 +42,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
                 return _("Disabled");
             } else {
                 ///TRANSLATORS: Seconds in a timer
-                return ngettext ("%d Sec", "%d Sec", this).printf (this);
+                return ngettext (_("%d Sec"), _("%d Sec"), this).printf (this);
             }
         }
     }
