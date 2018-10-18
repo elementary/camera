@@ -47,8 +47,9 @@ public class Camera.Application : Gtk.Application {
         if (this.get_windows () == null) {
             main_window = new MainWindow (this);
 
-            var window_height = settings.get_int ("window-height");
-            var window_width = settings.get_int ("window-width");
+            var window_size = settings.get_value ("window-size");
+            var window_height = (int32) window_size.get_child_value (0);
+            var window_width = (int32) window_size.get_child_value (1);
 
             if (window_height != -1 ||  window_width != -1) {
                 var rect = Gtk.Allocation ();
