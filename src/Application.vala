@@ -46,6 +46,17 @@ public class Camera.Application : Gtk.Application {
     protected override void activate () {
         if (this.get_windows () == null) {
             main_window = new MainWindow (this);
+
+            var window_height = settings.get_int ("window-height");
+            var window_width = settings.get_int ("window-width");
+
+            if (window_height != -1 ||  window_width != -1) {
+                var rect = Gtk.Allocation ();
+                rect.height = window_height;
+                rect.width = window_width;
+                main_window.set_allocation (rect);
+            }
+
             main_window.show_all ();
         } else {
             main_window.present ();

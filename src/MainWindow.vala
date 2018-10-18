@@ -45,7 +45,7 @@ public class Camera.MainWindow : Gtk.Window {
         this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
-        this.set_default_size (1000, 700);
+        //this.set_default_size (1000, 700);
         this.set_size_request (640, 480);
         this.window_position = Gtk.WindowPosition.CENTER;
         this.add_events (Gdk.EventMask.KEY_PRESS_MASK);
@@ -166,5 +166,14 @@ public class Camera.MainWindow : Gtk.Window {
 
             camera_view.stop_recording ();
         });
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        Gtk.Allocation rect;
+        get_allocation (out rect);
+        Application.settings.set_int ("window-height", rect.height);
+        Application.settings.set_int ("window-width", rect.width);
+
+        return base.configure_event (event);
     }
 }
