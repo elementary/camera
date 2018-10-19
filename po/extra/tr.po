@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-08-30 15:31+0000\n"
+"PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: İbrahim Ethem Göl <ethem578@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/camera/extra/"
 "tr/>\n"
@@ -43,7 +43,7 @@ msgstr "Fotoğraf Kabini"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr "aksesuarlar-kamera"
+msgstr "accessories-camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
