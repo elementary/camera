@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-09-24 00:04+0000\n"
+"PO-Revision-Date: 2018-11-01 08:38+0000\n"
 "Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/camera/extra/"
 "tl/>\n"
@@ -28,24 +28,26 @@ msgstr "Kamera"
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Kumuha ng mga larawan at mga video gamit ang kamera"
 
 #: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
+"Ang Kamera ay isang simpleng app upang makakuha ng mga larawan gamit ang "
+"webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Photo Booth"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr ""
+msgstr "aksesorya-kamera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Larawan;Video;Webcam;Kamera;Booth"
