@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-12-10 20:56+0000\n"
-"Last-Translator: Varesh Mishra <vareshmishra@gmail.com>\n"
+"PO-Revision-Date: 2018-12-11 00:05+0000\n"
+"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/camera/camera/"
 "hi/>\n"
 "Language: hi\n"
@@ -32,21 +32,20 @@ msgstr "कोई समर्थित कैमरा नहीं मिल�
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
-"\n"
 "फ़ोटो और वीडियो लेने के लिए वेबकैम या अन्य समर्थित वीडियो डिवाइस से जोड़े ।"
 
 #: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr " \"%s\" से जुड़ रहे है  ..."
+msgstr "\"%s\" से जुड़ रहे है …"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr "फोटो ले ली गयी "
+msgstr "फोटो ले ली गयी"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "वीडियो उपकरणों के लिए खोज रहे हैं..."
+msgstr "वीडियो उपकरणों के लिए खोज रहे हैं…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -62,7 +61,7 @@ msgstr[1] "%d सेकंड"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr "फोटो लेने से पहले का विलंब "
+msgstr "फोटो लेने से पहले का विलंब"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
