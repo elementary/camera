@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-16 13:40-0700\n"
+"POT-Creation-Date: 2018-12-11 07:44+0100\n"
 "PO-Revision-Date: 2018-12-11 00:05+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/camera/camera/"
@@ -31,8 +31,7 @@ msgstr "कोई समर्थित कैमरा नहीं मिल�
 #: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
-msgstr ""
-"फ़ोटो और वीडियो लेने के लिए वेबकैम या अन्य समर्थित वीडियो डिवाइस से जोड़े ।"
+msgstr "फ़ोटो और वीडियो लेने के लिए वेबकैम या अन्य समर्थित वीडियो डिवाइस से जोड़े ।"
 
 #: src/MainWindow.vala:124
 #, c-format
