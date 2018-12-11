@@ -23,6 +23,5 @@ install:
 script:
   - houston ci
     --type system-app
-    --name-appstream io.elementary.camera.desktop
     --name-domain io.elementary.camera
     --name-human Camera
