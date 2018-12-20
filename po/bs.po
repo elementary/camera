@@ -7,58 +7,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Bosnian <bs@li.org>\n"
+"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"PO-Revision-Date: 2018-11-03 22:56+0000\n"
+"Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
+"Language-Team: Bosnian <https://weblate.elementary.io/projects/camera/camera/"
+"bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
 #: src/MainWindow.vala:46
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Nije pronađena podržana kamera"
 
 #: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Spojite web kameru ili drugi podržani videouređaj kako biste slikali ili "
+"snimali."
 
 #: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Povezivanje sa \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Fotografija uslikana"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Pretraživanje videouređaja…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktivirano"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekunde"
+msgstr[2] "%d sekundi"
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Odgoda slikanja"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
