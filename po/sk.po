@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-11 07:44+0100\n"
 "PO-Revision-Date: 2019-02-12 00:06+0000\n"
-"Last-Translator: tylnesh <kohutek.michal@gmail.com>\n"
+"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/camera/camera/"
 "sk/>\n"
 "Language: sk\n"
@@ -26,7 +26,7 @@ msgstr "Kamera"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Žiadna podporovaná kamera nenájdená"
 
 #: src/MainWindow.vala:62
 msgid ""
