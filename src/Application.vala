@@ -53,7 +53,7 @@ public class Camera.Application : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        ClutterGst.init (ref args);
+        Gst.init (ref args);
 
         var application = new Application ();
 
