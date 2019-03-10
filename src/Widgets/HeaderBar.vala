@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
+ * Copyright (c) 2011-2019 elementary, inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301 USA.
  *
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
+ *              Corentin Noël <corentin@elementary.io>
  */
 
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
@@ -31,25 +32,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
 
-    public bool recording { get; set; default = false; }
-
-    public bool camera_controls_sensitive {
-        set {
-            timer_button.sensitive = value;
-            take_button.sensitive = value;
-            mode_switch.sensitive = value;
-        }
-    }
+    public bool recording { get; set; }
 
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
             border-radius: 400px;
         }
     """;
-
-    public signal void take_photo_clicked ();
-    public signal void start_recording_clicked ();
-    public signal void stop_recording_clicked ();
 
     construct {
         timer_button = new Widgets.TimerButton ();
@@ -71,7 +60,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_grid.add (video_timer_revealer);
 
         take_button = new Gtk.Button ();
-        take_button.sensitive = false;
+        take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
         take_button.width_request = 54;
         take_button.add (take_grid);
 
@@ -96,97 +85,75 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         set_custom_title (take_button);
         pack_end (mode_switch);
 
-        update_take_button_icon ();
-
-        Camera.Application.settings.changed.connect (update_take_button_icon);
-
-        take_button.clicked.connect (() => {
-            if (Camera.Application.settings.get_enum ("mode") == Utils.ActionType.PHOTO) {
-                start_delay_time (timer_button.delay);
-                // Time to take a photo
-                Timeout.add_seconds (timer_button.delay, () => {
-                    take_photo_clicked ();
-                    return false;
-                });
-            } else {
-                if (recording) {
-                    stop_recording_clicked ();
-                    recording = false;
-                } else {
-                    start_recording_clicked ();
-                }
+        Camera.Application.settings.changed.connect ((key) => {
+            if (key == "mode") {
+                mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
             }
         });
 
         mode_switch.notify["active"].connect (() => {
             if (mode_switch.active) {
                 Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                timer_button.sensitive = false;
             } else {
                 Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+                timer_button.sensitive = true;
             }
         });
-
-        bool timer_active = false;
 
         notify["recording"].connect (() => {
-            update_take_button_icon ();
-
-            if (recording) {
-                video_timer_revealer.reveal_child = true;
-                timer_active = true;
-
-                int seconds = 0;
-                take_timer.label = Granite.DateTime.seconds_to_time (seconds);
-
-                Timeout.add_seconds (1, () => {
-                    seconds = seconds + 1;
-                    take_timer.label = Granite.DateTime.seconds_to_time (seconds);
-                    return timer_active;
-                });
-            } else {
-                timer_active = false;
-                video_timer_revealer.reveal_child = false;
+            timer_button.sensitive = !recording && !mode_switch.active;
+            mode_switch.sensitive = !recording;
+            if (mode_switch.active) {
+                if (recording) {
+                    take_image.icon_name = STOP_ICON_SYMBOLIC;
+                } else {
+                    take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                }
             }
         });
+
+        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
     }
 
-    private void update_take_button_icon () {
-        var action_type = (Utils.ActionType) Camera.Application.settings.get_enum ("mode");
-
-        if (action_type == Utils.ActionType.PHOTO) {
-            take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-            mode_switch.active = false;
-            timer_button.sensitive = true;
-        } else {
-            take_image.icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
-            mode_switch.active = true;
-            timer_button.sensitive = false;
-        }
+    public int get_timer_delay () {
+        return timer_button.delay;
     }
 
-    private void start_delay_time (int time) {
+    public void start_timeout (int time) {
         if (time != 0) {
-            take_image.visible = false;
-            mode_switch.sensitive = false;
-            timer_button.sensitive = false;
             video_timer_revealer.reveal_child = true;
-
             take_timer.label = time.to_string ();
 
             Timeout.add_seconds (1, () => {
-                 time = time - 1;
-
-                 if (time <= 0) {
-                     take_image.visible = true;
-                     mode_switch.sensitive = true;
-                     timer_button.sensitive = true;
-                     video_timer_revealer.reveal_child = false;
-                     return false;
-                 }
-
-                 take_timer.label = time.to_string ();
-                 return true;
+                start_timeout (time-1);
+                return GLib.Source.REMOVE;
             });
+        } else {
+           video_timer_revealer.reveal_child = false;
         }
+    }
+
+    private uint recording_timeout = 0U;
+    public void start_recording_time () {
+        int seconds = 0;
+        take_timer.label = Granite.DateTime.seconds_to_time (seconds);
+        video_timer_revealer.reveal_child = true;
+
+        recording_timeout = Timeout.add_seconds (1, () => {
+            seconds++;
+            take_timer.label = Granite.DateTime.seconds_to_time (seconds);
+            return GLib.Source.CONTINUE;
+        });
+    }
+
+    public void stop_recording_time () {
+        video_timer_revealer.reveal_child = false;
+        GLib.Source.remove (recording_timeout);
+        recording_timeout = 0U;
     }
 }

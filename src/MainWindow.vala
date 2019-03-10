@@ -19,82 +19,84 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Camera.MainWindow : Gtk.Window {
-    private bool is_fullscreened = false;
+public class Camera.MainWindow : Gtk.ApplicationWindow {
+    public const string ACTION_PREFIX = "win.";
+    public const string ACTION_FULLSCREEN = "fullscreen";
+    public const string ACTION_TAKE_PHOTO = "take_photo";
+    public const string ACTION_RECORD = "record";
+
+    private const GLib.ActionEntry[] action_entries = {
+        {ACTION_FULLSCREEN, on_fullscreen},
+        {ACTION_TAKE_PHOTO, on_take_photo},
+        {ACTION_RECORD, on_record, null, "false", on_state_changed},
+    };
 
     private Widgets.CameraView? camera_view = null;
     private Widgets.HeaderBar header_bar;
 
     public MainWindow (Application application) {
-        Object (application: application);
+        Object (
+            application: application,
+            window_position: Gtk.WindowPosition.CENTER,
+            title: _("Camer"),
+            icon_name: "accessories-camera"
+        );
+        add_action_entries (action_entries, this);
+        get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
 
     construct {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
-        this.set_application (application);
-        this.title = _("Camera");
-        this.icon_name = "accessories-camera";
-        this.set_default_size (1000, 700);
-        this.set_size_request (640, 480);
-        this.window_position = Gtk.WindowPosition.CENTER;
-        this.add_events (Gdk.EventMask.KEY_PRESS_MASK);
+        set_default_size (1000, 700);
+        set_size_request (640, 480);
+        add_events (Gdk.EventMask.KEY_PRESS_MASK);
 
         header_bar = new Widgets.HeaderBar ();
-
         camera_view = new Widgets.CameraView ();
+        camera_view.bind_property ("recording", header_bar, "recording", GLib.BindingFlags.SYNC_CREATE);
 
-        header_bar.camera_controls_sensitive = true;
-
-        this.set_titlebar (header_bar);
-        this.add (camera_view);
+        set_titlebar (header_bar);
+        add (camera_view);
         show_all ();
 
         if (camera_view.get_cameras () > 0) {
             camera_view.start_view (0);
         }
+    }
 
-        this.key_press_event.connect ((event) => {
-            switch (event.keyval) {
-                case Gdk.Key.F11 :
-                    if (is_fullscreened) {
-                        this.unfullscreen ();
-                    } else {
-                        this.fullscreen ();
-                    }
-                    is_fullscreened = !is_fullscreened;
-                    break;
+    private void on_fullscreen () {
+        if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
+            unfullscreen ();
+        } else {
+            fullscreen ();
+        }
+    }
 
-                default:
-                    return Gdk.EVENT_PROPAGATE;
-            }
-
-            return Gdk.EVENT_STOP;
-        });
-
-        header_bar.take_photo_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
+    private void on_take_photo () {
+        var delay = header_bar.get_timer_delay ();
+        header_bar.recording = true;
+        header_bar.start_timeout (delay);
+        GLib.Timeout.add_seconds (delay, () => {
             camera_view.take_photo ();
+            return GLib.Source.REMOVE;
         });
-        header_bar.start_recording_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
+    }
 
-            if (camera_view.start_recording ()) {
-                header_bar.recording = true;
-            }
-        });
-        header_bar.stop_recording_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
+    private void on_record (GLib.SimpleAction action, GLib.Variant? parameter) {
+        if (action.state.get_boolean ()) {
             camera_view.stop_recording ();
-        });
+            header_bar.stop_recording_time ();
+            action.set_state (new Variant.boolean (false));
+        } else {
+            camera_view.start_recording ();
+            header_bar.start_recording_time ();
+            action.set_state (new Variant.boolean (true));
+        }
+    }
+
+    private void on_state_changed (GLib.SimpleAction action, GLib.Variant value) {
+        critical ("HERE");
     }
 }

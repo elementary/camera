@@ -34,8 +34,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Pipeline pipeline;
     private Gst.Element v4l2src;
     private Gst.Element tee;
+    private Gst.Bin? record_bin;
 
     private Camera.CameraInfo[] infos = {};
+    public bool recording { get; private set; default = false; }
 
     public CameraView () {
         var v4ldir = GLib.File.new_for_path ("/sys/class/video4linux/");
@@ -90,7 +92,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
 
         try {
-            pipeline = Gst.parse_launch ("v4l2src name=v4l2src ! autovideoconvert ! videoscale ! videoflip method=horizontal-flip ! queue ! tee name=tee ! gtksink name=gtksink") as Gst.Pipeline;
+            pipeline = Gst.parse_launch ("v4l2src name=v4l2src ! videoflip method=horizontal-flip ! tee name=tee ! queue leaky=downstream max-size-buffers=10 ! videoconvert ! videoscale ! gtksink name=gtksink") as Gst.Pipeline;
             v4l2src = pipeline.get_by_name ("v4l2src");
             tee = pipeline.get_by_name ("tee");
             var gtksink = pipeline.get_by_name ("gtksink");
@@ -128,39 +130,85 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         pipeline.set_state (Gst.State.PLAYING);
     }
 
-    public bool take_photo () {
-        /*if (!this.is_ready_for_capture () || this.is_recording_video ()) {
-            warning ("Device isn't ready for taking photos.");
-
-            return false;
-        }
-
-        base.take_photo (Utils.get_new_media_filename (Utils.ActionType.PHOTO));*/
-        play_shutter_sound ();
-
-        return true;
-    }
-
-    public bool start_recording () {
-        /*if (!this.is_ready_for_capture () || this.is_recording_video ()) {
-            warning ("Device isn't ready for recording videos.");
-
-            return false;
-        }
-
-        this.start_video_recording (Utils.get_new_media_filename (Utils.ActionType.VIDEO));*/
-
-        return true;
-    }
-
-    public void stop_recording () {
-        /*if (!this.is_recording_video ()) {
-            warning ("Cannot stop recording because no record is running.");
-
+    public void take_photo () {
+        if (recording) {
             return;
         }
 
-        this.stop_video_recording ();*/
+        recording = true;
+        var snap_bin = new Gst.Bin (null);
+        var queue = Gst.ElementFactory.make ("queue", null);
+
+        var videoconvert = Gst.ElementFactory.make ("videoconvert", null);
+        var encoder = Gst.ElementFactory.make ("jpegenc", null);
+        var filesink = Gst.ElementFactory.make ("filesink", null);
+        filesink["buffer-size"] = 1;
+        filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
+        filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
+            Idle.add (() => {
+                pipeline.set_state (Gst.State.PAUSED);
+                pipeline.remove (snap_bin);
+                pipeline.set_state (Gst.State.PLAYING);
+                recording = false;
+                return GLib.Source.REMOVE;
+            });
+
+            return Gst.PadProbeReturn.REMOVE;
+        });
+
+        snap_bin.add_many (queue, videoconvert, encoder, filesink);
+        queue.link_many (videoconvert, encoder, filesink);
+
+        var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
+        snap_bin.add_pad (ghostpad);
+
+        pipeline.set_state (Gst.State.PAUSED);
+        pipeline.add (snap_bin);
+        snap_bin.sync_state_with_parent ();
+        tee.link (snap_bin);
+        pipeline.set_state (Gst.State.PLAYING);
+        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
+        play_shutter_sound ();
+    }
+
+    public void start_recording () {
+        if (recording) {
+            return;
+        }
+
+        recording = true;
+        record_bin = new Gst.Bin (null);
+        var queue = Gst.ElementFactory.make ("queue", null);
+        var autovideoconvert = Gst.ElementFactory.make ("autovideoconvert", null);
+        var encoder = Gst.ElementFactory.make ("vp8enc", null);
+        var muxer = Gst.ElementFactory.make ("webmmux", null);
+        var filesink = Gst.ElementFactory.make ("filesink", null);
+        filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.VIDEO);
+        record_bin.add_many (queue, autovideoconvert, encoder, muxer, filesink);
+        queue.link_many (autovideoconvert, encoder, muxer, filesink);
+
+        var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
+        record_bin.add_pad (ghostpad);
+
+        pipeline.set_state (Gst.State.PAUSED);
+        pipeline.add (record_bin);
+        record_bin.sync_state_with_parent ();
+        tee.link (record_bin);
+        pipeline.set_state (Gst.State.PLAYING);
+        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "recording");
+    }
+
+    public void stop_recording () {
+        if (!recording) {
+            return;
+        }
+
+        pipeline.set_state (Gst.State.PAUSED);
+        tee.unlink (record_bin);
+        pipeline.remove (record_bin);
+        pipeline.set_state (Gst.State.PLAYING);
+        record_bin.set_state (Gst.State.PLAYING);
+        recording = false;
     }
 
     private static void play_shutter_sound () {

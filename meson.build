@@ -23,7 +23,6 @@ executable(
     'src/Utils.vala',
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
-    'src/Widgets/LoadingView.vala',
     'src/Widgets/TimerButton.vala',
     dependencies : [
         dependency('gstreamer-1.0'),
