@@ -26,6 +26,7 @@ executable(
     'src/Widgets/TimerButton.vala',
     dependencies : [
         dependency('gstreamer-1.0'),
+        dependency('gstreamer-pbutils-1.0'),
         dependency('gee-0.8'),
         dependency('gio-2.0'),
         dependency('glib-2.0'),

@@ -101,7 +101,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             add_named (video_widget, "video");
             visible_child = status_grid;
         } catch (Error e) {
-            critical (e.message);
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to view camera"), e.message, "dialog-error");
+            dialog.show_all ();
+            dialog.run ();
+            dialog.destroy ();
         }
     }
 
@@ -137,24 +140,47 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         recording = true;
         var snap_bin = new Gst.Bin (null);
+
+        string[] missing_messages = {};
         var queue = Gst.ElementFactory.make ("queue", null);
+        if (queue == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("queue");
+        }
 
         var videoconvert = Gst.ElementFactory.make ("videoconvert", null);
-        var encoder = Gst.ElementFactory.make ("jpegenc", null);
-        var filesink = Gst.ElementFactory.make ("filesink", null);
-        filesink["buffer-size"] = 1;
-        filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
-        filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
-            Idle.add (() => {
-                pipeline.set_state (Gst.State.PAUSED);
-                pipeline.remove (snap_bin);
-                pipeline.set_state (Gst.State.PLAYING);
-                recording = false;
-                return GLib.Source.REMOVE;
-            });
+        if (videoconvert == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("videoconvert");
+        }
 
-            return Gst.PadProbeReturn.REMOVE;
-        });
+        var encoder = Gst.ElementFactory.make ("jpegenc", null);
+        if (encoder == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("jpegenc");
+        }
+
+        var filesink = Gst.ElementFactory.make ("filesink", null);
+        if (filesink == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
+        } else {
+            filesink["buffer-size"] = 1;
+            filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
+            filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
+                Idle.add (() => {
+                    pipeline.set_state (Gst.State.PAUSED);
+                    pipeline.remove (snap_bin);
+                    pipeline.set_state (Gst.State.PLAYING);
+                    recording = false;
+                    return GLib.Source.REMOVE;
+                });
+
+                return Gst.PadProbeReturn.REMOVE;
+            });
+        }
+
+        if (missing_messages.length > 0) {
+            Gst.PbUtils.install_plugins_async (missing_messages, null, (result) => {});
+            recording = false;
+            return;
+        }
 
         snap_bin.add_many (queue, videoconvert, encoder, filesink);
         queue.link_many (videoconvert, encoder, filesink);
@@ -178,14 +204,39 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         recording = true;
         record_bin = new Gst.Bin (null);
+
+        string[] missing_messages = {};
         var queue = Gst.ElementFactory.make ("queue", null);
-        var autovideoconvert = Gst.ElementFactory.make ("autovideoconvert", null);
+        var videoconvert = Gst.ElementFactory.make ("videoconvert", null);
+        if (videoconvert == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("videoconvert");
+        }
+
         var encoder = Gst.ElementFactory.make ("vp8enc", null);
+        if (encoder == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("vp8enc");
+        }
+
         var muxer = Gst.ElementFactory.make ("webmmux", null);
+        if (muxer == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("webmmux");
+        }
+
         var filesink = Gst.ElementFactory.make ("filesink", null);
-        filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.VIDEO);
-        record_bin.add_many (queue, autovideoconvert, encoder, muxer, filesink);
-        queue.link_many (autovideoconvert, encoder, muxer, filesink);
+        if (filesink == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
+        } else {
+            filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.VIDEO);
+        }
+
+        if (missing_messages.length > 0) {
+            Gst.PbUtils.install_plugins_async (missing_messages, null, (result) => {});
+            recording = false;
+            return;
+        }
+
+        record_bin.add_many (queue, videoconvert, encoder, muxer, filesink);
+        queue.link_many (videoconvert, encoder, muxer, filesink);
 
         var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
         record_bin.add_pad (ghostpad);
