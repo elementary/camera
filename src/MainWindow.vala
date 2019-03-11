@@ -38,7 +38,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         Object (
             application: application,
             window_position: Gtk.WindowPosition.CENTER,
-            title: _("Camer"),
+            title: _("Camera"),
             icon_name: "accessories-camera"
         );
         add_action_entries (action_entries, this);
