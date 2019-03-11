@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-11 07:44+0100\n"
 "PO-Revision-Date: 2019-03-12 16:34+0000\n"
-"Last-Translator: Latiif <meta.bit@live.com>\n"
+"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/>"
 "\n"
 "Language: ar\n"
@@ -32,12 +32,13 @@ msgstr "لم يتم ايجاد كاميرا مدعومة"
 #: src/MainWindow.vala:62
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
-msgstr "التقط الصور والفديو."
+msgstr ""
+"قم بتوصيل كاميرا الويب أو أي جهاز فيديو آخر مدعوم لالتقاط الصور والفيديو."
 
 #: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "الاتصال ب \"%s\"…"
+msgstr "الاتصال بـــ \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
@@ -65,7 +66,7 @@ msgstr[5] ""
 
 #: src/Widgets/TimerButton.vala:69
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "سيتأخر قبل إلتقاط الصورة"
 
 #~ msgid "translator-credits"
 #~ msgstr "تم الترجمة بواسطة متطوعين"
