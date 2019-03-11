@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
 "PO-Revision-Date: 2019-03-12 20:26+0000\n"
-"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"Last-Translator: achraf chetwene <achraf.bizerta@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/extra/ar/>"
 "\n"
 "Language: ar\n"
@@ -45,8 +45,8 @@ msgstr "حجرة التصوير"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr ""
+msgstr "مستلزمات الكاميرا"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "صور;فيديو;ويب كام; كاميرا;حجرة التصوير;"
