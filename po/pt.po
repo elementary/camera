@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-07-18 17:54+0000\n"
-"Last-Translator: Christophe Silva <Christophesilva80@gmail.com>\n"
+"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"PO-Revision-Date: 2019-01-08 00:00+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/camera/"
 "camera/pt/>\n"
 "Language: pt\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: src/MainWindow.vala:46
 msgid "Camera"
-msgstr "Câmera Fotográfica"
+msgstr "Câmara Fotográfica"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
