@@ -101,7 +101,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             add_named (video_widget, "video");
             visible_child = status_grid;
         } catch (Error e) {
-            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to view camera"), e.message, "dialog-error");
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
             dialog.show_all ();
             dialog.run ();
             dialog.destroy ();
