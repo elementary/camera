@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
+ * Copyright (c) 2011-2019 elementary, inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -53,6 +53,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     construct {
         timer_button = new Widgets.TimerButton ();
+        timer_button.sensitive = false;
 
         take_image = new Gtk.Image ();
         take_image.icon_name = PHOTO_ICON_SYMBOLIC;
@@ -102,7 +103,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         take_button.clicked.connect (() => {
             if (Camera.Application.settings.get_enum ("mode") == Utils.ActionType.PHOTO) {
-                start_delay_time (timer_button.delay);
+                start_timeout (timer_button.delay);
                 // Time to take a photo
                 Timeout.add_seconds (timer_button.delay, () => {
                     take_photo_clicked ();
@@ -121,14 +122,17 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch.notify["active"].connect (() => {
             if (mode_switch.active) {
                 Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+                timer_button.sensitive = false;
             } else {
                 Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+                timer_button.sensitive = true;
             }
         });
 
         bool timer_active = false;
 
         notify["recording"].connect (() => {
+            timer_button.sensitive = !recording && !mode_switch.active;
             update_take_button_icon ();
 
             if (recording) {
@@ -156,36 +160,26 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         if (action_type == Utils.ActionType.PHOTO) {
             take_image.icon_name = PHOTO_ICON_SYMBOLIC;
             mode_switch.active = false;
-            timer_button.sensitive = true;
         } else {
             take_image.icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
             mode_switch.active = true;
-            timer_button.sensitive = false;
         }
     }
 
-    private void start_delay_time (int time) {
-        if (time != 0) {
-            take_image.visible = false;
-            mode_switch.sensitive = false;
-            timer_button.sensitive = false;
-            video_timer_revealer.reveal_child = true;
+    private void start_timeout (int time) {
+        var timeout_reached = time == 0;
 
+        mode_switch.sensitive = timeout_reached;
+        take_image.visible = timeout_reached;
+        timer_button.sensitive = timeout_reached;
+        video_timer_revealer.reveal_child = !timeout_reached;
+
+        if (!timeout_reached) {
             take_timer.label = time.to_string ();
 
             Timeout.add_seconds (1, () => {
-                 time = time - 1;
-
-                 if (time <= 0) {
-                     take_image.visible = true;
-                     mode_switch.sensitive = true;
-                     timer_button.sensitive = true;
-                     video_timer_revealer.reveal_child = false;
-                     return false;
-                 }
-
-                 take_timer.label = time.to_string ();
-                 return true;
+                start_timeout (time - 1);
+                return GLib.Source.REMOVE;
             });
         }
     }

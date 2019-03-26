@@ -65,7 +65,6 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         main_grid.add (timer_image);
         main_grid.add (timer_label);
 
-        sensitive = false;
         tooltip_text = _("Delay before photo is taken");
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
         add (main_grid);
