@@ -121,6 +121,8 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     private void initialize_camera_view () {
         camera_view = new Widgets.CameraView ();
+        camera_view.get_camera_device ().set_capture_resolution (640, 480);
+
         camera_view.initialized.connect (() => {
             header_bar.camera_controls_sensitive = true;
             stack.set_visible_child_name ("camera");
