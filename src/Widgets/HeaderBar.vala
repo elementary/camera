@@ -47,10 +47,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
     """;
 
-    public signal void take_photo_clicked ();
-    public signal void start_recording_clicked ();
-    public signal void stop_recording_clicked ();
-
     construct {
         timer_button = new Widgets.TimerButton ();
         timer_button.sensitive = false;
@@ -72,6 +68,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_grid.add (video_timer_revealer);
 
         take_button = new Gtk.Button ();
+        take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
         take_button.sensitive = false;
         take_button.width_request = 54;
         take_button.add (take_grid);
@@ -97,76 +94,47 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         set_custom_title (take_button);
         pack_end (mode_switch);
 
-        update_take_button_icon ();
-
-        Camera.Application.settings.changed.connect (update_take_button_icon);
-
-        take_button.clicked.connect (() => {
-            if (Camera.Application.settings.get_enum ("mode") == Utils.ActionType.PHOTO) {
-                start_timeout (timer_button.delay);
-                // Time to take a photo
-                Timeout.add_seconds (timer_button.delay, () => {
-                    take_photo_clicked ();
-                    return false;
-                });
-            } else {
-                if (recording) {
-                    stop_recording_clicked ();
-                    recording = false;
-                } else {
-                    start_recording_clicked ();
-                }
+        Camera.Application.settings.changed.connect ((key) => {
+            if (key == "mode") {
+                mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
             }
         });
 
         mode_switch.notify["active"].connect (() => {
             if (mode_switch.active) {
                 Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
                 timer_button.sensitive = false;
             } else {
                 Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
                 timer_button.sensitive = true;
             }
         });
 
-        bool timer_active = false;
-
         notify["recording"].connect (() => {
             timer_button.sensitive = !recording && !mode_switch.active;
-            update_take_button_icon ();
+            mode_switch.sensitive = !recording;
 
-            if (recording) {
-                video_timer_revealer.reveal_child = true;
-                timer_active = true;
-
-                int seconds = 0;
-                take_timer.label = Granite.DateTime.seconds_to_time (seconds);
-
-                Timeout.add_seconds (1, () => {
-                    seconds = seconds + 1;
-                    take_timer.label = Granite.DateTime.seconds_to_time (seconds);
-                    return timer_active;
-                });
-            } else {
-                timer_active = false;
-                video_timer_revealer.reveal_child = false;
+            if (mode_switch.active) {
+                if (recording) {
+                    take_image.icon_name = STOP_ICON_SYMBOLIC;
+                } else {
+                    take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                }
             }
         });
+
+        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
     }
 
-    private void update_take_button_icon () {
-        var action_type = (Utils.ActionType) Camera.Application.settings.get_enum ("mode");
-
-        if (action_type == Utils.ActionType.PHOTO) {
-            take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-            mode_switch.active = false;
-        } else {
-            take_image.icon_name = (recording ? STOP_ICON_SYMBOLIC : VIDEO_ICON_SYMBOLIC);
-            mode_switch.active = true;
-        }
+    public int get_timer_delay () {
+        return timer_button.delay;
     }
 
-    private void start_timeout (int time) {
+    public void start_timeout (int time) {
         var timeout_reached = time == 0;
 
         mode_switch.sensitive = timeout_reached;
@@ -182,5 +150,24 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
                 return GLib.Source.REMOVE;
             });
         }
+    }
+
+    private uint recording_timeout = 0U;
+    public void start_recording_time () {
+        int seconds = 0;
+        take_timer.label = Granite.DateTime.seconds_to_time (seconds);
+        video_timer_revealer.reveal_child = true;
+
+        recording_timeout = Timeout.add_seconds (1, () => {
+            seconds++;
+            take_timer.label = Granite.DateTime.seconds_to_time (seconds);
+            return GLib.Source.CONTINUE;
+        });
+    }
+
+    public void stop_recording_time () {
+        video_timer_revealer.reveal_child = false;
+        GLib.Source.remove (recording_timeout);
+        recording_timeout = 0U;
     }
 }

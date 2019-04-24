@@ -22,9 +22,14 @@
 public class Camera.MainWindow : Gtk.ApplicationWindow {
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_FULLSCREEN = "fullscreen";
+    public const string ACTION_TAKE_PHOTO = "take_photo";
+    public const string ACTION_RECORD = "record";
 
     private const GLib.ActionEntry[] action_entries = {
-        {ACTION_FULLSCREEN, on_fullscreen}
+        {ACTION_FULLSCREEN, on_fullscreen},
+        {ACTION_FULLSCREEN, on_fullscreen},
+        {ACTION_TAKE_PHOTO, on_take_photo},
+        {ACTION_RECORD, on_record, null, "false", null},
     };
 
     private Gtk.Stack stack;
@@ -90,8 +95,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         this.set_titlebar (header_bar);
         this.add (stack);
 
-        connect_signals ();
-
         new Thread<int> (null, () => {
             debug ("Initializing camera manager...");
 
@@ -133,37 +136,35 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         loading_view.set_status (_("Connecting to \"%s\"…").printf (camera_view.get_camera_device ().get_name ()));
     }
 
-    private void connect_signals () {
-        header_bar.take_photo_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
-            camera_view.take_photo ();
-        });
-        header_bar.start_recording_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
-            if (camera_view.start_recording ()) {
-                header_bar.recording = true;
-            }
-        });
-        header_bar.stop_recording_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
-            camera_view.stop_recording ();
-        });
-    }
-
     private void on_fullscreen () {
         if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
             unfullscreen ();
         } else {
             fullscreen ();
+        }
+    }
+
+    private void on_take_photo () {
+        var delay = header_bar.get_timer_delay ();
+
+        header_bar.recording = true;
+        header_bar.start_timeout (delay);
+
+        GLib.Timeout.add_seconds (delay, () => {
+            camera_view.take_photo ();
+            return GLib.Source.REMOVE;
+        });
+    }
+
+    private void on_record (GLib.SimpleAction action, GLib.Variant? parameter) {
+        if (action.state.get_boolean ()) {
+            camera_view.stop_recording ();
+            header_bar.stop_recording_time ();
+            action.set_state (new Variant.boolean (false));
+        } else {
+            camera_view.start_recording ();
+            header_bar.start_recording_time ();
+            action.set_state (new Variant.boolean (true));
         }
     }
 }
