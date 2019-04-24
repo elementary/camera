@@ -126,16 +126,20 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     public void start_timeout (int time) {
-        if (time != 0) {
-            video_timer_revealer.reveal_child = true;
+        var timeout_reached = time == 0;
+
+        mode_switch.sensitive = timeout_reached;
+        take_image.visible = timeout_reached;
+        timer_button.sensitive = timeout_reached;
+        video_timer_revealer.reveal_child = !timeout_reached;
+
+        if (!timeout_reached) {
             take_timer.label = time.to_string ();
 
             Timeout.add_seconds (1, () => {
-                start_timeout (time-1);
+                start_timeout (time - 1);
                 return GLib.Source.REMOVE;
             });
-        } else {
-           video_timer_revealer.reveal_child = false;
         }
     }
 

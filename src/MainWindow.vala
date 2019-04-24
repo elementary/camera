@@ -56,7 +56,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         header_bar = new Widgets.HeaderBar ();
         camera_view = new Widgets.CameraView ();
         camera_view.bind_property ("recording", header_bar, "recording", GLib.BindingFlags.SYNC_CREATE);
-        camera_view.get_camera_device ().set_capture_resolution (640, 480);
 
         set_titlebar (header_bar);
         add (camera_view);
@@ -99,13 +98,5 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     private void on_state_changed (GLib.SimpleAction action, GLib.Variant value) {
         critical ("HERE");
-    }
-
-    private void on_fullscreen () {
-        if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
-            unfullscreen ();
-        } else {
-            fullscreen ();
-        }
     }
 }
