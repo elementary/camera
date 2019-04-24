@@ -33,11 +33,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public bool recording { get; set; default = false; }
 
-    public bool camera_controls_sensitive {
-        set {
-            timer_button.sensitive = value;
-            take_button.sensitive = value;
-            mode_switch.sensitive = value;
+    public int timer_delay {
+        get {
+            return timer_button.delay;
         }
     }
 
@@ -49,7 +47,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     construct {
         timer_button = new Widgets.TimerButton ();
-        timer_button.sensitive = false;
 
         take_image = new Gtk.Image ();
         take_image.icon_name = PHOTO_ICON_SYMBOLIC;
@@ -117,21 +114,16 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         notify["recording"].connect (() => {
             timer_button.sensitive = !recording && !mode_switch.active;
             mode_switch.sensitive = !recording;
+            video_timer_revealer.reveal_child = recording;
 
-            if (mode_switch.active) {
-                if (recording) {
-                    take_image.icon_name = STOP_ICON_SYMBOLIC;
-                } else {
-                    take_image.icon_name = VIDEO_ICON_SYMBOLIC;
-                }
+            if (recording) {
+                take_image.icon_name = STOP_ICON_SYMBOLIC;
+            } else {
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
             }
         });
 
         mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
-    }
-
-    public int get_timer_delay () {
-        return timer_button.delay;
     }
 
     public void start_timeout (int time) {
@@ -154,9 +146,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     private uint recording_timeout = 0U;
     public void start_recording_time () {
+        recording = true;
         int seconds = 0;
         take_timer.label = Granite.DateTime.seconds_to_time (seconds);
-        video_timer_revealer.reveal_child = true;
 
         recording_timeout = Timeout.add_seconds (1, () => {
             seconds++;
@@ -166,7 +158,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     public void stop_recording_time () {
-        video_timer_revealer.reveal_child = false;
+        recording = false;
         GLib.Source.remove (recording_timeout);
         recording_timeout = 0U;
     }

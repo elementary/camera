@@ -27,7 +27,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     private const GLib.ActionEntry[] action_entries = {
         {ACTION_FULLSCREEN, on_fullscreen},
-        {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
     };
@@ -127,7 +126,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         camera_view.get_camera_device ().set_capture_resolution (640, 480);
 
         camera_view.initialized.connect (() => {
-            header_bar.camera_controls_sensitive = true;
             stack.set_visible_child_name ("camera");
         });
 
@@ -145,9 +143,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     private void on_take_photo () {
-        var delay = header_bar.get_timer_delay ();
-
-        header_bar.recording = true;
+        var delay = header_bar.timer_delay;
         header_bar.start_timeout (delay);
 
         GLib.Timeout.add_seconds (delay, () => {
