@@ -42,6 +42,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     construct {
         timer_button = new Widgets.TimerButton ();
+        timer_button.sensitive = false;
 
         take_image = new Gtk.Image ();
         take_image.icon_name = PHOTO_ICON_SYMBOLIC;

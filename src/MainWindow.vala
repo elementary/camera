@@ -41,6 +41,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             title: _("Camera"),
             icon_name: "accessories-camera"
         );
+
         add_action_entries (action_entries, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
@@ -51,7 +52,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         set_default_size (1000, 700);
         set_size_request (640, 480);
-        add_events (Gdk.EventMask.KEY_PRESS_MASK);
 
         header_bar = new Widgets.HeaderBar ();
         camera_view = new Widgets.CameraView ();
@@ -99,5 +99,13 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     private void on_state_changed (GLib.SimpleAction action, GLib.Variant value) {
         critical ("HERE");
+    }
+
+    private void on_fullscreen () {
+        if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
+            unfullscreen ();
+        } else {
+            fullscreen ();
+        }
     }
 }
