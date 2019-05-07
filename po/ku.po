@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-11 07:44+0100\n"
-"PO-Revision-Date: 2019-05-07 22:38+0000\n"
-"Last-Translator: Sipan Haji <sipanheci@gmail.com>\n"
+"PO-Revision-Date: 2019-05-09 01:33+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Kurdish <https://l10n.elementary.io/projects/camera/camera/ku/"
 ">\n"
 "Language: ku\n"
@@ -26,7 +26,7 @@ msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "webkamîreya xwe yanjî alavek kû bi xebîte girê bide ji bo dîmen û vîdyo "
-"kêşanê"
+"kêşanê."
 
 #: src/MainWindow.vala:124
 #, c-format
@@ -39,7 +39,7 @@ msgstr "Wêne kêşaye"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "Li alavên Vîdyoyê digere..."
+msgstr "Li alavên Vîdyoyê digere…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
