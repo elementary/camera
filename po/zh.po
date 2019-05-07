@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-11 07:44+0100\n"
-"PO-Revision-Date: 2019-05-07 22:30+0000\n"
-"Last-Translator: James Qian <sotux82@gmail.com>\n"
+"PO-Revision-Date: 2019-05-09 01:33+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/camera/camera/zh/"
 ">\n"
 "Language: zh\n"
@@ -29,7 +29,7 @@ msgstr "连接摄像头或其它视频设备拍摄照片或视频。"
 #: src/MainWindow.vala:124
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "正在连接 \"%s\"..."
+msgstr "正在连接 \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
@@ -37,7 +37,7 @@ msgstr "已拍摄的照片"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "正在搜索视频设备..."
+msgstr "正在搜索视频设备…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
