@@ -31,6 +31,8 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         {ACTION_RECORD, on_record, null, "false", null},
     };
 
+    private uint configure_id;
+
     private Widgets.CameraView? camera_view = null;
     private Widgets.HeaderBar header_bar;
 
@@ -50,7 +52,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
-        set_default_size (1000, 700);
         set_size_request (640, 480);
 
         header_bar = new Widgets.HeaderBar ();
@@ -95,5 +96,29 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             header_bar.start_recording_time ();
             action.set_state (new Variant.boolean (true));
         }
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+
+            if (is_maximized) {
+                Application.settings.set_boolean ("window-maximized", true);
+            } else {
+                Application.settings.set_boolean ("window-maximized", false);
+
+                Gdk.Rectangle rect;
+                get_allocation (out rect);
+                Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
+            }
+
+            return false;
+        });
+
+        return base.configure_event (event);
     }
 }
