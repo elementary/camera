@@ -28,7 +28,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private const GLib.ActionEntry[] action_entries = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
-        {ACTION_RECORD, on_record, null, "false", on_state_changed},
+        {ACTION_RECORD, on_record, null, "false", null},
     };
 
     private Widgets.CameraView? camera_view = null;
@@ -54,6 +54,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         set_size_request (640, 480);
 
         header_bar = new Widgets.HeaderBar ();
+
         camera_view = new Widgets.CameraView ();
         camera_view.bind_property ("recording", header_bar, "recording", GLib.BindingFlags.SYNC_CREATE);
 
@@ -75,9 +76,9 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     private void on_take_photo () {
-        var delay = header_bar.get_timer_delay ();
-        header_bar.recording = true;
+        var delay = header_bar.timer_delay;
         header_bar.start_timeout (delay);
+
         GLib.Timeout.add_seconds (delay, () => {
             camera_view.take_photo ();
             return GLib.Source.REMOVE;
@@ -94,9 +95,5 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             header_bar.start_recording_time ();
             action.set_state (new Variant.boolean (true));
         }
-    }
-
-    private void on_state_changed (GLib.SimpleAction action, GLib.Variant value) {
-        critical ("HERE");
     }
 }
