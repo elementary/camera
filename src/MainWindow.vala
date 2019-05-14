@@ -19,8 +19,17 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Camera.MainWindow : Gtk.Window {
-    private bool is_fullscreened = false;
+public class Camera.MainWindow : Gtk.ApplicationWindow {
+    public const string ACTION_PREFIX = "win.";
+    public const string ACTION_FULLSCREEN = "fullscreen";
+    public const string ACTION_TAKE_PHOTO = "take_photo";
+    public const string ACTION_RECORD = "record";
+
+    private const GLib.ActionEntry[] action_entries = {
+        {ACTION_FULLSCREEN, on_fullscreen},
+        {ACTION_TAKE_PHOTO, on_take_photo},
+        {ACTION_RECORD, on_record, null, "false", null},
+    };
 
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
@@ -36,6 +45,9 @@ public class Camera.MainWindow : Gtk.Window {
 
     public MainWindow (Application application) {
         Object (application: application);
+
+        add_action_entries (action_entries, this);
+        get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
 
     construct {
@@ -47,7 +59,6 @@ public class Camera.MainWindow : Gtk.Window {
         this.icon_name = "accessories-camera";
         this.set_size_request (640, 480);
         this.window_position = Gtk.WindowPosition.CENTER;
-        this.add_events (Gdk.EventMask.KEY_PRESS_MASK);
 
         header_bar = new Widgets.HeaderBar ();
 
@@ -82,8 +93,6 @@ public class Camera.MainWindow : Gtk.Window {
         this.set_titlebar (header_bar);
         this.add (stack);
 
-        connect_signals ();
-
         new Thread<int> (null, () => {
             debug ("Initializing camera manager...");
 
@@ -113,8 +122,9 @@ public class Camera.MainWindow : Gtk.Window {
 
     private void initialize_camera_view () {
         camera_view = new Widgets.CameraView ();
+        camera_view.get_camera_device ().set_capture_resolution (640, 480);
+
         camera_view.initialized.connect (() => {
-            header_bar.camera_controls_sensitive = true;
             stack.set_visible_child_name ("camera");
         });
 
@@ -123,48 +133,34 @@ public class Camera.MainWindow : Gtk.Window {
         loading_view.set_status (_("Connecting to \"%s\"…").printf (camera_view.get_camera_device ().get_name ()));
     }
 
-    private void connect_signals () {
-        this.key_press_event.connect ((event) => {
-            switch (event.keyval) {
-                case Gdk.Key.F11 :
-                    if (is_fullscreened) {
-                        this.unfullscreen ();
-                    } else {
-                        this.fullscreen ();
-                    }
-                    is_fullscreened = !is_fullscreened;
-                    break;
+    private void on_fullscreen () {
+        if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
+            unfullscreen ();
+        } else {
+            fullscreen ();
+        }
+    }
 
-                default:
-                    return Gdk.EVENT_PROPAGATE;
-            }
+    private void on_take_photo () {
+        var delay = header_bar.timer_delay;
+        header_bar.start_timeout (delay);
 
-            return Gdk.EVENT_STOP;
-        });
-
-        header_bar.take_photo_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
+        GLib.Timeout.add_seconds (delay, () => {
             camera_view.take_photo ();
+            return GLib.Source.REMOVE;
         });
-        header_bar.start_recording_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
+    }
 
-            if (camera_view.start_recording ()) {
-                header_bar.recording = true;
-            }
-        });
-        header_bar.stop_recording_clicked.connect (() => {
-            if (camera_view == null) {
-                return;
-            }
-
+    private void on_record (GLib.SimpleAction action, GLib.Variant? parameter) {
+        if (action.state.get_boolean ()) {
             camera_view.stop_recording ();
-        });
+            header_bar.stop_recording_time ();
+            action.set_state (new Variant.boolean (false));
+        } else {
+            camera_view.start_recording ();
+            header_bar.start_recording_time ();
+            action.set_state (new Variant.boolean (true));
+        }
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {

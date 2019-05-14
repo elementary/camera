@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-16 13:40-0700\n"
-"PO-Revision-Date: 2018-11-03 00:07+0000\n"
-"Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
+"PO-Revision-Date: 2019-01-09 11:51+0000\n"
+"Last-Translator: Cody Garver <cody@elementary.io>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/camera/extra/"
 "tl/>\n"
 "Language: tl\n"
@@ -46,7 +46,7 @@ msgstr "Photo Booth"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr "aksesorya-kamera"
+msgstr "accessories-camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
