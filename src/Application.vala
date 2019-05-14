@@ -44,14 +44,17 @@ public class Camera.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        if (this.get_windows () == null) {
-            var window_size = settings.get_value ("window-size");
+        if (get_windows () == null) {
             var rect = Gtk.Allocation ();
-            rect.height = (int32) window_size.get_child_value (0);
-            rect.width =  (int32) window_size.get_child_value (1);
+            settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
             main_window = new MainWindow (this);
             main_window.set_allocation (rect);
+
+            if (settings.get_boolean ("window-maximized")) {
+                main_window.maximize ();
+            }
+
             main_window.show_all ();
         } else {
             main_window.present ();

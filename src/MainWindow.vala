@@ -31,6 +31,8 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         {ACTION_RECORD, on_record, null, "false", null},
     };
 
+    private uint configure_id;
+
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
 
@@ -164,10 +166,26 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
-        Gtk.Allocation rect;
-        get_allocation (out rect);
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
 
-        Application.settings.set_value ("window-size",  new int[] { rect.height, rect.width });
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+
+            if (is_maximized) {
+                Application.settings.set_boolean ("window-maximized", true);
+            } else {
+                Application.settings.set_boolean ("window-maximized", false);
+
+                Gdk.Rectangle rect;
+                get_allocation (out rect);
+                Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
+            }
+
+            return false;
+        });
+
         return base.configure_event (event);
     }
 }
