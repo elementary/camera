@@ -15,7 +15,6 @@
             <summary>The timed delay before taking a photo</summary>
             <description>The timed delay before taking a photo</description>
         </key>
-
         <key name="mode" enum="io.elementary.camera.settings.mode">
             <default>"photo"</default>
             <summary>The mode of the camera, photo or video</summary>
