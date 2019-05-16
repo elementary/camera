@@ -8,23 +8,25 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-11 07:44+0100\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Galician <gl@li.org>\n"
+"PO-Revision-Date: 2019-05-09 01:33+0000\n"
+"Last-Translator: Xurxo Guerra <xguerrap@gmail.com>\n"
+"Language-Team: Galician <https://l10n.elementary.io/projects/camera/camera/"
+"gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
 #: src/MainWindow.vala:46
 msgid "Camera"
-msgstr ""
+msgstr "Cámara"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Non se atopou ningunha cámara compatible"
 
 #: src/MainWindow.vala:62
 msgid ""

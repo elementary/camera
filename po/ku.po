@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-11 07:44+0100\n"
-"PO-Revision-Date: 2018-02-05 00:10+0000\n"
-"Last-Translator: Rokar <mail@rokar.de>\n"
-"Language-Team: Kurdish <https://weblate.elementary.io/projects/camera/camera/"
-"ku/>\n"
+"PO-Revision-Date: 2019-05-09 01:33+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: Kurdish <https://l10n.elementary.io/projects/camera/camera/ku/"
+">\n"
 "Language: ku\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: src/MainWindow.vala:46
 msgid "Camera"
-msgstr ""
+msgstr "Kamîre"
 
 #: src/MainWindow.vala:61
 msgid "No Supported Camera Found"
@@ -25,6 +25,8 @@ msgstr ""
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"webkamîreya xwe yanjî alavek kû bi xebîte girê bide ji bo dîmen û vîdyo "
+"kêşanê."
 
 #: src/MainWindow.vala:124
 #, c-format
@@ -33,15 +35,15 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Wêne kêşaye"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Li alavên Vîdyoyê digere…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Astengkiriye"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
