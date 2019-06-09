@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-06-08 21:34-0400\n"
 "PO-Revision-Date: 2019-04-02 13:51+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/camera/mr/"
@@ -20,20 +20,20 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "कॅमेरा"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:73
 msgid "No Supported Camera Found"
 msgstr "उपयुक्त असा कॅमेरा उपलब्ध नाही"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:74
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "फोटो किंवा व्हिडिओ काढण्यासाठी वेबकॅम किंवा अन्य उपयुक्त कॅमेरा जोडा."
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:135
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\"ला जोडले जात आहे…"
@@ -58,6 +58,6 @@ msgid_plural "%d Sec"
 msgstr[0] "%d सेकंद"
 msgstr[1] "%d  सेकंद"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
 msgstr "फोटो घेण्याआधीचा वेळ"
