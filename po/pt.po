@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-01-08 00:00+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/camera/"
@@ -20,22 +20,22 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "Câmara Fotográfica"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:73
 msgid "No Supported Camera Found"
 msgstr "Nenhuma câmara suportada encontrada"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:74
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Ligue uma webcam ou outro dispositivo de vídeo suportado para tirar fotos e "
 "vídeos."
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:135
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "A ligar a \"%s\"…"
@@ -60,7 +60,7 @@ msgid_plural "%d Sec"
 msgstr[0] "%d Segundo"
 msgstr[1] "%d Segundos"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
 msgstr "Atraso antes da foto ser tirada"
 
