@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
-"PO-Revision-Date: 2017-05-09 22:16+0000\n"
-"Last-Translator: Martin Tomov <martin.tomov@boomer.digital>\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-05-09 01:33+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/camera/camera/"
 "bg/>\n"
 "Language: bg\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
-msgstr ""
+msgstr "Камера"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:73
 msgid "No Supported Camera Found"
 msgstr "Не е намерена поддържана камера"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:74
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Свържете камера или друго поддържано устройство, което снима изображения и "
 "видео."
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:135
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Свързване към \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Снимката е заснета"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
@@ -60,9 +60,9 @@ msgid_plural "%d Sec"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Закъснение преди снимката да бъде заснета"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
