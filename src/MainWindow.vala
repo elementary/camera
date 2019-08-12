@@ -138,7 +138,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         camera_content.set_player (camera_view);
 
          if  (camera_view.get_camera_device ().get_name () == null) {
-            loading_view.set_status (_("Connecting to \"%s\"…").printf ("camera"));
+            loading_view.set_status (_("Connecting to %s…").printf ("camera"));
         } else {
             loading_view.set_status (_("Connecting to \"%s\"…").printf (camera_view.get_camera_device ().get_name ()));
         }
