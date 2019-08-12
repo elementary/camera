@@ -32,6 +32,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     };
 
     private uint configure_id;
+    private string camera_name = _("camera");
 
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
@@ -110,6 +111,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         Idle.add (() => {
             GenericArray<ClutterGst.CameraDevice> camera_devices = camera_manager.get_camera_devices ();
 
+            if (camera_devices[0].get_name () != null) {
+                camera_name = camera_devices[0].get_name ();
+            }
+
             if (camera_devices.length > 0) {
                 initialize_camera_view ();
             } else {
@@ -132,7 +137,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         camera_content.set_player (camera_view);
 
-        loading_view.set_status (_("Connecting to \"%s\"…").printf (camera_view.get_camera_device ().get_name ()));
+        loading_view.set_status (_("Connecting to %s…").printf (camera_name));
     }
 
     private void on_fullscreen () {
