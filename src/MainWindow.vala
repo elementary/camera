@@ -110,7 +110,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         Idle.add (() => {
             GenericArray<ClutterGst.CameraDevice> camera_devices = camera_manager.get_camera_devices ();
 
-            unowned string camera_name = camera_devices[0].get_name () ?? "camera";
+            unowned string camera_name = camera_devices[0].get_name () ?? _("camera");
 
             if (camera_devices.length > 0) {
                 initialize_camera_view (camera_name);
