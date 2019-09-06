@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-05-09 01:33+0000\n"
-"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"PO-Revision-Date: 2019-09-07 18:23+0000\n"
+"Last-Translator: Aleksandar Kovač <alex.open.design@gmail.com>\n"
 "Language-Team: Croatian <https://l10n.elementary.io/projects/camera/extra/hr/"
 ">\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
@@ -28,11 +28,11 @@ msgstr "Kamera"
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Fotografiraj i snimaj video kamerom"
 
 #: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr ""
+msgstr "Kamera je jednostavan alat za fotografiranje web kamerom."
 
 #: data/io.elementary.camera.appdata.xml.in:52
 msgid "elementary LLC."
@@ -40,7 +40,7 @@ msgstr ""
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Foto-kabina"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
@@ -48,4 +48,4 @@ msgstr ""
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Fotografija;Video;Web kamera;Kamera;Kabina;"
