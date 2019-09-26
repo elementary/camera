@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-05-09 01:33+0000\n"
-"Last-Translator: Xurxo Guerra <xguerrap@gmail.com>\n"
+"PO-Revision-Date: 2019-09-28 09:23+0000\n"
+"Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/camera/camera/"
 "gl/>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:60
@@ -26,41 +26,43 @@ msgstr "Cámara"
 
 #: src/MainWindow.vala:73
 msgid "No Supported Camera Found"
-msgstr "Non se atopou ningunha cámara compatible"
+msgstr "Non se atopou ningunha cámara compatíbel"
 
 #: src/MainWindow.vala:74
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Conecte unha cámara web ou outro dispositivo de vídeo compatíbel para tomar "
+"fotos e vídeos."
 
 #: src/MainWindow.vala:135
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Conectando a \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
-msgstr ""
+msgstr "Foto tomada"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr ""
+msgstr "Buscando dispositivos de vídeo…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Desactivado"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
 
 #: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Retardo antes de tomar unha foto"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
