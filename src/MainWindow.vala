@@ -25,7 +25,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
 
-    private const GLib.ActionEntry[] action_entries = {
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
@@ -48,7 +48,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     public MainWindow (Application application) {
         Object (application: application);
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
 
@@ -70,9 +70,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         loading_view = new Widgets.LoadingView ();
 
-        no_device_view = new Granite.Widgets.AlertView (_("No Supported Camera Found"),
-                                                        _("Connect a webcam or other supported video device to take photos and video."),
-                                                        "accessories-camera");
+        no_device_view = new Granite.Widgets.AlertView (
+            _("No Supported Camera Found"),
+            _("Connect a webcam or other supported video device to take photos and video."),
+            "accessories-camera");
 
         clutter_embed = new GtkClutter.Embed ();
 
@@ -96,7 +97,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         this.add (stack);
 
         new Thread<int> (null, () => {
-            debug ("Initializing camera manager...");
+            debug ("Initializing camera manager…");
 
             initialize_camera_manager ();
 
