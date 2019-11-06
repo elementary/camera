@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 16:56+0000\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2019-02-12 00:06+0000\n"
 "Last-Translator: tylnesh <kohutek.michal@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/camera/extra/"
@@ -33,7 +33,11 @@ msgstr ""
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 
-#: data/io.elementary.camera.appdata.xml.in:52
+#: data/io.elementary.camera.appdata.xml.in:17
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "elementary LLC."
 msgstr ""
 
