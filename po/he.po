@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 16:56+0000\n"
 "PO-Revision-Date: 2018-06-28 05:17+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://weblate.elementary.io/projects/camera/camera/"
@@ -24,18 +24,23 @@ msgstr ""
 msgid "Camera"
 msgstr "מצלמה"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "לא נמצא מצלמה נתמכת"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "יש לחבר מצלמה או התקן וידאו נתמך אחר כדי לצלם וידאו ותמונות."
 
-#: src/MainWindow.vala:135
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "מצלמה"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "מתבצעת התחברות אל „%s״…"
 
 #: src/Widgets/CameraView.vala:98

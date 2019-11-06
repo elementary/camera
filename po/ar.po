@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 16:56+0000\n"
 "PO-Revision-Date: 2019-03-16 21:26+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/"
@@ -25,19 +25,24 @@ msgstr ""
 msgid "Camera"
 msgstr "الكاميرا"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "لم يتم ايجاد كاميرا مدعومة"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "قم بتوصيل كاميرا الويب أو أي جهاز فيديو آخر مدعوم لالتقاط الصور والفيديو."
 
-#: src/MainWindow.vala:135
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "الكاميرا"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "الاتصال بـــ \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
