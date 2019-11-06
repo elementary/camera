@@ -8,10 +8,17 @@
   <name>Camera</name>
   <summary>Take photos and videos with the camera</summary>
   <description>
-    <p>
-      Camera is a simple app to take photos with a webcam.
-    </p>
+    <p>Camera is a simple app to take photos with a webcam.</p>
   </description>
+  <releases>
+    <release version="1.0.6" date="2019-11-04" urgency="medium">
+      <description>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
   <provides>
     <binary>io.elementary.camera</binary>
   </provides>
