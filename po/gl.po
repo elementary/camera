@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-09-28 09:23+0000\n"
+"PO-Revision-Date: 2019-11-25 11:25+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/camera/camera/"
 "gl/>\n"
@@ -36,12 +36,11 @@ msgstr ""
 "fotos e vídeos."
 
 #: src/MainWindow.vala:114
-#, fuzzy
 msgid "camera"
 msgstr "Cámara"
 
 #: src/MainWindow.vala:137
-#, fuzzy, c-format
+#, c-format
 msgid "Connecting to %s…"
 msgstr "Conectando a \"%s\"…"
 
