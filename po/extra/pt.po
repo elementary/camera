@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-07 13:24+0000\n"
+"PO-Revision-Date: 2019-11-29 00:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr "Câmara Fotográfica"
+msgstr "Câmara"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:5
@@ -35,7 +35,7 @@ msgstr "A câmara é uma aplicação simples para tirar fotos com uma webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "Updated translations"
-msgstr ""
+msgstr "Traduções atualizadas"
 
 #: data/io.elementary.camera.appdata.xml.in:59
 msgid "elementary LLC."
