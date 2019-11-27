@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-06 16:56+0000\n"
+"PO-Revision-Date: 2019-11-29 00:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/camera/"
 "pt/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: src/MainWindow.vala:60
 msgid "Camera"
-msgstr "Câmara Fotográfica"
+msgstr "Câmara"
 
 #: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
@@ -36,14 +36,13 @@ msgstr ""
 "vídeos."
 
 #: src/MainWindow.vala:114
-#, fuzzy
 msgid "camera"
-msgstr "Câmara Fotográfica"
+msgstr "câmara"
 
 #: src/MainWindow.vala:137
-#, fuzzy, c-format
+#, c-format
 msgid "Connecting to %s…"
-msgstr "A ligar a \"%s\"…"
+msgstr "A ligar a %s…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
