@@ -32,9 +32,11 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     };
 
     private uint configure_id;
+    private uint flash_timeout;
 
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
+    private Gtk.Grid camera_grid;
 
     private GtkClutter.Embed clutter_embed;
     private Clutter.Actor camera_actor;
@@ -44,6 +46,18 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private Widgets.CameraView? camera_view = null;
     private Widgets.HeaderBar header_bar;
     private Widgets.LoadingView loading_view;
+
+    private const string CSS = """
+        @keyframes flash {
+            0%   { margin: 0px; }
+            50%  { margin: 12px; }
+            100% { margin: 0px; }
+        }
+        
+        .active {
+            animation: flash 0.25s ease-in-out;
+        }
+    """;
 
     public MainWindow (Application application) {
         Object (application: application);
@@ -55,6 +69,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     construct {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
+
+        Gtk.CssProvider provider = new Gtk.CssProvider ();
+        provider.load_from_data (CSS, CSS.length);
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         this.set_application (application);
         this.title = _("Camera");
@@ -89,9 +107,13 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         clutter_stage.add_child (camera_actor);
 
+        camera_grid = new Gtk.Grid ();
+        camera_grid.expand = true;
+        camera_grid.add (clutter_embed);
+
         stack.add_named (loading_view, "loading");
         stack.add_named (no_device_view, "no-device");
-        stack.add_named (clutter_embed, "camera");
+        stack.add_named (camera_grid, "camera");
 
         this.set_titlebar (header_bar);
         this.add (stack);
@@ -131,6 +153,15 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         camera_view.initialized.connect (() => {
             stack.set_visible_child_name ("camera");
+        });
+
+        camera_view.photo_saved.connect (() => {
+            camera_grid.get_style_context ().add_class ("active");
+
+            flash_timeout = Timeout.add (250, () => {
+                camera_grid.get_style_context ().remove_class ("active");
+                return false;
+            });
         });
 
         camera_content.set_player (camera_view);
