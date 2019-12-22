@@ -41,7 +41,6 @@ public class Camera.Widgets.CameraView : ClutterGst.Camera {
 
         base.take_photo (Utils.get_new_media_filename (Utils.ActionType.PHOTO));
         play_shutter_sound ();
-        
         return true;
     }
 
