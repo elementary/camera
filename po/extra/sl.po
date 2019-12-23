@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-12-20 20:07+0000\n"
+"PO-Revision-Date: 2019-12-23 04:33+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/camera/extra/"
 "sl/>\n"
@@ -44,7 +44,7 @@ msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr "Photo Booth"
+msgstr "Kabina za fotografiranje"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
