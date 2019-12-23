@@ -32,8 +32,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     };
 
     private uint configure_id;
-    private uint flash_timeout;
-
+    
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Revealer camera_revealer;
@@ -57,7 +56,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     construct {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
-        
+
         this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
