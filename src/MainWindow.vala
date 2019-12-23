@@ -32,7 +32,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     };
 
     private uint configure_id;
-    
     private Gtk.Stack stack;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Revealer camera_revealer;
