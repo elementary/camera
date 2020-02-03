@@ -44,7 +44,7 @@ private class Camera.Widgets.FlashBox : Gtk.Widget {
         }
 
         return true;
-	}
+    }
 
     private double ease_out_quad (double t) {
         return t * (2 - t);
