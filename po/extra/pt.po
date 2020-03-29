@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-29 00:24+0000\n"
+"PO-Revision-Date: 2020-03-30 18:09+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
@@ -27,7 +27,7 @@ msgstr "Câmara"
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr "Tire fotos e vídeos com a câmara"
+msgstr "Tire fotos e grave vídeos com a câmara"
 
 #: data/io.elementary.camera.appdata.xml.in:11
 msgid "Camera is a simple app to take photos with a webcam."
