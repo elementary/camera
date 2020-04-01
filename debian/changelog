@@ -1,3 +1,20 @@
+io.elementary.camera (1.0.6) bionic; urgency=medium
+
+  * Release 1.0.6 (#116)
+  * Update .travis.yml
+  * Travis: Downgrade node to 10
+  * Update translation template
+  * Appdata: Add releases data
+  * Add Release to Actions
+  * Update translation template
+  * Add Gettext Updates to Actions
+  * Add Lint to CI (#110)
+  * lint src files with vala-lint (#111)
+  * Delete PULL_REQUEST_TEMPLATE.md
+  * Delete ISSUE_TEMPLATE.md
+
+ -- Cody Garver <cody@elementary.io>  Wed, 01 Apr 2020 23:35:51 +0000
+
 io.elementary.camera (1.0.5) bionic; urgency=medium
 
   * New upstream release.
