@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2018-05-30 17:26+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/camera/"
@@ -13,24 +13,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "Cameră"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "Camera nu sa găsit sau nu este compatibilă"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conectați o cameră web sau alt dispozitiv video acceptat pentru a realiza "
 "fotografii și video."
 
-#: src/MainWindow.vala:124
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "Cameră"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "Se conectează la \"% s\" …"
 
 #: src/Widgets/CameraView.vala:98
@@ -53,7 +58,7 @@ msgid_plural "%d Sec"
 msgstr[0] "%d 1 Secundă"
 msgstr[1] "%d 2 Secunde"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 #, fuzzy
 msgid "Delay before photo is taken"
 msgstr "Retrasul înainte de a face fotografia"

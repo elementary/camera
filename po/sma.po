@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2015-12-24 11:28+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,22 +13,26 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr ""
+
+#: src/MainWindow.vala:137
 #, c-format
-msgid "Connecting to \"%s\"…"
+msgid "Connecting to %s…"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:98
@@ -51,7 +55,7 @@ msgid_plural "%d Sec"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
 msgstr ""
 

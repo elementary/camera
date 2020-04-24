@@ -25,7 +25,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
 
-    private const GLib.ActionEntry[] action_entries = {
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
@@ -48,7 +48,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     public MainWindow (Application application) {
         Object (application: application);
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
 
@@ -70,9 +70,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         loading_view = new Widgets.LoadingView ();
 
-        no_device_view = new Granite.Widgets.AlertView (_("No Supported Camera Found"),
-                                                        _("Connect a webcam or other supported video device to take photos and video."),
-                                                        "accessories-camera");
+        no_device_view = new Granite.Widgets.AlertView (
+            _("No Supported Camera Found"),
+            _("Connect a webcam or other supported video device to take photos and video."),
+            "accessories-camera");
 
         clutter_embed = new GtkClutter.Embed ();
 
@@ -96,7 +97,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         this.add (stack);
 
         new Thread<int> (null, () => {
-            debug ("Initializing camera manager...");
+            debug ("Initializing camera manager…");
 
             initialize_camera_manager ();
 
@@ -110,8 +111,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         Idle.add (() => {
             GenericArray<ClutterGst.CameraDevice> camera_devices = camera_manager.get_camera_devices ();
 
-            if (camera_devices.length > 0 && camera_devices[0].get_name () != null) {
-                initialize_camera_view ();
+            unowned string camera_name = camera_devices[0].get_name () ?? _("camera");
+
+            if (camera_devices.length > 0) {
+                initialize_camera_view (camera_name);
             } else {
                 stack.set_visible_child_name ("no-device");
 
@@ -122,7 +125,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         });
     }
 
-    private void initialize_camera_view () {
+    private void initialize_camera_view (string camera_name) {
         camera_view = new Widgets.CameraView ();
         camera_view.get_camera_device ().set_capture_resolution (640, 480);
 
@@ -131,8 +134,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         });
 
         camera_content.set_player (camera_view);
-
-        loading_view.set_status (_("Connecting to \"%s\"…").printf (camera_view.get_camera_device ().get_name ()));
+        loading_view.set_status (_("Connecting to %s…").printf (camera_name));
     }
 
     private void on_fullscreen () {

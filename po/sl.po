@@ -7,38 +7,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
-"PO-Revision-Date: 2018-07-03 19:00+0000\n"
-"Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://weblate.elementary.io/projects/camera/"
-"camera/sl/>\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"PO-Revision-Date: 2019-12-20 20:07+0000\n"
+"Last-Translator: Marko <marko.dolar@gmail.com>\n"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/camera/camera/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.0.1\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "Ni bilo najdene podprte kamere"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Priklopite spletno kamero ali drugo podprto napravo za zajem slik in videa."
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr "kamera"
+
+#: src/MainWindow.vala:137
 #, c-format
-msgid "Connecting to \"%s\"…"
-msgstr "Vzpostavljanje povezave z \"%s\"…"
+msgid "Connecting to %s…"
+msgstr "Povezovanje na \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
@@ -62,7 +66,7 @@ msgstr[1] "%d sek"
 msgstr[2] "%d sek"
 msgstr[3] "%d sek"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
 msgstr "Zamik pred slikanjem"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2018-06-28 00:09+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/camera/camera/"
@@ -20,23 +20,28 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "카메라"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "지원되는 카메라가 없습니다"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "웹 캠에 연결하거나, 사진이나 비디오를 촬영할 수 있는 장치를 연결하세요."
 
-#: src/MainWindow.vala:124
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "카메라"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "\"%s\"에 연결하고 있습니다…"
 
 #: src/Widgets/CameraView.vala:98
@@ -58,7 +63,7 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 초"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
 msgstr "찍고 찰칵 할 때까지의 시간"
 

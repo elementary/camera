@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/camera/camera/zh/"
@@ -13,22 +13,27 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.6.1\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "照相机"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "没有找到支持的照相机"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "连接摄像头或其它视频设备拍摄照片或视频。"
 
-#: src/MainWindow.vala:124
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "照相机"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "正在连接 \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
@@ -50,6 +55,6 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 秒"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
 msgstr "拍照前延迟"

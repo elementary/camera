@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 07:44+0100\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2018-06-10 00:10+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/camera/camera/"
@@ -15,23 +15,28 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:46
+#: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "කැමරා"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "ආධාරක කැමරාවක් සොයාගත නොහැකි විය"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "ඡායාරූප සහ වීඩියෝ ලබා ගැනීමට වෙබ් කැමරාවක් හෝ වෙනත් ආධාරක වීඩියෝ උපාංගයක් සම්බන්ධ කරන්න."
 
-#: src/MainWindow.vala:124
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "කැමරා"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "\"%s\" සම්බන්ධ කරමින්…"
 
 #: src/Widgets/CameraView.vala:98
@@ -54,7 +59,7 @@ msgid_plural "%d Sec"
 msgstr[0] "තත් %d"
 msgstr[1] "තත් %d"
 
-#: src/Widgets/TimerButton.vala:69
+#: src/Widgets/TimerButton.vala:68
 #, fuzzy
 msgid "Delay before photo is taken"
 msgstr "ඡායාරූපයක් ගැනීමට පෙර කාලය ප්රමාද කරන්න"
