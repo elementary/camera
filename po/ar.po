@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2020-03-19 18:09+0000\n"
+"PO-Revision-Date: 2020-05-14 14:10+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/>"
 "\n"
@@ -42,7 +42,7 @@ msgstr "الكاميرا"
 #: src/MainWindow.vala:137
 #, c-format
 msgid "Connecting to %s…"
-msgstr "الاتصال بـ \"%s\"…"
+msgstr "جاري الاتصال بـ \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
