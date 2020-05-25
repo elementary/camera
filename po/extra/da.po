@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2018-07-10 00:03+0000\n"
-"Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish <https://weblate.elementary.io/projects/camera/extra/"
-"da/>\n"
+"PO-Revision-Date: 2020-05-26 14:11+0000\n"
+"Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
+"Language-Team: Danish <https://l10n.elementary.io/projects/camera/extra/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
@@ -35,7 +35,7 @@ msgstr "Kamera er en simpel app til at tage fotos med et webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "Updated translations"
-msgstr ""
+msgstr "Opdaterede oversættelser"
 
 #: data/io.elementary.camera.appdata.xml.in:59
 msgid "elementary LLC."
@@ -47,7 +47,7 @@ msgstr "Fotobås"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "accessories-camera"
-msgstr "accessories-camera"
+msgstr "tilbehør-kamera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
