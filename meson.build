@@ -25,6 +25,7 @@ executable(
     'src/Widgets/HeaderBar.vala',
     'src/Widgets/LoadingView.vala',
     'src/Widgets/TimerButton.vala',
+    'src/Widgets/FlashBox.vala',
     dependencies : [
         dependency('clutter-gst-3.0'),
         dependency('clutter-gtk-1.0'),

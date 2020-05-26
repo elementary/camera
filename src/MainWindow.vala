@@ -40,6 +40,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private Clutter.Actor camera_actor;
     private Clutter.Stage clutter_stage;
     private ClutterGst.Aspectratio camera_content;
+    private Camera.Widgets.FlashBox fashbox;
 
     private Widgets.CameraView? camera_view = null;
     private Widgets.HeaderBar header_bar;
@@ -89,9 +90,16 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         clutter_stage.add_child (camera_actor);
 
+        fashbox = new Camera.Widgets.FlashBox ();
+
+        var overlay = new Gtk.Overlay ();
+        overlay.expand = true;
+        overlay.add_overlay (fashbox);
+        overlay.add (clutter_embed);
+
         stack.add_named (loading_view, "loading");
         stack.add_named (no_device_view, "no-device");
-        stack.add_named (clutter_embed, "camera");
+        stack.add_named (overlay, "camera");
 
         this.set_titlebar (header_bar);
         this.add (stack);
@@ -150,6 +158,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         header_bar.start_timeout (delay);
 
         GLib.Timeout.add_seconds (delay, () => {
+            fashbox.flash ();
             camera_view.take_photo ();
             return GLib.Source.REMOVE;
         });
