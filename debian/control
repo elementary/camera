@@ -6,8 +6,6 @@ Build-Depends: appstream,
                desktop-file-utils,
                gettext,
                libcanberra-dev,
-               libclutter-gst-3.0-dev,
-               libclutter-gtk-1.0-dev,
                libgnome-desktop-3-dev,
                libgranite-dev,
                libgstreamer-plugins-base1.0-dev,
@@ -21,7 +19,7 @@ Homepage: https://github.com/elementary/camera
 Package: io.elementary.camera
 Architecture: any
 Priority: optional
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: gstreamer1.0-gtk3, ${misc:Depends}, ${shlibs:Depends}
 Conflicts: pantheon-camera, snap-photobooth
 Replaces: pantheon-camera, snap-photobooth
 Description: Camera app for Pantheon
