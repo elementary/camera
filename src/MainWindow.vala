@@ -56,7 +56,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         header_bar = new Widgets.HeaderBar ();
 
         camera_view = new Widgets.CameraView ();
-        camera_view.bind_property ("recording", header_bar, "recording", GLib.BindingFlags.SYNC_CREATE);
 
         set_titlebar (header_bar);
         add (camera_view);

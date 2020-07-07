@@ -91,20 +91,11 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         if (infos.length == 0) {
             visible_child = no_device_view;
-            return;
         }
     }
 
     public int get_cameras () {
         return infos.length;
-    }
-
-    public unowned string? get_camera_name (int camera_number) {
-        if (camera_number < 0 || camera_number > infos.length) {
-            return null;
-        }
-
-        return infos[camera_number].name;
     }
 
     public void start_view (int camera_number) {
@@ -123,7 +114,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 "videoscale ! " +
                 "gtksink name=gtksink"
             );
-            pipeline.set_state (Gst.State.NULL);
 
             v4l2src = pipeline.get_by_name ("v4l2src");
             tee = pipeline.get_by_name ("tee");
@@ -131,9 +121,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             var gtksink = pipeline.get_by_name ("gtksink");
             gtksink.get ("widget", out video_widget);
 
-            video_widget.expand = true;
-
             add (video_widget);
+            video_widget.show ();
 
             visible_child = video_widget;
             pipeline.set_state (Gst.State.PLAYING);
