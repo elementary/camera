@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2018-05-30 17:26+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/camera/"
@@ -17,20 +17,25 @@ msgstr ""
 msgid "Camera"
 msgstr "Cameră"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "Camera nu sa găsit sau nu este compatibilă"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conectați o cameră web sau alt dispozitiv video acceptat pentru a realiza "
 "fotografii și video."
 
-#: src/MainWindow.vala:135
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "Cameră"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "Se conectează la \"% s\" …"
 
 #: src/Widgets/CameraView.vala:98

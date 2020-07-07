@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,18 +22,22 @@ msgstr ""
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/MainWindow.vala:135
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr ""
+
+#: src/MainWindow.vala:137
 #, c-format
-msgid "Connecting to \"%s\"…"
+msgid "Connecting to %s…"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:98

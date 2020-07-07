@@ -7,37 +7,41 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-05-09 01:33+0000\n"
-"Last-Translator: Lewis Clement <lewis@lewisclement.nl>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/"
-">\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"PO-Revision-Date: 2019-12-26 01:47+0000\n"
+"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:60
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "Geen ondersteunde camera gevonden"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Verbind een webcam of een ander ondersteund videoapparaat om foto's en "
 "video's te maken."
 
-#: src/MainWindow.vala:135
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr "camera"
+
+#: src/MainWindow.vala:137
 #, c-format
-msgid "Connecting to \"%s\"…"
+msgid "Connecting to %s…"
 msgstr "Verbinden met \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
@@ -46,7 +50,7 @@ msgstr "Foto gemaakt"
 
 #: src/Widgets/LoadingView.vala:49
 msgid "Searching for video devices…"
-msgstr "Videoapparaten aan het zoeken…"
+msgstr "Zoeken naar videoapparaten…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -57,12 +61,12 @@ msgstr "Uitgeschakeld"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d seconde"
+msgstr[1] "%d secondes"
 
 #: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"
-msgstr "Vertraging voordat foto wordt genomen"
+msgstr "Tijd voordat foto wordt genomen"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Azerbaijani <https://l10n.elementary.io/projects/camera/extra/"
@@ -33,7 +33,11 @@ msgstr ""
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 
-#: data/io.elementary.camera.appdata.xml.in:52
+#: data/io.elementary.camera.appdata.xml.in:17
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "elementary LLC."
 msgstr ""
 

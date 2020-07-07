@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2018-09-06 00:08+0000\n"
 "Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/camera/camera/"
@@ -24,20 +24,25 @@ msgstr ""
 msgid "Camera"
 msgstr "Videocamera"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "Nessuna camera supportata è stata trovata"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Collega una webcam o un altro dispositivo video supportato per scattare foto "
 "e video."
 
-#: src/MainWindow.vala:135
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+#, fuzzy
+msgid "camera"
+msgstr "Videocamera"
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "Connessione a \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98

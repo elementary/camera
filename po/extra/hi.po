@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/camera/extra/hi/>\n"
@@ -32,7 +32,11 @@ msgstr "कैमरे का उपयोग करके फ़ोटो औ�
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "कैमरा एक वेब कैमरा का उपयोग कर तस्वीरें लेने के लिए एक सरल अनुप्रयोग है।"
 
-#: data/io.elementary.camera.appdata.xml.in:52
+#: data/io.elementary.camera.appdata.xml.in:17
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "elementary LLC."
 msgstr "एलिमेंटरी LLC."
 

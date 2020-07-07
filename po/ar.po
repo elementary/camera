@@ -7,38 +7,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-03-16 21:26+0000\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"PO-Revision-Date: 2020-05-14 14:10+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
-"Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/"
-">\n"
+"Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/>"
+"\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "الكاميرا"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "لم يتم ايجاد كاميرا مدعومة"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "قم بتوصيل كاميرا الويب أو أي جهاز فيديو آخر مدعوم لالتقاط الصور والفيديو."
 
-#: src/MainWindow.vala:135
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr "الكاميرا"
+
+#: src/MainWindow.vala:137
 #, c-format
-msgid "Connecting to \"%s\"…"
-msgstr "الاتصال بـــ \"%s\"…"
+msgid "Connecting to %s…"
+msgstr "جاري الاتصال بـ \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
@@ -57,12 +61,12 @@ msgstr "مُعطّل"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] "صفر"
+msgstr[0] "لاشيء"
 msgstr[1] "واحد"
-msgstr[2] "اثنان"
-msgstr[3] "بعض"
-msgstr[4] "العديد"
-msgstr[5] "اخرى"
+msgstr[2] "إثنان"
+msgstr[3] "رقم صغير"
+msgstr[4] "كثيرا"
+msgstr[5] "شيء آخر"
 
 #: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"

@@ -52,21 +52,16 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     construct {
         delay = (Delay) Camera.Application.settings.get_enum ("delay");
 
-        var timer_image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        var timer_label = new Gtk.Label (delay.to_string ());
+        label = delay.to_string ();
 
         this.clicked.connect (() => {
             delay = delay.next ();
             Camera.Application.settings.set_enum ("delay", delay);
-            timer_label.label = delay.to_string ();
+            label = delay.to_string ();
         });
 
-        var main_grid = new Gtk.Grid ();
-        main_grid.add (timer_image);
-        main_grid.add (timer_label);
-
+        always_show_image = true;
         tooltip_text = _("Delay before photo is taken");
         get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-        add (main_grid);
     }
 }

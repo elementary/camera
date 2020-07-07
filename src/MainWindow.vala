@@ -25,7 +25,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
 
-    private const GLib.ActionEntry[] action_entries = {
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
@@ -44,7 +44,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             icon_name: "accessories-camera"
         );
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
 

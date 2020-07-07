@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-07-22 00:24+0000\n"
-"Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"PO-Revision-Date: 2019-12-13 13:07+0000\n"
+"Last-Translator: Augusto Fornitani <augusto.fornitani@outlook.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/camera/camera/"
 "eo/>\n"
 "Language: eo\n"
@@ -17,27 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:60
 msgid "Camera"
 msgstr "Fotilo"
 
-#: src/MainWindow.vala:73
-msgid "No Supported Camera Found"
-msgstr "Neniu Trovita Subtenita Fotilo"
-
 #: src/MainWindow.vala:74
+msgid "No Supported Camera Found"
+msgstr "Ne troviĝas subtenita fotilo"
+
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Konekti retkameraon aŭ alian subtenitan kameraan aparaton por foti aŭ filmi."
 
-#: src/MainWindow.vala:135
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr "Fotilo"
+
+#: src/MainWindow.vala:137
 #, c-format
-msgid "Connecting to \"%s\"…"
-msgstr "Konektanta al „%s“…"
+msgid "Connecting to %s…"
+msgstr "Konektanta al “%s”…"
 
 #: src/Widgets/CameraView.vala:98
 msgid "Photo taken"
@@ -56,8 +60,8 @@ msgstr "Malaktivigita"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] "%d s"
-msgstr[1] "%d s"
+msgstr[0] "%d sekundo"
+msgstr[1] "%d sekundoj"
 
 #: src/Widgets/TimerButton.vala:68
 msgid "Delay before photo is taken"

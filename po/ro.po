@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-11-06 18:15+0000\n"
 "PO-Revision-Date: 2017-04-11 09:29+0000\n"
 "Last-Translator: Sorin Fatu <sorin.fatu@gmail.com>\n"
 "Language-Team: Romanian <https://l10n.elementary.io/projects/camera/camera/"
@@ -25,20 +25,24 @@ msgstr ""
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:74
 msgid "No Supported Camera Found"
 msgstr "Nu a fost gasita nici o camera suportata"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conectati un webcam sau un alt dispozitiv video suportat pentru a inregistra "
 "poze sau video."
 
-#: src/MainWindow.vala:135
-#, c-format
-msgid "Connecting to \"%s\"…"
+#: src/MainWindow.vala:114
+msgid "camera"
+msgstr ""
+
+#: src/MainWindow.vala:137
+#, fuzzy, c-format
+msgid "Connecting to %s…"
 msgstr "Conectare la \"%s\"…"
 
 #: src/Widgets/CameraView.vala:98
