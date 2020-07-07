@@ -52,7 +52,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         this.icon_name = "accessories-camera";
         this.set_size_request (640, 480);
         this.window_position = Gtk.WindowPosition.CENTER;
-        set_size_request (640, 480);
 
         header_bar = new Widgets.HeaderBar ();
 
