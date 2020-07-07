@@ -72,39 +72,26 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         status_label = new Gtk.Label (null);
 
-        status_grid = new Gtk.Grid ();
-        status_grid.row_spacing = 6;
-        status_grid.orientation = Gtk.Orientation.VERTICAL;
-        status_grid.halign = Gtk.Align.CENTER;
-        status_grid.valign = Gtk.Align.CENTER;
+        status_grid = new Gtk.Grid () {
+            column_spacing = 6,
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.CENTER
+        };
         status_grid.add (spinner);
         status_grid.add (status_label);
 
-        add_named (status_grid, "status");
+        no_device_view = new Granite.Widgets.AlertView (
+            _("No Supported Camera Found"),
+            _("Connect a webcam or other supported video device to take photos and video."),
+            ""
+        );
 
-        no_device_view = new Granite.Widgets.AlertView (_("No Supported Camera Found"),
-                                                        _("Connect a webcam or other supported video device to take photos and video."),
-                                                        "accessories-camera");
-        add_named (no_device_view, "no-device");
+        add (status_grid);
+        add (no_device_view);
 
         if (infos.length == 0) {
             visible_child = no_device_view;
             return;
-        }
-
-        try {
-            pipeline = Gst.parse_launch ("v4l2src name=v4l2src ! videoflip method=horizontal-flip ! tee name=tee ! queue leaky=downstream max-size-buffers=10 ! videoconvert ! videoscale ! gtksink name=gtksink") as Gst.Pipeline;
-            v4l2src = pipeline.get_by_name ("v4l2src");
-            tee = pipeline.get_by_name ("tee");
-            var gtksink = pipeline.get_by_name ("gtksink");
-            gtksink.get ("widget", out video_widget);
-            video_widget.expand = true;
-            add_named (video_widget, "video");
-            visible_child = status_grid;
-        } catch (Error e) {
-            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
-            dialog.run ();
-            dialog.destroy ();
         }
     }
 
@@ -121,16 +108,42 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     public void start_view (int camera_number) {
-        pipeline.set_state (Gst.State.NULL);
         visible_child = status_grid;
-        if (camera_number < 0 || camera_number > infos.length) {
-            return;
-        }
 
         status_label.label = _("Connecting to \"%s\"…").printf (infos[camera_number].name);
         v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
-        visible_child = video_widget;
-        pipeline.set_state (Gst.State.PLAYING);
+
+        try {
+            pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "v4l2src name=v4l2src ! " +
+                "videoflip method=horizontal-flip ! " +
+                "tee name=tee ! " +
+                "queue leaky=downstream max-size-buffers=10 ! " +
+                "videoconvert ! " +
+                "videoscale ! " +
+                "gtksink name=gtksink"
+            );
+            pipeline.set_state (Gst.State.NULL);
+
+            v4l2src = pipeline.get_by_name ("v4l2src");
+            tee = pipeline.get_by_name ("tee");
+
+            var gtksink = pipeline.get_by_name ("gtksink");
+            gtksink.get ("widget", out video_widget);
+
+            video_widget.expand = true;
+
+            add (video_widget);
+
+            visible_child = video_widget;
+            pipeline.set_state (Gst.State.PLAYING);
+        } catch (Error e) {
+            visible_child = no_device_view;
+
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
+            dialog.run ();
+            dialog.destroy ();
+        }
     }
 
     public void take_photo () {
