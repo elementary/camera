@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-07-07 23:48+0000\n"
 "PO-Revision-Date: 2019-11-29 00:24+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/camera/"
@@ -20,37 +20,40 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:51
 msgid "Camera"
 msgstr "Câmara"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:57
+#, fuzzy, c-format
+#| msgid "Camera"
+msgid "Camera %u"
+msgstr "Câmara"
+
+#: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
 msgstr "Nenhuma câmara suportada encontrada"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:85
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Ligue uma webcam ou outro dispositivo de vídeo suportado para tirar fotos e "
 "vídeos."
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr "câmara"
-
-#: src/MainWindow.vala:137
-#, c-format
-msgid "Connecting to %s…"
+#: src/Widgets/CameraView.vala:104
+#, fuzzy, c-format
+#| msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "A ligar a %s…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:133
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
 msgstr "Foto tirada"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "A procurar dispositivos de vídeo…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -64,9 +67,15 @@ msgid_plural "%d Sec"
 msgstr[0] "%d Segundo"
 msgstr[1] "%d Segundos"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Atraso antes da foto ser tirada"
+
+#~ msgid "camera"
+#~ msgstr "câmara"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "A procurar dispositivos de vídeo…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

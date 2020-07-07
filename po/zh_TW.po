@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-07-07 23:48+0000\n"
 "PO-Revision-Date: 2019-05-22 07:14+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -20,36 +20,37 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:51
 msgid "Camera"
 msgstr "攝影機"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:57
+#, fuzzy, c-format
+#| msgid "Camera"
+msgid "Camera %u"
+msgstr "攝影機"
+
+#: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
 msgstr "找不到支援的攝影機"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:85
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "連接網路攝影機或其他支援的視訊裝置來照相和攝影。"
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "攝影機"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:104
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "連接到「%s」中…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:133
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
 msgstr "相片已拍攝"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "搜尋視訊裝置中…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -62,9 +63,16 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 秒"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "在相片拍攝前的倒數計時"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "攝影機"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "搜尋視訊裝置中…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

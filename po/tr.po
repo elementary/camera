@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-07-07 23:48+0000\n"
 "PO-Revision-Date: 2019-03-31 22:51+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/camera/camera/tr/"
@@ -20,38 +20,39 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:51
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:57
+#, fuzzy, c-format
+#| msgid "Camera"
+msgid "Camera %u"
+msgstr "Kamera"
+
+#: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
 msgstr "Desteklenen Kamera Bulunamadı"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:85
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Fotoğraf ve video çekmek için bir web kamerası veya desteklenen başka bir "
 "video aygıtı bağlayın."
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "Kamera"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:104
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" cihazına bağlanıyor…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:133
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
 msgstr "Çekilen fotoğraf"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Video cihazları aranıyor…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -65,9 +66,16 @@ msgid_plural "%d Sec"
 msgstr[0] "%d sn"
 msgstr[1] "%d sn"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Fotoğraf çekilmeden önceki gecikme"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "Kamera"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "Video cihazları aranıyor…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
