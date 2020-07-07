@@ -23,11 +23,10 @@ executable(
     'src/Utils.vala',
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
-    'src/Widgets/LoadingView.vala',
     'src/Widgets/TimerButton.vala',
     dependencies : [
-        dependency('clutter-gst-3.0'),
-        dependency('clutter-gtk-1.0'),
+        dependency('gstreamer-1.0'),
+        dependency('gstreamer-pbutils-1.0'),
         dependency('gee-0.8'),
         dependency('gio-2.0'),
         dependency('glib-2.0'),

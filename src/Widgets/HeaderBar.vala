@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301 USA.
  *
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
+ *              Corentin Noël <corentin@elementary.io>
  */
 
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
