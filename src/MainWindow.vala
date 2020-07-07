@@ -37,12 +37,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private Widgets.HeaderBar header_bar;
 
     public MainWindow (Application application) {
-        Object (
-            application: application,
-            window_position: Gtk.WindowPosition.CENTER,
-            title: _("Camera"),
-            icon_name: "accessories-camera"
-        );
+        Object (application: application);
 
         add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
@@ -52,6 +47,11 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
+        this.set_application (application);
+        this.title = _("Camera");
+        this.icon_name = "accessories-camera";
+        this.set_size_request (640, 480);
+        this.window_position = Gtk.WindowPosition.CENTER;
         set_size_request (640, 480);
 
         header_bar = new Widgets.HeaderBar ();
