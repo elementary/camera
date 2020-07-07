@@ -79,6 +79,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         status_grid.valign = Gtk.Align.CENTER;
         status_grid.add (spinner);
         status_grid.add (status_label);
+
         add_named (status_grid, "status");
 
         no_device_view = new Granite.Widgets.AlertView (_("No Supported Camera Found"),
@@ -102,7 +103,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             visible_child = status_grid;
         } catch (Error e) {
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
-            dialog.show_all ();
             dialog.run ();
             dialog.destroy ();
         }
