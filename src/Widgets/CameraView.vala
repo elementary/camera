@@ -122,10 +122,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             var gtksink = pipeline.get_by_name ("gtksink");
             gtksink.get ("widget", out video_widget);
 
-            // video_widget.force_aspect_ratio = false;
-            video_widget.show ();
-
             add (video_widget);
+            video_widget.show ();
 
             visible_child = video_widget;
             pipeline.set_state (Gst.State.PLAYING);
