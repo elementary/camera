@@ -7,7 +7,12 @@ project(
 gnome = import('gnome')
 i18n = import('i18n')
 
-add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
+add_project_arguments([
+        '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+        '-DHANDY_USE_UNSTABLE_API',
+    ],
+    language: 'c'
+)
 
 asresources = gnome.compile_resources(
     'as-resources', 'data/' + meson.project_name() + '.gresource.xml',
@@ -33,6 +38,7 @@ executable(
         dependency('granite', version: '>=5.1.0'),
         dependency('gtk+-3.0'),
         dependency('libcanberra'),
+        dependency('libhandy-1', version: '>=0.80.0'),
         meson.get_compiler('vala').find_library('posix')
     ],
     install : true

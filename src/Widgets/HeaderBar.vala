@@ -88,7 +88,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
+        valign = Gtk.Align.START;
         show_close_button = true;
+        get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
         pack_end (mode_switch);

@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Camera.MainWindow : Gtk.ApplicationWindow {
+public class Camera.MainWindow : Hdy.ApplicationWindow {
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
@@ -50,20 +50,40 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
-        this.set_size_request (640, 480);
+        set_default_size (640, 480);
+        set_size_request (436, 352);
         this.window_position = Gtk.WindowPosition.CENTER;
 
         header_bar = new Widgets.HeaderBar ();
 
         camera_view = new Widgets.CameraView ();
 
-        set_titlebar (header_bar);
-        add (camera_view);
+        var revealer = new Gtk.Revealer ();
+        revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
+        revealer.add (header_bar);
+
+        var overlay = new Gtk.Overlay ();
+        overlay.add (camera_view);
+        overlay.add_overlay (revealer);
+
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (overlay);
+
+        add (window_handle);
         show_all ();
 
         if (camera_view.get_cameras () > 0) {
             camera_view.start_view (0);
         }
+
+        enter_notify_event.connect (() => {
+            revealer.reveal_child = true;
+        });
+
+
+        leave_notify_event.connect (() => {
+            revealer.reveal_child = false;
+        });
     }
 
     private void on_fullscreen () {
