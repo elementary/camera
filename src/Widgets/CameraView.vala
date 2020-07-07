@@ -107,6 +107,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         try {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src name=v4l2src ! " +
+                "video/x-raw, width=640, height=480, framerate=30/1 ! " +
                 "videoflip method=horizontal-flip ! " +
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
