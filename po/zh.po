@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-07-07 23:48+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/camera/camera/zh/"
@@ -13,36 +13,37 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.6.1\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:51
 msgid "Camera"
 msgstr "照相机"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:57
+#, fuzzy, c-format
+#| msgid "Camera"
+msgid "Camera %u"
+msgstr "照相机"
+
+#: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
 msgstr "没有找到支持的照相机"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:85
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "连接摄像头或其它视频设备拍摄照片或视频。"
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "照相机"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:104
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "正在连接 \"%s\"…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:133
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
 msgstr "已拍摄的照片"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "正在搜索视频设备…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -55,6 +56,13 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 秒"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "拍照前延迟"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "照相机"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "正在搜索视频设备…"

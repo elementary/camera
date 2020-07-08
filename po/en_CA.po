@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-07-07 23:48+0000\n"
 "PO-Revision-Date: 2018-06-22 13:00+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
@@ -20,37 +20,38 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:51
 msgid "Camera"
 msgstr "Camera"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:57
+#, fuzzy, c-format
+#| msgid "Camera"
+msgid "Camera %u"
+msgstr "Camera"
+
+#: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
 msgstr "No Supported Camera Found"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:85
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connect a webcam or other supported video device to take photos and video."
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "Camera"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:104
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "Connecting to \"%s\"…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:133
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
 msgstr "Photo taken"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Searching for video devices…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -64,10 +65,17 @@ msgid_plural "%d Sec"
 msgstr[0] "%d Sec"
 msgstr[1] "%d Sec"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 #, fuzzy
 msgid "Delay before photo is taken"
 msgstr "Delay time before taking a photo"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "Camera"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "Searching for video devices…"
 
 #~ msgid "translator-credits"
 #~ msgstr "translator-credits"
