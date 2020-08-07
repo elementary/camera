@@ -62,7 +62,7 @@ public class Camera.Application : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        Gst.init (ref args);
+        Cheese.init (ref args);
 
         var application = new Application ();
 
