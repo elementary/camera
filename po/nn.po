@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-07 23:48+0000\n"
-"PO-Revision-Date: 2020-07-04 09:12+0000\n"
+"PO-Revision-Date: 2020-07-22 20:12+0000\n"
 "Last-Translator: Martin Myrvold <myrvold.martin@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://l10n.elementary.io/projects/camera/"
 "camera/nn/>\n"
@@ -25,10 +25,9 @@ msgid "Camera"
 msgstr "Kamera"
 
 #: src/Widgets/CameraView.vala:57
-#, fuzzy, c-format
-#| msgid "Camera"
+#, c-format
 msgid "Camera %u"
-msgstr "Kamera"
+msgstr "Kamera %u"
 
 #: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
@@ -42,14 +41,13 @@ msgstr ""
 "video."
 
 #: src/Widgets/CameraView.vala:104
-#, fuzzy, c-format
-#| msgid "Connecting to %s…"
+#, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "Koplar til %s…"
+msgstr "Koplar til \"%s\"…"
 
 #: src/Widgets/CameraView.vala:133
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Kan ikkje visa kameraet"
 
 #: src/Widgets/CameraView.vala:276
 msgid "Photo taken"

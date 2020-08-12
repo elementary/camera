@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-07 23:48+0000\n"
-"PO-Revision-Date: 2019-12-26 01:47+0000\n"
+"PO-Revision-Date: 2020-07-16 10:12+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,10 +25,9 @@ msgid "Camera"
 msgstr "Camera"
 
 #: src/Widgets/CameraView.vala:57
-#, fuzzy, c-format
-#| msgid "Camera"
+#, c-format
 msgid "Camera %u"
-msgstr "Camera"
+msgstr "Camera %u"
 
 #: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
@@ -42,14 +41,13 @@ msgstr ""
 "video's te maken."
 
 #: src/Widgets/CameraView.vala:104
-#, fuzzy, c-format
-#| msgid "Connecting to %s…"
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Verbinden met \"%s\"…"
 
 #: src/Widgets/CameraView.vala:133
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Kan Camera niet vinden"
 
 #: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
