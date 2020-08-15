@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-07 23:48+0000\n"
-"PO-Revision-Date: 2019-05-22 07:14+0000\n"
+"PO-Revision-Date: 2020-08-16 05:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "camera/camera/zh_Hant/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:51
@@ -25,10 +25,9 @@ msgid "Camera"
 msgstr "攝影機"
 
 #: src/Widgets/CameraView.vala:57
-#, fuzzy, c-format
-#| msgid "Camera"
+#, c-format
 msgid "Camera %u"
-msgstr "攝影機"
+msgstr "攝影機 %u"
 
 #: src/Widgets/CameraView.vala:84
 msgid "No Supported Camera Found"
@@ -40,13 +39,13 @@ msgid ""
 msgstr "連接網路攝影機或其他支援的視訊裝置來照相和攝影。"
 
 #: src/Widgets/CameraView.vala:104
-#, fuzzy, c-format
+#, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "連接到「%s」中…"
+msgstr "正在連接到「%s」…"
 
 #: src/Widgets/CameraView.vala:133
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "無法顯示相機"
 
 #: src/Widgets/CameraView.vala:276
 msgid "Photo taken"
