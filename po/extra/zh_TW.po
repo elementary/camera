@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-05-22 07:14+0000\n"
+"PO-Revision-Date: 2020-08-16 05:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "camera/extra/zh_Hant/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
@@ -35,10 +35,9 @@ msgstr "「相機」是一個以網路攝影機拍照的簡單應用程式。"
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "Updated translations"
-msgstr ""
+msgstr "更新翻譯"
 
 #: data/io.elementary.camera.appdata.xml.in:59
-#, fuzzy
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -47,7 +46,6 @@ msgid "Photo Booth"
 msgstr "相館"
 
 #: data/io.elementary.camera.desktop.in:8
-#, fuzzy
 msgid "accessories-camera"
 msgstr "accessories-camera"
 
