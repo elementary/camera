@@ -108,9 +108,33 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
     }
 
+    //  public Camera.CameraInfo? get_camera (int num) {
+    //      if (num >= 0 && num < get_cameras ()) {
+    //          return infos[num];
+    //      }
+    //      return null;
+    //  }
+
+    public void change_camera (int camera_number) {
+        if (recording) {
+            stop_recording ();
+        }
+
+        if (record_bin != null) {
+            record_bin.set_state(Gst.State.NULL);
+        }
+        pipeline.set_state(Gst.State.NULL);
+        pipeline.unref();
+
+        //  get_children().remove (video_widget);
+
+        start_view (camera_number);
+    }
+
     public void start_view (int camera_number) {
         unowned Gst.Device camera = cameras[camera_number];
         visible_child = status_grid;
+        stdout.printf("Using %s - %s\n", infos[camera_number].name, infos[camera_number].path);
 
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 

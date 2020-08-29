@@ -28,11 +28,14 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Widgets.TimerButton timer_button;
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
-    private Gtk.Button take_button;
+    private Gtk.MenuToolButton take_button;
+    private Gtk.Menu camera_options;
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
 
     public bool recording { get; set; default = false; }
+
+    public signal void request_camera_change (int camera_id);
 
     public int timer_delay {
         get {
@@ -66,11 +69,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_grid.add (take_image);
         take_grid.add (video_timer_revealer);
 
-        take_button = new Gtk.Button ();
+        take_button = new Gtk.MenuToolButton (take_grid, "");
         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-        take_button.sensitive = false;
+        take_button.sensitive = true;
         take_button.width_request = 54;
-        take_button.add (take_grid);
+        camera_options = new Gtk.Menu ();
+        take_button.set_menu(camera_options);
 
         Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
 
@@ -127,6 +131,17 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         });
 
         mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+    }
+
+    public void add_camera_options (Camera.CameraInfo info) {
+        var menuitem = new Gtk.MenuItem.with_label (info.name);
+        camera_options.append (menuitem);
+        int i = (int) camera_options.get_children ().length () - 1;
+        menuitem.activate.connect (() => {
+            request_camera_change (i);
+        });
+        menuitem.show ();
+        
     }
 
     public void start_timeout (int time) {
