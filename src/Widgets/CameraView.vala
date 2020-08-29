@@ -116,9 +116,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             v4l2src = pipeline.get_by_name ("v4l2src");
-            tee = pipeline.get_by_name ("tee");
             v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
-
+            tee = pipeline.get_by_name ("tee");
 
             var gtksink = pipeline.get_by_name ("gtksink");
             gtksink.get ("widget", out video_widget);
