@@ -102,7 +102,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         visible_child = status_grid;
 
         status_label.label = _("Connecting to \"%s\"…").printf (infos[camera_number].name);
-        v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
 
         try {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
@@ -118,6 +117,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             v4l2src = pipeline.get_by_name ("v4l2src");
             tee = pipeline.get_by_name ("tee");
+            v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
+
 
             var gtksink = pipeline.get_by_name ("gtksink");
             gtksink.get ("widget", out video_widget);
