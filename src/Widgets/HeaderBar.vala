@@ -28,7 +28,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Widgets.TimerButton timer_button;
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
-    private Gtk.MenuToolButton take_button;
+    private Gtk.Button take_button;
+    private Gtk.MenuButton camera_menu_button;
     private Gtk.Menu camera_options;
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
@@ -45,9 +46,20 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
-            border-radius: 400px;
+            border-radius: 400px 0px 0px 400px;
         }
     """;
+
+    public const string CAMERA_MENU_BUTTON_STYLESHEET = """
+    .camera-menu {
+        border-radius: 0px 400px 400px 0px;
+    }
+
+    menu menuitem, .menu menuitem {
+        color: #fd1125;
+    }
+    """;
+    
 
     construct {
         timer_button = new Widgets.TimerButton ();
@@ -69,13 +81,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_grid.add (take_image);
         take_grid.add (video_timer_revealer);
 
-        take_button = new Gtk.MenuToolButton (take_grid, "");
+        take_button = new Gtk.Button ();
         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
         take_button.sensitive = true;
         take_button.width_request = 54;
-        camera_options = new Gtk.Menu ();
-        take_button.set_menu(camera_options);
-
+        take_button.add (take_grid);
+       
         Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
 
         try {
@@ -92,10 +103,31 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
+        camera_menu_button = new Gtk.MenuButton ();
+        camera_options = new Gtk.Menu ();
+        camera_menu_button.set_popup (camera_options);
+
+        Gtk.CssProvider camera_menu_button_style_provider = new Gtk.CssProvider ();
+
+        try {
+            camera_menu_button_style_provider.load_from_data (CAMERA_MENU_BUTTON_STYLESHEET, -1);
+        } catch (Error e) {
+            warning ("Styling take button failed: %s", e.message);
+        }
+
+        var camera_menu_button_style_context = camera_menu_button.get_style_context ();
+        //  camera_menu_button_style_context.add_provider (camera_menu_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        camera_menu_button_style_context.add_class ("camera-menu");
+
+        var linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        linked_box.add (take_button);
+        linked_box.add (camera_menu_button);
+
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
-        set_custom_title (take_button);
+        set_custom_title (linked_box);
         pack_end (mode_switch);
 
         Camera.Application.settings.changed.connect ((key) => {
@@ -135,6 +167,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public void add_camera_options (Camera.CameraInfo info) {
         var menuitem = new Gtk.MenuItem.with_label (info.name);
+
+        Gtk.CssProvider item_style_provider = new Gtk.CssProvider ();
+
+        try {
+            item_style_provider.load_from_data (CAMERA_MENU_BUTTON_STYLESHEET, -1);
+        } catch (Error e) {
+            warning ("Styling take button failed: %s", e.message);
+        }
+
+        var item_style_context = menuitem.get_style_context ();
+        item_style_context.add_provider (item_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        item_style_context.add_class (Gtk.STYLE_CLASS_LABEL);
         camera_options.append (menuitem);
         int i = (int) camera_options.get_children ().length () - 1;
         menuitem.activate.connect (() => {
