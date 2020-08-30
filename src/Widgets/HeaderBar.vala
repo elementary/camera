@@ -77,7 +77,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         var take_grid = new Gtk.Grid ();
         take_grid.halign = Gtk.Align.CENTER;
-        take_grid.margin_start = take_grid.margin_end = 6;
+        take_grid.margin_start = 6;
+        take_grid.margin_end = 0;
         take_grid.add (take_image);
         take_grid.add (video_timer_revealer);
 
@@ -116,11 +117,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
 
         var camera_menu_button_style_context = camera_menu_button.get_style_context ();
-        //  camera_menu_button_style_context.add_provider (camera_menu_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        camera_menu_button_style_context.add_provider (camera_menu_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button_style_context.add_class ("camera-menu");
 
         var linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        linked_box.get_style_context ().add_class ("linked");
         linked_box.add (take_button);
         linked_box.add (camera_menu_button);
 
