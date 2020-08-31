@@ -20,39 +20,20 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
-private struct Camera.CameraInfo {
-    public string name;
-    public string path;
-}
-
 public class Camera.Widgets.CameraView : Gtk.Stack {
-    private Gtk.Widget video_widget;
     private Gtk.Grid status_grid;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
 
     private Gst.Pipeline pipeline;
-    private Gst.Element v4l2src;
     private Gst.Element tee;
     private Gst.Bin? record_bin;
 
-    private Camera.CameraInfo[] infos = {};
+    private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
+    private GenericArray<Gst.Device> cameras = new GenericArray<Gst.Device> ();
     public bool recording { get; private set; default = false; }
 
-    public CameraView () {
-        var monitor = new Gst.DeviceMonitor ();
-        var caps = new Gst.Caps.empty_simple ("video/x-raw");
-        monitor.add_filter ("Video/Source", caps);
-
-        foreach (var device in monitor.get_devices ()) {
-            string path = device.get_properties ().get_string ("device.path");
-            var info = Camera.CameraInfo () {
-                name = device.get_display_name (),
-                path = path
-            };
-            infos += info;
-        }
-
+    construct {
         var spinner = new Gtk.Spinner ();
         spinner.active = true;
 
@@ -75,23 +56,67 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         add (status_grid);
         add (no_device_view);
 
-        if (infos.length == 0) {
+        monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
+
+        var caps = new Gst.Caps.empty_simple ("video/x-raw");
+        monitor.add_filter ("Video/Source", caps);
+    }
+
+    private void on_device_added (owned Gst.Device device) {
+        cameras.add ((owned) device);
+        if (cameras.length == 1) {
+            start_view (0);
+        }
+    }
+
+    private bool on_bus_message (Gst.Bus bus, Gst.Message message) {
+        switch (message.type) {
+            case DEVICE_ADDED:
+                Gst.Device device;
+                message.parse_device_added (out device);
+                on_device_added ((owned) device);
+
+                break;
+            case DEVICE_CHANGED:
+                Gst.Device device, changed_device;
+                message.parse_device_changed (out device, out changed_device);
+                cameras.remove ((owned) changed_device);
+                cameras.add ((owned) device);
+                break;
+            case DEVICE_REMOVED:
+                Gst.Device device;
+                message.parse_device_removed (out device);
+                cameras.remove ((owned) device);
+                if (cameras.length == 0) {
+                    visible_child = no_device_view;
+                }
+
+                break;
+            default:
+                break;
+        }
+
+        return GLib.Source.CONTINUE;
+    }
+
+    public void start () {
+        monitor.get_devices ().foreach ((dev) => {on_device_added (dev);});
+        monitor.start ();
+
+        if (cameras.length == 0) {
             visible_child = no_device_view;
         }
     }
 
-    public int get_cameras () {
-        return infos.length;
-    }
-
     public void start_view (int camera_number) {
+        unowned Gst.Device camera = cameras[camera_number];
         visible_child = status_grid;
 
-        status_label.label = _("Connecting to \"%s\"…").printf (infos[camera_number].name);
+        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         try {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
-                "v4l2src name=v4l2src ! " +
+                "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
                 "videoflip method=horizontal-flip ! " +
                 "tee name=tee ! " +
@@ -101,17 +126,16 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 "gtksink name=gtksink"
             );
 
-            v4l2src = pipeline.get_by_name ("v4l2src");
-            v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
             tee = pipeline.get_by_name ("tee");
 
             var gtksink = pipeline.get_by_name ("gtksink");
-            gtksink.get ("widget", out video_widget);
+            Gtk.Widget gst_video_widget;
+            gtksink.get ("widget", out gst_video_widget);
 
-            add (video_widget);
-            video_widget.show ();
+            add (gst_video_widget);
+            gst_video_widget.show ();
 
-            visible_child = video_widget;
+            visible_child = gst_video_widget;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             visible_child = no_device_view;

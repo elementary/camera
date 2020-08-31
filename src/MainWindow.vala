@@ -33,7 +33,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     private uint configure_id;
 
-    private Widgets.CameraView? camera_view = null;
+    private Widgets.CameraView camera_view;
     private Widgets.HeaderBar header_bar;
 
     public MainWindow (Application application) {
@@ -47,7 +47,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
-        this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
         this.set_size_request (640, 480);
@@ -59,11 +58,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         set_titlebar (header_bar);
         add (camera_view);
-        show_all ();
 
-        if (camera_view.get_cameras () > 0) {
-            camera_view.start_view (0);
-        }
+        camera_view.start ();
+
+        show_all ();
     }
 
     private void on_fullscreen () {
