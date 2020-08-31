@@ -89,6 +89,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch.valign = Gtk.Align.CENTER;
 
         show_close_button = true;
+        get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
         pack_end (mode_switch);
