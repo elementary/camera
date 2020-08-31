@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 23:48+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2018-06-10 00:10+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/camera/camera/"
@@ -15,36 +15,30 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:51
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "කැමරා"
 
-#: src/Widgets/CameraView.vala:57
-#, fuzzy, c-format
-#| msgid "Camera"
-msgid "Camera %u"
-msgstr "කැමරා"
-
-#: src/Widgets/CameraView.vala:84
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "ආධාරක කැමරාවක් සොයාගත නොහැකි විය"
 
-#: src/Widgets/CameraView.vala:85
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "ඡායාරූප සහ වීඩියෝ ලබා ගැනීමට වෙබ් කැමරාවක් හෝ වෙනත් ආධාරක වීඩියෝ උපාංගයක් සම්බන්ධ කරන්න."
 
-#: src/Widgets/CameraView.vala:104
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" සම්බන්ධ කරමින්…"
 
-#: src/Widgets/CameraView.vala:133
+#: src/Widgets/CameraView.vala:143
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:276
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "ඡායාරූපය ගනු ලැබීය"
 
@@ -64,6 +58,11 @@ msgstr[1] "තත් %d"
 #, fuzzy
 msgid "Delay before photo is taken"
 msgstr "ඡායාරූපයක් ගැනීමට පෙර කාලය ප්රමාද කරන්න"
+
+#, fuzzy
+#~| msgid "Camera"
+#~ msgid "Camera %u"
+#~ msgstr "කැමරා"
 
 #, fuzzy
 #~ msgid "camera"
