@@ -44,6 +44,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     construct {
+        Hdy.init ();
+
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
