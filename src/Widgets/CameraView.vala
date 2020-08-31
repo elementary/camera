@@ -40,31 +40,17 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     public bool recording { get; private set; default = false; }
 
     public CameraView () {
-        var v4ldir = GLib.File.new_for_path ("/sys/class/video4linux/");
-        try {
-            var enumerator = v4ldir.enumerate_children (GLib.FileAttribute.STANDARD_NAME, GLib.FileQueryInfoFlags.NONE, null);
-            GLib.FileInfo fileinfo;
-            while ((fileinfo = enumerator.next_file ()) != null) {
-                unowned string filename = fileinfo.get_name ();
-                var name_path = v4ldir.resolve_relative_path (filename).get_child ("name").get_path ();
-                string content;
-                size_t length;
-                try {
-                    GLib.FileUtils.get_contents (name_path, out content, out length);
-                    content = content.replace ("\n", "").strip ();
-                } catch (Error e) {
-                    critical (e.message);
-                    content = _("Camera %u").printf (infos.length + 2);
-                }
+        var monitor = new Gst.DeviceMonitor ();
+        var caps = new Gst.Caps.empty_simple ("video/x-raw");
+        monitor.add_filter ("Video/Source", caps);
 
-                var info = Camera.CameraInfo () {
-                    name = content,
-                    path = fileinfo.get_name ()
-                };
-                infos += info;
-            }
-        } catch (Error e) {
-            critical (e.message);
+        foreach (var device in monitor.get_devices ()) {
+            string path = device.get_properties ().get_string ("device.path");
+            var info = Camera.CameraInfo () {
+                name = device.get_display_name (),
+                path = path
+            };
+            infos += info;
         }
 
         var spinner = new Gtk.Spinner ();
@@ -102,7 +88,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         visible_child = status_grid;
 
         status_label.label = _("Connecting to \"%s\"…").printf (infos[camera_number].name);
-        v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
 
         try {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
@@ -117,6 +102,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             v4l2src = pipeline.get_by_name ("v4l2src");
+            v4l2src["device"] = "/dev/%s".printf (infos[camera_number].path);
             tee = pipeline.get_by_name ("tee");
 
             var gtksink = pipeline.get_by_name ("gtksink");
