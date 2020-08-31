@@ -15,6 +15,7 @@ You'll need the following dependencies:
  - libclutter-gtk-1.0-dev
  - libgranite-dev
  - libgtk-3.0-dev
+ - libhandy-1-dev
  - meson >= 0.43
  - valac-0.30
 
