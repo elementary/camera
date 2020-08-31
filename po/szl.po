@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 23:48+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/camera/"
@@ -14,38 +14,32 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/MainWindow.vala:51
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/Widgets/CameraView.vala:57
-#, fuzzy, c-format
-#| msgid "Camera"
-msgid "Camera %u"
-msgstr "Kamera"
-
-#: src/Widgets/CameraView.vala:84
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Niy szło znojś żodnyj spiyranyj kamery"
 
-#: src/Widgets/CameraView.vala:85
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Prziłōncz kamera necowo abo inkszo spiyrano maszina wideo, żeby robić "
 "fotografije i filmy."
 
-#: src/Widgets/CameraView.vala:104
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
 #| msgid "Connecting to %s…"
 msgid "Connecting to \"%s\"…"
 msgstr "Łōnczynie z %s…"
 
-#: src/Widgets/CameraView.vala:133
+#: src/Widgets/CameraView.vala:143
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:276
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Zrobiōno fotografijo"
 
@@ -65,6 +59,11 @@ msgstr[2] "%d s"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Ôpōźniynie przed zrobiyniym fotografije"
+
+#, fuzzy
+#~| msgid "Camera"
+#~ msgid "Camera %u"
+#~ msgstr "Kamera"
 
 #~ msgid "camera"
 #~ msgstr "kamera"

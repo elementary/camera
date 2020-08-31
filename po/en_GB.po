@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 23:48+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2020-07-16 10:12+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -20,35 +20,30 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:51
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Camera"
 
-#: src/Widgets/CameraView.vala:57
-#, c-format
-msgid "Camera %u"
-msgstr "Camera %u"
-
-#: src/Widgets/CameraView.vala:84
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "No Supported Camera Found"
 
-#: src/Widgets/CameraView.vala:85
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connect a webcam or other supported video device to take photos and video."
 
-#: src/Widgets/CameraView.vala:104
+#: src/Widgets/CameraView.vala:115
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Connecting to \"%s\"…"
 
-#: src/Widgets/CameraView.vala:133
+#: src/Widgets/CameraView.vala:143
 msgid "Unable To View Camera"
 msgstr "Unable To View Camera"
 
-#: src/Widgets/CameraView.vala:276
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Photo taken"
 
@@ -67,6 +62,9 @@ msgstr[1] "%d Sec"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Delay before photo is taken"
+
+#~ msgid "Camera %u"
+#~ msgstr "Camera %u"
 
 #~ msgid "camera"
 #~ msgstr "camera"

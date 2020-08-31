@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 23:48+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Grammatopoulos Athanasios-Vasi <darkthanos.gr@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/camera/camera/el/"
@@ -20,37 +20,31 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:51
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Κάμερα"
 
-#: src/Widgets/CameraView.vala:57
-#, fuzzy, c-format
-#| msgid "Camera"
-msgid "Camera %u"
-msgstr "Κάμερα"
-
-#: src/Widgets/CameraView.vala:84
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Δεν Βρέθηκε Κάποια Υποστηριζόμενη Κάμερα"
 
-#: src/Widgets/CameraView.vala:85
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Συνδέστε μια web κάμερα ή κάποια υποστηριζόμενη συσκευή βίντεο για να "
 "τραβήξετε φωτογραφίες και βίντεο."
 
-#: src/Widgets/CameraView.vala:104
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Σύνδεση με \"%s\"…"
 
-#: src/Widgets/CameraView.vala:133
+#: src/Widgets/CameraView.vala:143
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:276
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Η φωτογραφία τραβήχτηκε"
 
@@ -69,6 +63,11 @@ msgstr[1] "%d Δευτερόλεπτα"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Καθυστέρηση πριν να τραβηχτεί η φωτογραφία"
+
+#, fuzzy
+#~| msgid "Camera"
+#~ msgid "Camera %u"
+#~ msgstr "Κάμερα"
 
 #, fuzzy
 #~ msgid "camera"

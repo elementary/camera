@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 23:48+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2020-07-16 10:12+0000\n"
 "Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/camera/camera/tr/"
@@ -20,36 +20,31 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:51
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/Widgets/CameraView.vala:57
-#, c-format
-msgid "Camera %u"
-msgstr "Kamera %u"
-
-#: src/Widgets/CameraView.vala:84
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Desteklenen Kamera Bulunamadı"
 
-#: src/Widgets/CameraView.vala:85
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Fotoğraf ve video çekmek için bir web kamerası veya desteklenen başka bir "
 "video aygıtı bağlayın."
 
-#: src/Widgets/CameraView.vala:104
+#: src/Widgets/CameraView.vala:115
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" bağlanıyor…"
 
-#: src/Widgets/CameraView.vala:133
+#: src/Widgets/CameraView.vala:143
 msgid "Unable To View Camera"
 msgstr "Kamera Görüntülenemiyor"
 
-#: src/Widgets/CameraView.vala:276
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Çekilen fotoğraf"
 
@@ -68,6 +63,9 @@ msgstr[1] "%d sn"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Fotoğraf çekilmeden önceki gecikme"
+
+#~ msgid "Camera %u"
+#~ msgstr "Kamera %u"
 
 #, fuzzy
 #~ msgid "camera"
