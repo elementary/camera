@@ -33,7 +33,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private uint configure_id;
 
-    private Widgets.CameraView? camera_view = null;
+    private Widgets.CameraView camera_view;
     private Widgets.HeaderBar header_bar;
 
     public MainWindow (Application application) {
@@ -49,7 +49,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
-        this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
         set_default_size (640, 480);
@@ -72,16 +71,14 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         window_handle.add (overlay);
 
         add (window_handle);
+        
+        camera_view.start ();
+        
         show_all ();
-
-        if (camera_view.get_cameras () > 0) {
-            camera_view.start_view (0);
-        }
 
         enter_notify_event.connect (() => {
             revealer.reveal_child = true;
         });
-
 
         leave_notify_event.connect (() => {
             revealer.reveal_child = false;
