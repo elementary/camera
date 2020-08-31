@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Camera.MainWindow : Gtk.ApplicationWindow {
+public class Camera.MainWindow : Hdy.ApplicationWindow {
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
@@ -44,20 +44,29 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
+        Hdy.init ();
+
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
-        this.set_size_request (640, 480);
+        set_default_size (640, 480);
+        set_size_request (436, 352);
         this.window_position = Gtk.WindowPosition.CENTER;
 
         header_bar = new Widgets.HeaderBar ();
 
         camera_view = new Widgets.CameraView ();
 
-        set_titlebar (header_bar);
-        add (camera_view);
+        var grid = new Gtk.Grid ();
+        grid.attach (header_bar, 0, 0);
+        grid.attach (camera_view, 0, 1);
+
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (grid);
+
+        add (window_handle);
 
         camera_view.start ();
 
