@@ -213,6 +213,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
                 Idle.add (() => {
                     pipeline.set_state (Gst.State.PAUSED);
+                    snap_bin.set_state (Gst.State.NULL);
+                    snap_bin.sync_children_states ();
                     pipeline.remove (snap_bin);
                     pipeline.set_state (Gst.State.PLAYING);
                     recording = false;
