@@ -167,8 +167,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
     }
 
-    public void add_camera_options (Camera.CameraInfo info) {
-        var menuitem = new Gtk.MenuItem.with_label (info.name);
+    public void add_camera_option (Gst.Device camera) {
+        var menuitem = new Gtk.MenuItem.with_label (camera.get_display_name ());
 
         Gtk.CssProvider item_style_provider = new Gtk.CssProvider ();
 
@@ -186,7 +186,22 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         menuitem.activate.connect (() => {
             request_camera_change (i);
         });
-        menuitem.show ();
+        menuitem.show ();   
+    }
+
+    public void remove_camera_option (Gst.Device camera) {
+        Gtk.Widget to_remove = null;
+        foreach (var menuitem in camera_options.get_children ()) {
+            var name = (menuitem as Gtk.MenuItem).label;
+            stdout.printf("cam: %s\n", name);
+            if (name == camera.get_display_name ()) {
+                to_remove = menuitem;
+                break;
+            }
+        }
+        if (to_remove != null) {
+            camera_options.remove (to_remove);
+        }
         
     }
 
