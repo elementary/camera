@@ -70,10 +70,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         camera_added (device);
         cameras.add ((owned) device);
         if (cameras.length == 1) {
-            start_view (cameras.length-1);
+            start_view (cameras.length - 1);
         } else {
-            change_camera (cameras.length-1);
-        }        
+            change_camera (cameras.length - 1);
+        }
     }
 
     private bool on_bus_message (Gst.Bus bus, Gst.Message message) {
@@ -124,15 +124,15 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
 
         if (record_bin != null) {
-            record_bin.set_state(Gst.State.NULL);
+            record_bin.set_state (Gst.State.NULL);
             record_bin.sync_state_with_parent ();
             record_bin.sync_children_states ();
         }
-        pipeline.set_state(Gst.State.NULL);
+        pipeline.set_state (Gst.State.NULL);
         pipeline.sync_children_states ();
 
         Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
-        
+
         create_pipeline (cameras[camera_number]);
     }
 

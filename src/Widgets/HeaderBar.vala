@@ -59,7 +59,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         color: #fd1125;
     }
     """;
-    
 
     construct {
         timer_button = new Widgets.TimerButton ();
@@ -87,7 +86,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button.sensitive = true;
         take_button.width_request = 54;
         take_button.add (take_grid);
-       
+
         Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
 
         try {
@@ -186,14 +185,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         menuitem.activate.connect (() => {
             request_camera_change (i);
         });
-        menuitem.show ();   
+        menuitem.show ();
     }
 
     public void remove_camera_option (Gst.Device camera) {
         Gtk.Widget to_remove = null;
         foreach (var menuitem in camera_options.get_children ()) {
             var name = (menuitem as Gtk.MenuItem).label;
-            stdout.printf("cam: %s\n", name);
             if (name == camera.get_display_name ()) {
                 to_remove = menuitem;
                 break;
@@ -202,7 +200,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         if (to_remove != null) {
             camera_options.remove (to_remove);
         }
-        
+
     }
 
     public void start_timeout (int time) {
