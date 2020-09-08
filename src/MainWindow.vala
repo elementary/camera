@@ -33,6 +33,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private uint configure_id;
 
+    private bool timer_running;
+
     private Widgets.CameraView camera_view;
     private Widgets.HeaderBar header_bar;
 
@@ -68,6 +70,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
         add (window_handle);
 
+        timer_running = false;
+
         camera_view.start ();
 
         show_all ();
@@ -82,11 +86,17 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void on_take_photo () {
+        if (timer_running) {
+            return;
+        }
+
         var delay = header_bar.timer_delay;
         header_bar.start_timeout (delay);
+        timer_running = true;
 
         GLib.Timeout.add_seconds (delay, () => {
             camera_view.take_photo ();
+            timer_running = false;
             return GLib.Source.REMOVE;
         });
     }
