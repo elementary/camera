@@ -7,49 +7,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2018-08-12 11:11+0000\n"
-"Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"PO-Revision-Date: 2020-08-09 05:13+0000\n"
+"Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
+"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "camera/camera/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "相机"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "未找到支持的摄像头"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "接入摄像头或其他支持的影像设备来拍摄照片和视频。"
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "相机"
+#: src/Widgets/CameraView.vala:115
+#, c-format
+msgid "Connecting to \"%s\"…"
+msgstr "正在连接 “%s”…"
 
-#: src/MainWindow.vala:137
-#, fuzzy, c-format
-msgid "Connecting to %s…"
-msgstr "正在连接 \"%s\"…"
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr "无法显示相机"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "已拍照"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "正在搜索视频设备…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -62,9 +57,18 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 秒"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "拍照倒计时长"
+
+#~ msgid "Camera %u"
+#~ msgstr "相机 %u"
+
+#~ msgid "camera"
+#~ msgstr "相机"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "正在搜索视频设备…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

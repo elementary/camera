@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-22 17:25+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"PO-Revision-Date: 2020-07-09 21:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/camera/"
 "ja/>\n"
@@ -17,40 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "カメラ"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "サポートされているカメラが見つかりませんでした"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "写真や動画を撮るには Web カメラまたはサポートされているビデオデバイスを接続し"
 "てください。"
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr "カメラ"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, c-format
-msgid "Connecting to %s…"
-msgstr "%s に接続しています…"
+msgid "Connecting to \"%s\"…"
+msgstr "\"%s\" に接続試行中…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr "カメラを表示できません"
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "写真が撮影されました"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "ビデオデバイスを探しています…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -63,9 +59,18 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 秒"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "写真が撮影されるまでの遅延時間"
+
+#~ msgid "Camera %u"
+#~ msgstr "カメラ %u"
+
+#~ msgid "camera"
+#~ msgstr "カメラ"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "ビデオデバイスを探しています…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

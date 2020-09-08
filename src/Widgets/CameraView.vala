@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
+ * Copyright (c) 2011-2019 elementary, inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -17,77 +17,265 @@
  * Boston, MA 02110-1301 USA.
  *
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
+ *              Corentin Noël <corentin@elementary.io>
  */
 
-public class Camera.Widgets.CameraView : ClutterGst.Camera {
-    public signal void initialized ();
+public class Camera.Widgets.CameraView : Gtk.Stack {
+    private Gtk.Grid status_grid;
+    private Granite.Widgets.AlertView no_device_view;
+    private Gtk.Label status_label;
 
-    public CameraView () {
-        new Thread<int> (null, () => {
-            debug ("Initializing camera view…");
+    private Gst.Pipeline pipeline;
+    private Gst.Element tee;
+    private Gst.Bin? record_bin;
 
-            initialize_view ();
+    private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
+    private GenericArray<Gst.Device> cameras = new GenericArray<Gst.Device> ();
+    public bool recording { get; private set; default = false; }
 
-            return 0;
-        });
+    construct {
+        var spinner = new Gtk.Spinner ();
+        spinner.active = true;
+
+        status_label = new Gtk.Label (null);
+
+        status_grid = new Gtk.Grid () {
+            column_spacing = 6,
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.CENTER
+        };
+        status_grid.add (spinner);
+        status_grid.add (status_label);
+
+        no_device_view = new Granite.Widgets.AlertView (
+            _("No Supported Camera Found"),
+            _("Connect a webcam or other supported video device to take photos and video."),
+            ""
+        );
+
+        add (status_grid);
+        add (no_device_view);
+
+        monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
+
+        var caps = new Gst.Caps.empty_simple ("video/x-raw");
+        monitor.add_filter ("Video/Source", caps);
     }
 
-    public new bool take_photo () {
-        if (!this.is_ready_for_capture () || this.is_recording_video ()) {
-            warning ("Device isn't ready for taking photos.");
+    private void on_device_added (owned Gst.Device device) {
+        cameras.add ((owned) device);
+        if (cameras.length == 1) {
+            start_view (0);
+        }
+    }
 
-            return false;
+    private bool on_bus_message (Gst.Bus bus, Gst.Message message) {
+        switch (message.type) {
+            case DEVICE_ADDED:
+                Gst.Device device;
+                message.parse_device_added (out device);
+                on_device_added ((owned) device);
+
+                break;
+            case DEVICE_CHANGED:
+                Gst.Device device, changed_device;
+                message.parse_device_changed (out device, out changed_device);
+                cameras.remove ((owned) changed_device);
+                cameras.add ((owned) device);
+                break;
+            case DEVICE_REMOVED:
+                Gst.Device device;
+                message.parse_device_removed (out device);
+                cameras.remove ((owned) device);
+                if (cameras.length == 0) {
+                    visible_child = no_device_view;
+                }
+
+                break;
+            default:
+                break;
         }
 
-        base.take_photo (Utils.get_new_media_filename (Utils.ActionType.PHOTO));
-        play_shutter_sound ();
-
-        return true;
+        return GLib.Source.CONTINUE;
     }
 
-    public bool start_recording () {
-        if (!this.is_ready_for_capture () || this.is_recording_video ()) {
-            warning ("Device isn't ready for recording videos.");
+    public void start () {
+        monitor.get_devices ().foreach ((dev) => {on_device_added (dev);});
+        monitor.start ();
 
-            return false;
+        if (cameras.length == 0) {
+            visible_child = no_device_view;
         }
-
-        this.start_video_recording (Utils.get_new_media_filename (Utils.ActionType.VIDEO));
-
-        return true;
     }
 
-    public void stop_recording () {
-        if (!this.is_recording_video ()) {
-            warning ("Cannot stop recording because no record is running.");
+    public void start_view (int camera_number) {
+        unowned Gst.Device camera = cameras[camera_number];
+        visible_child = status_grid;
 
+        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
+
+        try {
+            pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
+                "video/x-raw, width=640, height=480, framerate=30/1 ! " +
+                "videoflip method=horizontal-flip ! " +
+                "tee name=tee ! " +
+                "queue leaky=downstream max-size-buffers=10 ! " +
+                "videoconvert ! " +
+                "videoscale ! " +
+                "gtksink name=gtksink"
+            );
+
+            tee = pipeline.get_by_name ("tee");
+
+            var gtksink = pipeline.get_by_name ("gtksink");
+            Gtk.Widget gst_video_widget;
+            gtksink.get ("widget", out gst_video_widget);
+
+            add (gst_video_widget);
+            gst_video_widget.show ();
+
+            visible_child = gst_video_widget;
+            pipeline.set_state (Gst.State.PLAYING);
+        } catch (Error e) {
+            visible_child = no_device_view;
+
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
+            dialog.run ();
+            dialog.destroy ();
+        }
+    }
+
+    public void take_photo () {
+        if (recording) {
             return;
         }
 
-        this.stop_video_recording ();
-    }
+        recording = true;
+        var snap_bin = new Gst.Bin (null);
 
-    private void initialize_view () {
-        Gst.Element flip_filter = Gst.ElementFactory.make ("videoflip", "videoflip");
-        flip_filter.set_property ("method", 4);
-
-        this.set_filter (flip_filter);
-        this.set_playing (true);
-
-        if (this.is_ready_for_capture ()) {
-            debug ("Camera view initalized.");
-
-            Idle.add (() => {
-                initialized ();
-
-                return false;
-            });
-        } else {
-            warning ("Initializing camera view failed.");
+        string[] missing_messages = {};
+        var queue = Gst.ElementFactory.make ("queue", null);
+        if (queue == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("queue");
         }
+
+        var videoconvert = Gst.ElementFactory.make ("videoconvert", null);
+        if (videoconvert == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("videoconvert");
+        }
+
+        var encoder = Gst.ElementFactory.make ("jpegenc", null);
+        if (encoder == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("jpegenc");
+        }
+
+        var filesink = Gst.ElementFactory.make ("filesink", null);
+        if (filesink == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
+        } else {
+            filesink["buffer-size"] = 1;
+            filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
+            filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
+                Idle.add (() => {
+                    pipeline.set_state (Gst.State.PAUSED);
+                    pipeline.remove (snap_bin);
+                    pipeline.set_state (Gst.State.PLAYING);
+                    recording = false;
+                    return GLib.Source.REMOVE;
+                });
+
+                return Gst.PadProbeReturn.REMOVE;
+            });
+        }
+
+        if (missing_messages.length > 0) {
+            Gst.PbUtils.install_plugins_async (missing_messages, null, (result) => {});
+            recording = false;
+            return;
+        }
+
+        snap_bin.add_many (queue, videoconvert, encoder, filesink);
+        queue.link_many (videoconvert, encoder, filesink);
+
+        var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
+        snap_bin.add_pad (ghostpad);
+
+        pipeline.set_state (Gst.State.PAUSED);
+        pipeline.add (snap_bin);
+        snap_bin.sync_state_with_parent ();
+        tee.link (snap_bin);
+        pipeline.set_state (Gst.State.PLAYING);
+        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
+        play_shutter_sound ();
     }
 
-    private void play_shutter_sound () {
+    public void start_recording () {
+        if (recording) {
+            return;
+        }
+
+        recording = true;
+        record_bin = new Gst.Bin (null);
+
+        string[] missing_messages = {};
+        var queue = Gst.ElementFactory.make ("queue", null);
+        var videoconvert = Gst.ElementFactory.make ("videoconvert", null);
+        if (videoconvert == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("videoconvert");
+        }
+
+        var encoder = Gst.ElementFactory.make ("vp8enc", null);
+        if (encoder == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("vp8enc");
+        }
+
+        var muxer = Gst.ElementFactory.make ("webmmux", null);
+        if (muxer == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("webmmux");
+        }
+
+        var filesink = Gst.ElementFactory.make ("filesink", null);
+        if (filesink == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
+        } else {
+            filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.VIDEO);
+        }
+
+        if (missing_messages.length > 0) {
+            Gst.PbUtils.install_plugins_async (missing_messages, null, (result) => {});
+            recording = false;
+            return;
+        }
+
+        record_bin.add_many (queue, videoconvert, encoder, muxer, filesink);
+        queue.link_many (videoconvert, encoder, muxer, filesink);
+
+        var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
+        record_bin.add_pad (ghostpad);
+
+        pipeline.set_state (Gst.State.PAUSED);
+        pipeline.add (record_bin);
+        record_bin.sync_state_with_parent ();
+        tee.link (record_bin);
+        pipeline.set_state (Gst.State.PLAYING);
+        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "recording");
+    }
+
+    public void stop_recording () {
+        if (!recording) {
+            return;
+        }
+
+        pipeline.set_state (Gst.State.PAUSED);
+        tee.unlink (record_bin);
+        pipeline.remove (record_bin);
+        pipeline.set_state (Gst.State.PLAYING);
+        record_bin.set_state (Gst.State.PLAYING);
+        recording = false;
+    }
+
+    private static void play_shutter_sound () {
         Canberra.Context context;
         Canberra.Proplist props;
 

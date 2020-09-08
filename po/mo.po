@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2018-05-30 17:26+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/camera/"
@@ -13,38 +13,33 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Cameră"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Camera nu sa găsit sau nu este compatibilă"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conectați o cameră web sau alt dispozitiv video acceptat pentru a realiza "
 "fotografii și video."
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "Cameră"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "Se conectează la \"% s\" …"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Fotografie făcută"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Căutarea dispozitivelor video …"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -58,10 +53,22 @@ msgid_plural "%d Sec"
 msgstr[0] "%d 1 Secundă"
 msgstr[1] "%d 2 Secunde"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 #, fuzzy
 msgid "Delay before photo is taken"
 msgstr "Retrasul înainte de a face fotografia"
+
+#, fuzzy
+#~| msgid "Camera"
+#~ msgid "Camera %u"
+#~ msgstr "Cameră"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "Cameră"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "Căutarea dispozitivelor video …"
 
 #~ msgid "translator-credits"
 #~ msgstr "traducător-credite"

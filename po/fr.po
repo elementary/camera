@@ -7,50 +7,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-22 17:25+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"PO-Revision-Date: 2020-07-09 21:12+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/camera/camera/fr/>"
-"\n"
+"Language-Team: French <https://l10n.elementary.io/projects/camera/camera/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Caméra"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Aucune caméra supportée n'a été trouvée"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connectez une webcam ou un autre périphérique supporté pour prendre une "
 "photo ou une vidéo."
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr "Caméra"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "Connexion à « %s »…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr "Impossible de visualiser la caméra"
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Photo prise"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Recherche des périphériques vidéo…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -64,9 +60,18 @@ msgid_plural "%d Sec"
 msgstr[0] "%d sec."
 msgstr[1] "%d sec."
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Délai avant la prise de photo"
+
+#~ msgid "Camera %u"
+#~ msgstr "Caméra %u"
+
+#~ msgid "camera"
+#~ msgstr "Caméra"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "Recherche des périphériques vidéo…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

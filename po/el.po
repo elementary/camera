@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Grammatopoulos Athanasios-Vasi <darkthanos.gr@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/camera/camera/el/"
@@ -20,38 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Κάμερα"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Δεν Βρέθηκε Κάποια Υποστηριζόμενη Κάμερα"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Συνδέστε μια web κάμερα ή κάποια υποστηριζόμενη συσκευή βίντεο για να "
 "τραβήξετε φωτογραφίες και βίντεο."
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "Κάμερα"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "Σύνδεση με \"%s\"…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Η φωτογραφία τραβήχτηκε"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Αναζήτηση συσκευών βίντεο…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -65,9 +60,21 @@ msgid_plural "%d Sec"
 msgstr[0] "%d Δευτερόλεπτο"
 msgstr[1] "%d Δευτερόλεπτα"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Καθυστέρηση πριν να τραβηχτεί η φωτογραφία"
+
+#, fuzzy
+#~| msgid "Camera"
+#~ msgid "Camera %u"
+#~ msgstr "Κάμερα"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "Κάμερα"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "Αναζήτηση συσκευών βίντεο…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

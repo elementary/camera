@@ -7,48 +7,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-27 20:24+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"PO-Revision-Date: 2020-07-25 01:12+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementary.io/projects/camera/camera/he/>"
-"\n"
+"Language-Team: Hebrew <https://l10n.elementary.io/projects/camera/camera/he/"
+">\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "מצלמה"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "לא נמצא מצלמה נתמכת"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "יש לחבר מצלמה או התקן וידאו נתמך אחר כדי לצלם וידאו ותמונות."
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr "מצלמה"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, c-format
-msgid "Connecting to %s…"
-msgstr "מתבצעת התחברות אל %s…"
+msgid "Connecting to \"%s\"…"
+msgstr "מתבצעת התחברות אל „%s”…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr "לא ניתן לצפות במצלמה"
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "תמונה צולמה"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "מתבצע חיפוש אחר התקני וידאו…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -62,9 +58,18 @@ msgid_plural "%d Sec"
 msgstr[0] "שנייה אחת"
 msgstr[1] "%d שניות"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "השהיה בטרם צילום תמונה"
+
+#~ msgid "Camera %u"
+#~ msgstr "מצלמה %u"
+
+#~ msgid "camera"
+#~ msgstr "מצלמה"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "מתבצע חיפוש אחר התקני וידאו…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

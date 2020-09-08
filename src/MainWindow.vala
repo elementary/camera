@@ -19,7 +19,7 @@
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
  */
 
-public class Camera.MainWindow : Gtk.ApplicationWindow {
+public class Camera.MainWindow : Hdy.ApplicationWindow {
     public const string ACTION_PREFIX = "win.";
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
@@ -33,17 +33,10 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     private uint configure_id;
 
-    private Gtk.Stack stack;
-    private Granite.Widgets.AlertView no_device_view;
+    private bool timer_running;
 
-    private GtkClutter.Embed clutter_embed;
-    private Clutter.Actor camera_actor;
-    private Clutter.Stage clutter_stage;
-    private ClutterGst.Aspectratio camera_content;
-
-    private Widgets.CameraView? camera_view = null;
+    private Widgets.CameraView camera_view;
     private Widgets.HeaderBar header_bar;
-    private Widgets.LoadingView loading_view;
 
     public MainWindow (Application application) {
         Object (application: application);
@@ -53,88 +46,35 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
+        Hdy.init ();
+
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
-        this.set_application (application);
         this.title = _("Camera");
         this.icon_name = "accessories-camera";
-        this.set_size_request (640, 480);
+        set_default_size (640, 480);
+        set_size_request (436, 352);
         this.window_position = Gtk.WindowPosition.CENTER;
 
         header_bar = new Widgets.HeaderBar ();
 
-        stack = new Gtk.Stack ();
-        stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
-        stack.transition_duration = 500;
-
-        loading_view = new Widgets.LoadingView ();
-
-        no_device_view = new Granite.Widgets.AlertView (
-            _("No Supported Camera Found"),
-            _("Connect a webcam or other supported video device to take photos and video."),
-            "accessories-camera");
-
-        clutter_embed = new GtkClutter.Embed ();
-
-        clutter_stage = (Clutter.Stage)clutter_embed.get_stage ();
-        clutter_stage.background_color = Clutter.Color.get_static (Clutter.StaticColor.BLACK);
-        clutter_stage.set_fullscreen (true);
-
-        camera_content = new ClutterGst.Aspectratio ();
-
-        camera_actor = new GtkClutter.Actor ();
-        camera_actor.content = camera_content;
-        camera_actor.add_constraint (new Clutter.BindConstraint (clutter_stage, Clutter.BindCoordinate.SIZE, 0));
-
-        clutter_stage.add_child (camera_actor);
-
-        stack.add_named (loading_view, "loading");
-        stack.add_named (no_device_view, "no-device");
-        stack.add_named (clutter_embed, "camera");
-
-        this.set_titlebar (header_bar);
-        this.add (stack);
-
-        new Thread<int> (null, () => {
-            debug ("Initializing camera manager…");
-
-            initialize_camera_manager ();
-
-            return 0;
-        });
-    }
-
-    private void initialize_camera_manager () {
-        ClutterGst.CameraManager camera_manager = ClutterGst.CameraManager.get_default ();
-
-        Idle.add (() => {
-            GenericArray<ClutterGst.CameraDevice> camera_devices = camera_manager.get_camera_devices ();
-
-            unowned string camera_name = camera_devices[0].get_name () ?? _("camera");
-
-            if (camera_devices.length > 0) {
-                initialize_camera_view (camera_name);
-            } else {
-                stack.set_visible_child_name ("no-device");
-
-                debug ("No camera device found.");
-            }
-
-            return false;
-        });
-    }
-
-    private void initialize_camera_view (string camera_name) {
         camera_view = new Widgets.CameraView ();
-        camera_view.get_camera_device ().set_capture_resolution (640, 480);
 
-        camera_view.initialized.connect (() => {
-            stack.set_visible_child_name ("camera");
-        });
+        var grid = new Gtk.Grid ();
+        grid.attach (header_bar, 0, 0);
+        grid.attach (camera_view, 0, 1);
 
-        camera_content.set_player (camera_view);
-        loading_view.set_status (_("Connecting to %s…").printf (camera_name));
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (grid);
+
+        add (window_handle);
+
+        timer_running = false;
+
+        camera_view.start ();
+
+        show_all ();
     }
 
     private void on_fullscreen () {
@@ -146,11 +86,17 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     private void on_take_photo () {
+        if (timer_running) {
+            return;
+        }
+
         var delay = header_bar.timer_delay;
         header_bar.start_timeout (delay);
+        timer_running = true;
 
         GLib.Timeout.add_seconds (delay, () => {
             camera_view.take_photo ();
+            timer_running = false;
             return GLib.Source.REMOVE;
         });
     }

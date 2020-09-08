@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
-"PO-Revision-Date: 2019-11-22 17:25+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"PO-Revision-Date: 2020-07-09 21:12+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/camera/camera/ca/"
 ">\n"
@@ -17,40 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "Càmera"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "No s'ha trobat cap càmera admesa"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connecteu una càmera web o un altre dispositiu de vídeo per fer fotografies "
 "i vídeo."
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr "càmera"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "Es connecta amb %s…"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr "No es pot mostrar la càmera."
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "Fotografia feta"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "Se cerquen dispositius de vídeo…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -64,9 +60,18 @@ msgid_plural "%d Sec"
 msgstr[0] "%d s"
 msgstr[1] "%d s"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Temps de retard per fer la fotografia"
+
+#~ msgid "Camera %u"
+#~ msgstr "Càmera %u"
+
+#~ msgid "camera"
+#~ msgstr "càmera"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "Se cerquen dispositius de vídeo…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

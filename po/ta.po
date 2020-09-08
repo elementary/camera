@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -18,34 +18,30 @@ msgstr ""
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 "X-Generator: Launchpad (build 18204)\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr ""
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
-msgstr ""
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
 msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
@@ -60,7 +56,7 @@ msgid_plural "%d Sec"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/camera/camera/hi/"
@@ -20,36 +20,31 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr "कैमरा"
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "कोई समर्थित कैमरा नहीं मिला"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "फ़ोटो और वीडियो लेने के लिए वेबकैम या अन्य समर्थित वीडियो डिवाइस से जोड़े ।"
 
-#: src/MainWindow.vala:114
-#, fuzzy
-msgid "camera"
-msgstr "कैमरा"
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" से जुड़ रहे है …"
 
-#: src/Widgets/CameraView.vala:98
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:286
 msgid "Photo taken"
 msgstr "फोटो ले ली गयी"
-
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "वीडियो उपकरणों के लिए खोज रहे हैं…"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -63,9 +58,21 @@ msgid_plural "%d Sec"
 msgstr[0] "%d सेकंड"
 msgstr[1] "%d  सेकंड"
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "फोटो लेने से पहले का विलंब"
+
+#, fuzzy
+#~| msgid "Camera"
+#~ msgid "Camera %u"
+#~ msgstr "कैमरा"
+
+#, fuzzy
+#~ msgid "camera"
+#~ msgstr "कैमरा"
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "वीडियो उपकरणों के लिए खोज रहे हैं…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

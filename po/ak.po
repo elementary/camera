@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-08-31 22:22+0000\n"
 "PO-Revision-Date: 2017-04-01 19:24+0000\n"
 "Last-Translator: Lawrence Aberba <karabutaworld@gmail.com>\n"
 "Language-Team: ak (generated) <http://weblate.elementary.io/projects/desktop/"
@@ -20,37 +20,33 @@ msgstr ""
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:52
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:74
+#: src/Widgets/CameraView.vala:51
 msgid "No Supported Camera Found"
 msgstr "Ɛnhu Kamera biara a ɛbɛtumi de adi dwuma"
 
-#: src/MainWindow.vala:75
+#: src/Widgets/CameraView.vala:52
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Fa wo kamera anaa afidie foforɔ biara a ɛtumi twa video anaa mfonyin hyɛ mu "
 "na fa di dwuma."
 
-#: src/MainWindow.vala:114
-msgid "camera"
-msgstr ""
-
-#: src/MainWindow.vala:137
+#: src/Widgets/CameraView.vala:115
 #, fuzzy, c-format
-msgid "Connecting to %s…"
+msgid "Connecting to \"%s\"…"
 msgstr "έkonɛta kɔ \"%s\"…"
 
-#: src/Widgets/CameraView.vala:98
-msgid "Photo taken"
+#: src/Widgets/CameraView.vala:143
+msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/LoadingView.vala:49
-msgid "Searching for video devices…"
-msgstr "έhwehwɛ video drivers…"
+#: src/Widgets/CameraView.vala:286
+msgid "Photo taken"
+msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -64,9 +60,12 @@ msgid_plural "%d Sec"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/TimerButton.vala:68
+#: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr ""
+
+#~ msgid "Searching for video devices…"
+#~ msgstr "έhwehwɛ video drivers…"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

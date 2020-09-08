@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301 USA.
  *
  * Authored by: Marcus Wichelmann <marcus.wichelmann@hotmail.de>
+ *              Corentin Noël <corentin@elementary.io>
  */
 
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
@@ -47,6 +48,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     construct {
         timer_button = new Widgets.TimerButton ();
+        timer_button.image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
 
         take_image = new Gtk.Image ();
         take_image.icon_name = PHOTO_ICON_SYMBOLIC;
@@ -87,6 +89,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch.valign = Gtk.Align.CENTER;
 
         show_close_button = true;
+        get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
         pack_end (mode_switch);
