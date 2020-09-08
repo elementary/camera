@@ -75,6 +75,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         header_bar.request_camera_change.connect (camera_view.change_camera);
 
         timer_running = false;
+
         camera_view.start ();
 
         show_all ();
