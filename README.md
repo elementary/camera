@@ -14,6 +14,8 @@ You'll need the following dependencies:
  - libclutter-gst-3.0-dev
  - libclutter-gtk-1.0-dev
  - libgranite-dev
+ - libgstreamer1.0-dev
+ - libgstreamer-plugins-base1.0-dev
  - libgtk-3.0-dev
  - libhandy-1-dev
  - meson >= 0.43
