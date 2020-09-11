@@ -177,7 +177,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             filesink["buffer-size"] = 1;
             filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
             filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
-                Idle.add (() => {
+                // Must allow enough time for data to be flushed to disk before removing snapbin
+                //TODO Find more elegant way to do this.
+
+                Timeout.add (50, () => {
                     pipeline.set_state (Gst.State.PAUSED);
                     pipeline.remove (snap_bin);
                     pipeline.set_state (Gst.State.PLAYING);
