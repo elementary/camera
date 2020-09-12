@@ -133,7 +133,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         camera_menu_revealer = new Gtk.Revealer ();
         camera_menu_revealer.add (camera_menu_button);
         camera_menu_revealer.set_transition_duration (500);
-        camera_menu_revealer.set_transition_type (Gtk.RevealerTransitionType.SLIDE_RIGHT);    
+        camera_menu_revealer.set_transition_type (Gtk.RevealerTransitionType.SLIDE_RIGHT);
         linked_box.add (camera_menu_revealer);
 
         show_close_button = true;
