@@ -46,7 +46,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
-            border-radius: 400px 0px 0px 400px;
+            border-radius: 400px 0 0 400px;
         }
     """;
 
