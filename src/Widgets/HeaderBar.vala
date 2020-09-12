@@ -82,7 +82,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         take_button = new Gtk.Button ();
         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-        take_button.sensitive = true;
         take_button.width_request = 54;
         take_button.add (take_grid);
 
