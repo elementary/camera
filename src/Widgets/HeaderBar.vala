@@ -77,7 +77,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var take_grid = new Gtk.Grid ();
         take_grid.halign = Gtk.Align.CENTER;
         take_grid.margin_start = 6;
-        take_grid.margin_end = 0;
         take_grid.add (take_image);
         take_grid.add (video_timer_revealer);
 
