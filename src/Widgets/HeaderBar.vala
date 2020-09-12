@@ -52,7 +52,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public const string CAMERA_MENU_BUTTON_STYLESHEET = """
     .camera-menu {
-        border-radius: 0px 400px 400px 0px;
+        border-radius: 0 400px 400px 0;
     }
 
     menu menuitem, .menu menuitem {
