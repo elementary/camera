@@ -120,7 +120,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button_style_context.add_class ("camera-menu");
 
-        var linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        var linked_box = new Gtk.Grid ();
         linked_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
         linked_box.add (take_button);
         linked_box.add (camera_menu_button);
