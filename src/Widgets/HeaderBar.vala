@@ -48,13 +48,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public const string TAKE_BUTTON_STYLESHEET = """
         .take-button {
-            border-radius: 400px 0px 0px 400px;
+            border-radius: 400px 0 0 400px;
         }
     """;
 
     public const string CAMERA_MENU_BUTTON_STYLESHEET = """
     .camera-menu {
-        border-radius: 0px 400px 400px 0px;
+        border-radius: 0 400px 400px 0;
     }
 
     menu menuitem, .menu menuitem {
@@ -79,13 +79,11 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var take_grid = new Gtk.Grid ();
         take_grid.halign = Gtk.Align.CENTER;
         take_grid.margin_start = 6;
-        take_grid.margin_end = 0;
         take_grid.add (take_image);
         take_grid.add (video_timer_revealer);
 
         take_button = new Gtk.Button ();
         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-        take_button.sensitive = true;
         take_button.width_request = 54;
         take_button.add (take_grid);
 
@@ -180,8 +178,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button_style_context.add_class ("camera-menu");
 
-        var linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        linked_box.get_style_context ().add_class ("linked");
+        var linked_box = new Gtk.Grid ();
+        linked_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
         linked_box.add (take_button);
         linked_box.add (camera_menu_button);
 
@@ -254,8 +252,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public void remove_camera_option (Gst.Device camera) {
         Gtk.Widget to_remove = null;
-        foreach (var menuitem in camera_options.get_children ()) {
-            var name = (menuitem as Gtk.MenuItem).label;
+        foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
+            var name = ((Gtk.MenuItem) menuitem).label;
             if (name == camera.get_display_name ()) {
                 to_remove = menuitem;
                 break;
