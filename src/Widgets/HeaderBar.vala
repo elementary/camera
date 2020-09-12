@@ -189,7 +189,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     public void remove_camera_option (Gst.Device camera) {
         Gtk.Widget to_remove = null;
         foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
-            var name = (menuitem as Gtk.MenuItem).label;
+            var name = ((Gtk.MenuItem) menuitem).label;
             if (name == camera.get_display_name ()) {
                 to_remove = menuitem;
                 break;
