@@ -93,7 +93,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         var flip_toggle = new Gtk.Switch ();
         flip_toggle.active = true;
-        flip_toggle.notify["active"].connect(() => {
+        flip_toggle.notify["active"].connect (() => {
             request_horizontal_flip ();
         });
 

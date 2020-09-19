@@ -69,6 +69,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         header_bar = new Widgets.HeaderBar ();
 
         camera_view = new Widgets.CameraView ();
+        header_bar.request_horizontal_flip.connect (camera_view.horizontal_flip);
 
         var grid = new Gtk.Grid ();
         grid.attach (header_bar, 0, 0);
