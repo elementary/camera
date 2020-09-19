@@ -32,6 +32,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
 
+    public signal void request_horizontal_flip ();
+
     public bool recording { get; set; default = false; }
 
     public int timer_delay {
@@ -88,10 +90,33 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
+
+        var flip_toggle = new Gtk.Switch ();
+        flip_toggle.active = true;
+        flip_toggle.notify["active"].connect(() => {
+            request_horizontal_flip ();
+        });
+
+        var image_settings = new Gtk.Grid ();
+        image_settings.column_spacing = 12;
+        image_settings.row_spacing = 6;
+        image_settings.margin = 6;
+        image_settings.attach (flip_toggle, 0, 0, 1, 1);
+        image_settings.attach (new Gtk.Label ("Horizontal flip"), 1, 0, 1, 1);
+        image_settings.show_all ();
+
+        var popover = new Gtk.Popover (null);
+        popover.add (image_settings);
+
+        var but = new Gtk.MenuButton ();
+        but.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.MENU);
+        but.popover = popover;
+
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
+        pack_end (but);
         pack_end (mode_switch);
 
         Camera.Application.settings.changed.connect ((key) => {
