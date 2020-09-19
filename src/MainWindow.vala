@@ -88,10 +88,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_view.start ();
 
         show_all ();
-
-        //  for (int i = 0; i < camera_view.get_cameras (); i++) {
-        //      header_bar.add_camera_options (camera_view.get_camera (i));
-        //  }
     }
 
     private void on_fullscreen () {
