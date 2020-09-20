@@ -108,15 +108,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var popover = new Gtk.Popover (null);
         popover.add (image_settings);
 
-        var but = new Gtk.MenuButton ();
-        but.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.MENU);
-        but.popover = popover;
+        var app_menu = new Gtk.MenuButton ();
+        app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.MENU);
+        app_menu.popover = popover;
 
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
-        pack_end (but);
+        pack_end (app_menu);
         pack_end (mode_switch);
 
         Camera.Application.settings.changed.connect ((key) => {
