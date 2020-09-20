@@ -32,7 +32,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
 
-    public signal void request_horizontal_flip ();
     public signal void request_change_balance (double brightness, double contrast);
 
     public bool recording { get; set; default = false; }
