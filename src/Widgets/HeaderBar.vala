@@ -109,14 +109,14 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         brightness_scale.set_value (0);
         brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
         brightness_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
-        
+
         var contrast_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 1, 0.1);
         contrast_scale.draw_value = false;
         contrast_scale.hexpand = true;
         contrast_scale.set_value (1.0);
         contrast_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
         contrast_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
-        
+
         brightness_scale.value_changed.connect (() => {
             request_change_balance (brightness_scale.get_value (), contrast_scale.get_value ());
         });
