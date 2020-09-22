@@ -142,7 +142,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         popover.add (image_settings);
 
         var but = new Gtk.MenuButton ();
-        but.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.MENU);
+        but.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU);
         but.popover = popover;
 
         show_close_button = true;
