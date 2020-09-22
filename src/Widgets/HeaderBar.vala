@@ -92,10 +92,11 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
 
         var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        var brightness_label = new Gtk.Label (_("Brightness"));
-        brightness_label.get_style_context ().add_class ("h3");
-        brightness_label.hexpand = true;
-        brightness_label.set_xalign (0);
+        var brightness_label = new Gtk.Label (_("Brightness")) {
+            hexpand = true,
+            xalign = 0
+        };
+        brightness_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 
         var contrast_image = new Gtk.Image.from_icon_name ("night-light-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         var constrast_label = new Gtk.Label (_("Contrast"));
