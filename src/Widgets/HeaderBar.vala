@@ -133,12 +133,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.row_spacing = 3;
         image_settings.margin = 6;
         image_settings.width_request = 250;
-        image_settings.attach (brightness_image, 0, 0, 1, 1);
-        image_settings.attach (brightness_label, 1, 0, 1, 1);
-        image_settings.attach (brightness_scale, 0, 1, 2, 1);
-        image_settings.attach (contrast_image, 0, 2, 1, 1);
-        image_settings.attach (constrast_label, 1, 2, 1, 1);
-        image_settings.attach (contrast_scale, 0, 3, 2, 1);
+        image_settings.attach (brightness_image, 0, 0);
+        image_settings.attach (brightness_label, 1, 0);
+        image_settings.attach (brightness_scale, 0, 1, 2);
+        image_settings.attach (contrast_image, 0, 2);
+        image_settings.attach (constrast_label, 1, 2);
+        image_settings.attach (contrast_scale, 0, 3, 2);
         image_settings.show_all ();
 
         var popover = new Gtk.Popover (null);
