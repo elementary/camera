@@ -3,4 +3,7 @@
   <gresource prefix="io/elementary/camera">
     <file alias="timer-symbolic.svg">icons/symbolic/timer-symbolic.svg</file>
   </gresource>
+  <gresource prefix="io/elementary/camera">
+    <file alias="color-contrast-symbolic.svg">icons/symbolic/object-inverse-symbolic.svg</file>
+  </gresource>
 </gresources>

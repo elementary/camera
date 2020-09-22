@@ -91,32 +91,33 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch.valign = Gtk.Align.CENTER;
 
 
-        var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
         var brightness_label = new Gtk.Label (_("Brightness")) {
             hexpand = true,
             xalign = 0
         };
         brightness_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 
-        var contrast_image = new Gtk.Image.from_icon_name ("night-light-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        var constrast_label = new Gtk.Label (_("Contrast"));
-        constrast_label.get_style_context ().add_class ("h3");
-        constrast_label.hexpand = true;
-        constrast_label.set_xalign (0);
+        var contrast_image = new Gtk.Image.from_icon_name ("color-contrast-symbolic", Gtk.IconSize.MENU);
+        var constrast_label = new Gtk.Label (_("Contrast")) {
+            hexpand = true,
+            xalign = 0
+        };
+        constrast_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 
-        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 1, 0.1) {
+        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, -1, 1, 0.1) {
             draw_value = false,
-            hexpand = true
+            hexpand = true,
+            margin_bottom = 6
         };
         brightness_scale.set_value (0);
         brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
-        brightness_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
 
-        var contrast_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 1, 0.1);
-        contrast_scale.draw_value = false;
-        contrast_scale.hexpand = true;
-        contrast_scale.set_value (1.0);
-        contrast_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
+        var contrast_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 2, 0.1) {
+            draw_value = false,
+            hexpand = false
+        };
+        contrast_scale.set_value (1);
         contrast_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
 
         brightness_scale.value_changed.connect (() => {
@@ -128,7 +129,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         });
 
         var image_settings = new Gtk.Grid ();
-        image_settings.row_spacing = 6;
+        image_settings.column_spacing = 3;
+        image_settings.row_spacing = 3;
         image_settings.margin = 6;
         image_settings.width_request = 250;
         image_settings.attach (brightness_image, 0, 0, 1, 1);
@@ -142,15 +144,17 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var popover = new Gtk.Popover (null);
         popover.add (image_settings);
 
-        var but = new Gtk.MenuButton ();
-        but.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU);
-        but.popover = popover;
+        var menu_button = new Gtk.MenuButton ();
+        menu_button.tooltip_text = _("Settings");
+        menu_button.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU);
+        menu_button.popover = popover;
 
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
-        pack_end (but);
+        pack_end (menu_button);
+        pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         pack_end (mode_switch);
 
         Camera.Application.settings.changed.connect ((key) => {
