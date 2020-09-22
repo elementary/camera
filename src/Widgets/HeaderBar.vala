@@ -104,9 +104,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         constrast_label.hexpand = true;
         constrast_label.set_xalign (0);
 
-        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 1, 0.1);
-        brightness_scale.draw_value = false;
-        brightness_scale.hexpand = true;
+        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 1, 0.1) {
+            draw_value = false,
+            hexpand = true
+        };
         brightness_scale.set_value (0);
         brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
         brightness_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
