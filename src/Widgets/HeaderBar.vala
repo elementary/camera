@@ -91,8 +91,14 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var flip_toggle = new Gtk.Switch ();
-        flip_toggle.active = true;
+        var flip_label = new Gtk.Label ("Horizontal flip") {
+            hexpand = true,
+            xalign = 0
+        };
+
+        var flip_toggle = new Gtk.Switch () {
+            active = true
+        };
 
         var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
         var brightness_label = new Gtk.Label (_("Brightness")) {
@@ -138,12 +144,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.width_request = 250;
         image_settings.attach (brightness_image, 0, 0);
         image_settings.attach (brightness_label, 1, 0);
-        image_settings.attach (brightness_scale, 0, 1, 2);
+        image_settings.attach (brightness_scale, 0, 1, 3);
         image_settings.attach (contrast_image, 0, 2);
         image_settings.attach (constrast_label, 1, 2);
-        image_settings.attach (contrast_scale, 0, 3, 2);
-        image_settings.attach (flip_toggle, 0, 4);
-        image_settings.attach (new Gtk.Label ("Horizontal flip"), 1, 4);
+        image_settings.attach (contrast_scale, 0, 3, 3);
+        image_settings.attach (flip_label, 0, 4, 2);
+        image_settings.attach (flip_toggle, 2, 4);
         image_settings.show_all ();
 
         var popover = new Gtk.Popover (null);
