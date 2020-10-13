@@ -46,27 +46,24 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     public const string TAKE_BUTTON_STYLESHEET = """
-        .take-button {
-            transition-property: border-top-right-radius, border-bottom-right-radius, padding-right;
-            transition-duration: 0.5s, 0.5s, 0.5s;
-            border-radius: 400px 400px 400px 400px;
+        .camera-menu {
+            border-radius: 0 400px 400px 0;
+        }
 
+        .take-button {
+            border-radius: 400px;
             padding-left: 6px;
             padding-right: 6px;
+            transition-duration: 200ms;
+            transition-property: border-top-right-radius, border-bottom-right-radius, padding-right;
         }
 
-        .take-button-multiple {
-            border-top-right-radius: 0;
+        .take-button.multiple {
             border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            border-right-width: 0;
             padding-right: 0;
         }
-
-    """;
-
-    public const string CAMERA_MENU_BUTTON_STYLESHEET = """
-    .camera-menu {
-        border-radius: 0 400px 400px 0;
-    }
     """;
 
     construct {
@@ -93,7 +90,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button.width_request = 54;
         take_button.add (take_grid);
 
-        Gtk.CssProvider take_button_style_provider = new Gtk.CssProvider ();
+        var take_button_style_provider = new Gtk.CssProvider ();
 
         try {
             take_button_style_provider.load_from_data (TAKE_BUTTON_STYLESHEET, -1);
@@ -101,7 +98,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             warning ("Styling take button failed: %s", e.message);
         }
 
-        var take_button_style_context = take_button.get_style_context ();
+        unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
         take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
@@ -109,31 +106,25 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        camera_menu_button = new Gtk.MenuButton ();
         camera_options = new Gtk.Menu ();
-        camera_menu_button.set_popup (camera_options);
 
-        Gtk.CssProvider camera_menu_button_style_provider = new Gtk.CssProvider ();
+        camera_menu_button = new Gtk.MenuButton () {
+            popup = camera_options
+        };
 
-        try {
-            camera_menu_button_style_provider.load_from_data (CAMERA_MENU_BUTTON_STYLESHEET, -1);
-        } catch (Error e) {
-            warning ("Styling take button failed: %s", e.message);
-        }
-
-        var camera_menu_button_style_context = camera_menu_button.get_style_context ();
-        camera_menu_button_style_context.add_provider (camera_menu_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
+        camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button_style_context.add_class ("camera-menu");
 
-        var linked_box = new Gtk.Grid ();
-        linked_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        linked_box.add (take_button);
-
-        camera_menu_revealer = new Gtk.Revealer ();
+        camera_menu_revealer = new Gtk.Revealer () {
+            transition_duration = 250,
+            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+        };
         camera_menu_revealer.add (camera_menu_button);
-        camera_menu_revealer.set_transition_duration (500);
-        camera_menu_revealer.set_transition_type (Gtk.RevealerTransitionType.SLIDE_RIGHT);
+
+        var linked_box = new Gtk.Grid ();
+        linked_box.add (take_button);
         linked_box.add (camera_menu_revealer);
 
         show_close_button = true;
@@ -186,11 +177,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         });
         menuitem.show ();
 
-        if (camera_options.get_children ().length () > 1) {
-            camera_menu_revealer.set_reveal_child (true);
-            var take_button_style_context = take_button.get_style_context ();
-            take_button_style_context.add_class ("take-button-multiple");
-        }
+        update_take_button ();
     }
 
     public void remove_camera_option (Gst.Device camera) {
@@ -205,10 +192,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         if (to_remove != null) {
             camera_options.remove (to_remove);
         }
-        if (camera_options.get_children ().length () <= 1) {
-            camera_menu_revealer.set_reveal_child (false);
-            var take_button_style_context = take_button.get_style_context ();
-            take_button_style_context.remove_class ("take-button-multiple");
+
+        update_take_button ();
+    }
+
+    private void update_take_button () {
+        unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
+        if (camera_options.get_children ().length () > 1) {
+            camera_menu_revealer.reveal_child = true;
+            take_button_style_context.add_class ("multiple");
+        } else {
+            camera_menu_revealer.reveal_child = false;
+            take_button_style_context.remove_class ("multiple");
         }
     }
 
