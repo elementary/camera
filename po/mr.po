@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"POT-Creation-Date: 2020-10-13 22:27+0000\n"
 "PO-Revision-Date: 2020-09-12 00:18+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/camera/mr/"
@@ -20,31 +20,43 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "कॅमेरा"
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:52
 msgid "No Supported Camera Found"
 msgstr "उपयुक्त असा कॅमेरा उपलब्ध नाही"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "फोटो किंवा व्हिडिओ काढण्यासाठी वेबकॅम किंवा अन्य उपयुक्त कॅमेरा जोडा."
 
-#: src/Widgets/CameraView.vala:115
+#: src/Widgets/CameraView.vala:116
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" ला जोडले जात आहे…"
 
-#: src/Widgets/CameraView.vala:143
+#: src/Widgets/CameraView.vala:146
 msgid "Unable To View Camera"
 msgstr "कॅमेरा पाहण्यात अक्षम"
 
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:294
 msgid "Photo taken"
 msgstr "फोटो काढून झाला"
+
+#: src/Widgets/HeaderBar.vala:95
+msgid "Brightness"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:102
+msgid "Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:150
+msgid "Settings"
+msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

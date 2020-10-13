@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"POT-Creation-Date: 2020-10-13 22:27+0000\n"
 "PO-Revision-Date: 2019-02-12 16:03+0000\n"
 "Last-Translator: tylnesh <kohutek.michal@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/camera/camera/"
@@ -20,33 +20,45 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:52
 msgid "No Supported Camera Found"
 msgstr "Žiadna podporovaná kamera nenájdená"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Pre zachytávanie fotiek a videí pripojte webkameru alebo iné podporované "
 "video zariadenie."
 
-#: src/Widgets/CameraView.vala:115
+#: src/Widgets/CameraView.vala:116
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Pripojovanie k \"%s\"…"
 
-#: src/Widgets/CameraView.vala:143
+#: src/Widgets/CameraView.vala:146
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:294
 msgid "Photo taken"
 msgstr "Fotka spravená"
+
+#: src/Widgets/HeaderBar.vala:95
+msgid "Brightness"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:102
+msgid "Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:150
+msgid "Settings"
+msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
