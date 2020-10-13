@@ -48,6 +48,15 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     construct {
         Hdy.init ();
 
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
+
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
@@ -79,10 +88,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_view.start ();
 
         show_all ();
-
-        //  for (int i = 0; i < camera_view.get_cameras (); i++) {
-        //      header_bar.add_camera_options (camera_view.get_camera (i));
-        //  }
     }
 
     private void on_fullscreen () {
