@@ -144,10 +144,11 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var popover = new Gtk.Popover (null);
         popover.add (image_settings);
 
-        var menu_button = new Gtk.MenuButton ();
-        menu_button.tooltip_text = _("Settings");
-        menu_button.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU);
-        menu_button.popover = popover;
+        var menu_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
+            popover = popover,
+            tooltip_text = _("Settings")
+        };
 
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
