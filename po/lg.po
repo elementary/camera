@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"POT-Creation-Date: 2020-10-13 22:27+0000\n"
 "PO-Revision-Date: 2018-01-20 19:39+0000\n"
 "Last-Translator: Laurence Bahiirwa <laurence@mediauganda.com>\n"
 "Language-Team: Ganda <https://weblate.elementary.io/projects/camera/camera/"
@@ -13,31 +13,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:52
 msgid "No Supported Camera Found"
 msgstr "Tewali Kamera esobola kukola"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Tekako kamera ya kompyuta oba masini esoboola okukwata ebifananyi oba vidiyo."
 
-#: src/Widgets/CameraView.vala:115
+#: src/Widgets/CameraView.vala:116
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Kweyunga ku \"%s\"…"
 
-#: src/Widgets/CameraView.vala:143
+#: src/Widgets/CameraView.vala:146
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:294
 msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:95
+msgid "Brightness"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:102
+msgid "Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:150
+msgid "Settings"
 msgstr ""
 
 #: src/Widgets/TimerButton.vala:42

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
+"POT-Creation-Date: 2020-10-13 22:27+0000\n"
 "PO-Revision-Date: 2017-07-29 18:22+0000\n"
 "Last-Translator: ThE OcTuCuBe <sanicoh@hotmail.com>\n"
 "Language-Team: Afrikaans <https://weblate.elementary.io/projects/camera/"
@@ -20,31 +20,43 @@ msgstr ""
 "X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:52
 msgid "No Supported Camera Found"
 msgstr "Geen ondersteunde kamera gevind"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Koppel 'n webcam of ander ondersteunde videotoestel neem foto's en video."
 
-#: src/Widgets/CameraView.vala:115
+#: src/Widgets/CameraView.vala:116
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Koppel tans aan \"%s\"…"
 
-#: src/Widgets/CameraView.vala:143
+#: src/Widgets/CameraView.vala:146
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:294
 msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:95
+msgid "Brightness"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:102
+msgid "Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:150
+msgid "Settings"
 msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
