@@ -32,6 +32,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
 
+    public signal void request_change_balance (double brightness, double contrast);
+
     public bool recording { get; set; default = false; }
 
     public int timer_delay {
@@ -88,10 +90,72 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
+
+        var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
+        var brightness_label = new Gtk.Label (_("Brightness")) {
+            hexpand = true,
+            xalign = 0
+        };
+        brightness_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+        var contrast_image = new Gtk.Image.from_icon_name ("color-contrast-symbolic", Gtk.IconSize.MENU);
+        var constrast_label = new Gtk.Label (_("Contrast")) {
+            hexpand = true,
+            xalign = 0
+        };
+        constrast_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, -1, 1, 0.1) {
+            draw_value = false,
+            hexpand = true,
+            margin_bottom = 6
+        };
+        brightness_scale.set_value (0);
+        brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
+
+        var contrast_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 2, 0.1) {
+            draw_value = false,
+            hexpand = false
+        };
+        contrast_scale.set_value (1);
+        contrast_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
+
+        brightness_scale.value_changed.connect (() => {
+            request_change_balance (brightness_scale.get_value (), contrast_scale.get_value ());
+        });
+
+        contrast_scale.value_changed.connect (() => {
+            request_change_balance (brightness_scale.get_value (), contrast_scale.get_value ());
+        });
+
+        var image_settings = new Gtk.Grid ();
+        image_settings.column_spacing = 3;
+        image_settings.row_spacing = 3;
+        image_settings.margin = 6;
+        image_settings.width_request = 250;
+        image_settings.attach (brightness_image, 0, 0);
+        image_settings.attach (brightness_label, 1, 0);
+        image_settings.attach (brightness_scale, 0, 1, 2);
+        image_settings.attach (contrast_image, 0, 2);
+        image_settings.attach (constrast_label, 1, 2);
+        image_settings.attach (contrast_scale, 0, 3, 2);
+        image_settings.show_all ();
+
+        var popover = new Gtk.Popover (null);
+        popover.add (image_settings);
+
+        var menu_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
+            popover = popover,
+            tooltip_text = _("Settings")
+        };
+
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         pack_start (timer_button);
         set_custom_title (take_button);
+        pack_end (menu_button);
+        pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         pack_end (mode_switch);
 
         Camera.Application.settings.changed.connect ((key) => {
