@@ -85,6 +85,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_view.start ();
 
         show_all ();
+
+        header_bar.request_change_balance.connect (camera_view.change_color_balance);
     }
 
     private void on_fullscreen () {

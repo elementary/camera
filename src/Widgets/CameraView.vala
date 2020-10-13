@@ -27,6 +27,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
+    private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction hflip;
     private Gst.Bin? record_bin;
 
@@ -120,6 +121,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
+                "videobalance name=balance ! " +
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
                 "videoconvert ! " +
@@ -129,6 +131,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             tee = pipeline.get_by_name ("tee");
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
+            color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             var gtksink = pipeline.get_by_name ("gtksink");
             Gtk.Widget gst_video_widget;
@@ -155,6 +158,11 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         } else {
             hflip.video_direction = Gst.Video.OrientationMethod.IDENTITY;
         }
+    }
+
+    public void change_color_balance (double brightnesss, double contrast) {
+        color_balance.set_property ("brightness", brightnesss);
+        color_balance.set_property ("contrast", contrast);
     }
 
     public void take_photo () {
