@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-13 22:27+0000\n"
-"PO-Revision-Date: 2020-07-25 01:12+0000\n"
+"PO-Revision-Date: 2020-10-16 21:15+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/camera/camera/es/"
 ">\n"
@@ -50,15 +50,15 @@ msgstr "Foto capturada"
 
 #: src/Widgets/HeaderBar.vala:95
 msgid "Brightness"
-msgstr ""
+msgstr "Brillo"
 
 #: src/Widgets/HeaderBar.vala:102
 msgid "Contrast"
-msgstr ""
+msgstr "Contraste"
 
 #: src/Widgets/HeaderBar.vala:150
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -74,7 +74,7 @@ msgstr[1] "%d s"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr "Retardo antes de capturar una foto"
+msgstr "Demora antes de capturar una foto"
 
 #~ msgid "Camera %u"
 #~ msgstr "Cámara %u"
