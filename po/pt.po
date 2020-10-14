@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-13 22:27+0000\n"
-"PO-Revision-Date: 2020-07-09 21:12+0000\n"
+"PO-Revision-Date: 2020-10-16 21:15+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/camera/"
 "pt/>\n"
@@ -50,15 +50,15 @@ msgstr "Foto tirada"
 
 #: src/Widgets/HeaderBar.vala:95
 msgid "Brightness"
-msgstr ""
+msgstr "Luminosidade"
 
 #: src/Widgets/HeaderBar.vala:102
 msgid "Contrast"
-msgstr ""
+msgstr "Contraste"
 
 #: src/Widgets/HeaderBar.vala:150
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
