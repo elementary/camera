@@ -243,7 +243,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("webmmux");
         }
 
-        var filesink = Gst.ElementFactory.make ("filesink", null);
+        var filesink = Gst.ElementFactory.make ("filesink", "filesink");
         if (filesink == null) {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
         } else {
@@ -277,6 +277,20 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         pipeline.set_state (Gst.State.PAUSED);
         tee.unlink (record_bin);
+        var filesink = record_bin.get_by_name ("filesink");
+        if (filesink != null) {
+            var locationval = GLib.Value (typeof (string));
+            filesink.get_property ("location", ref locationval);
+            string location = locationval.get_string ();
+
+            var main_window = this.get_toplevel () as Camera.MainWindow;
+            var app = main_window.application;
+            
+            var notification = new GLib.Notification ("Recording finished");
+            notification.set_body (_("Video saved to %s").printf (location));
+            notification.set_default_action_and_target_value ("app.show_recording_folder", location);
+            app.send_notification (app.application_id, notification);
+        }
         pipeline.remove (record_bin);
         pipeline.set_state (Gst.State.PLAYING);
         record_bin.set_state (Gst.State.PLAYING);

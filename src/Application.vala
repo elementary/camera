@@ -32,7 +32,6 @@ public class Camera.Application : Gtk.Application {
         application_id = "io.elementary.camera";
 
         var quit_action = new SimpleAction ("quit", null);
-
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
 
@@ -40,6 +39,14 @@ public class Camera.Application : Gtk.Application {
             if (main_window != null) {
                 main_window.destroy ();
             }
+        });
+
+        var showfile_action = new SimpleAction ("show_recording_folder", VariantType.STRING);
+        add_action (showfile_action);
+        showfile_action.activate.connect ((locationvar) => {
+            var location = locationvar.get_string ();
+            var dirname = Path.get_dirname (location);
+            AppInfo.launch_default_for_uri (@"file://$dirname", null);
         });
     }
 
