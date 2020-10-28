@@ -91,11 +91,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
+        var mirror_image = new Gtk.Image.from_icon_name ("object-flip-horizontal", Gtk.IconSize.MENU);
         var mirror_menuitem = new Gtk.ModelButton () {
-            text = _("Mirror"),
+            label = _("Mirror"),
+            image = mirror_image,
+            image_position = Gtk.PositionType.LEFT,
+            always_show_image = true,
             role = Gtk.ButtonRole.CHECK,
             hexpand = true,
-            xalign = 0
+            xalign = 0            
         };
         mirror_menuitem.clicked.connect (() => {
             mirror_menuitem.active = !mirror_menuitem.active;
