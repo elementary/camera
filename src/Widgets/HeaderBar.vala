@@ -99,7 +99,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             always_show_image = true,
             role = Gtk.ButtonRole.CHECK,
             hexpand = true,
-            xalign = 0            
+            xalign = 0
         };
         mirror_menuitem.clicked.connect (() => {
             mirror_menuitem.active = !mirror_menuitem.active;
@@ -155,7 +155,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.attach (contrast_image, 0, 3);
         image_settings.attach (constrast_label, 1, 3);
         image_settings.attach (contrast_scale, 0, 4, 3);
-        
         image_settings.show_all ();
 
         var popover = new Gtk.Popover (null);
