@@ -285,7 +285,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             var main_window = this.get_toplevel () as Camera.MainWindow;
             var app = main_window.application;
-            
+
             var notification = new GLib.Notification ("Recording finished");
             notification.set_body (_("Video saved to %s").printf (location));
             notification.set_default_action_and_target_value ("app.show_recording_folder", location);
