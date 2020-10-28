@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-13 22:27+0000\n"
-"PO-Revision-Date: 2020-08-09 05:13+0000\n"
+"PO-Revision-Date: 2020-10-25 03:15+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "camera/camera/zh_Hans/>\n"
@@ -48,15 +48,15 @@ msgstr "已拍照"
 
 #: src/Widgets/HeaderBar.vala:95
 msgid "Brightness"
-msgstr ""
+msgstr "亮度"
 
 #: src/Widgets/HeaderBar.vala:102
 msgid "Contrast"
-msgstr ""
+msgstr "对比度"
 
 #: src/Widgets/HeaderBar.vala:150
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
