@@ -91,14 +91,17 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var flip_label = new Gtk.Label (_("Mirror")) {
+        var mirror_menuitem = new Gtk.ModelButton () {
+            text = _("Mirror"),
+            role = Gtk.ButtonRole.CHECK,
             hexpand = true,
             xalign = 0
         };
+        mirror_menuitem.clicked.connect (() => {
+            mirror_menuitem.active = !mirror_menuitem.active;
+            request_horizontal_flip ();
+        });
 
-        var flip_toggle = new Gtk.Switch () {
-            active = true
-        };
 
         var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
         var brightness_label = new Gtk.Label (_("Brightness")) {
@@ -147,8 +150,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.attach (contrast_image, 0, 2);
         image_settings.attach (constrast_label, 1, 2);
         image_settings.attach (contrast_scale, 0, 3, 3);
-        image_settings.attach (flip_label, 0, 4, 2);
-        image_settings.attach (flip_toggle, 2, 4);
+        image_settings.attach (mirror_menuitem, 0, 4, 2);
         image_settings.show_all ();
 
         var popover = new Gtk.Popover (null);
@@ -172,10 +174,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             if (key == "mode") {
                 mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
             }
-        });
-
-        flip_toggle.notify["active"].connect (() => {
-            request_horizontal_flip ();
         });
 
         mode_switch.notify["active"].connect (() => {
