@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
-"PO-Revision-Date: 2020-10-13 21:14+0000\n"
+"POT-Creation-Date: 2020-10-13 22:27+0000\n"
+"PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/camera/camera/it/"
 ">\n"
@@ -20,33 +20,45 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
-msgstr "Videocamera"
+msgstr "Camera"
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:52
 msgid "No Supported Camera Found"
 msgstr "Nessuna camera supportata è stata trovata"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Collega una webcam o un altro dispositivo video supportato per scattare foto "
 "e video."
 
-#: src/Widgets/CameraView.vala:115
+#: src/Widgets/CameraView.vala:116
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Connessione a \"%s\"…"
 
-#: src/Widgets/CameraView.vala:143
+#: src/Widgets/CameraView.vala:146
 msgid "Unable To View Camera"
-msgstr "Impossibile visualizzare la videocamera"
+msgstr "Impossibile visualizzare la camera"
 
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:294
 msgid "Photo taken"
 msgstr "Foto scattata"
+
+#: src/Widgets/HeaderBar.vala:95
+msgid "Brightness"
+msgstr "Luminosità"
+
+#: src/Widgets/HeaderBar.vala:102
+msgid "Contrast"
+msgstr "Contrasto"
+
+#: src/Widgets/HeaderBar.vala:150
+msgid "Settings"
+msgstr "Impostazioni"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
