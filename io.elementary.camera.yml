@@ -1,0 +1,53 @@
+app-id: io.elementary.camera
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+base: io.elementary.BaseApp
+base-version: juno-20.08
+sdk: org.gnome.Sdk
+command: io.elementary.camera
+rename-icon: accessories-camera
+finish-args:
+  - '--filesystem=xdg-pictures'
+  - '--filesystem=xdg-videos'
+
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+  - '--socket=pulseaudio'
+  - '--device=all'
+
+  # Needed for prefer-color-scheme
+  - '--system-talk-name=org.freedesktop.Accounts'
+
+  - '--metadata=X-DConf=migrate-path=/io/elementary/camera/'
+cleanup:
+  - '*.a'
+  - '*.la'
+modules:
+  - name: canberra
+    config-opts:
+      - '--enable-gstreamer'
+      - '--enable-pulse'
+      - '--disable-oss'
+      - '--disable-static'
+      - '--with-builtin=dso'
+    sources:
+      - type: git
+        url: http://git.0pointer.net/clone/libcanberra.git
+        disable-shallow-clone: true
+
+  - name: handy
+    buildsystem: meson
+    config-opts: 
+      - '-Dexamples=false'
+      - '-Dtests=false'
+    sources: 
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libhandy.git
+        tag: '1.0.1'
+
+  - name: camera
+    buildsystem: meson
+    sources: 
+      - type: dir
+        path: .
