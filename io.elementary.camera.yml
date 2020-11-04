@@ -5,7 +5,6 @@ base: io.elementary.BaseApp
 base-version: juno-20.08
 sdk: org.gnome.Sdk
 command: io.elementary.camera
-rename-icon: accessories-camera
 finish-args:
   - '--filesystem=xdg-pictures'
   - '--filesystem=xdg-videos'
