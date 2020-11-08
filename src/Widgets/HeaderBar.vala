@@ -91,19 +91,30 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var mirror_image = new Gtk.Image.from_icon_name ("object-flip-horizontal", Gtk.IconSize.MENU);
-        var mirror_menuitem = new Gtk.ModelButton () {
-            label = _("Mirror"),
-            image = mirror_image,
-            image_position = Gtk.PositionType.LEFT,
-            always_show_image = true,
-            role = Gtk.ButtonRole.CHECK,
+
+        var mirror_label = new Gtk.Label (_("Horizontal flip")) {
             hexpand = true,
-            xalign = 0
+            halign = Gtk.Align.START
         };
-        mirror_menuitem.clicked.connect (() => {
-            mirror_menuitem.active = !mirror_menuitem.active;
+
+        var mirror_switch = new Gtk.Switch ();
+        mirror_switch.activate.connect (() => {
             request_horizontal_flip ();
+        });
+
+        var mirror_grid = new Gtk.Grid () {
+            hexpand = true
+        };
+        mirror_grid.attach (mirror_label, 0, 0);
+        mirror_grid.attach (mirror_switch, 1, 0);
+        mirror_grid.show_all ();
+
+        var mirror_menuitem = new Gtk.ModelButton ();
+        mirror_menuitem.get_child ().destroy ();
+        mirror_menuitem.add (mirror_grid);
+        mirror_menuitem.button_release_event.connect (() => {
+            mirror_switch.activate ();
+            return Gdk.EVENT_STOP;
         });
 
 
@@ -144,11 +155,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         var image_settings = new Gtk.Grid () {
             column_spacing = 6,
-            row_spacing = 3,
-            margin = 12,
-            width_request = 250
+            row_spacing = 3,    
+            margin = 12
         };
-        image_settings.attach (mirror_menuitem, 0, 0, 2);
         image_settings.attach (brightness_image, 0, 1);
         image_settings.attach (brightness_label, 1, 1);
         image_settings.attach (brightness_scale, 0, 2, 3);
@@ -157,8 +166,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.attach (contrast_scale, 0, 4, 3);
         image_settings.show_all ();
 
+        var menu_popover_grid = new Gtk.Grid() {
+            width_request = 250
+        };
+        menu_popover_grid.attach (image_settings, 0, 0);
+        menu_popover_grid.attach (mirror_menuitem, 0, 1);
+        menu_popover_grid.show_all ();
+
         var popover = new Gtk.Popover (null);
-        popover.add (image_settings);
+        popover.add (menu_popover_grid);
 
         var menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
