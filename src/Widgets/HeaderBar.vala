@@ -155,7 +155,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         var image_settings = new Gtk.Grid () {
             column_spacing = 6,
-            row_spacing = 3,    
+            row_spacing = 3,
             margin = 12
         };
         image_settings.attach (brightness_image, 0, 1);
@@ -166,7 +166,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.attach (contrast_scale, 0, 4, 3);
         image_settings.show_all ();
 
-        var menu_popover_grid = new Gtk.Grid() {
+        var menu_popover_grid = new Gtk.Grid () {
             width_request = 250
         };
         menu_popover_grid.attach (image_settings, 0, 0);
