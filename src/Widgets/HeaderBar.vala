@@ -91,7 +91,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-
         var mirror_label = new Gtk.Label (_("Horizontal flip")) {
             hexpand = true,
             halign = Gtk.Align.START
@@ -167,7 +166,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.show_all ();
 
         var menu_popover_grid = new Gtk.Grid () {
-            width_request = 250
+            width_request = 250,
+            margin_bottom = 6
         };
         menu_popover_grid.attach (image_settings, 0, 0);
         menu_popover_grid.attach (mirror_menuitem, 0, 1);
