@@ -104,7 +104,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var mirror_grid = new Gtk.Grid ();
         mirror_grid.add (mirror_label);
         mirror_grid.add (mirror_switch);
-        mirror_grid.show_all ();
 
         var mirror_menuitem = new Gtk.ModelButton ();
         mirror_menuitem.get_child ().destroy ();
@@ -155,13 +154,12 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             row_spacing = 3,
             margin = 12
         };
-        image_settings.attach (brightness_image, 0, 1);
-        image_settings.attach (brightness_label, 1, 1);
-        image_settings.attach (brightness_scale, 0, 2, 3);
-        image_settings.attach (contrast_image, 0, 3);
-        image_settings.attach (constrast_label, 1, 3);
-        image_settings.attach (contrast_scale, 0, 4, 3);
-        image_settings.show_all ();
+        image_settings.attach (brightness_image, 0, 0);
+        image_settings.attach (brightness_label, 1, 0);
+        image_settings.attach (brightness_scale, 0, 1, 3);
+        image_settings.attach (contrast_image, 0, 2);
+        image_settings.attach (constrast_label, 1, 2);
+        image_settings.attach (contrast_scale, 0, 4, 2);
 
         var menu_popover_grid = new Gtk.Grid () {
             width_request = 250,
