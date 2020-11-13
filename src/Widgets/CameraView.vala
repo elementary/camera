@@ -21,6 +21,8 @@
  */
 
 public class Camera.Widgets.CameraView : Gtk.Stack {
+    public signal void recording_finished (string file_path);
+
     private Gtk.Grid status_grid;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
@@ -282,14 +284,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             var locationval = GLib.Value (typeof (string));
             filesink.get_property ("location", ref locationval);
             string location = locationval.get_string ();
-
-            var main_window = this.get_toplevel () as Camera.MainWindow;
-            var app = main_window.application;
-
-            var notification = new GLib.Notification ("Recording finished");
-            notification.set_body (_("Video saved to %s").printf (location));
-            notification.set_default_action_and_target_value ("app.show_recording_folder", location);
-            app.send_notification (app.application_id, notification);
+            recording_finished (location);
         }
         pipeline.remove (record_bin);
         pipeline.set_state (Gst.State.PLAYING);

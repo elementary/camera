@@ -40,14 +40,6 @@ public class Camera.Application : Gtk.Application {
                 main_window.destroy ();
             }
         });
-
-        var showfile_action = new SimpleAction ("show_recording_folder", VariantType.STRING);
-        add_action (showfile_action);
-        showfile_action.activate.connect ((locationvar) => {
-            var location = locationvar.get_string ();
-            var dirname = Path.get_dirname (location);
-            AppInfo.launch_default_for_uri (@"file://$dirname", null);
-        });
     }
 
     protected override void activate () {

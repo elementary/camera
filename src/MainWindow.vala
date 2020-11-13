@@ -70,9 +70,28 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
         camera_view = new Widgets.CameraView ();
 
+        var overlay = new Gtk.Overlay ();
+        overlay.add (camera_view);
+
+        var recording_finished_toast = new Granite.Widgets.Toast ("Recording finished");
+        recording_finished_toast.set_default_action ("View");
+        recording_finished_toast.set_data ("loc", "");
+        recording_finished_toast.default_action.connect (() => {
+            var file_path = recording_finished_toast.get_data<string> ("location");
+            var dirname = Path.get_dirname (file_path);
+            AppInfo.launch_default_for_uri (@"file://$dirname", null);
+        });
+        overlay.add_overlay (recording_finished_toast);
+
+        camera_view.recording_finished.connect ((file_path) => {
+            recording_finished_toast.set_data ("location", file_path);
+            recording_finished_toast.send_notification ();
+        });
+
+
         var grid = new Gtk.Grid ();
         grid.attach (header_bar, 0, 0);
-        grid.attach (camera_view, 0, 1);
+        grid.attach (overlay, 0, 1);
 
         var window_handle = new Hdy.WindowHandle ();
         window_handle.add (grid);
