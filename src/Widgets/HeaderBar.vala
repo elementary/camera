@@ -91,7 +91,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var mirror_label = new Gtk.Label (_("Horizontal flip")) {
+        var mirror_label = new Gtk.Label (_("Horizontal Flip")) {
             hexpand = true,
             halign = Gtk.Align.START
         };
@@ -101,11 +101,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             request_horizontal_flip ();
         });
 
-        var mirror_grid = new Gtk.Grid () {
-            hexpand = true
-        };
-        mirror_grid.attach (mirror_label, 0, 0);
-        mirror_grid.attach (mirror_switch, 1, 0);
+        var mirror_grid = new Gtk.Grid ();
+        mirror_grid.add (mirror_label);
+        mirror_grid.add (mirror_switch);
         mirror_grid.show_all ();
 
         var mirror_menuitem = new Gtk.ModelButton ();
@@ -167,7 +165,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         var menu_popover_grid = new Gtk.Grid () {
             width_request = 250,
-            margin_bottom = 6
+            margin_bottom = 3
         };
         menu_popover_grid.attach (image_settings, 0, 0);
         menu_popover_grid.attach (mirror_menuitem, 0, 1);
