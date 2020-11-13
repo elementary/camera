@@ -32,6 +32,7 @@ public class Camera.Application : Gtk.Application {
         application_id = "io.elementary.camera";
 
         var quit_action = new SimpleAction ("quit", null);
+
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});
 

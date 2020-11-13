@@ -73,9 +73,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         var overlay = new Gtk.Overlay ();
         overlay.add (camera_view);
 
-        var recording_finished_toast = new Granite.Widgets.Toast ("Recording finished");
-        recording_finished_toast.set_default_action ("View");
-        recording_finished_toast.set_data ("loc", "");
+        var recording_finished_toast = new Granite.Widgets.Toast (_("Saved to Videos"));
+        recording_finished_toast.set_default_action (_("View File"));
+        recording_finished_toast.set_data ("location", "");
         recording_finished_toast.default_action.connect (() => {
             var file_path = recording_finished_toast.get_data<string> ("location");
             var dirname = Path.get_dirname (file_path);
