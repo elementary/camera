@@ -156,7 +156,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         };
         image_settings.attach (brightness_image, 0, 0);
         image_settings.attach (brightness_label, 1, 0);
-        image_settings.attach (brightness_scale, 0, 1, 3);
+        image_settings.attach (brightness_scale, 0, 1, 2);
         image_settings.attach (contrast_image, 0, 2);
         image_settings.attach (constrast_label, 1, 2);
         image_settings.attach (contrast_scale, 0, 4, 2);
