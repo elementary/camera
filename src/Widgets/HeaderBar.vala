@@ -91,7 +91,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var mirror_label = new Gtk.Label (_("Horizontal Flip")) {
+        var mirror_label = new Gtk.Label (_("Mirror")) {
             hexpand = true,
             halign = Gtk.Align.START
         };
