@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
 "PO-Revision-Date: 2019-01-26 07:00+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
@@ -46,9 +46,14 @@ msgid "Photo Booth"
 msgstr "照相馆特效"
 
 #: data/io.elementary.camera.desktop.in:8
-msgid "accessories-camera"
-msgstr "accessories-camera"
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "io.elementary.camera"
+msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "照片;视频;网络摄像头;相机;Booth;"
+
+#~ msgid "accessories-camera"
+#~ msgstr "accessories-camera"
