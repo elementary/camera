@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-18 19:37+0000\n"
-"PO-Revision-Date: 2020-10-16 21:15+0000\n"
+"PO-Revision-Date: 2020-11-22 20:15+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/camera/"
 "pt/>\n"
@@ -50,7 +50,7 @@ msgstr "Foto tirada"
 
 #: src/Widgets/HeaderBar.vala:94
 msgid "Mirror"
-msgstr ""
+msgstr "Espelho"
 
 #: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
