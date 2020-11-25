@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 22:27+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/camera/camera/zh/"
@@ -17,37 +17,41 @@ msgstr ""
 msgid "Camera"
 msgstr "照相机"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid "No Supported Camera Found"
 msgstr "没有找到支持的照相机"
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:54
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "连接摄像头或其它视频设备拍摄照片或视频。"
 
-#: src/Widgets/CameraView.vala:116
+#: src/Widgets/CameraView.vala:117
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "正在连接 \"%s\"…"
 
-#: src/Widgets/CameraView.vala:146
+#: src/Widgets/CameraView.vala:148
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:294
+#: src/Widgets/CameraView.vala:308
 msgid "Photo taken"
 msgstr "已拍摄的照片"
 
-#: src/Widgets/HeaderBar.vala:95
+#: src/Widgets/HeaderBar.vala:94
+msgid "Mirror"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:102
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr ""
 

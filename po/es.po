@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 22:27+0000\n"
-"PO-Revision-Date: 2020-10-16 21:15+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"PO-Revision-Date: 2020-11-21 06:15+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/camera/camera/es/"
 ">\n"
@@ -24,39 +24,43 @@ msgstr ""
 msgid "Camera"
 msgstr "Cámara"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid "No Supported Camera Found"
 msgstr "No se encontró ninguna cámara compatible"
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:54
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conecte una cámara web, u otro dispositivo de vídeo admitido, para capturar "
 "fotografías y vídeos."
 
-#: src/Widgets/CameraView.vala:116
+#: src/Widgets/CameraView.vala:117
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Conectando con «%s»…"
 
-#: src/Widgets/CameraView.vala:146
+#: src/Widgets/CameraView.vala:148
 msgid "Unable To View Camera"
 msgstr "No se puede visualizar la cámara"
 
-#: src/Widgets/CameraView.vala:294
+#: src/Widgets/CameraView.vala:308
 msgid "Photo taken"
 msgstr "Foto capturada"
 
-#: src/Widgets/HeaderBar.vala:95
+#: src/Widgets/HeaderBar.vala:94
+msgid "Mirror"
+msgstr "Espejar"
+
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr "Brillo"
 
-#: src/Widgets/HeaderBar.vala:102
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr "Contraste"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr "Configuración"
 

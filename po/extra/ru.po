@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
 "PO-Revision-Date: 2018-07-13 18:12+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
 "Language-Team: Russian <https://weblate.elementary.io/projects/camera/extra/"
@@ -48,9 +48,14 @@ msgid "Photo Booth"
 msgstr "Фото будка"
 
 #: data/io.elementary.camera.desktop.in:8
-msgid "accessories-camera"
-msgstr "accessories-camera"
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "io.elementary.camera"
+msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Фото;Видео;Веб-камера;Камера;Будка;"
+
+#~ msgid "accessories-camera"
+#~ msgstr "accessories-camera"

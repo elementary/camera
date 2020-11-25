@@ -21,6 +21,9 @@
  */
 
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
+    public signal void request_horizontal_flip ();
+    public signal void request_change_balance (double brightness, double contrast);
+
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
@@ -34,8 +37,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Menu camera_options;
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
-
-    public signal void request_change_balance (double brightness, double contrast);
 
     public bool recording { get; set; default = false; }
 
@@ -108,6 +109,28 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
+        var mirror_label = new Gtk.Label (_("Mirror")) {
+            hexpand = true,
+            halign = Gtk.Align.START
+        };
+
+        var mirror_switch = new Gtk.Switch ();
+        mirror_switch.activate.connect (() => {
+            request_horizontal_flip ();
+        });
+
+        var mirror_grid = new Gtk.Grid ();
+        mirror_grid.add (mirror_label);
+        mirror_grid.add (mirror_switch);
+
+        var mirror_menuitem = new Gtk.ModelButton ();
+        mirror_menuitem.get_child ().destroy ();
+        mirror_menuitem.add (mirror_grid);
+        mirror_menuitem.button_release_event.connect (() => {
+            mirror_switch.activate ();
+            return Gdk.EVENT_STOP;
+        });
+
         var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
         var brightness_label = new Gtk.Label (_("Brightness")) {
             hexpand = true,
@@ -146,8 +169,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var image_settings = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 3,
-            margin = 12,
-            width_request = 250
+            margin = 12
         };
         image_settings.attach (brightness_image, 0, 0);
         image_settings.attach (brightness_label, 1, 0);
@@ -155,10 +177,17 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         image_settings.attach (contrast_image, 0, 2);
         image_settings.attach (constrast_label, 1, 2);
         image_settings.attach (contrast_scale, 0, 3, 2);
-        image_settings.show_all ();
+
+        var menu_popover_grid = new Gtk.Grid () {
+            width_request = 250,
+            margin_bottom = 3
+        };
+        menu_popover_grid.attach (image_settings, 0, 0);
+        menu_popover_grid.attach (mirror_menuitem, 0, 1);
+        menu_popover_grid.show_all ();
 
         var popover = new Gtk.Popover (null);
-        popover.add (image_settings);
+        popover.add (menu_popover_grid);
 
         var menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
