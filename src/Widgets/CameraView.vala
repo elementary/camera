@@ -30,6 +30,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
     private Gst.Video.ColorBalance color_balance;
+    private Gst.Video.Direction hflip;
     private Gst.Bin? record_bin;
 
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
@@ -121,7 +122,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
-                "videoflip method=horizontal-flip ! " +
+                "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
@@ -131,6 +132,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             tee = pipeline.get_by_name ("tee");
+            hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             var gtksink = pipeline.get_by_name ("gtksink");
@@ -148,6 +150,15 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
             dialog.run ();
             dialog.destroy ();
+        }
+    }
+
+    public void horizontal_flip () {
+        var orientation = hflip.video_direction;
+        if (orientation == Gst.Video.OrientationMethod.IDENTITY) {
+            hflip.video_direction = Gst.Video.OrientationMethod.HORIZ;
+        } else {
+            hflip.video_direction = Gst.Video.OrientationMethod.IDENTITY;
         }
     }
 

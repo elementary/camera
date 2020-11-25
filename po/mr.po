@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 22:27+0000\n"
-"PO-Revision-Date: 2020-10-23 17:15+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"PO-Revision-Date: 2020-11-22 20:15+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/camera/mr/"
 ">\n"
@@ -24,37 +24,41 @@ msgstr ""
 msgid "Camera"
 msgstr "कॅमेरा"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid "No Supported Camera Found"
 msgstr "उपयुक्त असा कॅमेरा उपलब्ध नाही"
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:54
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "फोटो किंवा व्हिडिओ काढण्यासाठी वेबकॅम किंवा अन्य उपयुक्त कॅमेरा जोडा."
 
-#: src/Widgets/CameraView.vala:116
+#: src/Widgets/CameraView.vala:117
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" ला जोडले जात आहे…"
 
-#: src/Widgets/CameraView.vala:146
+#: src/Widgets/CameraView.vala:148
 msgid "Unable To View Camera"
 msgstr "कॅमेरा पाहण्यात अक्षम"
 
-#: src/Widgets/CameraView.vala:294
+#: src/Widgets/CameraView.vala:308
 msgid "Photo taken"
 msgstr "फोटो काढून झाला"
 
-#: src/Widgets/HeaderBar.vala:95
+#: src/Widgets/HeaderBar.vala:94
+msgid "Mirror"
+msgstr "मिरर"
+
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr "ब्राईटनेस"
 
-#: src/Widgets/HeaderBar.vala:102
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr "कॉन्ट्रास्ट"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr "सेटिंग"
 
