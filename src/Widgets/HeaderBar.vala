@@ -21,7 +21,6 @@
  */
 
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
-    public signal void request_horizontal_flip ();
     public signal void request_change_balance (double brightness, double contrast);
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
@@ -36,6 +35,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Granite.ModeSwitch mode_switch;
 
     public bool recording { get; set; default = false; }
+    public bool horizontal_flip { get; set; default = true; }
 
     public int timer_delay {
         get {
@@ -97,9 +97,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         };
 
         var mirror_switch = new Gtk.Switch ();
-        mirror_switch.activate.connect (() => {
-            request_horizontal_flip ();
-        });
+        mirror_switch.bind_property ("active", this, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL);
 
         var mirror_grid = new Gtk.Grid ();
         mirror_grid.add (mirror_label);
@@ -186,10 +184,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         pack_end (mode_switch);
 
-        Camera.Application.settings.changed.connect ((key) => {
-            if (key == "mode") {
-                mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
-            }
+        Camera.Application.settings.changed["mode"].connect ((key) => {
+            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
         });
 
         mode_switch.notify["active"].connect (() => {
