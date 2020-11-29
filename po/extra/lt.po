@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
 "PO-Revision-Date: 2018-07-09 22:41+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/camera/"
@@ -50,10 +50,15 @@ msgid "Photo Booth"
 msgstr "Nuotraukų būdelė"
 
 #: data/io.elementary.camera.desktop.in:8
-msgid "accessories-camera"
-msgstr "accessories-camera"
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "io.elementary.camera"
+msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr ""
 "Nuotrauka;Vaizdo įrašas;Video;Internetinė vaizdo kamera;Kamera;Būdelė;Kabina;"
+
+#~ msgid "accessories-camera"
+#~ msgstr "accessories-camera"

@@ -69,6 +69,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         header_bar = new Widgets.HeaderBar ();
 
         camera_view = new Widgets.CameraView ();
+        camera_view.bind_property ("horizontal-flip", header_bar, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL | GLib.BindingFlags.SYNC_CREATE);
 
         var grid = new Gtk.Grid ();
         grid.attach (header_bar, 0, 0);

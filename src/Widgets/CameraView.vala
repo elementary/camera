@@ -29,11 +29,32 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
     private Gst.Video.ColorBalance color_balance;
+    private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
 
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
     private GenericArray<Gst.Device> cameras = new GenericArray<Gst.Device> ();
     public bool recording { get; private set; default = false; }
+    public bool horizontal_flip {
+        get {
+            if (hflip == null) {
+                return true;
+            }
+
+            return hflip.video_direction == Gst.Video.OrientationMethod.HORIZ;
+        }
+        set {
+            if (hflip == null) {
+                return;
+            }
+
+            if (hflip.video_direction == Gst.Video.OrientationMethod.IDENTITY) {
+                hflip.video_direction = Gst.Video.OrientationMethod.HORIZ;
+            } else {
+                hflip.video_direction = Gst.Video.OrientationMethod.IDENTITY;
+            }
+        }
+    }
 
     public signal void camera_added (Gst.Device camera);
     public signal void camera_removed (Gst.Device camera);
@@ -142,7 +163,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
-                "videoflip method=horizontal-flip ! " +
+                "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
@@ -152,6 +173,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             tee = pipeline.get_by_name ("tee");
+            hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             var gtksink = pipeline.get_by_name ("gtksink");

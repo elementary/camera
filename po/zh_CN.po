@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 22:27+0000\n"
-"PO-Revision-Date: 2020-10-25 03:15+0000\n"
-"Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"PO-Revision-Date: 2020-11-27 05:15+0000\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "camera/camera/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -24,37 +24,41 @@ msgstr ""
 msgid "Camera"
 msgstr "相机"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid "No Supported Camera Found"
 msgstr "未找到支持的摄像头"
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:54
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "接入摄像头或其他支持的影像设备来拍摄照片和视频。"
 
-#: src/Widgets/CameraView.vala:116
+#: src/Widgets/CameraView.vala:117
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "正在连接 “%s”…"
 
-#: src/Widgets/CameraView.vala:146
+#: src/Widgets/CameraView.vala:148
 msgid "Unable To View Camera"
 msgstr "无法显示相机"
 
-#: src/Widgets/CameraView.vala:294
+#: src/Widgets/CameraView.vala:308
 msgid "Photo taken"
 msgstr "已拍照"
 
-#: src/Widgets/HeaderBar.vala:95
+#: src/Widgets/HeaderBar.vala:94
+msgid "Mirror"
+msgstr "镜像"
+
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr "亮度"
 
-#: src/Widgets/HeaderBar.vala:102
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr "对比度"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr "设置"
 

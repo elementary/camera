@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 22:27+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
 "PO-Revision-Date: 2020-10-31 12:15+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/camera/camera/tr/"
@@ -24,39 +24,43 @@ msgstr ""
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:53
 msgid "No Supported Camera Found"
 msgstr "Desteklenen Kamera Bulunamadı"
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:54
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Fotoğraf ve video çekmek için bir web kamerası veya desteklenen başka bir "
 "video aygıtı bağlayın."
 
-#: src/Widgets/CameraView.vala:116
+#: src/Widgets/CameraView.vala:117
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" bağlanıyor…"
 
-#: src/Widgets/CameraView.vala:146
+#: src/Widgets/CameraView.vala:148
 msgid "Unable To View Camera"
 msgstr "Kamera Görüntülenemiyor"
 
-#: src/Widgets/CameraView.vala:294
+#: src/Widgets/CameraView.vala:308
 msgid "Photo taken"
 msgstr "Çekilen fotoğraf"
 
-#: src/Widgets/HeaderBar.vala:95
+#: src/Widgets/HeaderBar.vala:94
+msgid "Mirror"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr "Parlaklık"
 
-#: src/Widgets/HeaderBar.vala:102
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: src/Widgets/HeaderBar.vala:150
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr "Ayarlar"
 
