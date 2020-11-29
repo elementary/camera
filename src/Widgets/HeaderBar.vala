@@ -234,9 +234,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     public void add_camera_option (Gst.Device camera) {
-        var menuitem = new Gtk.MenuItem.with_label (camera.get_display_name ());
+        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.get_display_name ());
         camera_options.append (menuitem);
+
         int i = (int) camera_options.get_children ().length () - 1;
+        if (i > 0) {
+            var el = camera_options.get_children ().nth_data (0) as Gtk.RadioMenuItem;
+            menuitem.join_group (el);
+        }
+        menuitem.active = true;
         menuitem.activate.connect (() => {
             request_camera_change (i);
         });
