@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"POT-Creation-Date: 2020-12-08 18:20+0000\n"
 "PO-Revision-Date: 2018-06-28 00:09+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/camera/camera/"
@@ -24,42 +24,42 @@ msgstr ""
 msgid "Camera"
 msgstr "카메라"
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:77
 msgid "No Supported Camera Found"
 msgstr "지원되는 카메라가 없습니다"
 
-#: src/Widgets/CameraView.vala:54
+#: src/Widgets/CameraView.vala:78
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "웹 캠에 연결하거나, 사진이나 비디오를 촬영할 수 있는 장치를 연결하세요."
 
-#: src/Widgets/CameraView.vala:117
+#: src/Widgets/CameraView.vala:193
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:208
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\"에 연결하고 있습니다…"
 
-#: src/Widgets/CameraView.vala:148
-msgid "Unable To View Camera"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:308
+#: src/Widgets/CameraView.vala:355
 msgid "Photo taken"
 msgstr "찍은 사진"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:112
 msgid "Mirror"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:133
 msgid "Brightness"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:139
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:178
+#: src/Widgets/HeaderBar.vala:193
 msgid "Settings"
 msgstr ""
 
