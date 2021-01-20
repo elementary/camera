@@ -61,7 +61,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         default_theme.add_resource_path ("/io/elementary/camera");
 
         this.title = _("Camera");
-        this.icon_name = "accessories-camera";
+        icon_name = "io.elementary.camera";
         set_default_size (640, 480);
         set_size_request (436, 352);
         this.window_position = Gtk.WindowPosition.CENTER;
