@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-18 19:37+0000\n"
-"PO-Revision-Date: 2019-11-22 17:25+0000\n"
+"PO-Revision-Date: 2021-01-24 02:40+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "camera/extra/pt_BR/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:8
 #: data/io.elementary.camera.desktop.in:4
@@ -46,10 +46,8 @@ msgid "Photo Booth"
 msgstr "Cabine Fotográfica"
 
 #: data/io.elementary.camera.desktop.in:8
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "io.elementary.camera"
-msgstr "elementary LLC."
+msgstr "io.elementary.code"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
