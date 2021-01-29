@@ -26,6 +26,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gtk.Grid status_grid;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
+    Gtk.Widget gst_video_widget;
 
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
@@ -57,6 +58,9 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
     }
 
+    public signal void camera_added (Gst.Device camera);
+    public signal void camera_removed (Gst.Device camera);
+
     construct {
         var spinner = new Gtk.Spinner ();
         spinner.active = true;
@@ -87,9 +91,12 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     private void on_device_added (owned Gst.Device device) {
+        camera_added (device);
         cameras.add ((owned) device);
         if (cameras.length == 1) {
-            start_view (0);
+            start_view (cameras.length - 1);
+        } else {
+            change_camera (cameras.length - 1);
         }
     }
 
@@ -110,9 +117,12 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             case DEVICE_REMOVED:
                 Gst.Device device;
                 message.parse_device_removed (out device);
+                camera_removed (device);
                 cameras.remove ((owned) device);
                 if (cameras.length == 0) {
                     visible_child = no_device_view;
+                } else {
+                    change_camera (0);
                 }
 
                 break;
@@ -132,12 +142,25 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
     }
 
-    public void start_view (int camera_number) {
-        unowned Gst.Device camera = cameras[camera_number];
-        visible_child = status_grid;
+    public void change_camera (int camera_number) {
+        if (recording) {
+            stop_recording ();
+        }
 
-        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
+        if (record_bin != null) {
+            record_bin.set_state (Gst.State.NULL);
+            record_bin.sync_state_with_parent ();
+            record_bin.sync_children_states ();
+        }
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.sync_children_states ();
 
+        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
+
+        create_pipeline (cameras[camera_number]);
+    }
+
+    private void create_pipeline (Gst.Device camera) {
         try {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
@@ -156,9 +179,11 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             var gtksink = pipeline.get_by_name ("gtksink");
-            Gtk.Widget gst_video_widget;
             gtksink.get ("widget", out gst_video_widget);
 
+            if (gst_video_widget != null) {
+                remove (gst_video_widget);
+            }
             add (gst_video_widget);
             gst_video_widget.show ();
 
@@ -176,6 +201,15 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     public void change_color_balance (double brightnesss, double contrast) {
         color_balance.set_property ("brightness", brightnesss);
         color_balance.set_property ("contrast", contrast);
+    }
+
+    public void start_view (int camera_number) {
+        unowned Gst.Device camera = cameras[camera_number];
+        visible_child = status_grid;
+
+        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
+
+        create_pipeline (camera);
     }
 
     public void take_photo () {
@@ -214,6 +248,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
                 Timeout.add (50, () => {
                     pipeline.set_state (Gst.State.PAUSED);
+                    snap_bin.set_state (Gst.State.NULL);
+                    snap_bin.sync_children_states ();
                     pipeline.remove (snap_bin);
                     pipeline.set_state (Gst.State.PLAYING);
                     recording = false;

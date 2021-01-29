@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"POT-Creation-Date: 2020-12-08 18:20+0000\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
@@ -22,42 +22,42 @@ msgstr ""
 msgid "Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:53
+#: src/Widgets/CameraView.vala:77
 msgid "No Supported Camera Found"
 msgstr "No Supported Camera Found"
 
-#: src/Widgets/CameraView.vala:54
+#: src/Widgets/CameraView.vala:78
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connect a webcam or other supported video device to take photos and video."
 
-#: src/Widgets/CameraView.vala:117
+#: src/Widgets/CameraView.vala:193
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:208
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Connecting to \"%s\"…"
 
-#: src/Widgets/CameraView.vala:148
-msgid "Unable To View Camera"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:308
+#: src/Widgets/CameraView.vala:355
 msgid "Photo taken"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:112
 msgid "Mirror"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:133
 msgid "Brightness"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:139
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:178
+#: src/Widgets/HeaderBar.vala:193
 msgid "Settings"
 msgstr ""
 

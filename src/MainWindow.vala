@@ -61,7 +61,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         default_theme.add_resource_path ("/io/elementary/camera");
 
         this.title = _("Camera");
-        this.icon_name = "accessories-camera";
+        icon_name = "io.elementary.camera";
         set_default_size (640, 480);
         set_size_request (436, 352);
         this.window_position = Gtk.WindowPosition.CENTER;
@@ -100,12 +100,16 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         add (window_handle);
 
         timer_running = false;
+        camera_view.camera_added.connect (header_bar.add_camera_option);
+        camera_view.camera_removed.connect (header_bar.remove_camera_option);
+        header_bar.request_camera_change.connect (camera_view.change_camera);
+
+        timer_running = false;
 
         camera_view.start ();
 
-        show_all ();
-
         header_bar.request_change_balance.connect (camera_view.change_color_balance);
+        show_all ();
     }
 
     private void on_fullscreen () {
