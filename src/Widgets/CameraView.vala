@@ -360,7 +360,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         tee.unlink (record_bin);
         pipeline.remove (record_bin);
         pipeline.set_state (Gst.State.PLAYING);
-        record_bin.set_state (Gst.State.PLAYING);
+        record_bin.set_state (Gst.State.NULL);
+        record_bin.dispose ();
         recording = false;
     }
 
