@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
 "PO-Revision-Date: 2021-03-01 04:55+0000\n"
-"Last-Translator: nayefj <n.abduljabbar@gmail.com>\n"
+"Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/>"
 "\n"
 "Language: ar\n"
@@ -37,13 +37,12 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:193
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "لا يمكن عرض الكاميرا"
 
 #: src/Widgets/CameraView.vala:208
-#, fuzzy, c-format
-#| msgid "Connecting to %s…"
+#, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "جاري الاتصال بـ \"%s\"…"
+msgstr "جاري الاتصال ب \"%s\"…"
 
 #: src/Widgets/CameraView.vala:355
 msgid "Photo taken"
@@ -55,15 +54,15 @@ msgstr "عكس الصورة"
 
 #: src/Widgets/HeaderBar.vala:133
 msgid "Brightness"
-msgstr ""
+msgstr "الإضاءة"
 
 #: src/Widgets/HeaderBar.vala:139
 msgid "Contrast"
-msgstr ""
+msgstr "التباين"
 
 #: src/Widgets/HeaderBar.vala:193
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -74,12 +73,12 @@ msgstr "مُعطَّل"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] "لاشيء"
-msgstr[1] "واحد"
-msgstr[2] "إثنان"
-msgstr[3] "رقم صغير"
-msgstr[4] "كثيرا"
-msgstr[5] "شيء آخر"
+msgstr[0] "صفر"
+msgstr[1] "ثانية"
+msgstr[2] "ثانيتان"
+msgstr[3] "%d ثواني"
+msgstr[4] "%d ثانية"
+msgstr[5] "%d ثانية"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
