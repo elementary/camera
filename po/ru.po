@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
 "PO-Revision-Date: 2021-03-02 20:16+0000\n"
-"Last-Translator: Katto <1uckycat@outlook.com>\n"
+"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
 ">\n"
 "Language: ru\n"
@@ -38,7 +38,7 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:193
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Не удалось найти камеру"
 
 #: src/Widgets/CameraView.vala:208
 #, fuzzy, c-format
@@ -51,7 +51,7 @@ msgstr "Фото сделано"
 
 #: src/Widgets/HeaderBar.vala:112
 msgid "Mirror"
-msgstr ""
+msgstr "Зеркальное изображение"
 
 #: src/Widgets/HeaderBar.vala:133
 msgid "Brightness"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:193
 msgid "Settings"
-msgstr ""
+msgstr "Параметры"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
