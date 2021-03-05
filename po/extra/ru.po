@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-18 19:37+0000\n"
-"PO-Revision-Date: 2021-03-02 20:16+0000\n"
+"PO-Revision-Date: 2021-03-05 18:46+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/extra/ru/>"
 "\n"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "Updated translations"
-msgstr "Обновленные переводы"
+msgstr "Обновлены переводы"
 
 #: data/io.elementary.camera.appdata.xml.in:59
 msgid "elementary LLC."
