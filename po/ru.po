@@ -7,47 +7,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
-"PO-Revision-Date: 2018-06-30 13:17+0000\n"
-"Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
-"Language-Team: Russian <https://weblate.elementary.io/projects/camera/camera/"
-"ru/>\n"
+"POT-Creation-Date: 2020-12-08 18:20+0000\n"
+"PO-Revision-Date: 2021-03-02 20:16+0000\n"
+"Last-Translator: Timka-dev <timurval2000@gmail.com>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "Камера"
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:77
 msgid "No Supported Camera Found"
 msgstr "Поддерживаемая камера не найдена"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:78
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Подключите веб-камеру или другое поддерживаемое видеоустройство для создания "
 "фото и видео."
 
-#: src/Widgets/CameraView.vala:115
-#, fuzzy, c-format
+#: src/Widgets/CameraView.vala:193
+msgid "Unable To View Camera"
+msgstr "Не удалось найти камеру"
+
+#: src/Widgets/CameraView.vala:208
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Подключение к «%s»…"
 
-#: src/Widgets/CameraView.vala:143
-msgid "Unable To View Camera"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:355
 msgid "Photo taken"
 msgstr "Фото сделано"
+
+#: src/Widgets/HeaderBar.vala:112
+msgid "Mirror"
+msgstr "Зеркальное изображение"
+
+#: src/Widgets/HeaderBar.vala:133
+msgid "Brightness"
+msgstr "Яркость"
+
+#: src/Widgets/HeaderBar.vala:139
+msgid "Contrast"
+msgstr "Контраст"
+
+#: src/Widgets/HeaderBar.vala:193
+msgid "Settings"
+msgstr "Параметры"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -58,9 +74,9 @@ msgstr "Отключен"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] "%d сек"
-msgstr[1] "%d сек"
-msgstr[2] "%d сек"
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"

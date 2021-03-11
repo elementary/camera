@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:15+0000\n"
+"POT-Creation-Date: 2020-11-18 19:37+0000\n"
 "PO-Revision-Date: 2018-05-27 16:59-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -45,7 +45,7 @@ msgid "Photo Booth"
 msgstr ""
 
 #: data/io.elementary.camera.desktop.in:8
-msgid "accessories-camera"
+msgid "io.elementary.camera"
 msgstr ""
 
 #: data/io.elementary.camera.desktop.in:11

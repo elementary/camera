@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 22:22+0000\n"
-"PO-Revision-Date: 2019-11-25 11:25+0000\n"
+"POT-Creation-Date: 2020-12-08 18:20+0000\n"
+"PO-Revision-Date: 2020-11-22 20:15+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/camera/mr/"
 ">\n"
@@ -17,35 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:52
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "कॅमेरा"
 
-#: src/Widgets/CameraView.vala:51
+#: src/Widgets/CameraView.vala:77
 msgid "No Supported Camera Found"
 msgstr "उपयुक्त असा कॅमेरा उपलब्ध नाही"
 
-#: src/Widgets/CameraView.vala:52
+#: src/Widgets/CameraView.vala:78
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "फोटो किंवा व्हिडिओ काढण्यासाठी वेबकॅम किंवा अन्य उपयुक्त कॅमेरा जोडा."
 
-#: src/Widgets/CameraView.vala:115
-#, fuzzy, c-format
-#| msgid "Connecting to %s…"
-msgid "Connecting to \"%s\"…"
-msgstr "%s ला जोडले जात आहे…"
-
-#: src/Widgets/CameraView.vala:143
+#: src/Widgets/CameraView.vala:193
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "कॅमेरा पाहण्यात अक्षम"
 
-#: src/Widgets/CameraView.vala:286
+#: src/Widgets/CameraView.vala:208
+#, c-format
+msgid "Connecting to \"%s\"…"
+msgstr "\"%s\" ला जोडले जात आहे…"
+
+#: src/Widgets/CameraView.vala:355
 msgid "Photo taken"
 msgstr "फोटो काढून झाला"
+
+#: src/Widgets/HeaderBar.vala:112
+msgid "Mirror"
+msgstr "मिरर"
+
+#: src/Widgets/HeaderBar.vala:133
+msgid "Brightness"
+msgstr "ब्राईटनेस"
+
+#: src/Widgets/HeaderBar.vala:139
+msgid "Contrast"
+msgstr "कॉन्ट्रास्ट"
+
+#: src/Widgets/HeaderBar.vala:193
+msgid "Settings"
+msgstr "सेटिंग"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

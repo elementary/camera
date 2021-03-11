@@ -33,6 +33,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private uint configure_id;
 
+    private bool timer_running;
+
     private Widgets.CameraView camera_view;
     private Widgets.HeaderBar header_bar;
 
@@ -46,11 +48,20 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     construct {
         Hdy.init ();
 
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
+
         weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
         default_theme.add_resource_path ("/io/elementary/camera");
 
         this.title = _("Camera");
-        this.icon_name = "accessories-camera";
+        icon_name = "io.elementary.camera";
         set_default_size (640, 480);
         set_size_request (436, 352);
         this.window_position = Gtk.WindowPosition.CENTER;
@@ -58,6 +69,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         header_bar = new Widgets.HeaderBar ();
 
         camera_view = new Widgets.CameraView ();
+        camera_view.bind_property ("horizontal-flip", header_bar, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL | GLib.BindingFlags.SYNC_CREATE);
 
         var revealer = new Gtk.Revealer ();
         revealer.transition_type = Gtk.RevealerTransitionType.CROSSFADE;
@@ -71,9 +83,18 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         window_handle.add (overlay);
 
         add (window_handle);
-        
+
+        timer_running = false;
+        camera_view.camera_added.connect (header_bar.add_camera_option);
+        camera_view.camera_removed.connect (header_bar.remove_camera_option);
+        header_bar.request_camera_change.connect (camera_view.change_camera);
+
+        timer_running = false;
+
         camera_view.start ();
-        
+
+        header_bar.request_change_balance.connect (camera_view.change_color_balance);
+
         show_all ();
 
         enter_notify_event.connect (() => {
@@ -94,11 +115,17 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void on_take_photo () {
+        if (timer_running) {
+            return;
+        }
+
         var delay = header_bar.timer_delay;
         header_bar.start_timeout (delay);
+        timer_running = true;
 
         GLib.Timeout.add_seconds (delay, () => {
             camera_view.take_photo ();
+            timer_running = false;
             return GLib.Source.REMOVE;
         });
     }

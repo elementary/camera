@@ -10,10 +10,13 @@ The camera app designed for elementary OS
 
 You'll need the following dependencies:
 
+ - gstreamer1.0-gtk3
  - libcanberra-dev
  - libclutter-gst-3.0-dev
  - libclutter-gtk-1.0-dev
  - libgranite-dev
+ - libgstreamer1.0-dev
+ - libgstreamer-plugins-base1.0-dev
  - libgtk-3.0-dev
  - libhandy-1-dev
  - meson >= 0.43

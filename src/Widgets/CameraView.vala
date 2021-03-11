@@ -24,14 +24,40 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gtk.Grid status_grid;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
+    Gtk.Widget gst_video_widget;
 
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
+    private Gst.Video.ColorBalance color_balance;
+    private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
 
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
     private GenericArray<Gst.Device> cameras = new GenericArray<Gst.Device> ();
     public bool recording { get; private set; default = false; }
+    public bool horizontal_flip {
+        get {
+            if (hflip == null) {
+                return true;
+            }
+
+            return hflip.video_direction == Gst.Video.OrientationMethod.HORIZ;
+        }
+        set {
+            if (hflip == null) {
+                return;
+            }
+
+            if (hflip.video_direction == Gst.Video.OrientationMethod.IDENTITY) {
+                hflip.video_direction = Gst.Video.OrientationMethod.HORIZ;
+            } else {
+                hflip.video_direction = Gst.Video.OrientationMethod.IDENTITY;
+            }
+        }
+    }
+
+    public signal void camera_added (Gst.Device camera);
+    public signal void camera_removed (Gst.Device camera);
 
     construct {
         var spinner = new Gtk.Spinner ();
@@ -63,9 +89,12 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     private void on_device_added (owned Gst.Device device) {
+        camera_added (device);
         cameras.add ((owned) device);
         if (cameras.length == 1) {
-            start_view (0);
+            start_view (cameras.length - 1);
+        } else {
+            change_camera (cameras.length - 1);
         }
     }
 
@@ -86,9 +115,12 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             case DEVICE_REMOVED:
                 Gst.Device device;
                 message.parse_device_removed (out device);
+                camera_removed (device);
                 cameras.remove ((owned) device);
                 if (cameras.length == 0) {
                     visible_child = no_device_view;
+                } else {
+                    change_camera (0);
                 }
 
                 break;
@@ -108,17 +140,31 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
     }
 
-    public void start_view (int camera_number) {
-        unowned Gst.Device camera = cameras[camera_number];
-        visible_child = status_grid;
+    public void change_camera (int camera_number) {
+        if (recording) {
+            stop_recording ();
+        }
 
-        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
+        if (record_bin != null) {
+            record_bin.set_state (Gst.State.NULL);
+            record_bin.sync_state_with_parent ();
+            record_bin.sync_children_states ();
+        }
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.sync_children_states ();
 
+        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
+
+        create_pipeline (cameras[camera_number]);
+    }
+
+    private void create_pipeline (Gst.Device camera) {
         try {
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
-                "videoflip method=horizontal-flip ! " +
+                "videoflip method=horizontal-flip name=hflip ! " +
+                "videobalance name=balance ! " +
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
                 "videoconvert ! " +
@@ -127,11 +173,15 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             tee = pipeline.get_by_name ("tee");
+            hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
+            color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             var gtksink = pipeline.get_by_name ("gtksink");
-            Gtk.Widget gst_video_widget;
             gtksink.get ("widget", out gst_video_widget);
 
+            if (gst_video_widget != null) {
+                remove (gst_video_widget);
+            }
             add (gst_video_widget);
             gst_video_widget.show ();
 
@@ -144,6 +194,20 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             dialog.run ();
             dialog.destroy ();
         }
+    }
+
+    public void change_color_balance (double brightnesss, double contrast) {
+        color_balance.set_property ("brightness", brightnesss);
+        color_balance.set_property ("contrast", contrast);
+    }
+
+    public void start_view (int camera_number) {
+        unowned Gst.Device camera = cameras[camera_number];
+        visible_child = status_grid;
+
+        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
+
+        create_pipeline (camera);
     }
 
     public void take_photo () {
@@ -177,8 +241,13 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             filesink["buffer-size"] = 1;
             filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
             filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
-                Idle.add (() => {
+                // Must allow enough time for data to be flushed to disk before removing snapbin
+                //TODO Find more elegant way to do this.
+
+                Timeout.add (50, () => {
                     pipeline.set_state (Gst.State.PAUSED);
+                    snap_bin.set_state (Gst.State.NULL);
+                    snap_bin.sync_children_states ();
                     pipeline.remove (snap_bin);
                     pipeline.set_state (Gst.State.PLAYING);
                     recording = false;
