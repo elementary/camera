@@ -79,8 +79,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         recording_finished_toast.set_data ("location", "");
         recording_finished_toast.default_action.connect (() => {
             var file_path = recording_finished_toast.get_data<string> ("location");
-            var dirname = Path.get_dirname (file_path);
-            AppInfo.launch_default_for_uri (@"file://$dirname", null);
+            AppInfo.launch_default_for_uri (file_path.get_parent ().get_uri (), null);
         });
         overlay.add_overlay (recording_finished_toast);
 
