@@ -79,13 +79,21 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         recording_finished_toast.set_data ("location", "");
         recording_finished_toast.default_action.connect (() => {
             var file_path = recording_finished_toast.get_data<string> ("location");
-            AppInfo.launch_default_for_uri (file_path.get_parent ().get_uri (), null);
+            var file = GLib.File.new_for_path (file_path);
+            AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), null);           
         });
         overlay.add_overlay (recording_finished_toast);
 
+        var recording_finished_fail_toast = new Granite.Widgets.Toast (_("Recording failed"));
+        overlay.add_overlay (recording_finished_fail_toast);
+
         camera_view.recording_finished.connect ((file_path) => {
-            recording_finished_toast.set_data ("location", file_path);
-            recording_finished_toast.send_notification ();
+            if (file_path == "") {
+                recording_finished_fail_toast.send_notification ();
+            } else {
+                recording_finished_toast.set_data ("location", file_path);
+                recording_finished_toast.send_notification ();
+            }
         });
 
 
