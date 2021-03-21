@@ -3,7 +3,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
 "PO-Revision-Date: 2021-03-21 15:59+0000\n"
-"Last-Translator: Qodirov Shohijahon <tasaddux@gmail.com>\n"
+"Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/camera/camera/uz/>"
 "\n"
 "Language: uz\n"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:133
 msgid "Brightness"
-msgstr "Yorug'lik"
+msgstr "Yorqinlik"
 
 #: src/Widgets/HeaderBar.vala:139
 msgid "Contrast"
@@ -59,7 +59,7 @@ msgstr "Sozlamalar"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "O'chirilgan"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
