@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
-"PO-Revision-Date: 2021-03-21 15:59+0000\n"
-"Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
+"PO-Revision-Date: 2021-03-21 16:06+0000\n"
+"Last-Translator: Qodirov Shohijahon <tasaddux@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/camera/camera/uz/>"
 "\n"
 "Language: uz\n"
@@ -59,7 +59,7 @@ msgstr "Sozlamalar"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr "O'chirilgan"
+msgstr "Ilojsiz"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
