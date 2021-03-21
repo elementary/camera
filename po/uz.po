@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
-"PO-Revision-Date: 2021-03-21 15:58+0000\n"
-"Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
+"PO-Revision-Date: 2021-03-21 15:59+0000\n"
+"Last-Translator: Qodirov Shohijahon <tasaddux@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/camera/camera/uz/>"
 "\n"
 "Language: uz\n"
@@ -51,11 +51,11 @@ msgstr "Yorug'lik"
 
 #: src/Widgets/HeaderBar.vala:139
 msgid "Contrast"
-msgstr ""
+msgstr "Kontrast"
 
 #: src/Widgets/HeaderBar.vala:193
 msgid "Settings"
-msgstr ""
+msgstr "Sozlamalar"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -66,9 +66,9 @@ msgstr ""
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d soniya"
+msgstr[1] "%d soniya"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Rasmga olishdan oldin biroz kutish"
