@@ -3,7 +3,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
 "PO-Revision-Date: 2021-03-21 15:58+0000\n"
-"Last-Translator: Qodirov Shohijahon <tasaddux@gmail.com>\n"
+"Last-Translator: Shukrullo Turgunov <shookrullo@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/camera/camera/uz/>"
 "\n"
 "Language: uz\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:193
 msgid "Unable To View Camera"
-msgstr "Kamerani ko'rishning iloji yo'q"
+msgstr "Kamera topilmadi"
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
