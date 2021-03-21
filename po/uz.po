@@ -2,12 +2,20 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
+"PO-Revision-Date: 2021-03-21 15:57+0000\n"
+"Last-Translator: Qodirov Shohijahon <tasaddux@gmail.com>\n"
+"Language-Team: Uzbek <https://l10n.elementary.io/projects/camera/camera/uz/>"
+"\n"
+"Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: src/MainWindow.vala:63
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/Widgets/CameraView.vala:77
 msgid "No Supported Camera Found"
@@ -17,10 +25,12 @@ msgstr ""
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Tasvirga olish uchun kamera yoki boshqa biror qo'llab quvvatlovchi video "
+"qurilmani ulang."
 
 #: src/Widgets/CameraView.vala:193
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Kamerani ko'rishning iloji yo'q"
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
