@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-08 18:20+0000\n"
-"PO-Revision-Date: 2021-03-21 15:57+0000\n"
+"PO-Revision-Date: 2021-03-21 15:58+0000\n"
 "Last-Translator: Qodirov Shohijahon <tasaddux@gmail.com>\n"
 "Language-Team: Uzbek <https://l10n.elementary.io/projects/camera/camera/uz/>"
 "\n"
@@ -35,11 +35,11 @@ msgstr "Kamerani ko'rishning iloji yo'q"
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "%s ga ulanish"
 
 #: src/Widgets/CameraView.vala:355
 msgid "Photo taken"
-msgstr ""
+msgstr "Rasmga olindi"
 
 #: src/Widgets/HeaderBar.vala:112
 msgid "Mirror"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:133
 msgid "Brightness"
-msgstr ""
+msgstr "Yorug'lik"
 
 #: src/Widgets/HeaderBar.vala:139
 msgid "Contrast"
