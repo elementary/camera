@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"POT-Creation-Date: 2021-04-07 18:50+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/camera/extra/zh/"
@@ -38,7 +38,7 @@ msgid "Updated translations"
 msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:59
-msgid "elementary LLC."
+msgid "elementary, Inc."
 msgstr ""
 
 #: data/io.elementary.camera.desktop.in:6

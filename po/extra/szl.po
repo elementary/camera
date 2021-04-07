@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-18 19:37+0000\n"
+"POT-Creation-Date: 2021-04-07 18:50+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/extra/"
@@ -33,7 +33,9 @@ msgid "Updated translations"
 msgstr "Zaktualizowane przekłady"
 
 #: data/io.elementary.camera.appdata.xml.in:59
-msgid "elementary LLC."
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
