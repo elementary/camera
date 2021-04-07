@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 18:20+0000\n"
+"POT-Creation-Date: 2021-04-07 18:50+0000\n"
 "PO-Revision-Date: 2018-10-19 06:13+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/camera/camera/"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Connecting to \"%s\"…"
 msgstr "Ansluter till \"%s\"…"
 
-#: src/Widgets/CameraView.vala:355
+#: src/Widgets/CameraView.vala:376
 msgid "Photo taken"
 msgstr "Foto taget"
 

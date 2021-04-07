@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 18:20+0000\n"
+"POT-Creation-Date: 2021-04-07 18:50+0000\n"
 "PO-Revision-Date: 2021-03-02 20:16+0000\n"
 "Last-Translator: Timka-dev <timurval2000@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
@@ -45,7 +45,7 @@ msgstr "Не удалось найти камеру"
 msgid "Connecting to \"%s\"…"
 msgstr "Подключение к «%s»…"
 
-#: src/Widgets/CameraView.vala:355
+#: src/Widgets/CameraView.vala:376
 msgid "Photo taken"
 msgstr "Фото сделано"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 18:20+0000\n"
+"POT-Creation-Date: 2021-04-07 18:50+0000\n"
 "PO-Revision-Date: 2015-12-24 11:24+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:355
+#: src/Widgets/CameraView.vala:376
 msgid "Photo taken"
 msgstr ""
 
