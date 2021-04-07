@@ -304,6 +304,23 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("webmmux");
         }
 
+        var alsasrc = Gst.ElementFactory.make ("alsasrc", null);
+        if (alsasrc == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("alsasrc");
+        }
+
+        var audio_queue = Gst.ElementFactory.make ("queue", null);
+
+        var audio_convert = Gst.ElementFactory.make ("audioconvert", null);
+        if (audio_convert == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("audioconvert");
+        }
+
+        var audio_vorbis = Gst.ElementFactory.make ("vorbisenc", null);
+        if (audio_vorbis == null) {
+            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("vorbisenc");
+        }
+
         var filesink = Gst.ElementFactory.make ("filesink", null);
         if (filesink == null) {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
@@ -319,6 +336,9 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         record_bin.add_many (queue, videoconvert, encoder, muxer, filesink);
         queue.link_many (videoconvert, encoder, muxer, filesink);
+
+        record_bin.add_many (alsasrc, audio_queue, audio_convert, audio_vorbis);
+        alsasrc.link_many (audio_queue, audio_convert, audio_vorbis, muxer);
 
         var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
         record_bin.add_pad (ghostpad);
@@ -340,7 +360,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         tee.unlink (record_bin);
         pipeline.remove (record_bin);
         pipeline.set_state (Gst.State.PLAYING);
-        record_bin.set_state (Gst.State.PLAYING);
+        record_bin.set_state (Gst.State.NULL);
+        record_bin.dispose ();
         recording = false;
     }
 
