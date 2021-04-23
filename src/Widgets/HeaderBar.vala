@@ -109,25 +109,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var mirror_label = new Gtk.Label (_("Mirror")) {
-            hexpand = true,
-            halign = Gtk.Align.START
-        };
-
-        var mirror_switch = new Gtk.Switch ();
+        var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
         mirror_switch.bind_property ("active", this, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL);
-
-        var mirror_grid = new Gtk.Grid ();
-        mirror_grid.add (mirror_label);
-        mirror_grid.add (mirror_switch);
-
-        var mirror_menuitem = new Gtk.ModelButton ();
-        mirror_menuitem.get_child ().destroy ();
-        mirror_menuitem.add (mirror_grid);
-        mirror_menuitem.button_release_event.connect (() => {
-            mirror_switch.activate ();
-            return Gdk.EVENT_STOP;
-        });
 
         var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
         var brightness_label = new Gtk.Label (_("Brightness")) {
@@ -181,7 +164,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             margin_bottom = 3
         };
         menu_popover_grid.attach (image_settings, 0, 0);
-        menu_popover_grid.attach (mirror_menuitem, 0, 1);
+        menu_popover_grid.attach (mirror_switch, 0, 1);
         menu_popover_grid.show_all ();
 
         var popover = new Gtk.Popover (null);
