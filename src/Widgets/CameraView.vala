@@ -58,6 +58,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     public signal void camera_added (Gst.Device camera);
     public signal void camera_removed (Gst.Device camera);
+    public signal void camera_present (bool present);
 
     construct {
         var spinner = new Gtk.Spinner ();
@@ -96,6 +97,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         } else {
             change_camera (cameras.length - 1);
         }
+        camera_present (true);
     }
 
     private bool on_bus_message (Gst.Bus bus, Gst.Message message) {
@@ -118,6 +120,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 camera_removed (device);
                 cameras.remove ((owned) device);
                 if (cameras.length == 0) {
+                    no_device_view.show ();
+                    camera_present (false);
                     visible_child = no_device_view;
                 } else {
                     change_camera (0);
@@ -136,7 +140,11 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         monitor.start ();
 
         if (cameras.length == 0) {
+            no_device_view.show ();
+            camera_present (false);
             visible_child = no_device_view;
+        } else {
+            camera_present (true);
         }
     }
 
@@ -188,6 +196,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             visible_child = gst_video_widget;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
+            no_device_view.show ();
+            camera_present (false);
             visible_child = no_device_view;
 
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");

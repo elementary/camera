@@ -30,8 +30,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Widgets.TimerButton timer_button;
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
+    private Gtk.Grid linked_box;
     private Gtk.Button take_button;
     private Gtk.MenuButton camera_menu_button;
+    private Gtk.MenuButton menu_button;
     private Gtk.Revealer camera_menu_revealer;
     private Gtk.Menu camera_options;
     private Gtk.Image take_image;
@@ -170,7 +172,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var popover = new Gtk.Popover (null);
         popover.add (menu_popover_grid);
 
-        var menu_button = new Gtk.MenuButton () {
+        menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
             popover = popover,
             tooltip_text = _("Settings")
@@ -194,7 +196,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         };
         camera_menu_revealer.add (camera_menu_button);
 
-        var linked_box = new Gtk.Grid ();
+        linked_box = new Gtk.Grid ();
         linked_box.add (take_button);
         linked_box.add (camera_menu_revealer);
 
@@ -239,6 +241,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         });
 
         mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+    }
+
+    public void enable_all_controls (bool enabled) {
+        linked_box.sensitive = enabled;
+        mode_switch.sensitive = enabled;
+        menu_button.sensitive = enabled;
+        timer_button.sensitive = enabled;
     }
 
     public void add_camera_option (Gst.Device camera) {
