@@ -42,7 +42,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     public bool recording { get; set; default = false; }
     public bool horizontal_flip { get; set; default = true; }
 
-    public signal void request_camera_change (int camera_id);
+    public signal void request_camera_change (string display_name);
 
     public int timer_delay {
         get {
@@ -250,8 +250,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         timer_button.sensitive = enabled;
     }
 
-    public void add_camera_option (Gst.Device camera) {
-        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.get_display_name ());
+    public void add_camera_option (string name) {
+        var menuitem = new Gtk.RadioMenuItem.with_label (null, name);
         camera_options.append (menuitem);
 
         int i = (int) camera_options.get_children ().length () - 1;
@@ -261,18 +261,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
         menuitem.active = true;
         menuitem.activate.connect (() => {
-            request_camera_change (i);
+            request_camera_change (menuitem.label);
         });
         menuitem.show ();
 
         update_take_button ();
     }
 
-    public void remove_camera_option (Gst.Device camera) {
+    public void remove_camera_option (string remove_name) {
         Gtk.Widget to_remove = null;
         foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
             var name = ((Gtk.MenuItem) menuitem).label;
-            if (name == camera.get_display_name ()) {
+            if (name == remove_name) {
                 to_remove = menuitem;
                 break;
             }
