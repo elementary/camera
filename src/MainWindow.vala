@@ -80,7 +80,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         recording_finished_toast.default_action.connect (() => {
             var file_path = recording_finished_toast.get_data<string> ("location");
             var file = GLib.File.new_for_path (file_path);
-            AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), null);
+            try {
+                AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), new Gdk.AppLaunchContext ());
+            } catch (Error e) {
+                warning ("Error launching file manager: %s", e.message);
+            }
         });
         overlay.add_overlay (recording_finished_toast);
 
