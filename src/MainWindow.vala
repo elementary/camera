@@ -71,9 +71,39 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_view = new Widgets.CameraView ();
         camera_view.bind_property ("horizontal-flip", header_bar, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL | GLib.BindingFlags.SYNC_CREATE);
 
+        var overlay = new Gtk.Overlay ();
+        overlay.add (camera_view);
+
+        var recording_finished_toast = new Granite.Widgets.Toast (_("Saved to Videos"));
+        recording_finished_toast.set_default_action (_("View File"));
+        recording_finished_toast.set_data ("location", "");
+        recording_finished_toast.default_action.connect (() => {
+            var file_path = recording_finished_toast.get_data<string> ("location");
+            var file = GLib.File.new_for_path (file_path);
+            try {
+                AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), new Gdk.AppLaunchContext ());
+            } catch (Error e) {
+                warning ("Error launching file manager: %s", e.message);
+            }
+        });
+        overlay.add_overlay (recording_finished_toast);
+
+        var recording_finished_fail_toast = new Granite.Widgets.Toast (_("Recording failed"));
+        overlay.add_overlay (recording_finished_fail_toast);
+
+        camera_view.recording_finished.connect ((file_path) => {
+            if (file_path == "") {
+                recording_finished_fail_toast.send_notification ();
+            } else {
+                recording_finished_toast.set_data ("location", file_path);
+                recording_finished_toast.send_notification ();
+            }
+        });
+
+
         var grid = new Gtk.Grid ();
         grid.attach (header_bar, 0, 0);
-        grid.attach (camera_view, 0, 1);
+        grid.attach (overlay, 0, 1);
 
         var window_handle = new Hdy.WindowHandle ();
         window_handle.add (grid);

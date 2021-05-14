@@ -21,6 +21,8 @@
  */
 
 public class Camera.Widgets.CameraView : Gtk.Stack {
+    public signal void recording_finished (string file_path);
+
     private Gtk.Grid status_grid;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
@@ -367,7 +369,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("vorbisenc");
         }
 
-        var filesink = Gst.ElementFactory.make ("filesink", null);
+        var filesink = Gst.ElementFactory.make ("filesink", "filesink");
         if (filesink == null) {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
         } else {
@@ -404,6 +406,15 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         pipeline.set_state (Gst.State.PAUSED);
         tee.unlink (record_bin);
+        var filesink = record_bin.get_by_name ("filesink");
+
+        if (filesink != null) {
+            var locationval = GLib.Value (typeof (string));
+            filesink.get_property ("location", ref locationval);
+            string location = locationval.get_string ();
+            recording_finished (location);
+        }
+
         pipeline.remove (record_bin);
         pipeline.set_state (Gst.State.PLAYING);
         record_bin.set_state (Gst.State.NULL);
