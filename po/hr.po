@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Aleksandar Kovač <alex.open.design@gmail.com>\n"
 "Language-Team: Croatian <https://l10n.elementary.io/projects/camera/camera/"
@@ -25,43 +25,60 @@ msgstr ""
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/Widgets/CameraView.vala:77
+#: src/MainWindow.vala:77
+msgid "Saved to Videos"
+msgstr ""
+
+#: src/MainWindow.vala:78
+msgid "View File"
+msgstr ""
+
+#: src/MainWindow.vala:91
+msgid "Recording failed"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
 msgstr "Nema pronađene podržane kamere"
 
-#: src/Widgets/CameraView.vala:78
+#: src/Widgets/CameraView.vala:81
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Povežite web kameru ili drugi podržani video uređaj kako bi uslikali "
 "fotografiju ili snimili video snimku."
 
-#: src/Widgets/CameraView.vala:193
+#: src/Widgets/CameraView.vala:208
+#, c-format
+msgid "%s could not be found"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:208
+#: src/Widgets/CameraView.vala:256
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Povezivanje s \"%s\"…"
 
-#: src/Widgets/CameraView.vala:376
+#: src/Widgets/CameraView.vala:433
 msgid "Photo taken"
 msgstr "Fotografija je slikana"
 
-#: src/Widgets/HeaderBar.vala:112
+#: src/Widgets/HeaderBar.vala:114
 msgid "Mirror"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:133
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:139
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:193
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr ""
 

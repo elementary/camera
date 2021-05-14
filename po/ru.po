@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2021-03-02 20:16+0000\n"
 "Last-Translator: Timka-dev <timurval2000@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
@@ -25,43 +25,60 @@ msgstr ""
 msgid "Camera"
 msgstr "Камера"
 
-#: src/Widgets/CameraView.vala:77
+#: src/MainWindow.vala:77
+msgid "Saved to Videos"
+msgstr ""
+
+#: src/MainWindow.vala:78
+msgid "View File"
+msgstr ""
+
+#: src/MainWindow.vala:91
+msgid "Recording failed"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
 msgstr "Поддерживаемая камера не найдена"
 
-#: src/Widgets/CameraView.vala:78
+#: src/Widgets/CameraView.vala:81
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Подключите веб-камеру или другое поддерживаемое видеоустройство для создания "
 "фото и видео."
 
-#: src/Widgets/CameraView.vala:193
+#: src/Widgets/CameraView.vala:208
+#, c-format
+msgid "%s could not be found"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
 msgstr "Не удалось найти камеру"
 
-#: src/Widgets/CameraView.vala:208
+#: src/Widgets/CameraView.vala:256
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Подключение к «%s»…"
 
-#: src/Widgets/CameraView.vala:376
+#: src/Widgets/CameraView.vala:433
 msgid "Photo taken"
 msgstr "Фото сделано"
 
-#: src/Widgets/HeaderBar.vala:112
+#: src/Widgets/HeaderBar.vala:114
 msgid "Mirror"
 msgstr "Зеркальное изображение"
 
-#: src/Widgets/HeaderBar.vala:133
+#: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
 msgstr "Яркость"
 
-#: src/Widgets/HeaderBar.vala:139
+#: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
 msgstr "Контраст"
 
-#: src/Widgets/HeaderBar.vala:193
+#: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
 msgstr "Параметры"
 
