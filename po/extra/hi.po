@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/camera/extra/hi/>\n"
@@ -18,25 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.5.1\n"
 
-#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr "कैमरा"
 
-#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr "कैमरे का उपयोग करके फ़ोटो और वीडियो निकालें"
 
-#: data/io.elementary.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "कैमरा एक वेब कैमरा का उपयोग कर तस्वीरें लेने के लिए एक सरल अनुप्रयोग है।"
 
-#: data/io.elementary.camera.appdata.xml.in:17
+#: data/io.elementary.camera.appdata.xml.in:18
 msgid "Updated translations"
 msgstr ""
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:60
 #, fuzzy
 #| msgid "elementary LLC."
 msgid "elementary, Inc."

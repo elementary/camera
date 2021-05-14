@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2021-04-10 19:58+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
-"Language-Team: Spanish <https://l10n.elementary.io/projects/camera/extra/es/>"
-"\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/camera/extra/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,26 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr "Cámara"
 
-#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr "Capture fotos y vídeos con la cámara"
 
-#: data/io.elementary.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "Cámara es una aplicación sencilla para capturar fotos con una cámara web."
 
-#: data/io.elementary.camera.appdata.xml.in:17
+#: data/io.elementary.camera.appdata.xml.in:18
 msgid "Updated translations"
 msgstr "Traducciones actualizadas"
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:60
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

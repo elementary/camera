@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/extra/"
@@ -14,25 +14,25 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr "Kamera"
 
-#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr "Rōb kamerōm fotografije i filmy"
 
-#: data/io.elementary.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Kamera to prosty program do robiynio kamerōm fotografiji."
 
-#: data/io.elementary.camera.appdata.xml.in:17
+#: data/io.elementary.camera.appdata.xml.in:18
 msgid "Updated translations"
 msgstr "Zaktualizowane przekłady"
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:60
 #, fuzzy
 #| msgid "elementary LLC."
 msgid "elementary, Inc."

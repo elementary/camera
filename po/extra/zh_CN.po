@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2021-04-13 07:46+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -19,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr "相机"
 
-#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr "使用相机拍摄照片和视频"
 
-#: data/io.elementary.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "相机是一个简约的拍照应用。"
 
-#: data/io.elementary.camera.appdata.xml.in:17
+#: data/io.elementary.camera.appdata.xml.in:18
 msgid "Updated translations"
 msgstr "更新翻译"
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:60
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

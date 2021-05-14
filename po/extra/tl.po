@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2019-01-09 11:51+0000\n"
 "Last-Translator: Cody Garver <cody@elementary.io>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/camera/extra/"
@@ -20,27 +20,27 @@ msgstr ""
 "|| n % 10 == 6 || n % 10 == 9);\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: data/io.elementary.camera.appdata.xml.in:8
+#: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr "Kamera"
 
-#: data/io.elementary.camera.appdata.xml.in:9
+#: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr "Kumuha ng mga larawan at mga video gamit ang kamera"
 
-#: data/io.elementary.camera.appdata.xml.in:11
+#: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "Ang Kamera ay isang simpleng app upang makakuha ng mga larawan gamit ang "
 "webcam."
 
-#: data/io.elementary.camera.appdata.xml.in:17
+#: data/io.elementary.camera.appdata.xml.in:18
 msgid "Updated translations"
 msgstr ""
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:60
 #, fuzzy
 #| msgid "elementary LLC."
 msgid "elementary, Inc."
