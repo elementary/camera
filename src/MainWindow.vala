@@ -81,7 +81,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             var file_path = recording_finished_toast.get_data<string> ("location");
             var file = GLib.File.new_for_path (file_path);
             try {
-                AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), new Gdk.AppLaunchContext ());
+                var context = get_display ().get_app_launch_context ();
+                context.set_timestamp (Gtk.get_current_event_time ());
+                AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), context);
             } catch (Error e) {
                 warning ("Error launching file manager: %s", e.message);
             }
