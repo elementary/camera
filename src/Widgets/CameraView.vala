@@ -93,7 +93,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             if (cameras.size == 1) {
                 start_view (cameras.keys.to_array ()[0]);
             } else {
-                change_camera (cameras.keys.to_array ()[-1]);
+                int num_cams = cameras.keys.size;
+                change_camera (cameras.keys.to_array ()[num_cams-1]);
             }
 
             camera_present (true);
