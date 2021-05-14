@@ -30,8 +30,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Widgets.TimerButton timer_button;
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
+    private Gtk.Grid linked_box;
     private Gtk.Button take_button;
     private Gtk.MenuButton camera_menu_button;
+    private Gtk.MenuButton menu_button;
     private Gtk.Revealer camera_menu_revealer;
     private Gtk.Menu camera_options;
     private Gtk.Image take_image;
@@ -40,7 +42,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     public bool recording { get; set; default = false; }
     public bool horizontal_flip { get; set; default = true; }
 
-    public signal void request_camera_change (int camera_id);
+    public signal void request_camera_change (string display_name);
 
     public int timer_delay {
         get {
@@ -109,25 +111,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC);
         mode_switch.valign = Gtk.Align.CENTER;
 
-        var mirror_label = new Gtk.Label (_("Mirror")) {
-            hexpand = true,
-            halign = Gtk.Align.START
-        };
-
-        var mirror_switch = new Gtk.Switch ();
+        var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
         mirror_switch.bind_property ("active", this, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL);
-
-        var mirror_grid = new Gtk.Grid ();
-        mirror_grid.add (mirror_label);
-        mirror_grid.add (mirror_switch);
-
-        var mirror_menuitem = new Gtk.ModelButton ();
-        mirror_menuitem.get_child ().destroy ();
-        mirror_menuitem.add (mirror_grid);
-        mirror_menuitem.button_release_event.connect (() => {
-            mirror_switch.activate ();
-            return Gdk.EVENT_STOP;
-        });
 
         var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
         var brightness_label = new Gtk.Label (_("Brightness")) {
@@ -181,13 +166,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             margin_bottom = 3
         };
         menu_popover_grid.attach (image_settings, 0, 0);
-        menu_popover_grid.attach (mirror_menuitem, 0, 1);
+        menu_popover_grid.attach (mirror_switch, 0, 1);
         menu_popover_grid.show_all ();
 
         var popover = new Gtk.Popover (null);
         popover.add (menu_popover_grid);
 
-        var menu_button = new Gtk.MenuButton () {
+        menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
             popover = popover,
             tooltip_text = _("Settings")
@@ -211,7 +196,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         };
         camera_menu_revealer.add (camera_menu_button);
 
-        var linked_box = new Gtk.Grid ();
+        linked_box = new Gtk.Grid ();
         linked_box.add (take_button);
         linked_box.add (camera_menu_revealer);
 
@@ -258,8 +243,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
     }
 
-    public void add_camera_option (Gst.Device camera) {
-        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.get_display_name ());
+    public void enable_all_controls (bool enabled) {
+        linked_box.sensitive = enabled;
+        mode_switch.sensitive = enabled;
+        menu_button.sensitive = enabled;
+        timer_button.sensitive = enabled;
+    }
+
+    public void add_camera_option (string name) {
+        var menuitem = new Gtk.RadioMenuItem.with_label (null, name);
         camera_options.append (menuitem);
 
         int i = (int) camera_options.get_children ().length () - 1;
@@ -269,18 +261,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
         menuitem.active = true;
         menuitem.activate.connect (() => {
-            request_camera_change (i);
+            request_camera_change (menuitem.label);
         });
         menuitem.show ();
 
         update_take_button ();
     }
 
-    public void remove_camera_option (Gst.Device camera) {
+    public void remove_camera_option (string remove_name) {
         Gtk.Widget to_remove = null;
         foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
             var name = ((Gtk.MenuItem) menuitem).label;
-            if (name == camera.get_display_name ()) {
+            if (name == remove_name) {
                 to_remove = menuitem;
                 break;
             }

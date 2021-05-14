@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-08 18:20+0000\n"
-"PO-Revision-Date: 2021-01-19 20:59+0000\n"
+"POT-Creation-Date: 2021-04-07 18:50+0000\n"
+"PO-Revision-Date: 2021-05-10 23:36+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/camera/camera/de/>"
 "\n"
@@ -36,7 +36,6 @@ msgstr ""
 "Videokamera anschließen."
 
 #: src/Widgets/CameraView.vala:193
-#, fuzzy
 msgid "Unable To View Camera"
 msgstr "Kamera nicht erkannt"
 
@@ -45,7 +44,7 @@ msgstr "Kamera nicht erkannt"
 msgid "Connecting to \"%s\"…"
 msgstr "Verbinden mit »%s« …"
 
-#: src/Widgets/CameraView.vala:355
+#: src/Widgets/CameraView.vala:376
 msgid "Photo taken"
 msgstr "Foto aufgenommen"
 
