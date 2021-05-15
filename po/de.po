@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
-"PO-Revision-Date: 2021-05-10 23:36+0000\n"
+"PO-Revision-Date: 2021-05-15 14:58+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/camera/camera/de/"
-">\n"
+"Language-Team: German <https://l10n.elementary.io/projects/camera/camera/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,15 +26,15 @@ msgstr "Kamera"
 
 #: src/MainWindow.vala:77
 msgid "Saved to Videos"
-msgstr ""
+msgstr "In Videos gespeichert"
 
 #: src/MainWindow.vala:78
 msgid "View File"
-msgstr ""
+msgstr "Datei anzeigen"
 
 #: src/MainWindow.vala:91
 msgid "Recording failed"
-msgstr ""
+msgstr "Aufnahme fehlgeschlagen"
 
 #: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
@@ -50,7 +50,7 @@ msgstr ""
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "%s could not be found"
-msgstr ""
+msgstr "%s nicht gefunden"
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
