@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
-"PO-Revision-Date: 2021-03-16 14:01+0000\n"
+"PO-Revision-Date: 2021-05-17 01:20+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/camera/"
 "ja/>\n"
@@ -26,15 +26,15 @@ msgstr "カメラ"
 
 #: src/MainWindow.vala:77
 msgid "Saved to Videos"
-msgstr ""
+msgstr "“ビデオ” フォルダーに保存しました"
 
 #: src/MainWindow.vala:78
 msgid "View File"
-msgstr ""
+msgstr "ファイルを表示"
 
 #: src/MainWindow.vala:91
 msgid "Recording failed"
-msgstr ""
+msgstr "録画できませんでした"
 
 #: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
@@ -50,7 +50,7 @@ msgstr ""
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "%s could not be found"
-msgstr ""
+msgstr "%s が見つかりませんでした"
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
