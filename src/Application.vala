@@ -29,6 +29,10 @@ public class Camera.Application : Gtk.Application {
 
     construct {
         Intl.setlocale (LocaleCategory.ALL, "");
+        GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        GLib.Intl.textdomain (GETTEXT_PACKAGE);
+
         application_id = "io.elementary.camera";
 
         var quit_action = new SimpleAction ("quit", null);

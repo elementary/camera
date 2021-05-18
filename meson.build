@@ -15,6 +15,15 @@ asresources = gnome.compile_resources(
     c_name: 'as'
 )
 
+config_data = configuration_data()
+config_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+config_file = configure_file(
+    input: 'src/Config.vala.in',
+    output: '@BASENAME@',
+    configuration: config_data
+)
+
 executable(
     meson.project_name(),
     asresources,
@@ -24,6 +33,7 @@ executable(
     'src/Widgets/CameraView.vala',
     'src/Widgets/HeaderBar.vala',
     'src/Widgets/TimerButton.vala',
+    config_file,
     dependencies : [
         dependency('gstreamer-1.0'),
         dependency('gstreamer-pbutils-1.0'),
