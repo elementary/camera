@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
-"PO-Revision-Date: 2021-03-02 20:16+0000\n"
-"Last-Translator: Timka-dev <timurval2000@gmail.com>\n"
+"PO-Revision-Date: 2021-05-20 12:05+0000\n"
+"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
 ">\n"
 "Language: ru\n"
@@ -27,11 +27,11 @@ msgstr "Камера"
 
 #: src/MainWindow.vala:77
 msgid "Saved to Videos"
-msgstr ""
+msgstr "Сохранить в Видео"
 
 #: src/MainWindow.vala:78
 msgid "View File"
-msgstr ""
+msgstr "Посмотреть файл"
 
 #: src/MainWindow.vala:91
 msgid "Recording failed"
