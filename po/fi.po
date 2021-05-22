@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
-"PO-Revision-Date: 2021-02-09 10:04+0000\n"
+"PO-Revision-Date: 2021-05-22 11:46+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/camera/camera/fi/"
 ">\n"
@@ -26,15 +26,15 @@ msgstr "Kamera"
 
 #: src/MainWindow.vala:77
 msgid "Saved to Videos"
-msgstr ""
+msgstr "Tallennettu Videot-kansioon"
 
 #: src/MainWindow.vala:78
 msgid "View File"
-msgstr ""
+msgstr "Näytä tiedosto"
 
 #: src/MainWindow.vala:91
 msgid "Recording failed"
-msgstr ""
+msgstr "Nauhoittaminen epäonnistui"
 
 #: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
@@ -50,7 +50,7 @@ msgstr ""
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "%s could not be found"
-msgstr ""
+msgstr "Ei löydetty %s"
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
