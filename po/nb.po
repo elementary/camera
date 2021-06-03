@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
-"PO-Revision-Date: 2021-05-15 01:55+0000\n"
+"PO-Revision-Date: 2021-06-03 15:54+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
 "camera/nb/>\n"
@@ -58,9 +58,9 @@ msgid "Unable To View Camera"
 msgstr "Kan ikke flytte kamera"
 
 #: src/Widgets/CameraView.vala:256
-#, fuzzy, c-format
+#, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "Kobler til \"%s\"…"
+msgstr "Kobler til «%s» …"
 
 #: src/Widgets/CameraView.vala:433
 msgid "Photo taken"
