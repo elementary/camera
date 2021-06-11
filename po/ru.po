@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
-"PO-Revision-Date: 2021-05-20 12:05+0000\n"
+"PO-Revision-Date: 2021-06-11 21:57+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
 ">\n"
@@ -35,7 +35,7 @@ msgstr "Посмотреть файл"
 
 #: src/MainWindow.vala:91
 msgid "Recording failed"
-msgstr ""
+msgstr "Не удалось записать"
 
 #: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
