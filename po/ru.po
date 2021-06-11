@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 18:11+0000\n"
 "PO-Revision-Date: 2021-06-11 21:57+0000\n"
-"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"Last-Translator: Deleted User <noreply+2813@weblate.org>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
 ">\n"
 "Language: ru\n"
@@ -51,7 +51,7 @@ msgstr ""
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "%s could not be found"
-msgstr ""
+msgstr "Не удалось найти %s"
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
