@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 18:11+0000\n"
+"POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2021-06-03 15:54+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
@@ -32,7 +32,7 @@ msgstr "Lagret i videoer"
 msgid "View File"
 msgstr "Vis fil"
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:93
 #, fuzzy
 msgid "Recording failed"
 msgstr "Opptak mislyktes"
@@ -49,9 +49,9 @@ msgstr ""
 "eller spille inn video."
 
 #: src/Widgets/CameraView.vala:208
-#, c-format, fuzzy
-msgid "%s could not be found"
-msgstr "Kunne ikke finne %s"
+#, c-format
+msgid "Could not find “%s”"
+msgstr ""
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
@@ -97,6 +97,10 @@ msgstr[1] "%d sek"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Forsinkelse før bilde tas"
+
+#, fuzzy
+#~ msgid "%s could not be found"
+#~ msgstr "Kunne ikke finne %s"
 
 #, fuzzy
 #~| msgid "Camera"

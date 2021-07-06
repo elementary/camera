@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 18:11+0000\n"
+"POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/camera/"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:93
 msgid "Recording failed"
 msgstr ""
 
@@ -43,7 +43,7 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
-msgid "%s could not be found"
+msgid "Could not find “%s”"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:242

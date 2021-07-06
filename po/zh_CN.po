@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 18:11+0000\n"
+"POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2021-06-20 12:27+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -32,7 +32,7 @@ msgstr "已保存到视频文件夹"
 msgid "View File"
 msgstr "查看文件"
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:93
 msgid "Recording failed"
 msgstr "录制失败"
 
@@ -47,8 +47,8 @@ msgstr "接入摄像头或其他支持的影像设备来拍摄照片和视频。
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
-msgid "%s could not be found"
-msgstr "找不到 %s"
+msgid "Could not find “%s”"
+msgstr ""
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
@@ -93,6 +93,9 @@ msgstr[0] "%d 秒"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "拍照倒计时长"
+
+#~ msgid "%s could not be found"
+#~ msgstr "找不到 %s"
 
 #~ msgid "Camera %u"
 #~ msgstr "相机 %u"

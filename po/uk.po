@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 18:11+0000\n"
+"POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2021-07-03 13:34+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/camera/"
@@ -33,7 +33,7 @@ msgstr "Збережено до Відео"
 msgid "View File"
 msgstr "Переглянути файл"
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:93
 msgid "Recording failed"
 msgstr "Не вдалося записати"
 
@@ -50,8 +50,8 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
-msgid "%s could not be found"
-msgstr "Не вдалося знайти %s"
+msgid "Could not find “%s”"
+msgstr ""
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
@@ -98,6 +98,9 @@ msgstr[2] "%d секунд"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Затримка перед зніманням"
+
+#~ msgid "%s could not be found"
+#~ msgstr "Не вдалося знайти %s"
 
 #, fuzzy
 #~| msgid "Camera"

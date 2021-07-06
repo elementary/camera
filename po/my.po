@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 18:11+0000\n"
+"POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Hein Htoo Htoo Kyaw <heinhtoohtookyaw@outlook.com>\n"
 "Language-Team: Burmese <https://l10n.elementary.io/projects/camera/camera/my/"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:93
 msgid "Recording failed"
 msgstr ""
 
@@ -47,7 +47,7 @@ msgstr "ဓါတ်ပုံနှင်ဗီဒီယို ရိုက်�
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
-msgid "%s could not be found"
+msgid "Could not find “%s”"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:242
