@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 16:48+0000\n"
-"PO-Revision-Date: 2021-06-03 15:54+0000\n"
+"PO-Revision-Date: 2021-07-07 08:27+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
 "camera/nb/>\n"
@@ -51,7 +51,7 @@ msgstr ""
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "Could not find “%s”"
-msgstr ""
+msgstr "Fant ikke «%s»"
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
