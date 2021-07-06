@@ -205,7 +205,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         var camera = find_camera_from_name (display_name);
         try {
             if (camera == null) {
-                throw new IOError.NOT_FOUND (_("Could not find %s"), display_name);
+                throw new IOError.NOT_FOUND (_("Could not find “%s”"), display_name);
             }
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
