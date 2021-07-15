@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2021-07-15 15:30+0000\n"
-"Last-Translator: João Victor Nascimento <oi@joaonasc.dev>\n"
+"Last-Translator: lucaspifonseca <lucaspifonseca@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "camera/camera/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -26,15 +26,15 @@ msgstr "Câmera"
 
 #: src/MainWindow.vala:77
 msgid "Saved to Videos"
-msgstr ""
+msgstr "Salvo em Vídeos"
 
 #: src/MainWindow.vala:78
 msgid "View File"
-msgstr ""
+msgstr "Exibir arquivo"
 
 #: src/MainWindow.vala:93
 msgid "Recording failed"
-msgstr ""
+msgstr "Gravação falhou"
 
 #: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
@@ -50,7 +50,7 @@ msgstr ""
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "Could not find “%s”"
-msgstr ""
+msgstr "Não foi possível encontrar \"%s\""
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
