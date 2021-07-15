@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2021-07-15 15:30+0000\n"
-"Last-Translator: Daniel Vinciguerra <daniel.vinciguerra@bivee.com.br>\n"
+"Last-Translator: João Victor Nascimento <oi@joaonasc.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "camera/camera/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -54,7 +54,7 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Não foi possível identificar a câmera"
 
 #: src/Widgets/CameraView.vala:256
 #, c-format
