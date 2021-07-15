@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 16:48+0000\n"
 "PO-Revision-Date: 2021-07-15 15:30+0000\n"
-"Last-Translator: Augusto Fritz <augusto.fritz@universo.univates.br>\n"
+"Last-Translator: Daniel Vinciguerra <daniel.vinciguerra@bivee.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "camera/camera/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -57,10 +57,9 @@ msgid "Unable To View Camera"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:256
-#, fuzzy, c-format
-#| msgid "Connecting to %s…"
+#, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "Conectando a %s…"
+msgstr "Conectando a \"%s\"…"
 
 #: src/Widgets/CameraView.vala:433
 msgid "Photo taken"
