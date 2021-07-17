@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 16:48+0000\n"
-"PO-Revision-Date: 2021-07-15 15:30+0000\n"
+"PO-Revision-Date: 2021-07-17 12:30+0000\n"
 "Last-Translator: lucaspifonseca <lucaspifonseca@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "camera/camera/pt_BR/>\n"
@@ -54,7 +54,7 @@ msgstr "Não foi possível encontrar \"%s\""
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
-msgstr "Não foi possível identificar a câmera"
+msgstr "Não foi possível visualizar a câmera"
 
 #: src/Widgets/CameraView.vala:256
 #, c-format
