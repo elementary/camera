@@ -12,6 +12,20 @@
     <p>Camera is a simple app to take photos with a webcam.</p>
   </description>
   <releases>
+    <release version="6.0.0" date="2021-07-19" urgency="medium">
+      <description>
+        <ul>
+          <li>Switch between multiple cameras</li>
+          <li>Send a notification when recording is finished</li>
+          <li>Add option to mirror the camera</li>
+          <li>Add brightness and contrast adjustment</li>
+          <li>Support the dark style</li>
+          <li>Prevent multiple countdown timers from running at the same time</li>
+          <li>Improved support for camera hardware</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.6" date="2020-04-01" urgency="medium">
       <description>
         <ul>
