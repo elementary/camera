@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 16:48+0000\n"
+"POT-Creation-Date: 2021-07-21 20:20+0000\n"
 "PO-Revision-Date: 2021-04-08 01:48+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/camera/extra/tr/"
@@ -35,10 +35,39 @@ msgstr ""
 "Kamera bir web kamerası ile fotoğraf çekmek için basit bir uygulamadır."
 
 #: data/io.elementary.camera.appdata.xml.in:18
+msgid "Switch between multiple cameras"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:19
+msgid "Send a notification when recording is finished"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:20
+msgid "Add option to mirror the camera"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:21
+msgid "Add brightness and contrast adjustment"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:22
+msgid "Support the dark style"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:23
+msgid "Prevent multiple countdown timers from running at the same time"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:24
+msgid "Improved support for camera hardware"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:25
+#: data/io.elementary.camera.appdata.xml.in:32
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/io.elementary.camera.appdata.xml.in:60
+#: data/io.elementary.camera.appdata.xml.in:74
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

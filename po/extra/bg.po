@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 16:48+0000\n"
+"POT-Creation-Date: 2021-07-21 20:20+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/camera/extra/"
@@ -34,10 +34,39 @@ msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:18
+msgid "Switch between multiple cameras"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:19
+msgid "Send a notification when recording is finished"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:20
+msgid "Add option to mirror the camera"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:21
+msgid "Add brightness and contrast adjustment"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:22
+msgid "Support the dark style"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:23
+msgid "Prevent multiple countdown timers from running at the same time"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:24
+msgid "Improved support for camera hardware"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:25
+#: data/io.elementary.camera.appdata.xml.in:32
 msgid "Updated translations"
 msgstr ""
 
-#: data/io.elementary.camera.appdata.xml.in:60
+#: data/io.elementary.camera.appdata.xml.in:74
 msgid "elementary, Inc."
 msgstr ""
 
