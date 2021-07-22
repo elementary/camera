@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-04-08 01:48+0000\n"
+"PO-Revision-Date: 2021-07-22 14:59+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -35,31 +35,33 @@ msgstr "A câmara é uma aplicação simples para tirar fotos com uma webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "Mudar entre várias câmaras"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "Enviar uma notificação quando a gravação estiver concluída"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "Adicionar opção para espelhar a câmara"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Adicionar brilho e ajuste de contraste"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 msgid "Support the dark style"
-msgstr ""
+msgstr "Suporta o estilo escuro"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr ""
+"Impedir que vários cronómetros de contagem regressiva funcionem ao mesmo "
+"tempo"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "Suporte melhorado para o hardware da câmara"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:32
