@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2020-02-23 09:08+0000\n"
-"Last-Translator: gkkulik <g.kulik@o2.pl>\n"
+"PO-Revision-Date: 2021-07-22 11:25+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/extra/"
 "szl/>\n"
 "Language: szl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
@@ -72,10 +72,8 @@ msgid "Photo Booth"
 msgstr "Budka fotograficzno"
 
 #: data/io.elementary.camera.desktop.in:8
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "io.elementary.camera"
-msgstr "elementary, Inc."
+msgstr "io.elementary.camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
