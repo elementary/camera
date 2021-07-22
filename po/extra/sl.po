@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2019-12-23 04:33+0000\n"
-"Last-Translator: Marko <marko.dolar@gmail.com>\n"
+"PO-Revision-Date: 2021-07-22 11:25+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/camera/extra/"
 "sl/>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
@@ -78,10 +78,8 @@ msgid "Photo Booth"
 msgstr "Kabina za fotografiranje"
 
 #: data/io.elementary.camera.desktop.in:8
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "io.elementary.camera"
-msgstr "elementary LLC."
+msgstr "io.elementary.camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
