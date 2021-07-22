@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-04-24 02:03+0000\n"
+"PO-Revision-Date: 2021-07-23 00:47+0000\n"
 "Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/camera/extra/ru/"
-">\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/camera/extra/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,31 +37,31 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "Переключение между несколькими камерами"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "Отправка уведомлений, когда запись завершена"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "Добавлена опция отзеркаливания камеры"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Добавлена регулировка яркости и контрастности"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 msgid "Support the dark style"
-msgstr ""
+msgstr "Поддержка темного стиля"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "Предотвращение работы нескольких таймеров одновременно"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "Улучшена поддержка аппаратного обеспечения камеры"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:32
