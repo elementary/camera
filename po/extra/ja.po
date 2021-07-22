@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-04-08 06:21+0000\n"
+"PO-Revision-Date: 2021-07-22 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
 ">\n"
@@ -35,31 +35,31 @@ msgstr "\"カメラ\" は Web カメラで写真を撮影するためのシン�
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "複数のカメラを切り替える機能を追加"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "録画終了時に通知を表示"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "ミラーオプションを追加"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "輝度とコントラストの調整機能を追加"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 msgid "Support the dark style"
-msgstr ""
+msgstr "ダークスタイルに対応"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "複数のカウントダウンが同時に実行されないように修正"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "カメラハードウェアへの対応を改善"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:32
