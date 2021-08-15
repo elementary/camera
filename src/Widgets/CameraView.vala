@@ -59,7 +59,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             }
         }
     }
-    
 
     public signal void camera_added (string name);
     public signal void camera_removed (string name);
@@ -214,7 +213,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             var caps = camera.get_caps ();
             picture_width = 640;
             picture_height = 480;
-            var max_area = picture_width * picture_height;;
+            var max_area = picture_width * picture_height;
 
             for (uint i = 0; i < caps.get_size (); i++) {
                 unowned var s = caps.get_structure (i);
@@ -227,7 +226,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                         picture_height = h;
                         max_area = w * h;
                     }
-                }   
+                }
             }
 
             pipeline = (Gst.Pipeline) Gst.parse_launch (
@@ -301,16 +300,16 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         Gst.Pipeline picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
             "v4l2src device=%s name=v4l2src num-buffers=1 !".printf (device_name) +
-            "image/jpeg, width=%d, height=%d ! jpegdec ! ".printf(picture_width, picture_height) +
-            "videoflip method=%s !".printf((horizontal_flip)?"horizontal-flip":"none") +
-            "videobalance brightness=%f contrast=%f !".printf(brightness_value.get_double (), contrast_value.get_double ()) +
+            "image/jpeg, width=%d, height=%d ! jpegdec ! ".printf (picture_width, picture_height) +
+            "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
+            "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()) +
             "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
         );
 
         var filesink = picture_pipeline.get_by_name ("filesink");
         filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.EVENT_DOWNSTREAM, (pad, info) => {
             if (info.get_event ().type == Gst.EventType.EOS) {
-                Idle.add(() => {
+                Idle.add (() => {
                     picture_pipeline.set_state (Gst.State.PAUSED);
                     picture_pipeline.set_state (Gst.State.NULL);
 
@@ -318,7 +317,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                     recording = false;
                     return Source.REMOVE;
                 });
-                
+
                 return Gst.PadProbeReturn.REMOVE;
             }
             return Gst.PadProbeReturn.PASS;
