@@ -33,6 +33,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
+    private int picture_width;
+    private int picture_height;
 
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
     private Gee.HashMap<string, Gst.Device> cameras = new Gee.HashMap<string, Gst.Device> ();
@@ -57,6 +59,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             }
         }
     }
+    
 
     public signal void camera_added (string name);
     public signal void camera_removed (string name);
@@ -207,6 +210,26 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             if (camera == null) {
                 throw new IOError.NOT_FOUND (_("Could not find “%s”"), display_name);
             }
+
+            var caps = camera.get_caps ();
+            picture_width = 640;
+            picture_height = 480;
+            var max_area = picture_width * picture_height;;
+
+            for (uint i = 0; i < caps.get_size (); i++) {
+                unowned var s = caps.get_structure (i);
+                if (s.get_name () == "image/jpeg") {
+                    int w, h;
+                    s.get_int ("width", out w);
+                    s.get_int ("height", out h);
+                    if (w * h > max_area) {
+                        picture_width = w;
+                        picture_height = h;
+                        max_area = w * h;
+                    }
+                }   
+            }
+
             pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=v4l2src !".printf (camera.get_properties ().get_string ("device.path")) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
@@ -262,67 +285,48 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         if (recording) {
             return;
         }
-
         recording = true;
-        var snap_bin = new Gst.Bin (null);
 
-        string[] missing_messages = {};
-        var queue = Gst.ElementFactory.make ("queue", null);
-        if (queue == null) {
-            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("queue");
-        }
+        pipeline.set_state (Gst.State.NULL);
+        pipeline.sync_children_states ();
 
-        var videoconvert = Gst.ElementFactory.make ("videoconvert", null);
-        if (videoconvert == null) {
-            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("videoconvert");
-        }
+        var preview_video_src = (Gst.Element) pipeline.get_by_name ("v4l2src");
+        string device_name;
+        preview_video_src.get ("device", out device_name);
 
-        var encoder = Gst.ElementFactory.make ("jpegenc", null);
-        if (encoder == null) {
-            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("jpegenc");
-        }
+        var brightness_value = GLib.Value (typeof (double));
+        color_balance.get_property ("brightness", ref brightness_value);
+        var contrast_value = GLib.Value (typeof (double));
+        color_balance.get_property ("contrast", ref contrast_value);
 
-        var filesink = Gst.ElementFactory.make ("filesink", null);
-        if (filesink == null) {
-            missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("filesink");
-        } else {
-            filesink["buffer-size"] = 1;
-            filesink["location"] = Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO);
-            filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.BUFFER, (pad, info) => {
-                // Must allow enough time for data to be flushed to disk before removing snapbin
-                //TODO Find more elegant way to do this.
+        Gst.Pipeline picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
+            "v4l2src device=%s name=v4l2src num-buffers=1 !".printf (device_name) +
+            "image/jpeg, width=%d, height=%d ! jpegdec ! ".printf(picture_width, picture_height) +
+            "videoflip method=%s !".printf((horizontal_flip)?"horizontal-flip":"none") +
+            "videobalance brightness=%f contrast=%f !".printf(brightness_value.get_double (), contrast_value.get_double ()) +
+            "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
+        );
 
-                Timeout.add (50, () => {
-                    pipeline.set_state (Gst.State.PAUSED);
-                    snap_bin.set_state (Gst.State.NULL);
-                    snap_bin.sync_children_states ();
-                    pipeline.remove (snap_bin);
+        var filesink = picture_pipeline.get_by_name ("filesink");
+        filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.EVENT_DOWNSTREAM, (pad, info) => {
+            if (info.get_event ().type == Gst.EventType.EOS) {
+                Idle.add(() => {
+                    picture_pipeline.set_state (Gst.State.PAUSED);
+                    picture_pipeline.set_state (Gst.State.NULL);
+
                     pipeline.set_state (Gst.State.PLAYING);
                     recording = false;
-                    return GLib.Source.REMOVE;
+                    return Source.REMOVE;
                 });
-
+                
                 return Gst.PadProbeReturn.REMOVE;
-            });
-        }
+            }
+            return Gst.PadProbeReturn.PASS;
+        });
 
-        if (missing_messages.length > 0) {
-            Gst.PbUtils.install_plugins_async (missing_messages, null, (result) => {});
-            recording = false;
-            return;
-        }
+        picture_pipeline.set_state (Gst.State.PLAYING);
+        picture_pipeline.sync_children_states ();
 
-        snap_bin.add_many (queue, videoconvert, encoder, filesink);
-        queue.link_many (videoconvert, encoder, filesink);
-
-        var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
-        snap_bin.add_pad (ghostpad);
-
-        pipeline.set_state (Gst.State.PAUSED);
-        pipeline.add (snap_bin);
-        snap_bin.sync_state_with_parent ();
-        tee.link (snap_bin);
-        pipeline.set_state (Gst.State.PLAYING);
         Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
         play_shutter_sound ();
     }
