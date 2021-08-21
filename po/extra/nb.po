@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2021-08-21 17:10+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
 "extra/nb/>\n"
 "Language: nb\n"
@@ -35,31 +35,31 @@ msgstr "Kamera er et enkelt program for å ta bilder med et nettkamera."
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "Bytt mellom flere kameraer"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "Send merknad når opptak er fullført"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "Legg til innstilling for speiling av kameraet"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Tillagt lysstyrke- og kontrastjustering"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 msgid "Support the dark style"
-msgstr ""
+msgstr "Støtte for mørk drakt"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "Forhindring av at flere tidsur kjører samtidig"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "Forbedret støtte for kameramaskinvare"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:32
@@ -67,8 +67,6 @@ msgid "Updated translations"
 msgstr "Oppdaterte oversettelser"
 
 #: data/io.elementary.camera.appdata.xml.in:74
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
