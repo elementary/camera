@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2019-02-12 00:06+0000\n"
-"Last-Translator: tylnesh <kohutek.michal@gmail.com>\n"
-"Language-Team: Slovak <https://weblate.elementary.io/projects/camera/extra/"
-"sk/>\n"
+"PO-Revision-Date: 2021-08-25 18:15+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/extra/sk/>"
+"\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
@@ -27,52 +27,54 @@ msgstr "Kamera"
 #: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Snímajte fotografie a videá pomocou kamery"
 
 #: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
+"Kamera je jednoduchá aplikácia pre zachytávanie fotiek a videí pomocou "
+"webkamery."
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "Prepínajte medzi viacerými kamerami"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "Odoslať oznámenie po dokončení nahrávania"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "Pridaná možnosť zrkadliť kameru"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Pridaná možnosť prispôsobiť jas a kontrast"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 msgid "Support the dark style"
-msgstr ""
+msgstr "Podpora tmavého štýlu"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "Zabránené spusteniu viacerých časovačov odpočítavania naraz"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "Vylepšená podpora rôznych typov kamier"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:32
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizované preklady"
 
 #: data/io.elementary.camera.appdata.xml.in:74
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Fotobúdka"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "io.elementary.camera"
@@ -81,3 +83,4 @@ msgstr ""
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr ""
+"Fotka;Fotky;Fotografia;Fotografie;Video;Webkamera;Kamera;Fotoaparát;Búdka;"
