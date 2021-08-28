@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-08-16 11:33+0000\n"
+"PO-Revision-Date: 2021-08-29 06:50+0000\n"
 "Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/extra/ru/>"
 "\n"
@@ -28,7 +28,7 @@ msgstr "Камера"
 #: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr "Делайте фотографии и записывайте видео с помощью камеры"
+msgstr "Фотографируйте и записывайте видео с помощью камеры"
 
 #: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
