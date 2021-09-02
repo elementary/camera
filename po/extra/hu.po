@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-09-02 21:12+0000\n"
+"PO-Revision-Date: 2021-09-02 21:40+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/extra/"
 "hu/>\n"
@@ -76,7 +76,7 @@ msgstr "elementary LLC."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Fotófülke"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "io.elementary.camera"
@@ -84,4 +84,4 @@ msgstr "io.elementary.camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr "Féynkép;Fotó;Videó;Webkamera;Kamera;Booth;"
+msgstr "Fénykép;Fotó;Videó;Webkamera;Kamera;Booth;;Fényképezőgép;Fülke;"
