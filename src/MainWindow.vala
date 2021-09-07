@@ -62,9 +62,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
         this.title = _("Camera");
         icon_name = "io.elementary.camera";
-        set_default_size (640, 480);
-        set_size_request (436, 352);
-        this.window_position = Gtk.WindowPosition.CENTER;
 
         header_bar = new Widgets.HeaderBar ();
 
@@ -102,7 +99,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             }
         });
 
-
         var grid = new Gtk.Grid ();
         grid.attach (header_bar, 0, 0);
         grid.attach (overlay, 0, 1);
@@ -123,7 +119,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_view.start ();
 
         header_bar.request_change_balance.connect (camera_view.change_color_balance);
-        show_all ();
     }
 
     private void on_fullscreen () {
@@ -174,10 +169,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 Application.settings.set_boolean ("window-maximized", true);
             } else {
                 Application.settings.set_boolean ("window-maximized", false);
-
-                Gdk.Rectangle rect;
-                get_allocation (out rect);
-                Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
+                int width, height;
+                get_size (out width, out height);
+                Application.settings.set ("window-size", "(ii)", width, height);
             }
 
             return false;
