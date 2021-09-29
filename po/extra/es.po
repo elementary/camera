@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
 "PO-Revision-Date: 2021-09-29 21:11+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"Last-Translator: Paulo <jpwiff@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/camera/extra/es/>"
 "\n"
 "Language: es\n"
@@ -48,7 +48,7 @@ msgstr "Agregar opción para reflejar la cámara"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Añadir ajuste de brillo y contraste"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 msgid "Support the dark style"
