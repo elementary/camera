@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2018-06-02 00:04+0000\n"
-"Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
-"Language-Team: Hungarian <https://weblate.elementary.io/projects/camera/"
-"camera/hu/>\n"
+"PO-Revision-Date: 2021-08-24 09:21+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
+"Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/camera/"
+"hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:63
@@ -26,15 +26,15 @@ msgstr "Kamera"
 
 #: src/MainWindow.vala:77
 msgid "Saved to Videos"
-msgstr ""
+msgstr "Mentve a Videókba"
 
 #: src/MainWindow.vala:78
 msgid "View File"
-msgstr ""
+msgstr "Fájl megtekintése"
 
 #: src/MainWindow.vala:93
 msgid "Recording failed"
-msgstr ""
+msgstr "Felvétel sikertelen"
 
 #: src/Widgets/CameraView.vala:80
 msgid "No Supported Camera Found"
@@ -44,42 +44,42 @@ msgstr "Nem található támogatott kamera"
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
-"Csatlakoztasson egy webkamerát vagy más videoeszközt fotók és videók "
+"Csatlakoztasson egy webkamerát vagy más videóeszközt fotók és videók "
 "készítéséhez."
 
 #: src/Widgets/CameraView.vala:208
 #, c-format
 msgid "Could not find “%s”"
-msgstr ""
+msgstr "\"%s\" nem található"
 
 #: src/Widgets/CameraView.vala:242
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Kamera megjelenítése sikertelen"
 
 #: src/Widgets/CameraView.vala:256
-#, fuzzy, c-format
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Csatlakozás ehhez: \"%s\"…"
 
 #: src/Widgets/CameraView.vala:433
 msgid "Photo taken"
-msgstr "Fotó elkészült"
+msgstr "A fotó elkészült"
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Mirror"
-msgstr ""
+msgstr "Tükrözés"
 
 #: src/Widgets/HeaderBar.vala:118
 msgid "Brightness"
-msgstr ""
+msgstr "Fényerő"
 
 #: src/Widgets/HeaderBar.vala:124
 msgid "Contrast"
-msgstr ""
+msgstr "Kontraszt"
 
 #: src/Widgets/HeaderBar.vala:178
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -94,9 +94,8 @@ msgstr[0] "%d mp"
 msgstr[1] "%d mp"
 
 #: src/Widgets/TimerButton.vala:64
-#, fuzzy
 msgid "Delay before photo is taken"
-msgstr "Késleltetés a fénykép elkészítése előtt"
+msgstr "Késleltetés fénykép készítése előtt"
 
 #, fuzzy
 #~| msgid "Camera"

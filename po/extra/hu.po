@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-21 20:20+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2021-09-03 02:46+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/extra/"
 "hu/>\n"
 "Language: hu\n"
@@ -27,7 +27,7 @@ msgstr "Kamera"
 #: data/io.elementary.camera.appdata.xml.in:10
 #: data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr "Fotó vagy videó rögzítése a kamerával"
+msgstr "Fotók és videók rögzítése a kamerával"
 
 #: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
@@ -66,17 +66,15 @@ msgstr ""
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:32
 msgid "Updated translations"
-msgstr ""
+msgstr "Frissített fordítások"
 
 #: data/io.elementary.camera.appdata.xml.in:74
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Fotófülke"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "io.elementary.camera"
@@ -84,4 +82,4 @@ msgstr "io.elementary.camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr "Féynkép;Fotó;Videó;Webkamera;Kamera;Booth;"
+msgstr "Fénykép;Fotó;Videó;Webkamera;Kamera;Booth;;Fényképezőgép;Fülke;"
