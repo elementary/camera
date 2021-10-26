@@ -13,9 +13,6 @@ finish-args:
   - '--socket=pulseaudio'
   - '--device=all'
 
-  # Needed for prefer-color-scheme
-  - '--system-talk-name=org.freedesktop.Accounts'
-
   - '--metadata=X-DConf=migrate-path=/io/elementary/camera/'
 cleanup:
   - '*.a'
