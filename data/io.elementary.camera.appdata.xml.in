@@ -15,6 +15,7 @@
     <release version="6.0.1" date="2021-10-25" urgency="medium">
       <description>
           <li>Fix restoring window size</li>
+          <li>Take full-resolution pictures<li>
           <li>Updated translations</li>
         </ul>
       </description>
