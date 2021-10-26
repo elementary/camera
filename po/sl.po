@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 20:20+0000\n"
+"POT-Creation-Date: 2021-10-26 17:20+0000\n"
 "PO-Revision-Date: 2019-12-20 20:07+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/camera/camera/"
@@ -25,15 +25,15 @@ msgstr ""
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:74
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:78
+#: src/MainWindow.vala:75
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:93
+#: src/MainWindow.vala:90
 msgid "Recording failed"
 msgstr ""
 
