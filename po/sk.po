@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 20:20+0000\n"
+"POT-Creation-Date: 2021-10-26 17:20+0000\n"
 "PO-Revision-Date: 2021-08-25 18:15+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
-"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/camera/sk/>"
-"\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/camera/sk/"
+">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,15 +24,15 @@ msgstr ""
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:74
 msgid "Saved to Videos"
 msgstr "Uložené do Videí"
 
-#: src/MainWindow.vala:78
+#: src/MainWindow.vala:75
 msgid "View File"
 msgstr "Zobraziť súbor"
 
-#: src/MainWindow.vala:93
+#: src/MainWindow.vala:90
 msgid "Recording failed"
 msgstr "Nahrávanie zlyhalo"
 

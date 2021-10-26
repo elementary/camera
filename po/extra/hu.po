@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 20:20+0000\n"
+"POT-Creation-Date: 2021-10-26 17:20+0000\n"
 "PO-Revision-Date: 2021-09-03 02:46+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/extra/"
@@ -36,39 +36,44 @@ msgstr ""
 "lehetővé."
 
 #: data/io.elementary.camera.appdata.xml.in:18
-msgid "Switch between multiple cameras"
+msgid "Fix restoring window size"
 msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:19
-msgid "Send a notification when recording is finished"
-msgstr ""
-
-#: data/io.elementary.camera.appdata.xml.in:20
-msgid "Add option to mirror the camera"
-msgstr ""
-
-#: data/io.elementary.camera.appdata.xml.in:21
-msgid "Add brightness and contrast adjustment"
-msgstr ""
-
-#: data/io.elementary.camera.appdata.xml.in:22
-msgid "Support the dark style"
-msgstr ""
-
-#: data/io.elementary.camera.appdata.xml.in:23
-msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
-
-#: data/io.elementary.camera.appdata.xml.in:24
-msgid "Improved support for camera hardware"
-msgstr ""
-
-#: data/io.elementary.camera.appdata.xml.in:25
-#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:33
+#: data/io.elementary.camera.appdata.xml.in:40
 msgid "Updated translations"
 msgstr "Frissített fordítások"
 
-#: data/io.elementary.camera.appdata.xml.in:74
+#: data/io.elementary.camera.appdata.xml.in:26
+msgid "Switch between multiple cameras"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:27
+msgid "Send a notification when recording is finished"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:28
+msgid "Add option to mirror the camera"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:29
+msgid "Add brightness and contrast adjustment"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:30
+msgid "Support the dark style"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:31
+msgid "Prevent multiple countdown timers from running at the same time"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:32
+msgid "Improved support for camera hardware"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:82
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
