@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-26 20:40+0000\n"
-"PO-Revision-Date: 2021-10-26 19:47+0000\n"
+"PO-Revision-Date: 2021-10-26 21:49+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "camera/extra/en_GB/>\n"
@@ -35,15 +35,15 @@ msgstr "Camera is a simple app to take photos with a webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "Improvements:"
-msgstr ""
+msgstr "Improvements:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Take full-resolution pictures"
-msgstr ""
+msgstr "Take full-resolution pictures"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 msgid "Fixes:"
-msgstr ""
+msgstr "Fixes:"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Fix restoring window size"
@@ -51,7 +51,7 @@ msgstr "Fix restoring window size"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 msgid "Minor updates:"
-msgstr ""
+msgstr "Minor updates:"
 
 #: data/io.elementary.camera.appdata.xml.in:27
 #: data/io.elementary.camera.appdata.xml.in:41
