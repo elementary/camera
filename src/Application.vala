@@ -56,7 +56,7 @@ public class Camera.Application : Gtk.Application {
 
             var hints = Gdk.Geometry ();
             hints.min_aspect = 1.0;
-            hints.max_aspect = 1.8;
+            hints.max_aspect = -1.0;
             hints.min_width = 436;
             hints.min_height = 352;
 
