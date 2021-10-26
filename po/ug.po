@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 17:20+0000\n"
+"POT-Creation-Date: 2021-10-26 20:40+0000\n"
 "PO-Revision-Date: 2015-12-21 14:30+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -34,30 +34,30 @@ msgstr ""
 msgid "Recording failed"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:80
+#: src/Widgets/CameraView.vala:82
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:81
+#: src/Widgets/CameraView.vala:83
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/Widgets/CameraView.vala:208
+#: src/Widgets/CameraView.vala:210
 #, c-format
 msgid "Could not find “%s”"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:242
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:256
+#: src/Widgets/CameraView.vala:278
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:433
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
 msgstr ""
 
