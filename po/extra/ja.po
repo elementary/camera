@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 17:20+0000\n"
+"POT-Creation-Date: 2021-10-26 20:40+0000\n"
 "PO-Revision-Date: 2021-08-09 11:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
@@ -33,45 +33,61 @@ msgstr "カメラで写真と動画を撮影します"
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "“カメラ”は Web カメラで写真を撮影するためのシンプルなアプリです。"
 
-#: data/io.elementary.camera.appdata.xml.in:18
-msgid "Fix restoring window size"
+#: data/io.elementary.camera.appdata.xml.in:17
+msgid "Improvements:"
 msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:19
-#: data/io.elementary.camera.appdata.xml.in:33
-#: data/io.elementary.camera.appdata.xml.in:40
+msgid "Take full-resolution pictures"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:21
+msgid "Fixes:"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:23
+msgid "Fix restoring window size"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:25
+msgid "Minor updates:"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:27
+#: data/io.elementary.camera.appdata.xml.in:41
+#: data/io.elementary.camera.appdata.xml.in:48
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/io.elementary.camera.appdata.xml.in:26
+#: data/io.elementary.camera.appdata.xml.in:34
 msgid "Switch between multiple cameras"
 msgstr "複数のカメラを切り替える機能を追加"
 
-#: data/io.elementary.camera.appdata.xml.in:27
+#: data/io.elementary.camera.appdata.xml.in:35
 msgid "Send a notification when recording is finished"
 msgstr "録画終了時に通知を表示"
 
-#: data/io.elementary.camera.appdata.xml.in:28
+#: data/io.elementary.camera.appdata.xml.in:36
 msgid "Add option to mirror the camera"
 msgstr "ミラーオプションを追加"
 
-#: data/io.elementary.camera.appdata.xml.in:29
+#: data/io.elementary.camera.appdata.xml.in:37
 msgid "Add brightness and contrast adjustment"
 msgstr "輝度とコントラストの調整機能を追加"
 
-#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:38
 msgid "Support the dark style"
 msgstr "ダークスタイルに対応"
 
-#: data/io.elementary.camera.appdata.xml.in:31
+#: data/io.elementary.camera.appdata.xml.in:39
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr "複数のカウントダウンが同時に実行されないように修正"
 
-#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:40
 msgid "Improved support for camera hardware"
 msgstr "カメラハードウェアへの対応を改善"
 
-#: data/io.elementary.camera.appdata.xml.in:82
+#: data/io.elementary.camera.appdata.xml.in:90
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
