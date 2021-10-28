@@ -115,10 +115,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         timer_running = false;
         camera_view.camera_added.connect (header_bar.add_camera_option);
         camera_view.camera_removed.connect (header_bar.remove_camera_option);
-        camera_view.camera_present.connect (header_bar.enable_all_controls);
-        header_bar.request_camera_change.connect (camera_view.change_camera);
 
-        timer_running = false;
+        header_bar.request_camera_change.connect (camera_view.change_camera);
 
         camera_view.start ();
 
