@@ -33,7 +33,11 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
-    private uint n_cameras = 0;
+    public uint n_cameras {
+        get {
+            return monitor.get_devices ().length ();
+        }
+    }
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
     public bool recording { get; private set; default = false; }
     public bool horizontal_flip {
@@ -89,12 +93,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     private void on_camera_added (Gst.Device device) {
-        n_cameras++;
         camera_added (device);
         change_camera (device);
     }
     private void on_camera_removed (Gst.Device device) {
-        n_cameras--;
         camera_removed (device);
         if (n_cameras == 0) {
             no_device_view.show ();
