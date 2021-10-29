@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 20:20+0000\n"
+"POT-Creation-Date: 2021-10-26 20:40+0000\n"
 "PO-Revision-Date: 2021-08-25 18:15+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
-"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/extra/sk/>"
-"\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/extra/sk/"
+">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,40 +35,61 @@ msgstr ""
 "Kamera je jednoduchá aplikácia pre zachytávanie fotiek a videí pomocou "
 "webkamery."
 
-#: data/io.elementary.camera.appdata.xml.in:18
-msgid "Switch between multiple cameras"
-msgstr "Prepínajte medzi viacerými kamerami"
+#: data/io.elementary.camera.appdata.xml.in:17
+msgid "Improvements:"
+msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:19
-msgid "Send a notification when recording is finished"
-msgstr "Odoslať oznámenie po dokončení nahrávania"
-
-#: data/io.elementary.camera.appdata.xml.in:20
-msgid "Add option to mirror the camera"
-msgstr "Pridaná možnosť zrkadliť kameru"
+msgid "Take full-resolution pictures"
+msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:21
-msgid "Add brightness and contrast adjustment"
-msgstr "Pridaná možnosť prispôsobiť jas a kontrast"
-
-#: data/io.elementary.camera.appdata.xml.in:22
-msgid "Support the dark style"
-msgstr "Podpora tmavého štýlu"
+msgid "Fixes:"
+msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:23
-msgid "Prevent multiple countdown timers from running at the same time"
-msgstr "Zabránené spusteniu viacerých časovačov odpočítavania naraz"
-
-#: data/io.elementary.camera.appdata.xml.in:24
-msgid "Improved support for camera hardware"
-msgstr "Vylepšená podpora rôznych typov kamier"
+msgid "Fix restoring window size"
+msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:25
-#: data/io.elementary.camera.appdata.xml.in:32
+msgid "Minor updates:"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:27
+#: data/io.elementary.camera.appdata.xml.in:41
+#: data/io.elementary.camera.appdata.xml.in:48
 msgid "Updated translations"
 msgstr "Aktualizované preklady"
 
-#: data/io.elementary.camera.appdata.xml.in:74
+#: data/io.elementary.camera.appdata.xml.in:34
+msgid "Switch between multiple cameras"
+msgstr "Prepínajte medzi viacerými kamerami"
+
+#: data/io.elementary.camera.appdata.xml.in:35
+msgid "Send a notification when recording is finished"
+msgstr "Odoslať oznámenie po dokončení nahrávania"
+
+#: data/io.elementary.camera.appdata.xml.in:36
+msgid "Add option to mirror the camera"
+msgstr "Pridaná možnosť zrkadliť kameru"
+
+#: data/io.elementary.camera.appdata.xml.in:37
+msgid "Add brightness and contrast adjustment"
+msgstr "Pridaná možnosť prispôsobiť jas a kontrast"
+
+#: data/io.elementary.camera.appdata.xml.in:38
+msgid "Support the dark style"
+msgstr "Podpora tmavého štýlu"
+
+#: data/io.elementary.camera.appdata.xml.in:39
+msgid "Prevent multiple countdown timers from running at the same time"
+msgstr "Zabránené spusteniu viacerých časovačov odpočítavania naraz"
+
+#: data/io.elementary.camera.appdata.xml.in:40
+msgid "Improved support for camera hardware"
+msgstr "Vylepšená podpora rôznych typov kamier"
+
+#: data/io.elementary.camera.appdata.xml.in:90
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

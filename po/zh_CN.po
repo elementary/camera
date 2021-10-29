@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-21 20:20+0000\n"
+"POT-Creation-Date: 2021-10-26 20:40+0000\n"
 "PO-Revision-Date: 2021-06-20 12:27+0000\n"
 "Last-Translator: imgradeone Yan <imgradeone@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -24,42 +24,42 @@ msgstr ""
 msgid "Camera"
 msgstr "相机"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:74
 msgid "Saved to Videos"
 msgstr "已保存到视频文件夹"
 
-#: src/MainWindow.vala:78
+#: src/MainWindow.vala:75
 msgid "View File"
 msgstr "查看文件"
 
-#: src/MainWindow.vala:93
+#: src/MainWindow.vala:90
 msgid "Recording failed"
 msgstr "录制失败"
 
-#: src/Widgets/CameraView.vala:80
+#: src/Widgets/CameraView.vala:82
 msgid "No Supported Camera Found"
 msgstr "未找到支持的摄像头"
 
-#: src/Widgets/CameraView.vala:81
+#: src/Widgets/CameraView.vala:83
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "接入摄像头或其他支持的影像设备来拍摄照片和视频。"
 
-#: src/Widgets/CameraView.vala:208
+#: src/Widgets/CameraView.vala:210
 #, c-format
 msgid "Could not find “%s”"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:242
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "无法显示相机"
 
-#: src/Widgets/CameraView.vala:256
+#: src/Widgets/CameraView.vala:278
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "正在连接 “%s”…"
 
-#: src/Widgets/CameraView.vala:433
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
 msgstr "已拍照"
 
