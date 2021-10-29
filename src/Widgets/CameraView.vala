@@ -234,12 +234,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         color_balance.set_property ("contrast", contrast);
     }
 
-    private void start_view (Gst.Device camera) {
-        visible_child = status_grid;
-        status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
-        create_pipeline (camera);
-    }
-
     public void take_photo () {
         if (recording || pipeline == null) {
             return;
