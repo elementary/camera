@@ -21,6 +21,7 @@
  */
 
 public class Camera.Widgets.CameraView : Gtk.Stack {
+    private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
     private Gtk.Grid status_grid;
@@ -192,7 +193,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             }
 
             pipeline = (Gst.Pipeline) Gst.parse_launch (
-                "v4l2src device=%s name=%s ! ".printf (camera.get_properties ().get_string ("device.path"), camera.name) +
+                "v4l2src device=%s name=%s ! ".printf (camera.get_properties ().get_string ("device.path"), VIDEO_SRC_NAME) +
                 "video/x-raw, width=640, height=480, framerate=30/1 ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
@@ -240,30 +241,35 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     public void take_photo () {
-        if (recording) {
+        if (recording || pipeline == null) {
             return;
         }
-        recording = true;
 
+        recording = true;
         pipeline.set_state (Gst.State.NULL);
         pipeline.sync_children_states ();
 
-        var preview_video_src = (Gst.Element) pipeline.get_by_name ("v4l2src");
-        string device_name;
-        preview_video_src.get ("device", out device_name);
-
+        var preview_video_src = (Gst.Element) pipeline.get_by_name (VIDEO_SRC_NAME);
+        string device_path;
+        preview_video_src.get ("device", out device_path);
         var brightness_value = GLib.Value (typeof (double));
         color_balance.get_property ("brightness", ref brightness_value);
         var contrast_value = GLib.Value (typeof (double));
         color_balance.get_property ("contrast", ref contrast_value);
+        Gst.Pipeline picture_pipeline;
+        try {
+             picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "v4l2src device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
+                "image/jpeg, width=%d, height=%d ! jpegdec ! ".printf (picture_width, picture_height) +
+                "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
+                "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()) +
+                "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
+            );
 
-        Gst.Pipeline picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
-            "v4l2src device=%s name=v4l2src num-buffers=1 !".printf (device_name) +
-            "image/jpeg, width=%d, height=%d ! jpegdec ! ".printf (picture_width, picture_height) +
-            "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
-            "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()) +
-            "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
-        );
+        } catch (Error e) {
+            warning ("Could not make picture pipeline for photo - %s", e.message);
+            return;
+        }
 
         var filesink = picture_pipeline.get_by_name ("filesink");
         filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.EVENT_DOWNSTREAM, (pad, info) => {
