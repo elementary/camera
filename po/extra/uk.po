@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 17:20+0000\n"
-"PO-Revision-Date: 2021-07-21 20:52+0000\n"
+"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"PO-Revision-Date: 2021-10-27 01:01+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/extra/"
 "uk/>\n"
@@ -34,45 +34,61 @@ msgstr "Фотографуйте та знімайте відео за допо�
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Камера — простий застосунок для фотографування вебкамерою."
 
-#: data/io.elementary.camera.appdata.xml.in:18
-msgid "Fix restoring window size"
-msgstr ""
+#: data/io.elementary.camera.appdata.xml.in:17
+msgid "Improvements:"
+msgstr "Удосконалення:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
-#: data/io.elementary.camera.appdata.xml.in:33
-#: data/io.elementary.camera.appdata.xml.in:40
+msgid "Take full-resolution pictures"
+msgstr "Повнорозмірні знімки"
+
+#: data/io.elementary.camera.appdata.xml.in:21
+msgid "Fixes:"
+msgstr "Виправлення:"
+
+#: data/io.elementary.camera.appdata.xml.in:23
+msgid "Fix restoring window size"
+msgstr "Виправлено відновлення розміру вікна"
+
+#: data/io.elementary.camera.appdata.xml.in:25
+msgid "Minor updates:"
+msgstr "Незначні оновлення:"
+
+#: data/io.elementary.camera.appdata.xml.in:27
+#: data/io.elementary.camera.appdata.xml.in:41
+#: data/io.elementary.camera.appdata.xml.in:48
 msgid "Updated translations"
 msgstr "Оновлено переклади"
 
-#: data/io.elementary.camera.appdata.xml.in:26
+#: data/io.elementary.camera.appdata.xml.in:34
 msgid "Switch between multiple cameras"
 msgstr "Перемикання між кількома камерами"
 
-#: data/io.elementary.camera.appdata.xml.in:27
+#: data/io.elementary.camera.appdata.xml.in:35
 msgid "Send a notification when recording is finished"
 msgstr "Надсилання сповіщень, коли запис завершено"
 
-#: data/io.elementary.camera.appdata.xml.in:28
+#: data/io.elementary.camera.appdata.xml.in:36
 msgid "Add option to mirror the camera"
 msgstr "Додано опцію віддзеркалення камери"
 
-#: data/io.elementary.camera.appdata.xml.in:29
+#: data/io.elementary.camera.appdata.xml.in:37
 msgid "Add brightness and contrast adjustment"
 msgstr "Додано регулювання яскравості та контрасту"
 
-#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:38
 msgid "Support the dark style"
 msgstr "Підтримка темного стилю"
 
-#: data/io.elementary.camera.appdata.xml.in:31
+#: data/io.elementary.camera.appdata.xml.in:39
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr "Запобігання роботі кількох таймерів одночасно"
 
-#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:40
 msgid "Improved support for camera hardware"
 msgstr "Поліпшено підтримку апаратного забезпечення камери"
 
-#: data/io.elementary.camera.appdata.xml.in:82
+#: data/io.elementary.camera.appdata.xml.in:90
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
