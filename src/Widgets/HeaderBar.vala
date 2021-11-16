@@ -42,7 +42,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     public bool recording { get; set; default = false; }
     public bool horizontal_flip { get; set; default = true; }
 
-    public signal void request_camera_change (string display_name);
+    public signal void request_camera_change (Gst.Device camera);
 
     public int timer_delay {
         get {
@@ -250,8 +250,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         timer_button.sensitive = enabled;
     }
 
-    public void add_camera_option (string name) {
-        var menuitem = new Gtk.RadioMenuItem.with_label (null, name);
+    public void add_camera_option (Gst.Device camera) {
+        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.display_name);
+        menuitem.set_data<Gst.Device> ("camera", camera);
         camera_options.append (menuitem);
 
         int i = (int) camera_options.get_children ().length () - 1;
@@ -261,27 +262,31 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
         menuitem.active = true;
         menuitem.activate.connect (() => {
-            request_camera_change (menuitem.label);
+            if (menuitem.active) {
+                request_camera_change (menuitem.get_data<Gst.Device> ("camera"));
+            }
         });
         menuitem.show ();
 
         update_take_button ();
     }
 
-    public void remove_camera_option (string remove_name) {
+    public void remove_camera_option (Gst.Device camera) {
         Gtk.Widget to_remove = null;
         foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
-            var name = ((Gtk.MenuItem) menuitem).label;
-            if (name == remove_name) {
+            var name = ((Gtk.MenuItem) menuitem).get_data<Gst.Device> ("camera").name;
+            if (name == camera.name) {
                 to_remove = menuitem;
                 break;
             }
         }
+
         if (to_remove != null) {
             camera_options.remove (to_remove);
         }
 
         update_take_button ();
+        enable_all_controls (camera_options.get_children ().length () > 0);
     }
 
     private void update_take_button () {
@@ -328,7 +333,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
     public void stop_recording_time () {
         recording = false;
-        GLib.Source.remove (recording_timeout);
+        if (recording_timeout > 0) {
+            GLib.Source.remove (recording_timeout);
+        }
+
         recording_timeout = 0U;
     }
 }
