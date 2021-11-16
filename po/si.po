@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2021-07-11 07:17+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@pm.me>\n"
 "Language-Team: Sinhala <https://l10n.elementary.io/projects/camera/camera/si/"
@@ -32,33 +32,30 @@ msgstr ""
 msgid "Recording failed"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 #, fuzzy
 msgid "No Supported Camera Found"
 msgstr "ආධාරක කැමරාවක් සොයාගත නොහැකි විය"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 #, fuzzy
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "ඡායාරූප සහ වීඩියෝ ලබා ගැනීමට වෙබ් කැමරාවක් හෝ වෙනත් ආධාරක වීඩියෝ උපාංගයක් සම්බන්ධ කරන්න."
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" සම්බන්ධ කරමින්…"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "ඡායාරූපය ගනු ලැබීය"
 

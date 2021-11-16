@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2021-08-28 08:16+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/"
@@ -37,31 +37,28 @@ msgstr "عرض الملف"
 msgid "Recording failed"
 msgstr "فشل التسجيل"
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
 msgstr "لم يتم ايجاد كاميرا مدعومة"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "قم بتوصيل كاميرا الويب أو أي جهاز فيديو آخر مدعوم لالتقاط الصور والفيديو."
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr "لا يمكن إيجاد ”%s“"
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr "لا يمكن عرض الكاميرا"
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "جاري الاتصال ب \"%s\"…"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr "لا يمكن عرض الكاميرا"
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "تم التقاط الصورة"
 
@@ -100,6 +97,9 @@ msgstr[5] "%d ثانية"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "سيتأخر قبل إلتقاط الصورة"
+
+#~ msgid "Could not find “%s”"
+#~ msgstr "لا يمكن إيجاد ”%s“"
 
 #, fuzzy
 #~| msgid "Camera"

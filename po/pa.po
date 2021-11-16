@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2021-08-03 15:09+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/camera/camera/pa/"
@@ -35,30 +35,27 @@ msgstr "ਫ਼ਾਇਲ ਵੇਖੋ"
 msgid "Recording failed"
 msgstr "ਰਿਕਾਰਡਿੰਗ ਨਾਕਾਮ ਰਹੀ"
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
 msgstr "ਕੋਈ ਸਮਰੱਥ ਕੈਮਰਾ ਨਹੀਂ ਮਿਲਿਆ"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "ਤਸਵੀਰਾਂ ਜਾਂ ਵਿਡੀਓਜ਼ ਲੈਣ ਲਈ ਵੈੱਬਕੈਮ ਜਾਂ ਕੋਈ ਹੋਰ ਸਮਰੱਥ ਵਿਡੀਓ ਡਿਵਾਈਸ ਜੋੜੋ।"
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr "“%s” ਲੱਭਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr "ਕੈਮਰਾ ਵੇਖਣ ਵਿੱਚ ਅਸਮਰੱਥ"
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "“%s” ਨਾਲ਼ ਜੁੜਿਆ ਜਾ ਰਿਹੈ…"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr "ਕੈਮਰਾ ਵੇਖਣ ਵਿੱਚ ਅਸਮਰੱਥ"
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "ਤਸਵੀਰ ਖਿੱਚੀ ਗਈ"
 
@@ -93,3 +90,6 @@ msgstr[1] "%d ਸਕਿੰਟ"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "ਤਸਵੀਰ ਖਿੱਚਣ ਤੋਂ ਪਹਿਲਾਂ ਦੇਰੀ"
+
+#~ msgid "Could not find “%s”"
+#~ msgstr "“%s” ਲੱਭਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"

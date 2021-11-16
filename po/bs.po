@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2018-11-03 22:56+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/camera/camera/"
@@ -37,32 +37,29 @@ msgstr ""
 msgid "Recording failed"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
 msgstr "Nije pronađena podržana kamera"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Spojite web kameru ili drugi podržani videouređaj kako biste slikali ili "
 "snimali."
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr ""
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Povezivanje sa \"%s\"…"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "Fotografija uslikana"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2021-08-21 17:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
@@ -36,32 +36,29 @@ msgstr "Vis fil"
 msgid "Recording failed"
 msgstr "Opptak mislyktes"
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
 msgstr "Ingen støttede kamera funnet"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Koble til ett nettkamera eller annen støttet videoenhet for å ta bilder "
 "eller spille inn video."
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr "Fant ikke «%s»"
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr "Kan ikke flytte kamera"
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Kobler til «%s» …"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr "Kan ikke flytte kamera"
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "Bilde tatt"
 
@@ -96,6 +93,9 @@ msgstr[1] "%d sek"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Forsinkelse før bilde tas"
+
+#~ msgid "Could not find “%s”"
+#~ msgstr "Fant ikke «%s»"
 
 #, fuzzy
 #~ msgid "%s could not be found"

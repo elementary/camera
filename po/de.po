@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2021-07-07 08:27+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/camera/camera/de/"
@@ -36,32 +36,29 @@ msgstr "Datei anzeigen"
 msgid "Recording failed"
 msgstr "Aufnahme fehlgeschlagen"
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
 msgstr "Keine unterstützte Kamera gefunden"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Zum Aufnehmen von Fotos und Videos eine Webcam oder eine andere unterstützte "
 "Videokamera anschließen."
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr "»%s« nicht gefunden"
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr "Kamera nicht erkannt"
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Verbinden mit »%s« …"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr "Kamera nicht erkannt"
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "Foto aufgenommen"
 
@@ -96,6 +93,9 @@ msgstr[1] "%d Sek"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Aufnahmeverzögerung"
+
+#~ msgid "Could not find “%s”"
+#~ msgstr "»%s« nicht gefunden"
 
 #~ msgid "%s could not be found"
 #~ msgstr "%s nicht gefunden"

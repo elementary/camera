@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:40+0000\n"
+"POT-Creation-Date: 2021-11-16 19:35+0000\n"
 "PO-Revision-Date: 2021-07-07 20:50+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/camera/camera/ca/"
@@ -36,32 +36,29 @@ msgstr "Mostra el fitxer"
 msgid "Recording failed"
 msgstr "Ha fallat la gravació."
 
-#: src/Widgets/CameraView.vala:82
+#: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
 msgstr "No s'ha trobat cap càmera admesa"
 
-#: src/Widgets/CameraView.vala:83
+#: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connecteu una càmera web o un altre dispositiu de vídeo per fer fotografies "
 "i vídeo."
 
-#: src/Widgets/CameraView.vala:210
-#, c-format
-msgid "Could not find “%s”"
-msgstr "No s'ha pogut trobar %s."
-
-#: src/Widgets/CameraView.vala:264
-msgid "Unable To View Camera"
-msgstr "No es pot mostrar la càmera."
-
-#: src/Widgets/CameraView.vala:278
+#: src/Widgets/CameraView.vala:152
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Es connecta amb %s…"
 
-#: src/Widgets/CameraView.vala:436
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:226
+msgid "Unable To View Camera"
+msgstr "No es pot mostrar la càmera."
+
+#: src/Widgets/CameraView.vala:395
 msgid "Photo taken"
 msgstr "Fotografia feta"
 
@@ -96,6 +93,9 @@ msgstr[1] "%d s"
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
 msgstr "Temps de retard per fer la fotografia"
+
+#~ msgid "Could not find “%s”"
+#~ msgstr "No s'ha pogut trobar %s."
 
 #~ msgid "%s could not be found"
 #~ msgstr "No s'ha pogut trobar %s."
