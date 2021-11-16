@@ -37,7 +37,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private int picture_height;
 
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
-    private Gee.HashMap<string, Gst.Device> cameras = new Gee.HashMap<string, Gst.Device> ();
+    private Gee.ArrayList<string> cameras = new Gee.ArrayList<string> ();
+    private Gee.HashMap<string, Gst.Device> cameras_map = new Gee.HashMap<string, Gst.Device> ();
     public bool recording { get; private set; default = false; }
     public bool horizontal_flip {
         get {
@@ -95,10 +96,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private void on_device_added (Gst.Device device) {
         if (add_camera_to_map (device)) {
             if (cameras.size == 1) {
-                start_view (cameras.keys.to_array ()[0]);
+                start_view (cameras[0]);
             } else {
-                int num_cams = cameras.keys.size;
-                change_camera (cameras.keys.to_array ()[num_cams - 1]);
+                int num_cams = cameras.size;
+                change_camera (cameras[num_cams - 1]);
             }
 
             camera_present (true);
@@ -109,10 +110,11 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private bool add_camera_to_map (Gst.Device device) {
         var name = device.get_display_name ().strip ();
-        if (cameras.has_key (name)) {
+        if (cameras_map.has_key (name)) {
             return false;
         } else {
-            cameras.set (name, device);
+            cameras_map.set (name, device);
+            cameras.add (name);
             camera_added (name);
             return true;
         }
@@ -120,8 +122,9 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private bool remove_camera_from_map (Gst.Device device) {
         var name = device.get_display_name ().strip ();
-        if (cameras.has_key (name)) {
-            cameras.unset (name);
+        if (cameras_map.has_key (name)) {
+            cameras_map.unset (name);
+            cameras.remove (name);
             camera_removed (name);
             return true;
         } else {
@@ -130,7 +133,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     private Gst.Device? find_camera_from_name (string name) {
-        return cameras.get (name.strip ());
+        return cameras_map.get (name.strip ());
     }
 
     private bool on_bus_message (Gst.Bus bus, Gst.Message message) {
@@ -156,7 +159,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                         camera_present (false);
                         visible_child = no_device_view;
                     } else {
-                        change_camera (cameras.keys.to_array ()[0]);
+                        change_camera (cameras[0]);
                     }
                 } else {
                     warning ("CameraView: Attempt to remove camera that is not in list");

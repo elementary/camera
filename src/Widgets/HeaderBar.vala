@@ -259,10 +259,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             var el = camera_options.get_children ().nth_data (0) as Gtk.RadioMenuItem;
             menuitem.join_group (el);
         }
+        menuitem.active = true;
         menuitem.activate.connect (() => {
             request_camera_change (menuitem.label);
         });
-        menuitem.active = true;
         menuitem.show ();
 
         update_take_button ();
