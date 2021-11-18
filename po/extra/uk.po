@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-18 19:30+0000\n"
-"PO-Revision-Date: 2021-10-27 01:01+0000\n"
+"PO-Revision-Date: 2021-11-18 20:39+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/extra/"
 "uk/>\n"
@@ -43,13 +43,13 @@ msgstr "Виправлення:"
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
-msgstr ""
+msgstr "Виправлено проблеми з недоступністю камер, коли під'єднано кілька камер"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
-msgstr ""
+msgstr "Працює типова камера, якщо під'єднано кілька камер, а одна недоступна"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 #: data/io.elementary.camera.appdata.xml.in:38
