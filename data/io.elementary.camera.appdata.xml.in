@@ -12,6 +12,19 @@
     <p>Camera is a simple app to take photos with a webcam.</p>
   </description>
   <releases>
+    <release version="6.0.2" date="2021-11-18" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Resolve issues with cameras being unavailable when multiple cameras are connected</li>
+          <li>Default to a working camera if multiple cameras are connected and one is unavailable</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.0.1" date="2021-10-26" urgency="medium">
       <description>
         <p>Improvements:</p>
