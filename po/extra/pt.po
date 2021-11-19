@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-18 19:30+0000\n"
-"PO-Revision-Date: 2021-10-29 14:01+0000\n"
+"PO-Revision-Date: 2021-11-19 12:46+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -43,12 +43,16 @@ msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
 msgstr ""
+"Resolve problemas com a indisponibilidade de câmaras quando várias câmaras "
+"estão ligadas"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
+"predefinido para uma câmara de trabalho se várias câmaras estiverem ligadas "
+"e uma não estiver disponível"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 #: data/io.elementary.camera.appdata.xml.in:38
