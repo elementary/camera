@@ -16,10 +16,10 @@ You'll need the following dependencies:
  - libgranite-dev
  - libgstreamer1.0-dev
  - libgstreamer-plugins-base1.0-dev
- - libgtk-3.0-dev
+ - libgtk-3-dev
  - libhandy-1-dev
- - meson >= 0.43
- - valac-0.30
+ - meson >= 0.46
+ - valac
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build and run automated tests
 
