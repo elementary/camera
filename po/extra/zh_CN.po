@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-18 19:30+0000\n"
-"PO-Revision-Date: 2021-11-02 07:00+0000\n"
+"PO-Revision-Date: 2021-12-04 09:59+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "camera/extra/zh_Hans/>\n"
@@ -42,13 +42,13 @@ msgstr "修复:"
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
-msgstr ""
+msgstr "解决连接多个摄像头时摄像头不可用的问题"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
-msgstr ""
+msgstr "如果连接了多台摄像机而一个不可用，则默认为工作摄像机"
 
 #: data/io.elementary.camera.appdata.xml.in:22
 #: data/io.elementary.camera.appdata.xml.in:38
