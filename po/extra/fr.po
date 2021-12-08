@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 19:30+0000\n"
+"POT-Creation-Date: 2021-12-08 21:41+0000\n"
 "PO-Revision-Date: 2021-11-19 12:24+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/camera/extra/fr/>"
-"\n"
+"Language-Team: French <https://l10n.elementary.io/projects/camera/extra/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,12 +34,24 @@ msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "Caméra est une simple application pour prendre des photos avec la webcam."
 
-#: data/io.elementary.camera.appdata.xml.in:17
-#: data/io.elementary.camera.appdata.xml.in:34
+#: data/io.elementary.camera.appdata.xml.in:18
+msgid "Update to elementary runtime 6.1"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:19
+#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:48
+#: data/io.elementary.camera.appdata.xml.in:62
+#: data/io.elementary.camera.appdata.xml.in:69
+msgid "Updated translations"
+msgstr "Mise à jour des traductions"
+
+#: data/io.elementary.camera.appdata.xml.in:25
+#: data/io.elementary.camera.appdata.xml.in:42
 msgid "Fixes:"
 msgstr "Corrections :"
 
-#: data/io.elementary.camera.appdata.xml.in:19
+#: data/io.elementary.camera.appdata.xml.in:27
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
@@ -47,7 +59,7 @@ msgstr ""
 "Résolution des problèmes d'indisponibilité des caméras lorsque plusieurs "
 "caméras sont connectées"
 
-#: data/io.elementary.camera.appdata.xml.in:20
+#: data/io.elementary.camera.appdata.xml.in:28
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
@@ -55,59 +67,52 @@ msgstr ""
 "Choix par défaut d'une caméra qui fonctionne si plusieurs caméras sont "
 "connectées et que l'une d'entre elles n'est pas disponible"
 
-#: data/io.elementary.camera.appdata.xml.in:22
-#: data/io.elementary.camera.appdata.xml.in:38
+#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:46
 msgid "Minor updates:"
 msgstr "Mises à jour mineures :"
 
-#: data/io.elementary.camera.appdata.xml.in:24
-#: data/io.elementary.camera.appdata.xml.in:40
-#: data/io.elementary.camera.appdata.xml.in:54
-#: data/io.elementary.camera.appdata.xml.in:61
-msgid "Updated translations"
-msgstr "Mise à jour des traductions"
-
-#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:38
 msgid "Improvements:"
 msgstr "Améliorations :"
 
-#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:40
 msgid "Take full-resolution pictures"
 msgstr "Prenez des photos en haute résolution"
 
-#: data/io.elementary.camera.appdata.xml.in:36
+#: data/io.elementary.camera.appdata.xml.in:44
 msgid "Fix restoring window size"
 msgstr "Correction de la restauration de la taille de la fenêtre"
 
-#: data/io.elementary.camera.appdata.xml.in:47
+#: data/io.elementary.camera.appdata.xml.in:55
 msgid "Switch between multiple cameras"
 msgstr "Possibilité de basculer entre plusieurs caméras"
 
-#: data/io.elementary.camera.appdata.xml.in:48
+#: data/io.elementary.camera.appdata.xml.in:56
 msgid "Send a notification when recording is finished"
 msgstr "Envoi d'une notification lorsque l'enregistrement est terminé"
 
-#: data/io.elementary.camera.appdata.xml.in:49
+#: data/io.elementary.camera.appdata.xml.in:57
 msgid "Add option to mirror the camera"
 msgstr "Ajout d'une option pour inverser la caméra"
 
-#: data/io.elementary.camera.appdata.xml.in:50
+#: data/io.elementary.camera.appdata.xml.in:58
 msgid "Add brightness and contrast adjustment"
 msgstr "Ajout de paramètres pour ajuster la luminosité et le contraste"
 
-#: data/io.elementary.camera.appdata.xml.in:51
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "Support the dark style"
 msgstr "Prise en charge du thème sombre"
 
-#: data/io.elementary.camera.appdata.xml.in:52
+#: data/io.elementary.camera.appdata.xml.in:60
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr "Nous avons empêché le lancement simultané de plusieurs déclencheurs"
 
-#: data/io.elementary.camera.appdata.xml.in:53
+#: data/io.elementary.camera.appdata.xml.in:61
 msgid "Improved support for camera hardware"
 msgstr "Amélioration du support matériel pour les caméras"
 
-#: data/io.elementary.camera.appdata.xml.in:103
+#: data/io.elementary.camera.appdata.xml.in:111
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

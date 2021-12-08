@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 19:30+0000\n"
+"POT-Creation-Date: 2021-12-08 21:41+0000\n"
 "PO-Revision-Date: 2021-11-19 14:47+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
@@ -33,76 +33,83 @@ msgstr "カメラで写真と動画を撮影します"
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "“カメラ”は Web カメラで写真を撮影するためのシンプルなアプリです。"
 
-#: data/io.elementary.camera.appdata.xml.in:17
-#: data/io.elementary.camera.appdata.xml.in:34
+#: data/io.elementary.camera.appdata.xml.in:18
+msgid "Update to elementary runtime 6.1"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:19
+#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:48
+#: data/io.elementary.camera.appdata.xml.in:62
+#: data/io.elementary.camera.appdata.xml.in:69
+msgid "Updated translations"
+msgstr "翻訳の更新"
+
+#: data/io.elementary.camera.appdata.xml.in:25
+#: data/io.elementary.camera.appdata.xml.in:42
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/io.elementary.camera.appdata.xml.in:19
+#: data/io.elementary.camera.appdata.xml.in:27
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
 msgstr "複数のカメラが接続されている場合、カメラが利用できない不具合を修正"
 
-#: data/io.elementary.camera.appdata.xml.in:20
+#: data/io.elementary.camera.appdata.xml.in:28
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
-msgstr "複数のカメラが接続されていて一方が利用できない場合、利用できるカメラをデフォルトで使用するように修正"
+msgstr ""
+"複数のカメラが接続されていて一方が利用できない場合、利用できるカメラをデフォ"
+"ルトで使用するように修正"
 
-#: data/io.elementary.camera.appdata.xml.in:22
-#: data/io.elementary.camera.appdata.xml.in:38
+#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:46
 msgid "Minor updates:"
 msgstr "軽微なアップデート:"
 
-#: data/io.elementary.camera.appdata.xml.in:24
-#: data/io.elementary.camera.appdata.xml.in:40
-#: data/io.elementary.camera.appdata.xml.in:54
-#: data/io.elementary.camera.appdata.xml.in:61
-msgid "Updated translations"
-msgstr "翻訳の更新"
-
-#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:38
 msgid "Improvements:"
 msgstr "改善点:"
 
-#: data/io.elementary.camera.appdata.xml.in:32
+#: data/io.elementary.camera.appdata.xml.in:40
 msgid "Take full-resolution pictures"
 msgstr "フル解像度の写真を撮影できるように修正"
 
-#: data/io.elementary.camera.appdata.xml.in:36
+#: data/io.elementary.camera.appdata.xml.in:44
 msgid "Fix restoring window size"
 msgstr "ウィンドウの大きさが正しく復元されるように修正"
 
-#: data/io.elementary.camera.appdata.xml.in:47
+#: data/io.elementary.camera.appdata.xml.in:55
 msgid "Switch between multiple cameras"
 msgstr "複数のカメラを切り替える機能を追加"
 
-#: data/io.elementary.camera.appdata.xml.in:48
+#: data/io.elementary.camera.appdata.xml.in:56
 msgid "Send a notification when recording is finished"
 msgstr "録画終了時に通知を表示"
 
-#: data/io.elementary.camera.appdata.xml.in:49
+#: data/io.elementary.camera.appdata.xml.in:57
 msgid "Add option to mirror the camera"
 msgstr "ミラーオプションを追加"
 
-#: data/io.elementary.camera.appdata.xml.in:50
+#: data/io.elementary.camera.appdata.xml.in:58
 msgid "Add brightness and contrast adjustment"
 msgstr "輝度とコントラストの調整機能を追加"
 
-#: data/io.elementary.camera.appdata.xml.in:51
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "Support the dark style"
 msgstr "ダークスタイルに対応"
 
-#: data/io.elementary.camera.appdata.xml.in:52
+#: data/io.elementary.camera.appdata.xml.in:60
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr "複数のカウントダウンが同時に実行されないように修正"
 
-#: data/io.elementary.camera.appdata.xml.in:53
+#: data/io.elementary.camera.appdata.xml.in:61
 msgid "Improved support for camera hardware"
 msgstr "カメラハードウェアへの対応を改善"
 
-#: data/io.elementary.camera.appdata.xml.in:103
+#: data/io.elementary.camera.appdata.xml.in:111
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
