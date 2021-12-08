@@ -12,6 +12,14 @@
     <p>Camera is a simple app to take photos with a webcam.</p>
   </description>
   <releases>
+    <release version="6.0.3" date="2021-12-08" urgency="medium">
+      <description>
+        <ul>
+          <li>Update to elementary runtime 6.1</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.0.2" date="2021-11-23" urgency="medium">
       <description>
         <p>Fixes:</p>
