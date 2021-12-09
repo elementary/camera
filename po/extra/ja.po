@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-08 21:41+0000\n"
-"PO-Revision-Date: 2021-11-19 14:47+0000\n"
+"PO-Revision-Date: 2021-12-09 06:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
 ">\n"
@@ -35,7 +35,7 @@ msgstr "“カメラ”は Web カメラで写真を撮影するためのシン�
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "elementary ランタイムのバージョンを 6.1 にアップデート"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 #: data/io.elementary.camera.appdata.xml.in:32
