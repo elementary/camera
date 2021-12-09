@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-08 21:41+0000\n"
-"PO-Revision-Date: 2021-11-30 06:55+0000\n"
+"PO-Revision-Date: 2021-12-09 02:37+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "camera/extra/en_GB/>\n"
@@ -35,7 +35,7 @@ msgstr "Camera is a simple app to take photos with a webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Update to elementary runtime 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 #: data/io.elementary.camera.appdata.xml.in:32
