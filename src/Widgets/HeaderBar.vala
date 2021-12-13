@@ -50,26 +50,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
     }
 
-    public const string TAKE_BUTTON_STYLESHEET = """
-        .camera-menu {
-            border-radius: 0 400px 400px 0;
-        }
-
-        .take-button {
-            border-radius: 400px;
-            padding-left: 6px;
-            padding-right: 6px;
-            transition-duration: 200ms;
-            transition-property: border-top-right-radius, border-bottom-right-radius, padding-right;
-        }
-
-        .take-button.multiple {
-            border-bottom-right-radius: 0;
-            border-top-right-radius: 0;
-            border-right-width: 0;
-            padding-right: 0;
-        }
-    """;
+    //public const string TAKE_BUTTON_STYLESHEET = """
+        
+    //""";
 
     construct {
         timer_button = new Widgets.TimerButton ();
@@ -98,7 +81,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         var take_button_style_provider = new Gtk.CssProvider ();
 
         try {
-            take_button_style_provider.load_from_data (TAKE_BUTTON_STYLESHEET, -1);
+            take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
         } catch (Error e) {
             warning ("Styling take button failed: %s", e.message);
         }
