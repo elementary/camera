@@ -111,10 +111,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         grid.attach (header_bar, 0, 0);
         grid.attach (overlay, 0, 1);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
-
-        add (window_handle);
+        add (grid);
 
         timer_running = false;
         camera_view.camera_added.connect (header_bar.add_camera_option);
