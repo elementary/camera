@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-08 21:41+0000\n"
-"PO-Revision-Date: 2021-11-19 12:24+0000\n"
+"PO-Revision-Date: 2021-12-10 10:27+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/camera/extra/fr/"
-">\n"
+"Language-Team: French <https://l10n.elementary.io/projects/camera/extra/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:18
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Mise à jour vers l'exécutable elementary 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 #: data/io.elementary.camera.appdata.xml.in:32
