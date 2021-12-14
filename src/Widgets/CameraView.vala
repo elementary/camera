@@ -81,8 +81,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             halign = Gtk.Align.CENTER,
             valign = Gtk.Align.CENTER
         };
-        status_grid.add (spinner);
-        status_grid.add (status_label);
+        status_grid.attach (spinner, 0, 0);
+        status_grid.attach (status_label, 1, 0);
 
         no_device_view = new Granite.Widgets.AlertView (
             _("No Supported Camera Found"),

@@ -87,8 +87,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
 
         var take_grid = new Gtk.Grid ();
         take_grid.halign = Gtk.Align.CENTER;
-        take_grid.add (take_image);
-        take_grid.add (video_timer_revealer);
+        take_grid.attach (take_image, 0, 0);
+        take_grid.add (video_timer_revealer, 1, 0);
 
         take_button = new Gtk.Button ();
         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
@@ -197,8 +197,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         camera_menu_revealer.add (camera_menu_button);
 
         linked_box = new Gtk.Grid ();
-        linked_box.add (take_button);
-        linked_box.add (camera_menu_revealer);
+        linked_box.attach (take_button, 0, 0);
+        linked_box.attach (camera_menu_revealer, 1, 0);
 
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
