@@ -20,7 +20,9 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
-public class Camera.Widgets.CameraView : Gtk.Stack {
+// public class Camera.Widgets.CameraView : Gtk.Stack {
+public class Camera.Widgets.CameraView : Gtk.Box {
+    public Gtk.Stack stack;
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
@@ -89,9 +91,16 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             _("Connect a webcam or other supported video device to take photos and video."),
             ""
         );
+        stack = new Gtk.Stack () {
+            hexpand = true,
+            vexpand = true,
+            halign = Gtk.Align.FILL,
+            valign = Gtk.Align.FILL
+        };
+        stack.add (status_grid);
+        stack.add (no_device_view);
 
-        add (status_grid);
-        add (no_device_view);
+        pack_start (stack);
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
@@ -106,7 +115,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         camera_removed (device);
         if (n_cameras == 0) {
             no_device_view.show ();
-            visible_child = no_device_view;
+            stack.visible_child = no_device_view;
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
         }
@@ -148,7 +157,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     public void change_camera (Gst.Device camera) {
-        visible_child = status_grid;
+        stack.visible_child = status_grid;
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         if (recording) {
@@ -215,10 +224,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             var gtksink = pipeline.get_by_name ("gtksink");
             gtksink.get ("widget", out gst_video_widget);
 
-            add (gst_video_widget);
+            stack.add (gst_video_widget);
             gst_video_widget.show ();
 
-            visible_child = gst_video_widget;
+            stack.visible_child = gst_video_widget;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show
