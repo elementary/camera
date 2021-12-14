@@ -24,7 +24,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
-    private Gtk.Grid status_grid;
+    private Gtk.Box status_box;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
     Gtk.Widget gst_video_widget;
@@ -76,13 +76,12 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         status_label = new Gtk.Label (null);
 
-        status_grid = new Gtk.Grid () {
-            column_spacing = 6,
+        status_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             halign = Gtk.Align.CENTER,
             valign = Gtk.Align.CENTER
         };
-        status_grid.attach (spinner, 0, 0);
-        status_grid.attach (status_label, 1, 0);
+        status_box.pack_start (spinner);
+        status_box.pack_start (status_label);
 
         no_device_view = new Granite.Widgets.AlertView (
             _("No Supported Camera Found"),
@@ -90,7 +89,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             ""
         );
 
-        add (status_grid);
+        add (status_box);
         add (no_device_view);
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
@@ -148,7 +147,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     public void change_camera (Gst.Device camera) {
-        visible_child = status_grid;
+        visible_child = status_box;
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         if (recording) {
