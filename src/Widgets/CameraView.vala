@@ -20,7 +20,6 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
-// public class Camera.Widgets.CameraView : Gtk.Stack {
 public class Camera.Widgets.CameraView : Gtk.Box {
     public Gtk.Stack stack;
     private const string VIDEO_SRC_NAME = "v4l2src";
