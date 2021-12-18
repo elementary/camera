@@ -50,10 +50,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
     }
 
-    //public const string TAKE_BUTTON_STYLESHEET = """
-        
-    //""";
-
     construct {
         timer_button = new Widgets.TimerButton ();
         timer_button.image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -79,12 +75,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         take_button.add (take_grid);
 
         var take_button_style_provider = new Gtk.CssProvider ();
-
-        try {
-            take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
-        } catch (Error e) {
-            warning ("Styling take button failed: %s", e.message);
-        }
+        take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
 
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
         take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
