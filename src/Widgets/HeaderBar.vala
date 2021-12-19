@@ -152,7 +152,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             tooltip_text = _("Settings")
         };
 
-        camera_menu_button = new Gtk.MenuButton ();
         camera_options = new Gtk.Menu ();
 
         camera_menu_button = new Gtk.MenuButton () {
