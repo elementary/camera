@@ -186,8 +186,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         };
         camera_options_box.show ();
 
-        camera_menu_button = new Gtk.MenuButton ();
-        var camera_options_popover = new Gtk.Popover (camera_menu_button);
+        var camera_options_popover = new Gtk.Popover (null);
         camera_options_popover.add (camera_options_box);
 
         camera_menu_button = new Gtk.MenuButton () {
