@@ -1,0 +1,18 @@
+.camera-menu {
+	border-radius: 0 400px 400px 0;
+}
+
+.take-button {
+	border-radius: 400px;
+	padding-left: 6px;
+	padding-right: 6px;
+	transition-duration: 200ms;
+	transition-property: border-top-right-radius, border-bottom-right-radius, padding-right;
+}
+
+.take-button.multiple {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border-right-width: 0;
+	padding-right: 0;
+}
