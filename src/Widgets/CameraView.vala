@@ -95,7 +95,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             halign = Gtk.Align.FILL,
             valign = Gtk.Align.FILL
         };
-        stack.add (status_grid);
+        stack.add (status_box);
         stack.add (no_device_view);
 
         pack_start (stack);
@@ -155,7 +155,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     }
 
     public void change_camera (Gst.Device camera) {
-        stack.visible_child = status_grid;
+        stack.visible_child = status_box;
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         if (recording) {
