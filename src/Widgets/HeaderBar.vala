@@ -20,7 +20,7 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
-public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
+public class Camera.Widgets.HeaderBar : Gtk.Box {
     public signal void request_change_balance (double brightness, double contrast);
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
@@ -38,6 +38,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Menu camera_options;
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
+    private Gtk.HeaderBar header_widget;
 
     public bool recording { get; set; default = false; }
     public bool horizontal_flip { get; set; default = true; }
@@ -48,6 +49,13 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         get {
             return timer_button.delay;
         }
+    }
+
+    public HeaderBar () {
+        Object (
+            orientation: Gtk.Orientation.HORIZONTAL,
+            spacing: 0
+        );
     }
 
     construct {
@@ -173,15 +181,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         linked_box.pack_start (take_button);
         linked_box.pack_start (camera_menu_revealer);
 
-        show_close_button = true;
-        get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
-        pack_start (timer_button);
-        set_custom_title (linked_box);
-        pack_end (menu_button);
-        pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        header_widget = new Gtk.HeaderBar () {
+            show_close_button = true,
+            custom_title = linked_box
+        };
+        header_widget.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
+        header_widget.pack_start (timer_button);
+        header_widget.pack_end (menu_button);
+        header_widget.pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        pack_start (header_widget);
 
 
-        pack_end (mode_switch);
+        header_widget.pack_end (mode_switch);
 
         Camera.Application.settings.changed["mode"].connect ((key) => {
             mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
