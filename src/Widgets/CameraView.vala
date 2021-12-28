@@ -99,7 +99,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private void on_camera_added (Gst.Device device) {
         camera_added (device);
-        change_camera (device);
+        change_camera_by_name (device.display_name);
+        // change_camera (device);
     }
     private void on_camera_removed (Gst.Device device) {
         camera_removed (device);
@@ -168,6 +169,21 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
 
         create_pipeline (camera);
+    }
+
+    public void change_camera_by_name (string camera_name) {
+        unowned var camera = monitor.get_devices ().search<string> (camera_name, (cam, new_device) => {
+            if (new_device == "undef") { // return the first camera if undefined
+                return 0;
+            }
+
+            return strcmp (cam.name, new_device);
+        });
+        if (camera != null) {
+            change_camera (camera.data);
+        } else {
+            change_camera (monitor.get_devices ().nth_data (0));
+        }
     }
 
     private void create_pipeline (Gst.Device camera) {
