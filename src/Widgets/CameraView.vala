@@ -99,7 +99,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private void on_camera_added (Gst.Device device) {
         camera_added (device);
-        change_camera_by_name (device.display_name);
+        change_camera_by_name (device.name);
         // change_camera (device);
     }
     private void on_camera_removed (Gst.Device device) {
