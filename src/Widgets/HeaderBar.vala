@@ -33,7 +33,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
     private Gtk.Box linked_box;
-    private Gtk.Button take_button;
     private Gtk.MenuButton camera_menu_button;
     private Gtk.MenuButton menu_button;
     private Gtk.Revealer camera_menu_revealer;
