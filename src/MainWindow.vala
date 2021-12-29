@@ -30,7 +30,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
-        {ACTION_CHANGE_CAMERA, null, null, "undef", on_camera_change}
     };
 
     private uint configure_id;
@@ -43,6 +42,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public MainWindow (Application application) {
         Object (application: application);
 
+        add_action (new PropertyAction (ACTION_CHANGE_CAMERA, camera_view, "camera-name"));
         add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
@@ -155,10 +155,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             header_bar.start_recording_time ();
             action.set_state (new Variant.boolean (true));
         }
-    }
-
-    private void on_camera_change (SimpleAction action, Variant camera_value) {
-        camera_view.change_camera_by_name (camera_value.get_string ());
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {

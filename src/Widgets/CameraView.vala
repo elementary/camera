@@ -35,6 +35,29 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
 
+    public string camera_name {
+        get {
+            if (pipeline == null) {
+                return "";
+            }
+
+            dynamic Gst.Element video_src = pipeline.get_by_name (VIDEO_SRC_NAME);
+            return video_src.device_name ?? "";
+        }
+
+        set {
+            unowned var camera = monitor.get_devices ().search<string> (value, (cam, new_device) => {
+                if (new_device == null) { // return the first camera if undefined
+                    return 0;
+                }
+
+                return strcmp (cam.name, new_device);
+            });
+
+            change_camera (camera.data ?? monitor.get_devices ().nth_data (0));
+        }
+    }
+
     public uint n_cameras {
         get {
             return monitor.get_devices ().length ();
@@ -99,16 +122,17 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private void on_camera_added (Gst.Device device) {
         camera_added (device);
-        change_camera_by_name (device.name);
-        // change_camera (device);
+        change_camera (device);
+        notify_property ("camera-name");
     }
+
     private void on_camera_removed (Gst.Device device) {
         camera_removed (device);
         if (n_cameras == 0) {
             no_device_view.show ();
             visible_child = no_device_view;
         } else {
-            change_camera (monitor.get_devices ().nth_data (0));
+            camera_name = null;
         }
     }
 
@@ -169,21 +193,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
 
         create_pipeline (camera);
-    }
-
-    public void change_camera_by_name (string camera_name) {
-        unowned var camera = monitor.get_devices ().search<string> (camera_name, (cam, new_device) => {
-            if (new_device == "undef") { // return the first camera if undefined
-                return 0;
-            }
-
-            return strcmp (cam.name, new_device);
-        });
-        if (camera != null) {
-            change_camera (camera.data);
-        } else {
-            change_camera (monitor.get_devices ().nth_data (0));
-        }
     }
 
     private void create_pipeline (Gst.Device camera) {
