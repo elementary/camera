@@ -24,7 +24,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
-    public const string ACTION_CHANGE_CAMERA = "change-camera";
+    public const string ACTION_CHANGE_CAMERA = "change_camera";
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
