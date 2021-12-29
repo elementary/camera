@@ -32,7 +32,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Widgets.TimerButton timer_button;
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
-    private Gtk.Grid linked_box;
+    private Gtk.Box linked_box;
+    private Gtk.Button take_button;
     private Gtk.MenuButton camera_menu_button;
     private Gtk.MenuButton menu_button;
     private Gtk.Revealer camera_menu_revealer;
@@ -51,27 +52,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         }
     }
 
-    public const string TAKE_BUTTON_STYLESHEET = """
-        .camera-menu {
-            border-radius: 0 400px 400px 0;
-        }
-
-        .take-button {
-            border-radius: 400px;
-            padding-left: 6px;
-            padding-right: 6px;
-            transition-duration: 200ms;
-            transition-property: border-top-right-radius, border-bottom-right-radius, padding-right;
-        }
-
-        .take-button.multiple {
-            border-bottom-right-radius: 0;
-            border-top-right-radius: 0;
-            border-right-width: 0;
-            padding-right: 0;
-        }
-    """;
-
     construct {
         timer_button = new Widgets.TimerButton ();
         timer_button.image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -86,23 +66,18 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         video_timer_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
         video_timer_revealer.add (take_timer);
 
-        var take_grid = new Gtk.Grid ();
-        take_grid.halign = Gtk.Align.CENTER;
-        take_grid.add (take_image);
-        take_grid.add (video_timer_revealer);
+        var take_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        take_box.halign = Gtk.Align.CENTER;
+        take_box.pack_start (take_image);
+        take_box.pack_start (video_timer_revealer);
 
         take_button = new Gtk.Button ();
         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
         take_button.width_request = 54;
-        take_button.add (take_grid);
+        take_button.add (take_box);
 
         var take_button_style_provider = new Gtk.CssProvider ();
-
-        try {
-            take_button_style_provider.load_from_data (TAKE_BUTTON_STYLESHEET, -1);
-        } catch (Error e) {
-            warning ("Styling take button failed: %s", e.message);
-        }
+        take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
 
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
         take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -196,9 +171,9 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         };
         camera_menu_revealer.add (camera_menu_button);
 
-        linked_box = new Gtk.Grid ();
-        linked_box.add (take_button);
-        linked_box.add (camera_menu_revealer);
+        linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        linked_box.pack_start (take_button);
+        linked_box.pack_start (camera_menu_revealer);
 
         show_close_button = true;
         get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);

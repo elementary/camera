@@ -24,7 +24,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
-    private Gtk.Grid status_grid;
+    private Gtk.Box status_box;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
     Gtk.Widget gst_video_widget;
@@ -76,13 +76,12 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         status_label = new Gtk.Label (null);
 
-        status_grid = new Gtk.Grid () {
-            column_spacing = 6,
+        status_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             halign = Gtk.Align.CENTER,
             valign = Gtk.Align.CENTER
         };
-        status_grid.add (spinner);
-        status_grid.add (status_label);
+        status_box.pack_start (spinner);
+        status_box.pack_start (status_label);
 
         no_device_view = new Granite.Widgets.AlertView (
             _("No Supported Camera Found"),
@@ -90,7 +89,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             ""
         );
 
-        add (status_grid);
+        add (status_box);
         add (no_device_view);
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
@@ -148,7 +147,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     public void change_camera (Gst.Device camera) {
-        visible_child = status_grid;
+        visible_child = status_box;
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         if (recording) {
@@ -254,7 +253,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         try {
              picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
                 "v4l2src device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
-                "image/jpeg, width=%d, height=%d ! jpegdec ! ".printf (picture_width, picture_height) +
+                "videoscale ! video/x-raw, width=%d, height=%d !".printf (picture_width, picture_height) +
                 "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
                 "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()) +
                 "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
