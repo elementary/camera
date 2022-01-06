@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-13 22:24+0000\n"
-"PO-Revision-Date: 2021-12-09 06:02+0000\n"
+"PO-Revision-Date: 2022-01-04 07:48+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
 ">\n"
@@ -116,7 +116,7 @@ msgstr "elementary, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr "フォトブース"
+msgstr "写真撮影機"
 
 #: data/io.elementary.camera.desktop.in:8
 msgid "io.elementary.camera"
