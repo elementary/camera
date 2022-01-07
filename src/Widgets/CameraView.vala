@@ -199,8 +199,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
                 "videoconvert ! " +
-                "videoscale ! " +
-                "gtksink name=gtksink"
+                "videoscale name=videoscale"
             );
 
             pipeline.add (device_src);
@@ -213,8 +212,19 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 remove (gst_video_widget);
             }
 
-            var gtksink = pipeline.get_by_name ("gtksink");
-            gtksink.get ("widget", out gst_video_widget);
+            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
+            if (gtksink != null) {
+                dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
+                glsinkbin.sink = gtksink;
+                pipeline.add (glsinkbin);
+                pipeline.get_by_name ("videoscale").link (glsinkbin);
+            } else {
+                gtksink = Gst.ElementFactory.make ("gtksink", null);
+                pipeline.add (gtksink);
+                pipeline.get_by_name ("videoscale").link (gtksink);
+            }
+
+            gst_video_widget = gtksink.widget;
 
             add (gst_video_widget);
             gst_video_widget.show ();
