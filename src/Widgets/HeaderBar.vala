@@ -240,7 +240,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         //     }
         // });
         // menuitem.show ();
-        camera_options.append (camera.display_name, "win.change-camera('%s')".printf (camera.name));
+        camera_options.append (camera.display_name, "win.change_camera('%s')".printf (camera.name));
 
         update_take_button ();
     }
