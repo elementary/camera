@@ -191,9 +191,9 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 }
             }
 
+            var device_src = camera.create_element (VIDEO_SRC_NAME);
             pipeline = (Gst.Pipeline) Gst.parse_launch (
-                "v4l2src device=%s name=%s ! ".printf (camera.get_properties ().get_string ("device.path"), VIDEO_SRC_NAME) +
-                "video/x-raw, width=640, height=480, framerate=30/1 ! " +
+                "capsfilter caps=video/x-raw,width=640,height=480,framerate=30/1 name=capsfilter ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
                 "tee name=tee ! " +
@@ -203,6 +203,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 "gtksink name=gtksink"
             );
 
+            pipeline.add (device_src);
+            device_src.link (pipeline.get_by_name ("capsfilter"));
             tee = pipeline.get_by_name ("tee");
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
