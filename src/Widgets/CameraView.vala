@@ -191,18 +191,19 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 }
             }
 
+            var device_src = camera.create_element (VIDEO_SRC_NAME);
             pipeline = (Gst.Pipeline) Gst.parse_launch (
-                "v4l2src device=%s name=%s ! ".printf (camera.get_properties ().get_string ("device.path"), VIDEO_SRC_NAME) +
-                "video/x-raw, width=640, height=480, framerate=30/1 ! " +
+                "capsfilter caps=video/x-raw,width=640,height=480,framerate=30/1 name=capsfilter ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
                 "tee name=tee ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
                 "videoconvert ! " +
-                "videoscale ! " +
-                "gtksink name=gtksink"
+                "videoscale name=videoscale"
             );
 
+            pipeline.add (device_src);
+            device_src.link (pipeline.get_by_name ("capsfilter"));
             tee = pipeline.get_by_name ("tee");
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
@@ -211,8 +212,19 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 remove (gst_video_widget);
             }
 
-            var gtksink = pipeline.get_by_name ("gtksink");
-            gtksink.get ("widget", out gst_video_widget);
+            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
+            if (gtksink != null) {
+                dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
+                glsinkbin.sink = gtksink;
+                pipeline.add (glsinkbin);
+                pipeline.get_by_name ("videoscale").link (glsinkbin);
+            } else {
+                gtksink = Gst.ElementFactory.make ("gtksink", null);
+                pipeline.add (gtksink);
+                pipeline.get_by_name ("videoscale").link (gtksink);
+            }
+
+            gst_video_widget = gtksink.widget;
 
             add (gst_video_widget);
             gst_video_widget.show ();
