@@ -193,7 +193,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             var device_src = camera.create_element (VIDEO_SRC_NAME);
             pipeline = (Gst.Pipeline) Gst.parse_launch (
-                "capsfilter caps=video/x-raw,width=640,height=480,framerate=30/1 name=capsfilter ! " +
+                "decodebin name=decodebin ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
                 "tee name=tee ! " +
@@ -203,7 +203,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             pipeline.add (device_src);
-            device_src.link (pipeline.get_by_name ("capsfilter"));
+            device_src.link (pipeline.get_by_name ("decodebin"));
             tee = pipeline.get_by_name ("tee");
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
