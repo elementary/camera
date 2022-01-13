@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-13 22:24+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2022-01-10 00:30+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/extra/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -37,11 +37,11 @@ msgstr ""
 #: data/io.elementary.camera.appdata.xml.in:31
 #: data/io.elementary.camera.appdata.xml.in:47
 msgid "Minor updates:"
-msgstr ""
+msgstr "Drobné aktualizace:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Běhové prostředí elementary aktualizováno na verzi 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 #: data/io.elementary.camera.appdata.xml.in:33
@@ -54,65 +54,65 @@ msgstr "Aktualizovány překlady"
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:43
 msgid "Fixes:"
-msgstr ""
+msgstr "Opravy:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
-msgstr ""
+msgstr "Vyřešeny problémy s nedostupnými kamerami, když je jich připojeno více"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
+"Pokud je připojeno vícero kamer a jedna z nich není dostupná, samo se přepne "
+"na nějakou fungující"
 
 #: data/io.elementary.camera.appdata.xml.in:39
 msgid "Improvements:"
-msgstr ""
+msgstr "Vylepšení:"
 
 #: data/io.elementary.camera.appdata.xml.in:41
 msgid "Take full-resolution pictures"
-msgstr ""
+msgstr "Pořizování snímků v plném rozlišení"
 
 #: data/io.elementary.camera.appdata.xml.in:45
 msgid "Fix restoring window size"
-msgstr ""
+msgstr "Opraveno obnovení předchozí velikosti okna"
 
 #: data/io.elementary.camera.appdata.xml.in:56
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "Přepínání mezi vícero kamerami"
 
 #: data/io.elementary.camera.appdata.xml.in:57
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "Odeslání oznámení při dokončení záznamu"
 
 #: data/io.elementary.camera.appdata.xml.in:58
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "Přidána volba zrcadlení kamery"
 
 #: data/io.elementary.camera.appdata.xml.in:59
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Přidány úpravy jasu a kontrastu"
 
 #: data/io.elementary.camera.appdata.xml.in:60
 msgid "Support the dark style"
-msgstr ""
+msgstr "Podpora pro tmavý motiv vzhledu"
 
 #: data/io.elementary.camera.appdata.xml.in:61
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "Zabráněno spouštění vícero časovačů naráz"
 
 #: data/io.elementary.camera.appdata.xml.in:62
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "Vylepšena podpora pro hardware kamer"
 
 #: data/io.elementary.camera.appdata.xml.in:112
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
