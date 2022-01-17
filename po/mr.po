@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-13 22:24+0000\n"
-"PO-Revision-Date: 2020-11-22 20:15+0000\n"
+"PO-Revision-Date: 2022-01-16 14:58+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/camera/mr/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:63
@@ -26,15 +26,15 @@ msgstr "कॅमेरा"
 
 #: src/MainWindow.vala:74
 msgid "Saved to Videos"
-msgstr ""
+msgstr "व्हिडिओंमध्ये जतन केले"
 
 #: src/MainWindow.vala:75
 msgid "View File"
-msgstr ""
+msgstr "फाइल पहा"
 
 #: src/MainWindow.vala:90
 msgid "Recording failed"
-msgstr ""
+msgstr "रेकॉर्डिंग अयशस्वी"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -86,7 +86,7 @@ msgstr "अकार्यक्षम"
 msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d सेकंद"
-msgstr[1] "%d  सेकंद"
+msgstr[1] "%d सेकंद"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
