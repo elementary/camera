@@ -222,6 +222,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
                 "tee name=tee ! " +
+                "videorate name=videorate ! " +
                 "queue leaky=downstream max-size-buffers=10 ! " +
                 "videoconvert ! " +
                 "videoscale name=videoscale"
@@ -236,6 +237,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             if (gst_video_widget != null) {
                 remove (gst_video_widget);
             }
+
+            dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
+            videorate.max_rate = 30;
+            videorate.drop_only = true;
 
             dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
             if (gtksink != null) {
