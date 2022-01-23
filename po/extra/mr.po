@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-13 22:24+0000\n"
-"PO-Revision-Date: 2020-11-22 20:15+0000\n"
+"PO-Revision-Date: 2022-01-22 13:31+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://l10n.elementary.io/projects/camera/extra/mr/"
-">\n"
+"Language-Team: Marathi <https://l10n.elementary.io/projects/camera/extra/mr/>"
+"\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
@@ -37,11 +37,11 @@ msgstr "कॅमेरा हे वेबकॅम वापरून फो�
 #: data/io.elementary.camera.appdata.xml.in:31
 #: data/io.elementary.camera.appdata.xml.in:47
 msgid "Minor updates:"
-msgstr ""
+msgstr "किरकोळ अद्यतने:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "elementary रनटाइम 6.1 वर अपडेट करा"
 
 #: data/io.elementary.camera.appdata.xml.in:20
 #: data/io.elementary.camera.appdata.xml.in:33
@@ -54,65 +54,68 @@ msgstr "अद्ययावत भाषांतर"
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:43
 msgid "Fixes:"
-msgstr ""
+msgstr "निराकारणे:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
 msgstr ""
+"एकाधिक कॅमेरे कनेक्ट केलेले असताना कॅमेरे अनुपलब्ध असण्याशी संबंधित समस्यांचे"
+" निराकरण करा"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
+"एकाधिक कॅमेरे कनेक्ट केलेले असल्यास आणि एक अनुपलब्ध असल्यास एका कार्यरत "
+"कॅमेऱ्याला डीफॉल्ट बनवा"
 
 #: data/io.elementary.camera.appdata.xml.in:39
 msgid "Improvements:"
-msgstr ""
+msgstr "सुधारणा:"
 
 #: data/io.elementary.camera.appdata.xml.in:41
 msgid "Take full-resolution pictures"
-msgstr ""
+msgstr "पूर्ण-रिझोल्यूशन चित्रे घ्या"
 
 #: data/io.elementary.camera.appdata.xml.in:45
+#, fuzzy
 msgid "Fix restoring window size"
-msgstr ""
+msgstr "विंडो आकार पुनर्संचयित करा"
 
 #: data/io.elementary.camera.appdata.xml.in:56
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "एकाधिक कॅमेऱ्यांमध्ये स्विच करा"
 
 #: data/io.elementary.camera.appdata.xml.in:57
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "रेकॉर्डिंग पूर्ण झाल्यावर एक सूचना पाठवा"
 
 #: data/io.elementary.camera.appdata.xml.in:58
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "कॅमेरा मिरर करण्यासाठी पर्याय जोडा"
 
 #: data/io.elementary.camera.appdata.xml.in:59
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "ब्राइटनेस आणि कॉन्ट्रास्ट ऍडजस्टमेंट जोडा"
 
 #: data/io.elementary.camera.appdata.xml.in:60
 msgid "Support the dark style"
-msgstr ""
+msgstr "गडद शैलीचे समर्थन करा"
 
 #: data/io.elementary.camera.appdata.xml.in:61
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "एकाच वेळी अनेक काउंटडाउन टाइमर चालू होण्यापासून प्रतिबंधित करा"
 
 #: data/io.elementary.camera.appdata.xml.in:62
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "कॅमेरा हार्डवेअरसाठी सुधारित समर्थन"
 
 #: data/io.elementary.camera.appdata.xml.in:112
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "एलिमेंटरी LLC."
+msgstr "एलिमेंटरी, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
