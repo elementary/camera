@@ -49,7 +49,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private Gtk.MenuButton menu_button;
     private Gtk.Box linked_box;
 
-    public bool timer_running { get; private set; default = false; }
+    private bool timer_running = false;
     public bool recording { get; private set; default = false; }
 
     public MainWindow (Application application) {
@@ -78,8 +78,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         icon_name = "io.elementary.camera";
 
         camera_view = new Widgets.CameraView ();
-        var overlay = new Gtk.Overlay ();
-        overlay.add (camera_view);
+        camera_view.camera_added.connect (add_camera_option);
+        camera_view.camera_removed.connect (remove_camera_option);
 
         var recording_finished_toast = new Granite.Widgets.Toast (_("Saved to Videos"));
         recording_finished_toast.set_default_action (_("View File"));
@@ -95,10 +95,22 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 warning ("Error launching file manager: %s", e.message);
             }
         });
-        overlay.add_overlay (recording_finished_toast);
 
         var recording_finished_fail_toast = new Granite.Widgets.Toast (_("Recording failed"));
+
+        var overlay = new Gtk.Overlay ();
+        overlay.add (camera_view);
+        overlay.add_overlay (recording_finished_toast);
         overlay.add_overlay (recording_finished_fail_toast);
+
+        var grid = new Gtk.Grid ();
+        grid.attach (construct_headerbar (), 0, 0);
+        grid.attach (overlay, 0, 1);
+
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (grid);
+
+        add (window_handle);
 
         camera_view.recording_finished.connect ((file_path) => {
             if (file_path == "") {
@@ -108,27 +120,16 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 recording_finished_toast.send_notification ();
             }
         });
-
-        var header_bar = construct_headerbar ();
-
-        var grid = new Gtk.Grid ();
-        grid.attach (header_bar, 0, 0);
-        grid.attach (overlay, 0, 1);
-
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
-
-        add (window_handle);
-
-        camera_view.camera_added.connect (add_camera_option);
-        camera_view.camera_removed.connect (remove_camera_option);
         camera_view.start ();
     }
 
-    private Widgets.Gtk4HeaderBar construct_headerbar () {
+    /* This function copies (with some reordering/reformating) the construct clause of Camera.Widgets.HeaderBar */
+    private Gtk.HeaderBar construct_headerbar () {
         timer_button = new Widgets.TimerButton () {
             image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
         };
+
+        /* Construct take photo/video tool */
         take_image = new Gtk.Image () {
             icon_name = PHOTO_ICON_SYMBOLIC,
             icon_size = Gtk.IconSize.BUTTON
@@ -151,19 +152,36 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             width_request = 54
         };
         take_button.add (take_box);
-
         var take_button_style_provider = new Gtk.CssProvider ();
         take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
-
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
         take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
+        /* Construct mode switch */
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC) {
             valign = Gtk.Align.CENTER
         };
+        mode_switch.notify["active"].connect (() => {
+            if (mode_switch.active) {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                timer_button.sensitive = false;
+            } else {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+                timer_button.sensitive = true;
+            }
+        });
+        Camera.Application.settings.changed["mode"].connect ((key) => {
+            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        });
+        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
 
+        /* Construct AppMenu */
         var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
         mirror_switch.bind_property (
             "active", camera_view, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL
@@ -174,13 +192,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             hexpand = true,
             xalign = 0
         };
-
-        var contrast_image = new Gtk.Image.from_icon_name ("color-contrast-symbolic", Gtk.IconSize.MENU);
-        var contrast_label = new Gtk.Label (_("Contrast")) {
-            hexpand = true,
-            xalign = 0
-        };
-
         var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, -1, 1, 0.1) {
             draw_value = false,
             hexpand = true,
@@ -189,6 +200,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         brightness_scale.set_value (0);
         brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
 
+        var contrast_image = new Gtk.Image.from_icon_name ("color-contrast-symbolic", Gtk.IconSize.MENU);
+        var contrast_label = new Gtk.Label (_("Contrast")) {
+            hexpand = true,
+            xalign = 0
+        };
         var contrast_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 2, 0.1) {
             draw_value = false,
             hexpand = false
@@ -196,11 +212,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         contrast_scale.set_value (1);
         contrast_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
 
-        brightness_scale.value_changed.connect (() => {
+        contrast_scale.value_changed.connect (() => {
             camera_view.change_color_balance (brightness_scale.get_value (), contrast_scale.get_value ());
         });
-
-        contrast_scale.value_changed.connect (() => {
+        brightness_scale.value_changed.connect (() => {
             camera_view.change_color_balance (brightness_scale.get_value (), contrast_scale.get_value ());
         });
 
@@ -233,12 +248,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             tooltip_text = _("Settings")
         };
 
+        /* Construct menu for multiple cameras */
         camera_options = new Gtk.Menu ();
-
         var camera_menu_button = new Gtk.MenuButton () {
             popup = camera_options
         };
-
         unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
         camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
@@ -254,33 +268,16 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         linked_box.pack_start (take_button);
         linked_box.pack_start (camera_menu_revealer);
 
-        var header_widget = new Widgets.Gtk4HeaderBar () { // Imitation Gtk4 widget so cannot subclass
-            show_title_buttons = true,
-            title_widget = linked_box
+        /* Pack tools into HeaderBar */
+        var header_widget = new Gtk.HeaderBar () {
+            show_close_button = true, // Gtk4 -> show_title_buttons = true,
+            custom_title = linked_box // Gtk4 -> title_widget = linked_box
         };
         header_widget.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         header_widget.pack_start (timer_button);
         header_widget.pack_end (menu_button);
         header_widget.pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         header_widget.pack_end (mode_switch);
-
-        Camera.Application.settings.changed["mode"].connect ((key) => {
-            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
-        });
-
-        mode_switch.notify["active"].connect (() => {
-            if (mode_switch.active) {
-                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
-                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
-                timer_button.sensitive = false;
-            } else {
-                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-                timer_button.sensitive = true;
-            }
-        });
 
         notify["recording"].connect (() => {
             timer_button.sensitive = !recording && !mode_switch.active;
@@ -294,7 +291,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             }
         });
 
-        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
         enable_header (true);
         return header_widget;
     }
@@ -358,7 +354,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         return base.configure_event (event);
     }
 
-    /** HeaderBar management functions **/
+    /** Header bar tools management functions from Camera.Widgets.HeaderBar **/
 
     private void enable_header (bool enable) {
         linked_box.sensitive = enable;

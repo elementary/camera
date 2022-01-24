@@ -31,7 +31,6 @@ executable(
     'src/MainWindow.vala',
     'src/Utils.vala',
     'src/Widgets/CameraView.vala',
-    'src/Widgets/Gtk4HeaderBar.vala',
     'src/Widgets/TimerButton.vala',
     config_file,
     dependencies : [
