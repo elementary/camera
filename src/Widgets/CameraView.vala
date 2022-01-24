@@ -288,8 +288,9 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             if (info.get_event ().type == Gst.EventType.EOS) {
                 Idle.add (() => {
                     picture_pipeline.set_state (Gst.State.NULL);
-                    create_pipeline (current_device);
                     play_shutter_sound ();
+                    create_pipeline (current_device);
+
                     recording = false;
                     return Source.REMOVE;
                 });
