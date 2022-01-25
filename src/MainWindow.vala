@@ -70,6 +70,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_view.button_press_event.connect ((event) => {
             if (event.button == Gdk.BUTTON_SECONDARY) {
                 header_bar.take_button.activate ();
+
+                // Stop other handlers from being invoked for the event
+                return true;
             }
 
             return base.button_press_event (event);
@@ -110,7 +113,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         grid.attach (header_bar, 0, 0);
         grid.attach (overlay, 0, 1);
 
-        add (grid);
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (grid);
+
+        add (window_handle);
 
         timer_running = false;
         camera_view.camera_added.connect (header_bar.add_camera_option);
