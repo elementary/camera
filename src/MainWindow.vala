@@ -24,11 +24,13 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
+    public const string ACTION_CHANGE_CAPS = "change-caps";
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
+        {ACTION_CHANGE_CAPS, on_change_caps, "u", "uint32 0", null},
     };
 
     private uint configure_id;
@@ -99,14 +101,14 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             }
         });
 
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (header_bar);
+
         var grid = new Gtk.Grid ();
-        grid.attach (header_bar, 0, 0);
+        grid.attach (window_handle, 0, 0);
         grid.attach (overlay, 0, 1);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
-
-        add (window_handle);
+        add (grid);
 
         timer_running = false;
         camera_view.camera_added.connect (header_bar.add_camera_option);
@@ -153,6 +155,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             header_bar.start_recording_time ();
             action.set_state (new Variant.boolean (true));
         }
+    }
+
+    private void on_change_caps (GLib.SimpleAction action, GLib.Variant? parameter) {
+        camera_view.change_caps (parameter.get_uint32 ());
+        change_action_state (ACTION_CHANGE_CAPS, parameter);
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {

@@ -30,11 +30,13 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     Gtk.Widget gst_video_widget;
 
     private Gst.Pipeline pipeline;
+    private dynamic Gst.Element capsfilter;
     private Gst.Element tee;
     private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
+    private GLib.Menu resolution_menu;
 
     public uint n_cameras {
         get {
@@ -89,6 +91,20 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             _("Connect a webcam or other supported video device to take photos and video."),
             ""
         );
+
+        resolution_menu = new GLib.Menu ();
+        var popover = new Gtk.Popover.from_model (this, resolution_menu);
+
+        events |= Gdk.EventMask.BUTTON_RELEASE_MASK;
+        button_release_event.connect ((event) => {
+            if (((Gdk.EventButton) event).button != Gdk.BUTTON_SECONDARY) {
+                return false;
+            }
+
+            popover.pointing_to = {(int)((Gdk.EventButton) event).x, (int)((Gdk.EventButton) event).y};
+            popover.popup ();
+            return true;
+        });
 
         add (status_box);
         add (no_device_view);
@@ -168,6 +184,37 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
         }
 
+        var caps = camera.get_caps ();
+        resolution_menu.remove_all ();
+        for (uint i = 0; i < caps.get_size (); i++) {
+            unowned var s = caps.get_structure (i);
+            int w, h, num = 0, den = 1;
+            if (s.get ("width", typeof (int), out w,
+                       "height", typeof (int), out h)) {
+                unowned GLib.Value? fraction = s.get_value ("framerate");
+                if (fraction.holds (typeof (Gst.Fraction))) {
+                    num = Gst.Value.get_fraction_numerator (fraction);
+                    den = Gst.Value.get_fraction_denominator (fraction);
+                } else if (fraction.holds (typeof (Gst.FractionRange))) {
+                    var range_max = Gst.Value.get_fraction_range_max (fraction);
+                    num = Gst.Value.get_fraction_numerator (range_max);
+                    den = Gst.Value.get_fraction_denominator (range_max);
+                } else if (fraction.holds (typeof (Gst.ValueList))) {
+                    unowned GLib.Value? val = Gst.ValueList.get_value (fraction, 0);
+                    num = Gst.Value.get_fraction_numerator (val);
+                    den = Gst.Value.get_fraction_denominator (val);
+                } else {
+                    debug ("Unknown fraction type: %s", fraction.type_name ());
+                    continue;
+                }
+
+                resolution_menu.append (
+                    "%d×%d (%0.f fps)".printf (w, h, (double)num / (double)den),
+                    GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
+                );
+            }
+        }
+
         create_pipeline (camera);
         current_device = camera;
     }
@@ -195,6 +242,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             var device_src = camera.create_element (VIDEO_SRC_NAME);
             pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "capsfilter name=capsfilter ! " +
                 "decodebin name=decodebin ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
@@ -206,7 +254,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             );
 
             pipeline.add (device_src);
-            device_src.link (pipeline.get_by_name ("decodebin"));
+            capsfilter = pipeline.get_by_name ("capsfilter");
+            device_src.link (capsfilter);
             tee = pipeline.get_by_name ("tee");
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
@@ -233,6 +282,23 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             gst_video_widget = gtksink.widget;
 
+            capsfilter.get_static_pad ("src").add_probe (Gst.PadProbeType.EVENT_BOTH, (pad, info) => {
+                unowned Gst.Event? event = info.get_event ();
+                if (event.type == Gst.EventType.CAPS) {
+                    unowned Gst.Caps new_caps;
+                    event.parse_caps (out new_caps);
+                    var camera_caps = camera.get_caps ();
+                    for (uint i = 0; i < camera_caps.get_size (); i++) {
+                        var sec_caps = camera_caps.copy_nth (i);
+                        if (new_caps.is_subset (sec_caps)) {
+                            get_action_group ("win").change_action_state (MainWindow.ACTION_CHANGE_CAPS, new GLib.Variant.uint32 (i));
+                            return Gst.PadProbeReturn.REMOVE;
+                        }
+                    }
+                }
+                return Gst.PadProbeReturn.OK;
+            });
+
             add (gst_video_widget);
             gst_video_widget.show ();
 
@@ -250,6 +316,18 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     public void change_color_balance (double brightnesss, double contrast) {
         color_balance.set_property ("brightness", brightnesss);
         color_balance.set_property ("contrast", contrast);
+    }
+
+    public void change_caps (uint caps_index) {
+        var caps = current_device.get_caps ();
+        if (caps_index >= caps.get_size ()) {
+            return;
+        }
+
+        unowned var s = caps.get_structure (caps_index);
+        var new_caps = new Gst.Caps.empty ();
+        new_caps.append_structure (s.copy ());
+        capsfilter.caps = new_caps;
     }
 
     public void take_photo () {
