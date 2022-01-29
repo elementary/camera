@@ -34,20 +34,16 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
+    private Gst.Device? current_device = null;
 
     public string camera_name {
-        get {
-            if (pipeline == null) {
-                return "";
-            }
-
-            dynamic Gst.Element video_src = pipeline.get_by_name (VIDEO_SRC_NAME);
-            return video_src.device_name ?? "";
+        owned get {
+            return current_device != null ? current_device.name : "";
         }
 
         set {
             unowned var camera = monitor.get_devices ().search<string> (value, (cam, new_device) => {
-                if (new_device == null) { // return the first camera if undefined
+                if (new_device == null) { // return the first camera if name is null
                     return 0;
                 }
 
@@ -193,6 +189,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         }
 
         create_pipeline (camera);
+        current_device = camera;
     }
 
     private void create_pipeline (Gst.Device camera) {
@@ -310,16 +307,17 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.EVENT_DOWNSTREAM, (pad, info) => {
             if (info.get_event ().type == Gst.EventType.EOS) {
                 Idle.add (() => {
-                    picture_pipeline.set_state (Gst.State.PAUSED);
                     picture_pipeline.set_state (Gst.State.NULL);
+                    play_shutter_sound ();
+                    create_pipeline (current_device);
 
-                    pipeline.set_state (Gst.State.PLAYING);
                     recording = false;
                     return Source.REMOVE;
                 });
 
                 return Gst.PadProbeReturn.REMOVE;
             }
+
             return Gst.PadProbeReturn.PASS;
         });
 
@@ -327,7 +325,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         picture_pipeline.sync_children_states ();
 
         Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
-        play_shutter_sound ();
     }
 
     public void start_recording () {
