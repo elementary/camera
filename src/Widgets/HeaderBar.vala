@@ -23,6 +23,8 @@
 public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     public signal void request_change_balance (double brightness, double contrast);
 
+    public Gtk.Button take_button;
+
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
@@ -31,7 +33,6 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.Revealer video_timer_revealer;
     private Gtk.Label take_timer;
     private Gtk.Box linked_box;
-    private Gtk.Button take_button;
     private Gtk.MenuButton camera_menu_button;
     private Gtk.MenuButton menu_button;
     private Gtk.Revealer camera_menu_revealer;

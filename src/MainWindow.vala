@@ -69,6 +69,15 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
         camera_view = new Widgets.CameraView ();
         camera_view.bind_property ("horizontal-flip", header_bar, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL | GLib.BindingFlags.SYNC_CREATE);
+        camera_view.button_press_event.connect ((event) => {
+            if (event.button == Gdk.BUTTON_SECONDARY) {
+                header_bar.take_button.activate ();
+
+                return Gdk.EVENT_STOP;
+            }
+
+            return base.button_press_event (event);
+        });
 
         var overlay = new Gtk.Overlay ();
         overlay.add (camera_view);
