@@ -71,8 +71,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             if (event.button == Gdk.BUTTON_SECONDARY) {
                 header_bar.take_button.activate ();
 
-                // Stop other handlers from being invoked for the event
-                return true;
+                return Gdk.EVENT_STOP;
             }
 
             return base.button_press_event (event);
