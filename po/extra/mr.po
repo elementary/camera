@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-02-08 00:02+0000\n"
 "PO-Revision-Date: 2022-01-22 13:31+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://l10n.elementary.io/projects/camera/extra/mr/>"
-"\n"
+"Language-Team: Marathi <https://l10n.elementary.io/projects/camera/extra/mr/"
+">\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,86 +34,108 @@ msgid "Camera is a simple app to take photos with a webcam."
 msgstr "कॅमेरा हे वेबकॅम वापरून फोटो काढण्यासाठी एक साधे अॅप आहे."
 
 #: data/io.elementary.camera.appdata.xml.in:17
-#: data/io.elementary.camera.appdata.xml.in:31
-#: data/io.elementary.camera.appdata.xml.in:47
-msgid "Minor updates:"
-msgstr "किरकोळ अद्यतने:"
+msgid "New features:"
+msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:19
-msgid "Update to elementary runtime 6.1"
-msgstr "elementary रनटाइम 6.1 वर अपडेट करा"
+msgid "Take a photo or video on secondary-click"
+msgstr ""
 
-#: data/io.elementary.camera.appdata.xml.in:20
-#: data/io.elementary.camera.appdata.xml.in:33
-#: data/io.elementary.camera.appdata.xml.in:49
-#: data/io.elementary.camera.appdata.xml.in:63
-#: data/io.elementary.camera.appdata.xml.in:70
-msgid "Updated translations"
-msgstr "अद्ययावत भाषांतर"
-
-#: data/io.elementary.camera.appdata.xml.in:26
-#: data/io.elementary.camera.appdata.xml.in:43
+#: data/io.elementary.camera.appdata.xml.in:21
+#: data/io.elementary.camera.appdata.xml.in:44
+#: data/io.elementary.camera.appdata.xml.in:61
 msgid "Fixes:"
 msgstr "निराकारणे:"
 
+#: data/io.elementary.camera.appdata.xml.in:23
+msgid ""
+"Ensure brightness, contrast, and mirror continue working after taking a photo"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:24
+msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:26
+#: data/io.elementary.camera.appdata.xml.in:35
+#: data/io.elementary.camera.appdata.xml.in:49
+#: data/io.elementary.camera.appdata.xml.in:65
+msgid "Minor updates:"
+msgstr "किरकोळ अद्यतने:"
+
 #: data/io.elementary.camera.appdata.xml.in:28
+msgid "Improved performance and reliability"
+msgstr ""
+
+#: data/io.elementary.camera.appdata.xml.in:29
+#: data/io.elementary.camera.appdata.xml.in:38
+#: data/io.elementary.camera.appdata.xml.in:51
+#: data/io.elementary.camera.appdata.xml.in:67
+#: data/io.elementary.camera.appdata.xml.in:81
+#: data/io.elementary.camera.appdata.xml.in:88
+msgid "Updated translations"
+msgstr "अद्ययावत भाषांतर"
+
+#: data/io.elementary.camera.appdata.xml.in:37
+msgid "Update to elementary runtime 6.1"
+msgstr "elementary रनटाइम 6.1 वर अपडेट करा"
+
+#: data/io.elementary.camera.appdata.xml.in:46
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
-msgstr ""
-"एकाधिक कॅमेरे कनेक्ट केलेले असताना कॅमेरे अनुपलब्ध असण्याशी संबंधित समस्यांचे"
-" निराकरण करा"
+msgstr "एकाधिक कॅमेरे कनेक्ट केलेले असताना कॅमेरे अनुपलब्ध असण्याशी संबंधित समस्यांचे निराकरण करा"
 
-#: data/io.elementary.camera.appdata.xml.in:29
+#: data/io.elementary.camera.appdata.xml.in:47
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
-"एकाधिक कॅमेरे कनेक्ट केलेले असल्यास आणि एक अनुपलब्ध असल्यास एका कार्यरत "
-"कॅमेऱ्याला डीफॉल्ट बनवा"
+"एकाधिक कॅमेरे कनेक्ट केलेले असल्यास आणि एक अनुपलब्ध असल्यास एका कार्यरत कॅमेऱ्याला डीफॉल्ट "
+"बनवा"
 
-#: data/io.elementary.camera.appdata.xml.in:39
+#: data/io.elementary.camera.appdata.xml.in:57
 msgid "Improvements:"
 msgstr "सुधारणा:"
 
-#: data/io.elementary.camera.appdata.xml.in:41
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "Take full-resolution pictures"
 msgstr "पूर्ण-रिझोल्यूशन चित्रे घ्या"
 
-#: data/io.elementary.camera.appdata.xml.in:45
+#: data/io.elementary.camera.appdata.xml.in:63
 #, fuzzy
 msgid "Fix restoring window size"
 msgstr "विंडो आकार पुनर्संचयित करा"
 
-#: data/io.elementary.camera.appdata.xml.in:56
+#: data/io.elementary.camera.appdata.xml.in:74
 msgid "Switch between multiple cameras"
 msgstr "एकाधिक कॅमेऱ्यांमध्ये स्विच करा"
 
-#: data/io.elementary.camera.appdata.xml.in:57
+#: data/io.elementary.camera.appdata.xml.in:75
 msgid "Send a notification when recording is finished"
 msgstr "रेकॉर्डिंग पूर्ण झाल्यावर एक सूचना पाठवा"
 
-#: data/io.elementary.camera.appdata.xml.in:58
+#: data/io.elementary.camera.appdata.xml.in:76
 msgid "Add option to mirror the camera"
 msgstr "कॅमेरा मिरर करण्यासाठी पर्याय जोडा"
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:77
 msgid "Add brightness and contrast adjustment"
 msgstr "ब्राइटनेस आणि कॉन्ट्रास्ट ऍडजस्टमेंट जोडा"
 
-#: data/io.elementary.camera.appdata.xml.in:60
+#: data/io.elementary.camera.appdata.xml.in:78
 msgid "Support the dark style"
 msgstr "गडद शैलीचे समर्थन करा"
 
-#: data/io.elementary.camera.appdata.xml.in:61
+#: data/io.elementary.camera.appdata.xml.in:79
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr "एकाच वेळी अनेक काउंटडाउन टाइमर चालू होण्यापासून प्रतिबंधित करा"
 
-#: data/io.elementary.camera.appdata.xml.in:62
+#: data/io.elementary.camera.appdata.xml.in:80
 msgid "Improved support for camera hardware"
 msgstr "कॅमेरा हार्डवेअरसाठी सुधारित समर्थन"
 
-#: data/io.elementary.camera.appdata.xml.in:112
+#: data/io.elementary.camera.appdata.xml.in:130
 msgid "elementary, Inc."
 msgstr "एलिमेंटरी, Inc."
 
