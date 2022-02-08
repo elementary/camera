@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-08 00:02+0000\n"
-"PO-Revision-Date: 2021-12-09 10:49+0000\n"
+"PO-Revision-Date: 2022-02-08 12:36+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/camera/extra/pl/"
-">\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/camera/extra/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,11 +38,11 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "New features:"
-msgstr ""
+msgstr "Nowe funkcje:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Zrób zdjęcie lub nagraj film przy użyciu drugorzędnego przycisku myszy"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:44
@@ -54,10 +54,12 @@ msgstr "Poprawki:"
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Upewniono się, że jasność kontrast oraz odbicie lustrzane działają po "
+"zrobieniu zdjęcia"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Większa kompatybilność sprzętowa (n.p. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:35
@@ -68,7 +70,7 @@ msgstr "Mniejsze aktualizacje:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Zwiększona wydajność i niezawodność"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 #: data/io.elementary.camera.appdata.xml.in:38
