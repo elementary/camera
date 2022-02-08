@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-02-08 00:02+0000\n"
 "PO-Revision-Date: 2021-08-03 15:09+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/camera/camera/pa/"
@@ -23,15 +23,15 @@ msgstr ""
 msgid "Camera"
 msgstr "ਕੈਮਰਾ"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:83
 msgid "Saved to Videos"
 msgstr "ਵਿਡੀਓਜ਼ ਵਿੱਚ ਸਾਂਭੋ"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:84
 msgid "View File"
 msgstr "ਫ਼ਾਇਲ ਵੇਖੋ"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "ਰਿਕਾਰਡਿੰਗ ਨਾਕਾਮ ਰਹੀ"
 
@@ -51,27 +51,27 @@ msgstr "“%s” ਨਾਲ਼ ਜੁੜਿਆ ਜਾ ਰਿਹੈ…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr "ਕੈਮਰਾ ਵੇਖਣ ਵਿੱਚ ਅਸਮਰੱਥ"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "ਤਸਵੀਰ ਖਿੱਚੀ ਗਈ"
 
-#: src/Widgets/HeaderBar.vala:114
+#: src/Widgets/HeaderBar.vala:89
 msgid "Mirror"
 msgstr "ਸ਼ੀਸ਼ਾ"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:93
 msgid "Brightness"
 msgstr "ਚਮਕ"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:99
 msgid "Contrast"
 msgstr "ਰੰਗਾਂ ਦਾ ਉੱਘੜਵਾਂਪਣ"
 
-#: src/Widgets/HeaderBar.vala:178
+#: src/Widgets/HeaderBar.vala:153
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 

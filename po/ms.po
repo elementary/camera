@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-02-08 00:02+0000\n"
 "PO-Revision-Date: 2018-06-12 11:39+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/camera/camera/"
@@ -24,15 +24,15 @@ msgstr ""
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:83
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:84
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr ""
 
@@ -54,27 +54,27 @@ msgstr "Tengah menyambung ke \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Gambar diambil"
 
-#: src/Widgets/HeaderBar.vala:114
+#: src/Widgets/HeaderBar.vala:89
 msgid "Mirror"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:93
 msgid "Brightness"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:99
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:178
+#: src/Widgets/HeaderBar.vala:153
 msgid "Settings"
 msgstr ""
 
