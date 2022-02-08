@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-02-08 00:02+0000\n"
 "PO-Revision-Date: 2021-08-25 18:15+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/camera/camera/sk/"
@@ -24,15 +24,15 @@ msgstr ""
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:83
 msgid "Saved to Videos"
 msgstr "Uložené do Videí"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:84
 msgid "View File"
 msgstr "Zobraziť súbor"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "Nahrávanie zlyhalo"
 
@@ -54,27 +54,27 @@ msgstr "Pripája sa k \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr "Nedarí sa zobraziť náhľad kamery"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Fotografia zachytená"
 
-#: src/Widgets/HeaderBar.vala:114
+#: src/Widgets/HeaderBar.vala:89
 msgid "Mirror"
 msgstr "Zrkadliť"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:93
 msgid "Brightness"
 msgstr "Jas"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:99
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: src/Widgets/HeaderBar.vala:178
+#: src/Widgets/HeaderBar.vala:153
 msgid "Settings"
 msgstr "Nastavenia"
 
