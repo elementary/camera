@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-08 00:02+0000\n"
-"PO-Revision-Date: 2022-01-04 07:48+0000\n"
+"PO-Revision-Date: 2022-02-10 16:48+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
 ">\n"
@@ -35,11 +35,11 @@ msgstr "“カメラ”は Web カメラで写真を撮影するためのシン�
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "New features:"
-msgstr ""
+msgstr "新機能:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "副クリックでも写真や動画を撮影できる機能を追加"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:44
@@ -50,11 +50,11 @@ msgstr "修正点:"
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
-msgstr ""
+msgstr "写真撮影後も輝度、コントラスト、ミラーの設定を変更できるように修正"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "対応機種の増加 (StarBook Mk V など)"
 
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:35
@@ -65,7 +65,7 @@ msgstr "軽微なアップデート:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "パフォーマンスと信頼性を改善"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 #: data/io.elementary.camera.appdata.xml.in:38
