@@ -36,7 +36,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
-    private GLib.Menu resolution_menu;
 
     public uint n_cameras {
         get {
@@ -91,20 +90,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             _("Connect a webcam or other supported video device to take photos and video."),
             ""
         );
-
-        resolution_menu = new GLib.Menu ();
-        var popover = new Gtk.Popover.from_model (this, resolution_menu);
-
-        events |= Gdk.EventMask.BUTTON_RELEASE_MASK;
-        button_release_event.connect ((event) => {
-            if (((Gdk.EventButton) event).button != Gdk.BUTTON_SECONDARY) {
-                return false;
-            }
-
-            popover.pointing_to = {(int)((Gdk.EventButton) event).x, (int)((Gdk.EventButton) event).y};
-            popover.popup ();
-            return true;
-        });
 
         add (status_box);
         add (no_device_view);
@@ -184,40 +169,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
         }
 
-        var caps = camera.get_caps ();
-        resolution_menu.remove_all ();
-        for (uint i = 0; i < caps.get_size (); i++) {
-            unowned var s = caps.get_structure (i);
-            int w, h, num = 0, den = 1;
-            if (s.get ("width", typeof (int), out w,
-                       "height", typeof (int), out h)) {
-                unowned GLib.Value? fraction = s.get_value ("framerate");
-                if (fraction.holds (typeof (Gst.Fraction))) {
-                    num = Gst.Value.get_fraction_numerator (fraction);
-                    den = Gst.Value.get_fraction_denominator (fraction);
-                } else if (fraction.holds (typeof (Gst.FractionRange))) {
-                    var range_max = Gst.Value.get_fraction_range_max (fraction);
-                    num = Gst.Value.get_fraction_numerator (range_max);
-                    den = Gst.Value.get_fraction_denominator (range_max);
-                } else if (fraction.holds (typeof (Gst.ValueList))) {
-                    unowned GLib.Value? val = Gst.ValueList.get_value (fraction, 0);
-                    num = Gst.Value.get_fraction_numerator (val);
-                    den = Gst.Value.get_fraction_denominator (val);
-                } else {
-                    debug ("Unknown fraction type: %s", fraction.type_name ());
-                    continue;
-                }
-
-                resolution_menu.append (
-                    "%d×%d (%0.f fps)".printf (w, h, (double)num / (double)den),
-                    GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
-                );
-            }
-        }
-
         create_pipeline (camera);
         current_device = camera;
     }
+
 
     private void create_pipeline (Gst.Device camera) {
         try {

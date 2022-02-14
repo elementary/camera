@@ -37,8 +37,10 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     private Gtk.MenuButton menu_button;
     private Gtk.Revealer camera_menu_revealer;
     private Gtk.Menu camera_options;
+    private GLib.Menu resolution_menu;
     private Gtk.Image take_image;
     private Granite.ModeSwitch mode_switch;
+    private Gst.Device? current_device = null;
 
     public bool recording { get; set; default = false; }
     public bool horizontal_flip { get; set; default = true; }
@@ -129,6 +131,15 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             row_spacing = 3,
             margin = 12
         };
+
+        resolution_menu = new GLib.Menu ();
+        var resolution_popover = new Gtk.Popover.from_model (null, resolution_menu);
+        var resolution_button = new Gtk.MenuButton () {
+            popover = resolution_popover,
+            tooltip_text = _("Resolution"),
+            image = new Gtk.Image.from_icon_name ("preferences-desktop-display-symbolic", Gtk.IconSize.MENU),
+        };
+
         image_settings.attach (brightness_image, 0, 0);
         image_settings.attach (brightness_label, 1, 0);
         image_settings.attach (brightness_scale, 0, 1, 2);
@@ -180,8 +191,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
         set_custom_title (linked_box);
         pack_end (menu_button);
         pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-
-
+        pack_end (resolution_button);
+        pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         pack_end (mode_switch);
 
         Camera.Application.settings.changed["mode"].connect ((key) => {
@@ -200,6 +211,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
                 take_image.icon_name = PHOTO_ICON_SYMBOLIC;
                 timer_button.sensitive = true;
             }
+
+            update_resolution_menu ();
         });
 
         notify["recording"].connect (() => {
@@ -225,6 +238,7 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
     }
 
     public void add_camera_option (Gst.Device camera) {
+        current_device = camera;
         var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.display_name);
         menuitem.set_data<Gst.Device> ("camera", camera);
         camera_options.append (menuitem);
@@ -234,15 +248,19 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             var el = camera_options.get_children ().nth_data (0) as Gtk.RadioMenuItem;
             menuitem.join_group (el);
         }
+
         menuitem.active = true;
         menuitem.activate.connect (() => {
+            current_device = menuitem.get_data<Gst.Device> ("camera");
             if (menuitem.active) {
-                request_camera_change (menuitem.get_data<Gst.Device> ("camera"));
+                request_camera_change (current_device);
+                update_resolution_menu ();
             }
         });
         menuitem.show ();
 
         update_take_button ();
+        update_resolution_menu ();
     }
 
     public void remove_camera_option (Gst.Device camera) {
@@ -259,8 +277,59 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             camera_options.remove (to_remove);
         }
 
+        if (camera_options.get_children ().length () > 0) {
+            camera_options.active = 0;
+        }
+
+        update_resolution_menu ();
         update_take_button ();
         enable_all_controls (camera_options.get_children ().length () > 0);
+    }
+
+    private void update_resolution_menu () {
+        resolution_menu.remove_all ();
+        if (current_device == null) {
+            return;
+        }
+        var caps = current_device.get_caps ();
+
+        for (uint i = 0; i < caps.get_size (); i++) {
+            unowned var s = caps.get_structure (i);
+
+            bool is_video_cap = s.get_name ().contains ("video");
+            if (!is_video_cap) { // If select image cap then preview freezes
+                continue;
+            }
+
+            int w, h, num = 0, den = 1;
+            if (s.get ("width", typeof (int), out w,
+                       "height", typeof (int), out h)) {
+
+                unowned GLib.Value? fraction = s.get_value ("framerate");
+                if (fraction.holds (typeof (Gst.Fraction))) {
+                    num = Gst.Value.get_fraction_numerator (fraction);
+                    den = Gst.Value.get_fraction_denominator (fraction);
+                } else if (fraction.holds (typeof (Gst.FractionRange))) {
+                    var range_max = Gst.Value.get_fraction_range_max (fraction);
+                    num = Gst.Value.get_fraction_numerator (range_max);
+                    den = Gst.Value.get_fraction_denominator (range_max);
+                } else if (fraction.holds (typeof (Gst.ValueList))) {
+                    unowned GLib.Value? val = Gst.ValueList.get_value (fraction, 0);
+                    num = Gst.Value.get_fraction_numerator (val);
+                    den = Gst.Value.get_fraction_denominator (val);
+                } else {
+                    warning ("Unknown fraction type: %s", fraction.type_name ());
+                    continue;
+                }
+            } else {
+                warning ("no resolution in caps");
+            }
+
+            resolution_menu.append (
+                "%d×%d (%0.f fps)".printf (w, h, (double)num / (double)den),
+                GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
+            );
+        }
     }
 
     private void update_take_button () {
