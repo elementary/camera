@@ -167,8 +167,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void on_change_caps (GLib.SimpleAction action, GLib.Variant? parameter) {
-        camera_view.change_caps (parameter.get_uint32 ());
-        change_action_state (ACTION_CHANGE_CAPS, parameter);
+        camera_view.change_caps ((int)parameter.get_uint32 ());
+        if (parameter != null) {
+            change_action_state (ACTION_CHANGE_CAPS, parameter);
+        }
     }
 
     public override bool configure_event (Gdk.EventConfigure event) {
