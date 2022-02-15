@@ -296,7 +296,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         try {
             picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
-                VIDEO_SRC_NAME +" device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
+                VIDEO_SRC_NAME + " device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
                 "capsfilter name=capsfilter ! " +
                 "decodebin name=decodebin ! " +
                 "videoflip method=%s !".printf (horizontal_flip ? "horizontal-flip" : "none") +
