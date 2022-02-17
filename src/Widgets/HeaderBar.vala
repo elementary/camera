@@ -290,6 +290,8 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             return;
         }
 
+        int prev_w = 0, prev_h = 0;
+        double prev_fr = 0.0;
         var caps = current_device.get_caps ();
         for (uint i = 0; i < caps.get_size (); i++) {
             unowned var s = caps.get_structure (i);
@@ -300,10 +302,24 @@ public class Camera.Widgets.HeaderBar : Gtk.HeaderBar {
             int w, h;
             double fr = 0.0;
             if (Camera.Utils.parse_structure (s, out w, out h, out fr)) {
-                resolution_menu.append (
-                    "%d×%d (%0.f fps)".printf (w, h, fr),
-                    GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
-                );
+                // Check not duplicate ( for simplicity assume duplicates listed next to each other)
+                if (w != prev_w || h != prev_h || fr != prev_fr) {
+                    if (mode_switch.active) { // Show framerate for video capture
+                        resolution_menu.append (
+                            "%d×%d (%0.f fps)".printf (w, h, fr),
+                            GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
+                        );
+                    } else { // Framerate not useful for still image capture
+                        resolution_menu.append (
+                            "%d×%d".printf (w, h),
+                            GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
+                        );
+                    }
+                }
+
+                prev_w = w;
+                prev_h = h;
+                prev_fr = fr;
             }
         }
     }

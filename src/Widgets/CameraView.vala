@@ -337,6 +337,8 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                 dynamic Gst.Element capsfilter = preview_pipeline.get_by_name ("capsfilter");
                 capsfilter.caps = new_caps;
             }
+        } else {
+            critical ("Requested caps index not found %u", index);
         }
     }
 
@@ -505,7 +507,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
     private Gst.Caps? get_caps_from_index (int index) {
         var caps = current_device.get_caps ();
-        if (caps != null && index > 0 && index < caps.get_size ()) {
+        if (caps != null && index >= 0 && index < caps.get_size ()) {
             unowned var s = caps.get_structure (index);
             var new_caps = new Gst.Caps.empty ();
             new_caps.append_structure (s.copy ());
@@ -513,7 +515,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         } else {
             return null;
         }
-
     }
 
     private static void play_shutter_sound () {
