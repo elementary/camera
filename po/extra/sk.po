@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-08 00:02+0000\n"
-"PO-Revision-Date: 2022-03-02 12:55+0000\n"
+"PO-Revision-Date: 2022-03-03 02:57+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/camera/extra/sk/>"
 "\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Širšia kompatibilita s hardvérom (napr. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:35
@@ -69,7 +69,7 @@ msgstr "Menšie aktualizácie:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Vylepšený výkon a spoľahlivosť"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 #: data/io.elementary.camera.appdata.xml.in:38
@@ -82,7 +82,7 @@ msgstr "Aktualizované preklady"
 
 #: data/io.elementary.camera.appdata.xml.in:37
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Behové prostredie elementary aktualizované na verziu 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:46
 msgid ""
