@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-08 00:02+0000\n"
-"PO-Revision-Date: 2022-01-10 00:30+0000\n"
-"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"PO-Revision-Date: 2022-03-02 12:38+0000\n"
+"Last-Translator: arnemec <arne.nemec01@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/extra/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "New features:"
-msgstr ""
+msgstr "Nové funkce:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Take a photo or video on secondary-click"
@@ -54,7 +54,7 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Širší kompatabilita hardware (např. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:35
