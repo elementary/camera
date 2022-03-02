@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-08 00:02+0000\n"
 "PO-Revision-Date: 2022-03-02 12:55+0000\n"
-"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Last-Translator: arnemec <arne.nemec01@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/extra/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr "Drobné aktualizace:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Vylepšený výkon a spolehlivost"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 #: data/io.elementary.camera.appdata.xml.in:38
