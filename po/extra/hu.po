@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-08 00:02+0000\n"
-"PO-Revision-Date: 2021-09-03 02:46+0000\n"
+"PO-Revision-Date: 2022-02-12 17:40+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/extra/"
 "hu/>\n"
@@ -37,37 +37,38 @@ msgstr ""
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "New features:"
-msgstr ""
+msgstr "Új funkciók:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Fotó vagy videó készítése másodlagos kattintással"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:44
 #: data/io.elementary.camera.appdata.xml.in:61
 msgid "Fixes:"
-msgstr ""
+msgstr "Javítások:"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Fényerő, kontraszt és tükrözés működésének biztosítása fénykép készítése után"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Szélesebb hardvertámogatás (pl. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:35
 #: data/io.elementary.camera.appdata.xml.in:49
 #: data/io.elementary.camera.appdata.xml.in:65
 msgid "Minor updates:"
-msgstr ""
+msgstr "Kisebb frissítések:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Fokozott teljesítmény és megbízhatóság"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 #: data/io.elementary.camera.appdata.xml.in:38
