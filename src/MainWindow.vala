@@ -54,7 +54,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private Gtk.Box linked_box;
 
     private Gst.Device? current_device = null;
-
     private bool timer_running = false;
     public bool recording { get; private set; default = false; }
 
@@ -103,20 +102,19 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         });
 
         var recording_finished_fail_toast = new Granite.Widgets.Toast (_("Recording failed"));
-
         var overlay = new Gtk.Overlay ();
         overlay.add (camera_view);
         overlay.add_overlay (recording_finished_toast);
         overlay.add_overlay (recording_finished_fail_toast);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (construct_headerbar ());
-
         var grid = new Gtk.Grid ();
-        grid.attach (window_handle, 0, 0);
+        grid.attach (construct_headerbar (), 0, 0);
         grid.attach (overlay, 0, 1);
 
-        add (grid);
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (grid);
+
+        add (window_handle);
 
         camera_view.recording_finished.connect ((file_path) => {
             if (file_path == "") {
@@ -169,24 +167,24 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC) {
             valign = Gtk.Align.CENTER
         };
-        /* Use schema nicks for binding. The camera view monitors the mode setting and changes accordingly */
-        Camera.Application.settings.bind_with_mapping ("mode", mode_switch, "active", SettingsBindFlags.DEFAULT,
-            (val, variant, user_data) => {
-                val.set_boolean (variant.get_string () == "video");
-                return true;
-            },
-            (val, expected_type, user_data) => {
-                if (val.get_boolean ()) {
-                    return new Variant ("s", "video");
-                } else {
-                    return new Variant ("s", "photo");
-                }
-            },
-            null, null
-        );
 
-        mode_switch.notify ["active"].connect (on_mode_changed);
-        on_mode_changed ();
+        mode_switch.notify["active"].connect (() => {
+            if (mode_switch.active) {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                timer_button.sensitive = false;
+            } else {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+                timer_button.sensitive = true;
+            }
+        });
+        Camera.Application.settings.changed["mode"].connect ((key) => {
+            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        });
+        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
 
         /* Construct AppMenu */
         var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
@@ -275,13 +273,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         linked_box.pack_start (take_button);
         linked_box.pack_start (camera_menu_revealer);
 
-
         resolution_menu = new GLib.Menu ();
         resolution_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("preferences-desktop-display-symbolic", Gtk.IconSize.MENU),
         };
         resolution_button.set_menu_model (resolution_menu);
-
         /* Pack tools into HeaderBar */
         var header_widget = new Gtk.HeaderBar () {
             show_close_button = true, // Gtk4 -> show_title_buttons = true,
