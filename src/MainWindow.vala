@@ -186,24 +186,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         );
 
         mode_switch.notify ["active"].connect (on_mode_changed);
-
-        // mode_switch.notify["active"].connect (() => {
-        //     if (mode_switch.active) {
-        //         Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
-        //         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
-        //         take_image.icon_name = VIDEO_ICON_SYMBOLIC;
-        //         timer_button.sensitive = false;
-        //     } else {
-        //         Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
-        //         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-        //         take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-        //         timer_button.sensitive = true;
-        //     }
-        // });
-        // Camera.Application.settings.changed["mode"].connect ((key) => {
-        //     mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
-        // });
-        // mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
         on_mode_changed ();
 
         /* Construct AppMenu */
