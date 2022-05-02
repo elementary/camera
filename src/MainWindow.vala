@@ -168,23 +168,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             valign = Gtk.Align.CENTER
         };
 
-        mode_switch.notify["active"].connect (() => {
-            if (mode_switch.active) {
-                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
-                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
-                timer_button.sensitive = false;
-            } else {
-                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-                timer_button.sensitive = true;
-            }
-        });
-        Camera.Application.settings.changed["mode"].connect ((key) => {
-            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
-        });
+        mode_switch.notify["active"].connect_after (on_mode_changed);
         mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        // No need to monitor external changes to own settings as inside sandbox and only changed by MainWindow
 
         /* Construct AppMenu */
         var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
@@ -344,8 +330,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void on_change_caps (GLib.SimpleAction action, GLib.Variant? parameter) {
-        camera_view.change_caps ((int)parameter.get_uint32 ());
         if (parameter != null) {
+            camera_view.change_caps ((int)parameter.get_uint32 ());
             change_action_state (ACTION_CHANGE_CAPS, parameter);
         }
     }
@@ -433,6 +419,12 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private void update_resolution_menu () {
         resolution_button.tooltip_text = mode_switch.active ? _("Video capture resolution") : _("Photo capture resolution");
+        var caps_index = mode_switch.active ? camera_view.current_video_caps_index : camera_view.current_picture_caps_index;
+        if (caps_index < 0) {
+             // Suppress terminal warnings during startup
+            return;
+        }
+
         resolution_menu.remove_all ();
         if (current_device == null || current_device.get_caps () == null) {
             return;
@@ -470,23 +462,21 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 prev_fr = fr;
             }
         }
+
+        change_action_state (ACTION_CHANGE_CAPS, new GLib.Variant.uint32 (caps_index));
     }
 
     private void on_mode_changed () {
-        Idle.add (() => {
-            update_resolution_menu ();
-            if (mode_switch.active) {
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
-                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
-                timer_button.sensitive = false;
-            } else {
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-                timer_button.sensitive = true;
-            }
-
-            return Source.REMOVE;
-        });
+        camera_view.on_mode_changed (mode_switch.active);
+        update_resolution_menu ();
+        if (mode_switch.active) {
+            take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+            take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+            timer_button.sensitive = false;
+        } else {
+            take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+            take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+            timer_button.sensitive = true;
     }
 
     private void update_take_button () {

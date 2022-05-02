@@ -33,9 +33,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction? hflip;
     private Gst.Device? current_device = null;
-    private int current_video_caps_index = -1;
     private int default_video_caps_index = -1;
-    private int current_picture_caps_index = -1;
+
+    public int current_video_caps_index { get; private set; default = -1; }
+    public int current_picture_caps_index { get; private set; default = -1; }
 
     public uint n_cameras {
         get {
@@ -94,19 +95,16 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
         monitor.add_filter ("Video/Source", caps);
+    }
 
-        Camera.Application.settings.changed["mode"].connect (() => {
-            if (current_device == null) {
-                return;
-            } else if (Camera.Application.settings.get_enum ("mode") == Utils.ActionType.PHOTO) {
-
-                set_preview_caps (default_video_caps_index);
-                update_resolution_action_state (current_picture_caps_index);
-            } else {
-                set_preview_caps (current_video_caps_index);
-                update_resolution_action_state (current_video_caps_index);
-            }
-        });
+    public void on_mode_changed (bool is_video) {
+        if (current_device == null) {
+            return;
+        } else if (is_video) {
+            set_preview_caps (current_video_caps_index);
+        } else {
+            set_preview_caps (default_video_caps_index);
+        }
     }
 
     private void on_camera_added (Gst.Device device) {
@@ -192,7 +190,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
                             max_area_picture = w * h;
                         }
                     } else if (s.get_name () == "video/x-raw") {
-                        if (w * h >= max_area_video && fr >= 10.0) {
+                        if (w * h > max_area_video && fr >= 10.0) {
                             largest_video_index = i;
                             max_area_video = w * h;
                         }
@@ -204,7 +202,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         current_picture_caps_index = largest_picture_index;
         current_video_caps_index = largest_video_index;
         default_video_caps_index = largest_video_index;
-
         current_device = camera;
         create_video_pipeline ();
     }
@@ -232,8 +229,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             capsfilter.get_static_pad ("src").add_probe (Gst.PadProbeType.EVENT_BOTH, (pad, info) => {
                 unowned Gst.Event? event = info.get_event ();
                 if (event.type == Gst.EventType.CAPS) {
-                    unowned var s= event.get_structure ();
-                    update_resolution_action_state (find_structure_index (s));
+                    //TODO Find correct resolution index and update action state.
                 }
 
                 return Gst.PadProbeReturn.OK;
@@ -350,15 +346,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         } else {
             critical ("Failed to set preview caps index %i", index);
         }
-    }
-
-    private void update_resolution_action_state (int index) {
-        var caps = current_device.get_caps ();
-        if (caps == null || index < 0 || index >= caps.get_size ()) {
-            return;
-        }
-
-        get_action_group ("win").change_action_state (MainWindow.ACTION_CHANGE_CAPS, new GLib.Variant.uint32 (index));
     }
 
     public void take_photo () {
@@ -490,19 +477,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         record_bin.dispose (); // Required for successful saving of video file
         recording = false;
         preview_pipeline.set_state (Gst.State.PLAYING);
-    }
-
-    private int find_structure_index (Gst.Structure? s) {
-        var caps = current_device.get_caps ();
-        if (caps != null && s != null) {
-            for (int i = 0; i < caps.get_size (); i++) {
-                if (s.is_equal (caps.get_structure (i))) {
-                    return i;
-                }
-            }
-        }
-
-        return -1;
     }
 
     private Gst.Caps? get_caps_from_index (int index) {
