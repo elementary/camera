@@ -477,6 +477,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
             take_image.icon_name = PHOTO_ICON_SYMBOLIC;
             timer_button.sensitive = true;
+        }
     }
 
     private void update_take_button () {
