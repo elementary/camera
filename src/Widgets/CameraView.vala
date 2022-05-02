@@ -451,7 +451,6 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         record_bin.sync_state_with_parent ();
         preview_pipeline.get_by_name ("tee").link (record_bin);
         preview_pipeline.set_state (Gst.State.PLAYING);
-        preview_pipeline.sync_children_states ();
 
         Gst.Debug.BIN_TO_DOT_FILE (preview_pipeline, Gst.DebugGraphDetails.VERBOSE, "recording");
     }
