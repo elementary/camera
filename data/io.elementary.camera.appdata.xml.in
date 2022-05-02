@@ -22,6 +22,7 @@
         <ul>
           <li>Ensure brightness, contrast, and mirror continue working after taking a photo</li>
           <li>Wider hardware compatibility (e.g. StarBook Mk V)</li>
+          <li>Ensure photos saved properly</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
