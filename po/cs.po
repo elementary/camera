@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2022-01-10 00:30+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/camera/cs/"
@@ -20,21 +20,38 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Uloženo do Videa"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Zobrazit soubor"
 
 #: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "Zaznamenávání se nezdařilo"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Zrcadlo"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Jas"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Kontrast"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Nastavení"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -61,22 +78,6 @@ msgstr "Kameru se nedaří zobrazit"
 #: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Fotka pořízena"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr "Zrcadlo"
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr "Jas"
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr "Kontrast"
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr "Nastavení"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

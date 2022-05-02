@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
-"PO-Revision-Date: 2022-01-22 13:31+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"PO-Revision-Date: 2022-02-16 00:06+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/extra/mr/"
 ">\n"
@@ -35,11 +35,11 @@ msgstr "कॅमेरा हे वेबकॅम वापरून फो�
 
 #: data/io.elementary.camera.appdata.xml.in:17
 msgid "New features:"
-msgstr ""
+msgstr "नवीन वैशिष्ट्ये:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "दुय्यम-क्लिकवर फोटो किंवा व्हिडिओ घ्या"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:44
@@ -50,11 +50,11 @@ msgstr "निराकारणे:"
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
-msgstr ""
+msgstr "फोटो घेतल्यानंतर ब्राइटनेस, कॉन्ट्रास्ट आणि मिरर काम करत असल्याची खात्री करा"
 
 #: data/io.elementary.camera.appdata.xml.in:24
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "विस्तीर्ण हार्डवेअर सुसंगतता (उदा. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:35
@@ -65,7 +65,7 @@ msgstr "किरकोळ अद्यतने:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "सुधारित कामगिरी आणि विश्वसनीयता"
 
 #: data/io.elementary.camera.appdata.xml.in:29
 #: data/io.elementary.camera.appdata.xml.in:38
@@ -103,9 +103,8 @@ msgid "Take full-resolution pictures"
 msgstr "पूर्ण-रिझोल्यूशन चित्रे घ्या"
 
 #: data/io.elementary.camera.appdata.xml.in:63
-#, fuzzy
 msgid "Fix restoring window size"
-msgstr "विंडो आकार पुनर्संचयित करा"
+msgstr "विंडोचा आकार पुनर्संचयित करताना येणाऱ्या समस्यांचे निराकरण करा"
 
 #: data/io.elementary.camera.appdata.xml.in:74
 msgid "Switch between multiple cameras"
