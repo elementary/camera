@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/camera/"
@@ -14,20 +14,37 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr ""
 
 #: src/MainWindow.vala:99
 msgid "Recording failed"
+msgstr ""
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr ""
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr ""
+
+#: src/MainWindow.vala:248
+msgid "Settings"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:88
@@ -56,22 +73,6 @@ msgstr ""
 #: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Zrobiōno fotografijo"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

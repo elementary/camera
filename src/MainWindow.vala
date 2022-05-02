@@ -33,12 +33,26 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         {ACTION_CHANGE_CAPS, on_change_caps, "u", "uint32 0", null},
     };
 
-    private uint configure_id;
+    private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
+    private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
+    private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
-    private bool timer_running;
+    private uint configure_id = 0;
 
     private Widgets.CameraView camera_view;
-    private Widgets.HeaderBar header_bar;
+    private Gtk.Menu camera_options;
+    private Gtk.Button take_button;
+    private Gtk.Image take_image;
+    private Gtk.Label take_timer_label;
+    private Gtk.Revealer camera_menu_revealer;
+    private Gtk.Revealer video_timer_revealer;
+    private Widgets.TimerButton timer_button;
+    private Granite.ModeSwitch mode_switch;
+    private Gtk.MenuButton menu_button;
+    private Gtk.Box linked_box;
+
+    private bool timer_running = false;
+    public bool recording { get; private set; default = false; }
 
     public MainWindow (Application application) {
         Object (application: application);
@@ -65,22 +79,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         this.title = _("Camera");
         icon_name = "io.elementary.camera";
 
-        header_bar = new Widgets.HeaderBar ();
-
         camera_view = new Widgets.CameraView ();
-        camera_view.bind_property ("horizontal-flip", header_bar, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL | GLib.BindingFlags.SYNC_CREATE);
-        camera_view.button_press_event.connect ((event) => {
-            if (event.button == Gdk.BUTTON_SECONDARY) {
-                header_bar.take_button.activate ();
-
-                return Gdk.EVENT_STOP;
-            }
-
-            return base.button_press_event (event);
-        });
-
-        var overlay = new Gtk.Overlay ();
-        overlay.add (camera_view);
+        camera_view.camera_added.connect (add_camera_option);
+        camera_view.camera_removed.connect (remove_camera_option);
 
         var recording_finished_toast = new Granite.Widgets.Toast (_("Saved to Videos"));
         recording_finished_toast.set_default_action (_("View File"));
@@ -96,10 +97,22 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 warning ("Error launching file manager: %s", e.message);
             }
         });
-        overlay.add_overlay (recording_finished_toast);
 
         var recording_finished_fail_toast = new Granite.Widgets.Toast (_("Recording failed"));
+
+        var overlay = new Gtk.Overlay ();
+        overlay.add (camera_view);
+        overlay.add_overlay (recording_finished_toast);
         overlay.add_overlay (recording_finished_fail_toast);
+
+        var window_handle = new Hdy.WindowHandle ();
+        window_handle.add (construct_headerbar ());
+
+        var grid = new Gtk.Grid ();
+        grid.attach (window_handle, 0, 0);
+        grid.attach (overlay, 0, 1);
+
+        add (grid);
 
         camera_view.recording_finished.connect ((file_path) => {
             if (file_path == "") {
@@ -109,25 +122,179 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 recording_finished_toast.send_notification ();
             }
         });
-
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (header_bar);
-
-        var grid = new Gtk.Grid ();
-        grid.attach (window_handle, 0, 0);
-        grid.attach (overlay, 0, 1);
-
-        add (grid);
-
-        timer_running = false;
-        camera_view.camera_added.connect (header_bar.add_camera_option);
-        camera_view.camera_removed.connect (header_bar.remove_camera_option);
-
-        header_bar.request_camera_change.connect (camera_view.change_camera);
-
         camera_view.start ();
+    }
 
-        header_bar.request_change_balance.connect (camera_view.change_color_balance);
+    /* This function copies (with some reordering/reformating) the construct clause of Camera.Widgets.HeaderBar */
+    private Gtk.HeaderBar construct_headerbar () {
+        timer_button = new Widgets.TimerButton () {
+            image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
+        };
+
+        /* Construct take photo/video tool */
+        take_image = new Gtk.Image () {
+            icon_name = PHOTO_ICON_SYMBOLIC,
+            icon_size = Gtk.IconSize.BUTTON
+        };
+        take_timer_label = new Gtk.Label (null);
+
+        video_timer_revealer = new Gtk.Revealer () {
+            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+        };
+        video_timer_revealer.add (take_timer_label);
+
+        var take_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            halign = Gtk.Align.CENTER
+        };
+        take_box.pack_start (take_image);
+        take_box.pack_start (video_timer_revealer);
+
+        take_button = new Gtk.Button () {
+            action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO,
+            width_request = 54
+        };
+        take_button.add (take_box);
+        var take_button_style_provider = new Gtk.CssProvider ();
+        take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
+        unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
+        take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        take_button_style_context.add_class ("take-button");
+        take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+        /* Construct mode switch */
+        mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC) {
+            valign = Gtk.Align.CENTER
+        };
+        mode_switch.notify["active"].connect (() => {
+            if (mode_switch.active) {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                timer_button.sensitive = false;
+            } else {
+                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+                timer_button.sensitive = true;
+            }
+        });
+        Camera.Application.settings.changed["mode"].connect ((key) => {
+            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        });
+        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+
+        /* Construct AppMenu */
+        var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
+        mirror_switch.bind_property (
+            "active", camera_view, "horizontal-flip", GLib.BindingFlags.BIDIRECTIONAL
+        );
+
+        var brightness_image = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.MENU);
+        var brightness_label = new Gtk.Label (_("Brightness")) {
+            hexpand = true,
+            xalign = 0
+        };
+        var brightness_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, -1, 1, 0.1) {
+            draw_value = false,
+            hexpand = true,
+            margin_bottom = 6
+        };
+        brightness_scale.set_value (0);
+        brightness_scale.add_mark (0, Gtk.PositionType.BOTTOM, "");
+
+        var contrast_image = new Gtk.Image.from_icon_name ("color-contrast-symbolic", Gtk.IconSize.MENU);
+        var contrast_label = new Gtk.Label (_("Contrast")) {
+            hexpand = true,
+            xalign = 0
+        };
+        var contrast_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0, 2, 0.1) {
+            draw_value = false,
+            hexpand = false
+        };
+        contrast_scale.set_value (1);
+        contrast_scale.add_mark (1, Gtk.PositionType.BOTTOM, "");
+
+        contrast_scale.value_changed.connect (() => {
+            camera_view.change_color_balance (brightness_scale.get_value (), contrast_scale.get_value ());
+        });
+        brightness_scale.value_changed.connect (() => {
+            camera_view.change_color_balance (brightness_scale.get_value (), contrast_scale.get_value ());
+        });
+
+        var image_settings = new Gtk.Grid () {
+            column_spacing = 6,
+            row_spacing = 3,
+            margin = 12
+        };
+        image_settings.attach (brightness_image, 0, 0);
+        image_settings.attach (brightness_label, 1, 0);
+        image_settings.attach (brightness_scale, 0, 1, 2);
+        image_settings.attach (contrast_image, 0, 2);
+        image_settings.attach (contrast_label, 1, 2);
+        image_settings.attach (contrast_scale, 0, 3, 2);
+
+        var menu_popover_grid = new Gtk.Grid () {
+            width_request = 250,
+            margin_bottom = 3
+        };
+        menu_popover_grid.attach (image_settings, 0, 0);
+        menu_popover_grid.attach (mirror_switch, 0, 1);
+        menu_popover_grid.show_all ();
+
+        var popover = new Gtk.Popover (null);
+        popover.add (menu_popover_grid);
+
+        menu_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
+            popover = popover,
+            tooltip_text = _("Settings")
+        };
+
+        /* Construct menu for multiple cameras */
+        camera_options = new Gtk.Menu ();
+        var camera_menu_button = new Gtk.MenuButton () {
+            popup = camera_options
+        };
+        unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
+        camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        camera_menu_button_style_context.add_class ("camera-menu");
+
+        camera_menu_revealer = new Gtk.Revealer () {
+            transition_duration = 250,
+            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+        };
+        camera_menu_revealer.add (camera_menu_button);
+
+        linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        linked_box.pack_start (take_button);
+        linked_box.pack_start (camera_menu_revealer);
+
+        /* Pack tools into HeaderBar */
+        var header_widget = new Gtk.HeaderBar () {
+            show_close_button = true, // Gtk4 -> show_title_buttons = true,
+            custom_title = linked_box // Gtk4 -> title_widget = linked_box
+        };
+        header_widget.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
+        header_widget.pack_start (timer_button);
+        header_widget.pack_end (menu_button);
+        header_widget.pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        header_widget.pack_end (mode_switch);
+
+        notify["recording"].connect (() => {
+            timer_button.sensitive = !recording && !mode_switch.active;
+            mode_switch.sensitive = !recording;
+            video_timer_revealer.reveal_child = recording;
+
+            if (recording) {
+                take_image.icon_name = STOP_ICON_SYMBOLIC;
+            } else {
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+            }
+        });
+
+        enable_header (true);
+        return header_widget;
     }
 
     private void on_fullscreen () {
@@ -143,8 +310,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             return;
         }
 
-        var delay = header_bar.timer_delay;
-        header_bar.start_timeout (delay);
+        var delay = timer_button.delay;
+        start_timeout (delay);
         timer_running = true;
 
         GLib.Timeout.add_seconds (delay, () => {
@@ -157,11 +324,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private void on_record (GLib.SimpleAction action, GLib.Variant? parameter) {
         if (action.state.get_boolean ()) {
             camera_view.stop_recording ();
-            header_bar.stop_recording_time ();
+            stop_recording_time ();
             action.set_state (new Variant.boolean (false));
         } else {
             camera_view.start_recording ();
-            header_bar.start_recording_time ();
+            start_recording_time ();
             action.set_state (new Variant.boolean (true));
         }
     }
@@ -194,5 +361,105 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         });
 
         return base.configure_event (event);
+    }
+
+    /** Header bar tools management functions from Camera.Widgets.HeaderBar **/
+
+    private void enable_header (bool enable) {
+        linked_box.sensitive = enable;
+        mode_switch.sensitive = enable;
+        menu_button.sensitive = enable;
+        timer_button.sensitive = enable;
+    }
+
+    private void add_camera_option (Gst.Device camera) {
+        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.display_name);
+        menuitem.set_data<Gst.Device> ("camera", camera);
+        camera_options.append (menuitem);
+
+        int i = (int) camera_options.get_children ().length () - 1;
+        if (i > 0) {
+            var el = camera_options.get_children ().nth_data (0) as Gtk.RadioMenuItem;
+            menuitem.join_group (el);
+        }
+        menuitem.active = true;
+        menuitem.activate.connect (() => {
+            if (menuitem.active) {
+                camera_view.change_camera (menuitem.get_data<Gst.Device> ("camera"));
+            }
+        });
+        menuitem.show ();
+
+        update_take_button ();
+        enable_header (true);
+    }
+
+    private void remove_camera_option (Gst.Device camera) {
+        Gtk.Widget to_remove = null;
+        foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
+            var name = ((Gtk.MenuItem) menuitem).get_data<Gst.Device> ("camera").name;
+            if (name == camera.name) {
+                to_remove = menuitem;
+                break;
+            }
+        }
+
+        if (to_remove != null) {
+            camera_options.remove (to_remove);
+        }
+
+        update_take_button ();
+        enable_header (camera_options.get_children ().length () > 0);
+    }
+
+    private void update_take_button () {
+        unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
+        if (camera_options.get_children ().length () > 1) {
+            camera_menu_revealer.reveal_child = true;
+            take_button_style_context.add_class ("multiple");
+        } else {
+            camera_menu_revealer.reveal_child = false;
+            take_button_style_context.remove_class ("multiple");
+        }
+    }
+
+    private void start_timeout (int time) {
+        var timeout_reached = time == 0;
+
+        mode_switch.sensitive = timeout_reached;
+        take_image.visible = timeout_reached;
+        timer_button.sensitive = timeout_reached;
+        video_timer_revealer.reveal_child = !timeout_reached;
+
+        if (!timeout_reached) {
+            take_timer_label.label = time.to_string ();
+
+            Timeout.add_seconds (1, () => {
+                start_timeout (time - 1);
+                return GLib.Source.REMOVE;
+            });
+        }
+    }
+
+    private uint recording_timeout = 0U;
+    private void start_recording_time () {
+        recording = true;
+        int seconds = 0;
+        take_timer_label.label = Granite.DateTime.seconds_to_time (seconds);
+
+        recording_timeout = Timeout.add_seconds (1, () => {
+            seconds++;
+            take_timer_label.label = Granite.DateTime.seconds_to_time (seconds);
+            return GLib.Source.CONTINUE;
+        });
+    }
+
+    private void stop_recording_time () {
+        recording = false;
+        if (recording_timeout > 0) {
+            GLib.Source.remove (recording_timeout);
+        }
+
+        recording_timeout = 0U;
     }
 }

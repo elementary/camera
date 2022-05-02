@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2021-07-07 08:28+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/camera/"
@@ -20,21 +20,38 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Câmara"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Guardado em Vídeos"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Ver ficheiro"
 
 #: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "A gravação falhou"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Espelho"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Luminosidade"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Contraste"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Definições"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -61,22 +78,6 @@ msgstr "Não é possível ver a câmara"
 #: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Foto tirada"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr "Espelho"
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr "Luminosidade"
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr "Contraste"
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr "Definições"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

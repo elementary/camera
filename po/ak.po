@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2017-04-01 19:24+0000\n"
 "Last-Translator: Lawrence Aberba <karabutaworld@gmail.com>\n"
 "Language-Team: ak (generated) <http://weblate.elementary.io/projects/desktop/"
@@ -20,20 +20,37 @@ msgstr ""
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr ""
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr ""
 
 #: src/MainWindow.vala:99
 msgid "Recording failed"
+msgstr ""
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr ""
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr ""
+
+#: src/MainWindow.vala:248
+msgid "Settings"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:88
@@ -60,22 +77,6 @@ msgstr ""
 
 #: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
 msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
