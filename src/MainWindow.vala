@@ -280,6 +280,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         notify["recording"].connect (() => {
             timer_button.sensitive = !recording && !mode_switch.active;
             mode_switch.sensitive = !recording;
+            resolution_button.sensitive = !recording;
             video_timer_revealer.reveal_child = recording;
 
             if (recording) {
