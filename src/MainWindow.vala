@@ -41,6 +41,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private Widgets.CameraView camera_view;
     private Gtk.Menu camera_options;
+    private GLib.Menu resolution_menu;
+    private Gtk.MenuButton resolution_button;
     private Gtk.Button take_button;
     private Gtk.Image take_image;
     private Gtk.Label take_timer_label;
@@ -50,6 +52,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private Granite.ModeSwitch mode_switch;
     private Gtk.MenuButton menu_button;
     private Gtk.Box linked_box;
+
+    private Gst.Device? current_device = null;
 
     private bool timer_running = false;
     public bool recording { get; private set; default = false; }
@@ -165,23 +169,42 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC) {
             valign = Gtk.Align.CENTER
         };
-        mode_switch.notify["active"].connect (() => {
-            if (mode_switch.active) {
-                Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
-                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
-                timer_button.sensitive = false;
-            } else {
-                Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
-                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
-                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
-                timer_button.sensitive = true;
-            }
-        });
-        Camera.Application.settings.changed["mode"].connect ((key) => {
-            mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
-        });
-        mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        /* Use schema nicks for binding. The camera view monitors the mode setting and changes accordingly */
+        Camera.Application.settings.bind_with_mapping ("mode", mode_switch, "active", SettingsBindFlags.DEFAULT,
+            (val, variant, user_data) => {
+                val.set_boolean (variant.get_string () == "video");
+                return true;
+            },
+            (val, expected_type, user_data) => {
+                if (val.get_boolean ()) {
+                    return new Variant ("s", "video");
+                } else {
+                    return new Variant ("s", "photo");
+                }
+            },
+            null, null
+        );
+
+        mode_switch.notify ["active"].connect (on_mode_changed);
+
+        // mode_switch.notify["active"].connect (() => {
+        //     if (mode_switch.active) {
+        //         Camera.Application.settings.set_enum ("mode", Utils.ActionType.VIDEO);
+        //         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+        //         take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+        //         timer_button.sensitive = false;
+        //     } else {
+        //         Camera.Application.settings.set_enum ("mode", Utils.ActionType.PHOTO);
+        //         take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+        //         take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+        //         timer_button.sensitive = true;
+        //     }
+        // });
+        // Camera.Application.settings.changed["mode"].connect ((key) => {
+        //     mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        // });
+        // mode_switch.active = Camera.Application.settings.get_enum ("mode") == Utils.ActionType.VIDEO;
+        on_mode_changed ();
 
         /* Construct AppMenu */
         var mirror_switch = new Granite.SwitchModelButton (_("Mirror"));
@@ -270,6 +293,13 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         linked_box.pack_start (take_button);
         linked_box.pack_start (camera_menu_revealer);
 
+
+        resolution_menu = new GLib.Menu ();
+        resolution_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("preferences-desktop-display-symbolic", Gtk.IconSize.MENU),
+        };
+        resolution_button.set_menu_model (resolution_menu);
+
         /* Pack tools into HeaderBar */
         var header_widget = new Gtk.HeaderBar () {
             show_close_button = true, // Gtk4 -> show_title_buttons = true,
@@ -278,6 +308,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         header_widget.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
         header_widget.pack_start (timer_button);
         header_widget.pack_end (menu_button);
+        header_widget.pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        header_widget.pack_end (resolution_button);
         header_widget.pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         header_widget.pack_end (mode_switch);
 
@@ -373,6 +405,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void add_camera_option (Gst.Device camera) {
+        current_device = camera;
         var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.display_name);
         menuitem.set_data<Gst.Device> ("camera", camera);
         camera_options.append (menuitem);
@@ -384,13 +417,16 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         }
         menuitem.active = true;
         menuitem.activate.connect (() => {
+            current_device = menuitem.get_data<Gst.Device> ("camera");
             if (menuitem.active) {
-                camera_view.change_camera (menuitem.get_data<Gst.Device> ("camera"));
+                camera_view.change_camera (current_device);
+                update_resolution_menu ();
             }
         });
         menuitem.show ();
 
         update_take_button ();
+        update_resolution_menu ();
         enable_header (true);
     }
 
@@ -408,8 +444,71 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             camera_options.remove (to_remove);
         }
 
+        if (camera_options.get_children ().length () > 0) {
+            camera_options.active = 0;
+        }
+
+        update_resolution_menu ();
         update_take_button ();
         enable_header (camera_options.get_children ().length () > 0);
+    }
+
+    private void update_resolution_menu () {
+        resolution_button.tooltip_text = mode_switch.active ? _("Video capture resolution") : _("Photo capture resolution");
+        resolution_menu.remove_all ();
+        if (current_device == null || current_device.get_caps () == null) {
+            return;
+        }
+
+        int prev_w = 0, prev_h = 0;
+        double prev_fr = 0.0;
+        var caps = current_device.get_caps ();
+        for (uint i = 0; i < caps.get_size (); i++) {
+            unowned var s = caps.get_structure (i);
+            if (s.get_name () != (mode_switch.active ? "video/x-raw" : "image/jpeg")) {
+                continue;
+            }
+
+            int w, h;
+            double fr = 0.0;
+            if (Camera.Utils.parse_structure (s, out w, out h, out fr)) {
+                // Check not duplicate ( for simplicity assume duplicates listed next to each other)
+                if (w != prev_w || h != prev_h || fr != prev_fr) {
+                    if (mode_switch.active) { // Show framerate for video capture
+                        resolution_menu.append (
+                            "%d×%d (%0.f fps)".printf (w, h, fr),
+                            GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
+                        );
+                    } else { // Framerate not useful for still image capture
+                        resolution_menu.append (
+                            "%d×%d".printf (w, h),
+                            GLib.Action.print_detailed_name ("win.change-caps", new GLib.Variant.uint32 (i))
+                        );
+                    }
+                }
+
+                prev_w = w;
+                prev_h = h;
+                prev_fr = fr;
+            }
+        }
+    }
+
+    private void on_mode_changed () {
+        Idle.add (() => {
+            update_resolution_menu ();
+            if (mode_switch.active) {
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_RECORD;
+                take_image.icon_name = VIDEO_ICON_SYMBOLIC;
+                timer_button.sensitive = false;
+            } else {
+                take_button.action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO;
+                take_image.icon_name = PHOTO_ICON_SYMBOLIC;
+                timer_button.sensitive = true;
+            }
+
+            return Source.REMOVE;
+        });
     }
 
     private void update_take_button () {
