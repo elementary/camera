@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/camera/"
@@ -14,20 +14,37 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
+msgstr ""
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr ""
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr ""
+
+#: src/MainWindow.vala:248
+msgid "Settings"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:88
@@ -49,29 +66,13 @@ msgstr "Łōnczynie z %s…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Zrobiōno fotografijo"
-
-#: src/Widgets/HeaderBar.vala:114
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:118
-msgid "Brightness"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:124
-msgid "Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:178
-msgid "Settings"
-msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2021-07-07 12:53+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/camera/camera/fr/"
@@ -20,21 +20,38 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Caméra"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Enregistré dans Vidéos"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Voir le fichier"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "Échec de l'enregistrement"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Miroir"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Luminosité"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Contraste"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Paramètres"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -54,29 +71,13 @@ msgstr "Connexion à « %s »…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr "Impossible de visualiser la caméra"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Photo prise"
-
-#: src/Widgets/HeaderBar.vala:114
-msgid "Mirror"
-msgstr "Miroir"
-
-#: src/Widgets/HeaderBar.vala:118
-msgid "Brightness"
-msgstr "Luminosité"
-
-#: src/Widgets/HeaderBar.vala:124
-msgid "Contrast"
-msgstr "Contraste"
-
-#: src/Widgets/HeaderBar.vala:178
-msgid "Settings"
-msgstr "Paramètres"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

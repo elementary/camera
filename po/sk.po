@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2021-08-25 18:15+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/camera/camera/sk/"
@@ -20,21 +20,38 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Uložené do Videí"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Zobraziť súbor"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "Nahrávanie zlyhalo"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Zrkadliť"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Jas"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Kontrast"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Nastavenia"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -54,29 +71,13 @@ msgstr "Pripája sa k \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr "Nedarí sa zobraziť náhľad kamery"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Fotografia zachytená"
-
-#: src/Widgets/HeaderBar.vala:114
-msgid "Mirror"
-msgstr "Zrkadliť"
-
-#: src/Widgets/HeaderBar.vala:118
-msgid "Brightness"
-msgstr "Jas"
-
-#: src/Widgets/HeaderBar.vala:124
-msgid "Contrast"
-msgstr "Kontrast"
-
-#: src/Widgets/HeaderBar.vala:178
-msgid "Settings"
-msgstr "Nastavenia"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

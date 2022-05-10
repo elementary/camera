@@ -2,88 +2,93 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
-"PO-Revision-Date: 2015-12-24 11:23+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"PO-Revision-Date: 2022-04-02 06:21+0000\n"
+"Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
+"Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/camera/"
+"camera/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
-msgstr ""
+msgstr "کامێرا"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
-msgstr ""
+msgstr "پاشەکەوت کرا لە ڤیدیۆکاندا"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "View File"
-msgstr ""
+msgstr "بینینی پەڕگە"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
-msgstr ""
+msgstr "تۆمارکردنی شكستی هێنا"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "ئاوێنە"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "ڕوناکی"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "کۆنتراست"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "ڕێکخستنەکان"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "هیچ کامێرایەکی پاڵپشتی کراو نەدۆزرایەوە"
 
 #: src/Widgets/CameraView.vala:89
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"کامێرایەک یان هەر ئامێرێکی تری ڤیدیۆیی پاڵپشتیکراو پەیوەست بکە بۆ چرکاندنی "
+"وێنە و ڤیدیۆ."
 
 #: src/Widgets/CameraView.vala:152
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "پەیوەستبوون بە \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "نەتوانرا کامێرا ببینرێت"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:114
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:118
-msgid "Brightness"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:124
-msgid "Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:178
-msgid "Settings"
-msgstr ""
+msgstr "وێنە چرکێندا"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "پەکخراو"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d چرکە"
+msgstr[1] "%d چرکە"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "دواخستنی چرکاندنی وێنە بە چەند چرکەیەک"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

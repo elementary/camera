@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2021-07-07 08:27+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/camera/camera/fi/"
@@ -20,21 +20,38 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Tallennettu Videot-kansioon"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Näytä tiedosto"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "Nauhoittaminen epäonnistui"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Peili"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Kirkkaus"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Kontrasti"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Asetukset"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -54,29 +71,13 @@ msgstr "Yhdistetään kohteeseen %s…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr "Kameran katselu ei onnistunut"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Kuva otettu"
-
-#: src/Widgets/HeaderBar.vala:114
-msgid "Mirror"
-msgstr "Peili"
-
-#: src/Widgets/HeaderBar.vala:118
-msgid "Brightness"
-msgstr "Kirkkaus"
-
-#: src/Widgets/HeaderBar.vala:124
-msgid "Contrast"
-msgstr "Kontrasti"
-
-#: src/Widgets/HeaderBar.vala:178
-msgid "Settings"
-msgstr "Asetukset"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

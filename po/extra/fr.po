@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
-"PO-Revision-Date: 2021-12-10 10:27+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"PO-Revision-Date: 2022-02-08 17:08+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/camera/extra/fr/"
 ">\n"
@@ -35,29 +35,55 @@ msgstr ""
 "Caméra est une simple application pour prendre des photos avec la webcam."
 
 #: data/io.elementary.camera.appdata.xml.in:17
-#: data/io.elementary.camera.appdata.xml.in:31
-#: data/io.elementary.camera.appdata.xml.in:47
-msgid "Minor updates:"
-msgstr "Mises à jour mineures :"
+msgid "New features:"
+msgstr "Nouvelles fonctionnalités :"
 
 #: data/io.elementary.camera.appdata.xml.in:19
-msgid "Update to elementary runtime 6.1"
-msgstr "Mise à jour vers l'exécutable elementary 6.1"
+msgid "Take a photo or video on secondary-click"
+msgstr "Prenez une photo ou une vidéo avec un clic secondaire"
 
-#: data/io.elementary.camera.appdata.xml.in:20
-#: data/io.elementary.camera.appdata.xml.in:33
-#: data/io.elementary.camera.appdata.xml.in:49
-#: data/io.elementary.camera.appdata.xml.in:63
-#: data/io.elementary.camera.appdata.xml.in:70
-msgid "Updated translations"
-msgstr "Mise à jour des traductions"
-
-#: data/io.elementary.camera.appdata.xml.in:26
-#: data/io.elementary.camera.appdata.xml.in:43
+#: data/io.elementary.camera.appdata.xml.in:21
+#: data/io.elementary.camera.appdata.xml.in:44
+#: data/io.elementary.camera.appdata.xml.in:61
 msgid "Fixes:"
 msgstr "Corrections :"
 
+#: data/io.elementary.camera.appdata.xml.in:23
+msgid ""
+"Ensure brightness, contrast, and mirror continue working after taking a photo"
+msgstr ""
+"Nous nous sommes assurés que la luminosité, le contraste et l'effet miroir "
+"continuent de fonctionner après avoir pris une photo"
+
+#: data/io.elementary.camera.appdata.xml.in:24
+msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
+msgstr "Compatibilité matérielle plus large (par ex. StarBook Mk V)"
+
+#: data/io.elementary.camera.appdata.xml.in:26
+#: data/io.elementary.camera.appdata.xml.in:35
+#: data/io.elementary.camera.appdata.xml.in:49
+#: data/io.elementary.camera.appdata.xml.in:65
+msgid "Minor updates:"
+msgstr "Mises à jour mineures :"
+
 #: data/io.elementary.camera.appdata.xml.in:28
+msgid "Improved performance and reliability"
+msgstr "Amélioration des performances et de la stabilité"
+
+#: data/io.elementary.camera.appdata.xml.in:29
+#: data/io.elementary.camera.appdata.xml.in:38
+#: data/io.elementary.camera.appdata.xml.in:51
+#: data/io.elementary.camera.appdata.xml.in:67
+#: data/io.elementary.camera.appdata.xml.in:81
+#: data/io.elementary.camera.appdata.xml.in:88
+msgid "Updated translations"
+msgstr "Mise à jour des traductions"
+
+#: data/io.elementary.camera.appdata.xml.in:37
+msgid "Update to elementary runtime 6.1"
+msgstr "Mise à jour vers l'exécutable elementary 6.1"
+
+#: data/io.elementary.camera.appdata.xml.in:46
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
@@ -65,7 +91,7 @@ msgstr ""
 "Résolution des problèmes d'indisponibilité des caméras lorsque plusieurs "
 "caméras sont connectées"
 
-#: data/io.elementary.camera.appdata.xml.in:29
+#: data/io.elementary.camera.appdata.xml.in:47
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
@@ -73,47 +99,47 @@ msgstr ""
 "Choix par défaut d'une caméra qui fonctionne si plusieurs caméras sont "
 "connectées et que l'une d'entre elles n'est pas disponible"
 
-#: data/io.elementary.camera.appdata.xml.in:39
+#: data/io.elementary.camera.appdata.xml.in:57
 msgid "Improvements:"
 msgstr "Améliorations :"
 
-#: data/io.elementary.camera.appdata.xml.in:41
+#: data/io.elementary.camera.appdata.xml.in:59
 msgid "Take full-resolution pictures"
 msgstr "Prenez des photos en haute résolution"
 
-#: data/io.elementary.camera.appdata.xml.in:45
+#: data/io.elementary.camera.appdata.xml.in:63
 msgid "Fix restoring window size"
 msgstr "Correction de la restauration de la taille de la fenêtre"
 
-#: data/io.elementary.camera.appdata.xml.in:56
+#: data/io.elementary.camera.appdata.xml.in:74
 msgid "Switch between multiple cameras"
 msgstr "Possibilité de basculer entre plusieurs caméras"
 
-#: data/io.elementary.camera.appdata.xml.in:57
+#: data/io.elementary.camera.appdata.xml.in:75
 msgid "Send a notification when recording is finished"
 msgstr "Envoi d'une notification lorsque l'enregistrement est terminé"
 
-#: data/io.elementary.camera.appdata.xml.in:58
+#: data/io.elementary.camera.appdata.xml.in:76
 msgid "Add option to mirror the camera"
 msgstr "Ajout d'une option pour inverser la caméra"
 
-#: data/io.elementary.camera.appdata.xml.in:59
+#: data/io.elementary.camera.appdata.xml.in:77
 msgid "Add brightness and contrast adjustment"
 msgstr "Ajout de paramètres pour ajuster la luminosité et le contraste"
 
-#: data/io.elementary.camera.appdata.xml.in:60
+#: data/io.elementary.camera.appdata.xml.in:78
 msgid "Support the dark style"
 msgstr "Prise en charge du thème sombre"
 
-#: data/io.elementary.camera.appdata.xml.in:61
+#: data/io.elementary.camera.appdata.xml.in:79
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr "Nous avons empêché le lancement simultané de plusieurs déclencheurs"
 
-#: data/io.elementary.camera.appdata.xml.in:62
+#: data/io.elementary.camera.appdata.xml.in:80
 msgid "Improved support for camera hardware"
 msgstr "Amélioration du support matériel pour les caméras"
 
-#: data/io.elementary.camera.appdata.xml.in:112
+#: data/io.elementary.camera.appdata.xml.in:130
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

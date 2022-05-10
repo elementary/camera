@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-13 22:24+0000\n"
+"POT-Creation-Date: 2022-04-30 20:14+0000\n"
 "PO-Revision-Date: 2021-07-06 18:43+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/camera/"
@@ -21,21 +21,38 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Камера"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Збережено до Відео"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Переглянути файл"
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:99
 msgid "Recording failed"
 msgstr "Не вдалося записати"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Дзеркальне зображення"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Яскравість"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Контраст"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Налаштування"
 
 #: src/Widgets/CameraView.vala:88
 msgid "No Supported Camera Found"
@@ -55,29 +72,13 @@ msgstr "Під'єднання до «%s»…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:226
+#: src/Widgets/CameraView.vala:244
 msgid "Unable To View Camera"
 msgstr "Не вдалося знайти камеру"
 
-#: src/Widgets/CameraView.vala:395
+#: src/Widgets/CameraView.vala:413
 msgid "Photo taken"
 msgstr "Сфотографовано"
-
-#: src/Widgets/HeaderBar.vala:114
-msgid "Mirror"
-msgstr "Дзеркальне зображення"
-
-#: src/Widgets/HeaderBar.vala:118
-msgid "Brightness"
-msgstr "Яскравість"
-
-#: src/Widgets/HeaderBar.vala:124
-msgid "Contrast"
-msgstr "Контраст"
-
-#: src/Widgets/HeaderBar.vala:178
-msgid "Settings"
-msgstr "Налаштування"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
