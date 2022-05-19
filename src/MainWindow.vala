@@ -29,7 +29,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
-        {ACTION_RECORD, on_record, null, "false", null},
+        {ACTION_RECORD, on_record, null, "false", null}
     };
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
@@ -39,7 +39,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private uint configure_id = 0;
 
     private Widgets.CameraView camera_view;
-    private Gtk.Menu camera_options;
+    private Menu camera_options;
     private Gtk.Button take_button;
     private Gtk.Image take_image;
     private Gtk.Label take_timer_label;
@@ -251,9 +251,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         };
 
         /* Construct menu for multiple cameras */
-        camera_options = new Gtk.Menu ();
+        camera_options = new Menu ();
         var camera_menu_button = new Gtk.MenuButton () {
-            popup = camera_options
+            menu_model = camera_options
         };
         unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
         camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -366,48 +366,34 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void add_camera_option (Gst.Device camera) {
-        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.display_name);
-        menuitem.set_data<Gst.Device> ("camera", camera);
-        camera_options.append (menuitem);
-
-        int i = (int) camera_options.get_children ().length () - 1;
-        if (i > 0) {
-            var el = camera_options.get_children ().nth_data (0) as Gtk.RadioMenuItem;
-            menuitem.join_group (el);
-        }
-        menuitem.active = true;
-        menuitem.activate.connect (() => {
-            if (menuitem.active) {
-                camera_view.change_camera (menuitem.get_data<Gst.Device> ("camera"));
-            }
-        });
-        menuitem.show ();
+         camera_options.append (camera.display_name, GLib.Action.print_detailed_name (
+            MainWindow.ACTION_PREFIX + MainWindow.ACTION_CHANGE_CAMERA,
+            new GLib.Variant.string (camera.name)
+        ));
 
         update_take_button ();
         enable_header (true);
     }
 
     private void remove_camera_option (Gst.Device camera) {
-        Gtk.Widget to_remove = null;
-        foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
-            var name = ((Gtk.MenuItem) menuitem).get_data<Gst.Device> ("camera").name;
-            if (name == camera.name) {
-                to_remove = menuitem;
+        for (int i = 0; i < camera_options.get_n_items (); i++) {
+            string name;
+
+            camera_options.get_item_attribute (i, GLib.Menu.ATTRIBUTE_TARGET, "s", out name);
+
+            if (camera.name == name) {
+                camera_options.remove (i);
                 break;
             }
         }
 
-        if (to_remove != null) {
-            camera_options.remove (to_remove);
-        }
-
         update_take_button ();
-        enable_header (camera_options.get_children ().length () > 0);
+        enable_header (camera_options.get_n_items () > 0);
     }
 
     private void update_take_button () {
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
-        if (camera_options.get_children ().length () > 1) {
+        if (camera_options.get_n_items () > 1) {
             camera_menu_revealer.reveal_child = true;
             take_button_style_context.add_class ("multiple");
         } else {
