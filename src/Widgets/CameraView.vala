@@ -20,7 +20,7 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
-public class Camera.Widgets.CameraView : Gtk.Container {
+public class Camera.Widgets.CameraView : Gtk.Box {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
