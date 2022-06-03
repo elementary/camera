@@ -20,6 +20,8 @@
  */
 
 public class Camera.Widgets.TimerButton : Gtk.Button {
+    public new string label { get; set; } // Hide base.label or icon disappears
+
     public enum Delay {
         DISABLED = 0,
         3_SEC = 3,
@@ -52,15 +54,25 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     construct {
         delay = (Delay) Camera.Application.settings.get_enum ("delay");
 
-        label = delay.to_string ();
-
         this.clicked.connect (() => {
             delay = delay.next ();
             Camera.Application.settings.set_enum ("delay", delay);
             label = delay.to_string ();
         });
 
+        var label_widget = new Gtk.Label (delay.to_string ()) {
+            margin_end = 3
+        };
+
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3);
+        box.append (new Gtk.Image.from_icon_name ("timer-symbolic"));
+        box.append (label_widget);
+
+        child = box;
+
         tooltip_text = _("Delay before photo is taken");
-        add_css_class (Granite.STYLE_CLASS_FLAT);
+        add_css_class ("image-button");
+
+        bind_property ("label", label_widget, "label");
     }
 }

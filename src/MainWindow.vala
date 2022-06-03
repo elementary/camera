@@ -119,9 +119,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
     /* This function copies (with some reordering/reformating) the construct clause of Camera.Widgets.HeaderBar */
     private Gtk.HeaderBar construct_headerbar () {
-        timer_button = new Widgets.TimerButton () {
-            icon_name = "timer-symbolic"
-        };
+        timer_button = new Widgets.TimerButton ();
 
         /* Construct take photo/video tool */
         take_image = new Gtk.Image.from_icon_name (PHOTO_ICON_SYMBOLIC);
