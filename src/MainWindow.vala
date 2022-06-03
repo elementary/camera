@@ -237,7 +237,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         var popover = new Gtk.Popover () {
             child = menu_popover_grid
         };
-        // popover.set_parent (this);
 
         menu_button = new Gtk.MenuButton () {
             icon_name = "open-menu-symbolic",
@@ -251,7 +250,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         var options_popover = new Gtk.Popover () {
             child = camera_options
         };
-        // options_popover.set_parent (this);
 
         var camera_menu_button = new Gtk.MenuButton () {
             popover = options_popover

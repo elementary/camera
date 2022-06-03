@@ -237,7 +237,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
             gst_video_widget = gtksink.widget;
 
-            stack.add_child (gst_video_widget); // must be add_child for GTK4
+            stack.add_child (gst_video_widget);
             gst_video_widget.show ();
 
             stack.visible_child = gst_video_widget;
