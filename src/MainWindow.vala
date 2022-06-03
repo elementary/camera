@@ -341,12 +341,13 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private void add_camera_option (Gst.Device camera) {
         var menuitem = new Gtk.CheckButton.with_label (camera.display_name);
         menuitem.set_data<Gst.Device> ("camera", camera);
-        camera_options.append (menuitem);
 
         var first_option = (Gtk.CheckButton) camera_options.get_first_child ();
         if (first_option != null) {
             menuitem.group = first_option;
         }
+
+        camera_options.append (menuitem);
 
         menuitem.active = true;
         menuitem.activate.connect (() => {
