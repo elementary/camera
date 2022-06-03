@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2018-06-30 10:01+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/camera/"
@@ -54,29 +54,29 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "Nerasta jokių palaikomų kamerų"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Prijunkite kamerą ar kitą palaikomą vaizdo įrenginį, kad fotografuotumėte ir "
 "įrašinėtumėte vaizdo įrašus."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Jungiamasi prie \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Nufotografuota"
 
