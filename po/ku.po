@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Kurdish <https://l10n.elementary.io/projects/camera/camera/ku/"
@@ -46,29 +46,29 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "webkamîreya xwe yanjî alavek kû bi xebîte girê bide ji bo dîmen û vîdyo "
 "kêşanê."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Wêne kêşaye"
 
