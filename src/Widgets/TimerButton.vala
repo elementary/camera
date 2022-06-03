@@ -60,8 +60,7 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
             label = delay.to_string ();
         });
 
-        always_show_image = true;
         tooltip_text = _("Delay before photo is taken");
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        add_css_class (Granite.STYLE_CLASS_FLAT);
     }
 }

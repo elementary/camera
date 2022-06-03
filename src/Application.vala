@@ -21,7 +21,6 @@
 
 public class Camera.Application : Gtk.Application {
     public static GLib.Settings settings;
-    public MainWindow? main_window = null;
 
     static construct {
         settings = new Settings ("io.elementary.camera.settings");
@@ -41,37 +40,43 @@ public class Camera.Application : Gtk.Application {
         set_accels_for_action ("app.quit", {"<Control>q"});
 
         quit_action.activate.connect (() => {
-            if (main_window != null) {
-                main_window.destroy ();
-            }
+            quit ();
         });
     }
 
     protected override void activate () {
-        if (get_windows () == null) {
-            main_window = new MainWindow (this);
-
-            int width, height;
-            settings.get ("window-size", "(ii)", out width, out height);
-
-            var hints = Gdk.Geometry ();
-            hints.min_aspect = 1.0;
-            hints.max_aspect = -1.0;
-            hints.min_width = 436;
-            hints.min_height = 352;
-
-            main_window.set_geometry_hints (null, hints, Gdk.WindowHints.ASPECT | Gdk.WindowHints.MIN_SIZE);
-            main_window.resize (width, height);
-
-            if (settings.get_boolean ("window-maximized")) {
-                main_window.maximize ();
-            }
-
-            main_window.window_position = Gtk.WindowPosition.CENTER;
-            main_window.show_all ();
-        } else {
-            main_window.present ();
+        if (active_window != null) {
+            active_window.present_with_time (Gdk.CURRENT_TIME);
+            return;
         }
+
+        var main_window = new MainWindow (this);
+        main_window.present ();
+
+        add_window (main_window);
+
+        // var hints = Gdk.Geometry ();
+        // hints.min_aspect = 1.0;
+        // hints.max_aspect = -1.0;
+        // hints.min_width = 436;
+        // hints.min_height = 352;
+
+        // main_window.set_geometry_hints (null, hints, Gdk.WindowHints.ASPECT | Gdk.WindowHints.MIN_SIZE);
+
+        /*
+        * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
+        * Set maximize after height/width else window is min size on unmaximize
+        * Bind maximize as SET else get get bad sizes
+        */
+        var settings = new Settings ("io.elementary.music");
+        settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
+
+        if (settings.get_boolean ("window-maximized")) {
+            main_window.maximize ();
+        }
+
+        settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
     }
 
     public static int main (string[] args) {
