@@ -35,8 +35,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
-    private uint configure_id = 0;
-
     private Widgets.CameraView camera_view;
     private Gtk.Box camera_options;
     private Gtk.Button take_button;
