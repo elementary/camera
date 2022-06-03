@@ -55,14 +55,6 @@ public class Camera.Application : Gtk.Application {
 
         add_window (main_window);
 
-        // var hints = Gdk.Geometry ();
-        // hints.min_aspect = 1.0;
-        // hints.max_aspect = -1.0;
-        // hints.min_width = 436;
-        // hints.min_height = 352;
-
-        // main_window.set_geometry_hints (null, hints, Gdk.WindowHints.ASPECT | Gdk.WindowHints.MIN_SIZE);
-
         /*
         * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
         * Set maximize after height/width else window is min size on unmaximize
