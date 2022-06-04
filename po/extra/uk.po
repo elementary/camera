@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-03 17:33+0000\n"
-"PO-Revision-Date: 2022-02-08 20:03+0000\n"
+"PO-Revision-Date: 2022-06-04 11:18+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/extra/"
 "uk/>\n"
@@ -60,7 +60,7 @@ msgstr "Розширено апаратну сумісність (наприкл
 
 #: data/io.elementary.camera.appdata.xml.in:25
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Світлини відтепер зберігаються правильно"
 
 #: data/io.elementary.camera.appdata.xml.in:27
 #: data/io.elementary.camera.appdata.xml.in:36
