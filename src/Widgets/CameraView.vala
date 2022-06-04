@@ -151,7 +151,6 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
                 break;
             default:
-                debug ("on_bus_message of type '%s' received and ignored.", message.type.get_name ());
                 break;
         }
 
