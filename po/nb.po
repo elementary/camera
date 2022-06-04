@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2021-08-21 17:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Lagret i videoer"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Vis fil"
 
@@ -36,47 +36,48 @@ msgstr "Vis fil"
 msgid "Recording failed"
 msgstr "Opptak mislyktes"
 
-#: src/Widgets/CameraView.vala:88
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Avspeil"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Lysstyrke"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Kontrast"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "Ingen støttede kamera funnet"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Koble til ett nettkamera eller annen støttet videoenhet for å ta bilder "
 "eller spille inn video."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Kobler til «%s» …"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr "Kan ikke flytte kamera"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Bilde tatt"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr "Avspeil"
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr "Lysstyrke"
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr "Kontrast"
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr "Innstillinger"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

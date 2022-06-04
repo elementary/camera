@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2020-11-18 14:15+0000\n"
 "Last-Translator: deovaliandro <mdv16h@student.unhas.ac.id>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/camera/camera/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr ""
 
@@ -36,47 +36,48 @@ msgstr ""
 msgid "Recording failed"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Kecerahan"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Kontras"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "Kamera Tidak Ditemukan"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Sambungkan webcam atau perangkat video lain yang didukung untuk mengambil "
 "foto dan video."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Menghubungkan ke \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr "Tidak Dapat Menampilkan Kamera"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Foto diambil"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr "Kecerahan"
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr "Kontras"
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr "Pengaturan"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

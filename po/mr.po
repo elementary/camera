@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2022-01-16 14:58+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/camera/mr/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "कॅमेरा"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "व्हिडिओंमध्ये जतन केले"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "फाइल पहा"
 
@@ -36,45 +36,46 @@ msgstr "फाइल पहा"
 msgid "Recording failed"
 msgstr "रेकॉर्डिंग अयशस्वी"
 
-#: src/Widgets/CameraView.vala:88
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "मिरर"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "ब्राईटनेस"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "कॉन्ट्रास्ट"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "सेटिंग"
+
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "उपयुक्त असा कॅमेरा उपलब्ध नाही"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "फोटो किंवा व्हिडिओ काढण्यासाठी वेबकॅम किंवा अन्य उपयुक्त कॅमेरा जोडा."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" ला जोडले जात आहे…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr "कॅमेरा पाहण्यात अक्षम"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "फोटो काढून झाला"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr "मिरर"
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr "ब्राईटनेस"
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr "कॉन्ट्रास्ट"
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr "सेटिंग"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

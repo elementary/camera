@@ -1,7 +1,7 @@
 project(
     'io.elementary.camera', 'vala', 'c',
     meson_version : '>= 0.46',
-    version: '6.0.3'
+    version: '6.1.0'
 )
 
 gnome = import('gnome')
@@ -31,7 +31,6 @@ executable(
     'src/MainWindow.vala',
     'src/Utils.vala',
     'src/Widgets/CameraView.vala',
-    'src/Widgets/HeaderBar.vala',
     'src/Widgets/TimerButton.vala',
     config_file,
     dependencies : [

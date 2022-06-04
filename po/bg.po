@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/camera/camera/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Камера"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr ""
 
@@ -36,47 +36,48 @@ msgstr ""
 msgid "Recording failed"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr ""
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr ""
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "Не е намерена поддържана камера"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Свържете камера или друго поддържано устройство, което снима изображения и "
 "видео."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Свързване към \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Снимката е заснета"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

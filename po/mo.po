@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2018-05-30 17:26+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/camera/"
@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Cameră"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr ""
 
@@ -29,47 +29,48 @@ msgstr ""
 msgid "Recording failed"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr ""
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr ""
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "Camera nu sa găsit sau nu este compatibilă"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Conectați o cameră web sau alt dispozitiv video acceptat pentru a realiza "
 "fotografii și video."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Se conectează la \"% s\" …"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Fotografie făcută"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr ""
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr ""
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

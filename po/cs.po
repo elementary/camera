@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 00:02+0000\n"
+"POT-Creation-Date: 2022-06-03 17:33+0000\n"
 "PO-Revision-Date: 2022-01-10 00:30+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/camera/cs/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:63
+#: src/MainWindow.vala:77
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:83
+#: src/MainWindow.vala:84
 msgid "Saved to Videos"
 msgstr "Uloženo do Videa"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:85
 msgid "View File"
 msgstr "Zobrazit soubor"
 
@@ -36,47 +36,48 @@ msgstr "Zobrazit soubor"
 msgid "Recording failed"
 msgstr "Zaznamenávání se nezdařilo"
 
-#: src/Widgets/CameraView.vala:88
+#. Construct AppMenu
+#: src/MainWindow.vala:185
+msgid "Mirror"
+msgstr "Zrcadlo"
+
+#: src/MainWindow.vala:191
+msgid "Brightness"
+msgstr "Jas"
+
+#: src/MainWindow.vala:204
+msgid "Contrast"
+msgstr "Kontrast"
+
+#: src/MainWindow.vala:248
+msgid "Settings"
+msgstr "Nastavení"
+
+#: src/Widgets/CameraView.vala:92
 msgid "No Supported Camera Found"
 msgstr "Nenalezena žádná podporovaná kamera"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:93
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Pro pořizování fotek a videí, připojte webkameru nebo jiné podporované "
 "nahrávací zařízení."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:156
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Připojování k „%s“…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:248
 msgid "Unable To View Camera"
 msgstr "Kameru se nedaří zobrazit"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:417
 msgid "Photo taken"
 msgstr "Fotka pořízena"
-
-#: src/Widgets/HeaderBar.vala:89
-msgid "Mirror"
-msgstr "Zrcadlo"
-
-#: src/Widgets/HeaderBar.vala:93
-msgid "Brightness"
-msgstr "Jas"
-
-#: src/Widgets/HeaderBar.vala:99
-msgid "Contrast"
-msgstr "Kontrast"
-
-#: src/Widgets/HeaderBar.vala:153
-msgid "Settings"
-msgstr "Nastavení"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"

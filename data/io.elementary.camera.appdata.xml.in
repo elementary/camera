@@ -12,7 +12,7 @@
     <p>Camera is a simple app to take photos with a webcam.</p>
   </description>
   <releases>
-    <release version="6.1.0" date="2022-02-06" urgency="medium">
+    <release version="6.1.0" date="2022-06-03" urgency="medium">
       <description>
         <p>New features:</p>
         <ul>
@@ -22,6 +22,7 @@
         <ul>
           <li>Ensure brightness, contrast, and mirror continue working after taking a photo</li>
           <li>Wider hardware compatibility (e.g. StarBook Mk V)</li>
+          <li>Ensure photos saved properly</li>
         </ul>
         <p>Minor updates:</p>
         <ul>
