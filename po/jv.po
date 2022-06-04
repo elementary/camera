@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 17:33+0000\n"
+"POT-Creation-Date: 2022-06-04 16:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
@@ -38,27 +38,27 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:92
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/Widgets/CameraView.vala:156
+#: src/Widgets/CameraView.vala:169
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:248
+#: src/Widgets/CameraView.vala:261
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:417
+#: src/Widgets/CameraView.vala:430
 msgid "Photo taken"
 msgstr ""
 
