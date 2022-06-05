@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-04 16:51+0000\n"
-"PO-Revision-Date: 2022-02-08 17:08+0000\n"
+"PO-Revision-Date: 2022-06-06 02:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/camera/extra/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/camera/extra/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "Correccions:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Mostra un error quan no hi hagi càmera disponible."
 
 #: data/io.elementary.camera.appdata.xml.in:25
 msgid "New features:"
@@ -65,7 +65,7 @@ msgstr "Compatibilitat de maquinari més àmplia (per exemple, StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:33
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "S'assegura que les fotos es desen correctament."
 
 #: data/io.elementary.camera.appdata.xml.in:35
 #: data/io.elementary.camera.appdata.xml.in:44
