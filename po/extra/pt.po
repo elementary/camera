@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-04 16:51+0000\n"
-"PO-Revision-Date: 2022-06-03 22:52+0000\n"
+"PO-Revision-Date: 2022-06-06 02:03+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -43,6 +43,7 @@ msgstr "Correções:"
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Show error in case no camera device is available"
 msgstr ""
+"Mostrar erro no caso de não estar disponível nenhum dispositivo de câmara"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 msgid "New features:"
