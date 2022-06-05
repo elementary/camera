@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 17:33+0000\n"
+"POT-Creation-Date: 2022-06-04 16:51+0000\n"
 "PO-Revision-Date: 2019-05-09 01:33+0000\n"
 "Last-Translator: Hein Htoo Htoo Kyaw <heinhtoohtookyaw@outlook.com>\n"
 "Language-Team: Burmese <https://l10n.elementary.io/projects/camera/camera/my/"
@@ -53,27 +53,27 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:92
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "အသုံးပြုနိုင်သော ကင်မရာ မတွေ့ပါ"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "ဓါတ်ပုံနှင်ဗီဒီယို ရိုက်ရန် Webcam သို့မဟုတ် အခြားအသုံးပြုနိုင်သော ကိရိယာ နှင့် ချိတ်ဆက်ပါ"
 
-#: src/Widgets/CameraView.vala:156
+#: src/Widgets/CameraView.vala:169
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" နှင့်ချိတ်ဆက်နေသည်"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:248
+#: src/Widgets/CameraView.vala:261
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:417
+#: src/Widgets/CameraView.vala:430
 msgid "Photo taken"
 msgstr "ဓါတ်ပုံရိုက်ပြီး"
 
