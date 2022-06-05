@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-04 16:51+0000\n"
-"PO-Revision-Date: 2022-06-04 11:18+0000\n"
+"PO-Revision-Date: 2022-06-05 01:48+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/extra/"
 "uk/>\n"
@@ -43,7 +43,7 @@ msgstr "Виправлення:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Показ помилки, якщо камера пристрою недоступна"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 msgid "New features:"
