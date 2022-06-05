@@ -21,7 +21,7 @@
  */
 
 
-errordomain Camera.Error {
+errordomain Camera.PermissionError {
     ACCESS_DENIED
 }
 
@@ -115,7 +115,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                     debug ("access_granted: %s", access_granted.to_string ());
 
                     if (!access_granted) {
-                        throw new Camera.Error.ACCESS_DENIED ("Access to camera denied");
+                        throw new Camera.PermissionError.ACCESS_DENIED ("Access to camera denied");
 
                     } else {
                         start_device_init_timeout ();
