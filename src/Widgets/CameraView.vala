@@ -20,13 +20,18 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
+
+errordomain Camera.Permissions {
+    ACCESS_DENIED
+}
+
 public class Camera.Widgets.CameraView : Gtk.Box {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
     private Gtk.Stack main_widget;
     private Gtk.Box status_box;
-    private Granite.Widgets.AlertView no_device_view;
+    private Granite.Widgets.AlertView device_error_view;
     private Gtk.Label status_label;
     Gtk.Widget gst_video_widget;
 
@@ -36,7 +41,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
-    private uint init_device_timeout_id = 0;
+    private uint device_init_timeout_id = 0;
 
     public uint n_cameras {
         get {
@@ -89,42 +94,79 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         status_box.pack_start (spinner);
         status_box.pack_start (status_label);
 
-        no_device_view = new Granite.Widgets.AlertView (
-            _("No Supported Camera Found"),
-            _("Connect a webcam or other supported video device to take photos and video."),
-            ""
-        );
+        device_error_view = new Granite.Widgets.AlertView ("", "","");
 
         main_widget.add (status_box); // must be add_child for GTK4
-        main_widget.add (no_device_view); // must be add_child for GTK4
+        main_widget.add (device_error_view); // must be add_child for GTK4
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
         caps.append (new Gst.Caps.empty_simple ("image/jpeg"));
         monitor.add_filter ("Video/Source", caps);
 
-        init_device_timeout_id = Timeout.add_seconds (2, () => {
+        if (!Xdp.Portal.running_under_sandbox ()) {
+            start_device_init_timeout ();
+
+        } else {
+            var portal = new Xdp.Portal ();
+            portal.access_camera.begin (null, Xdp.CameraFlags.NONE, null, (obj, res) => {
+                try {
+                    var accessGranted = portal.access_camera.end (res);
+                    debug ("accessGranted: %s", accessGranted.to_string ());
+
+                    if (!accessGranted) {
+                        throw new Camera.Permissions.ACCESS_DENIED ("Access to camera denied");
+
+                    } else {
+                        start_device_init_timeout ();
+                        var camera_fd = portal.open_pipewire_remote_for_camera ();
+                        debug ("camera_fd:  %i", camera_fd);
+                    }
+
+                } catch (Error e) {
+                    warning ("Camera Access Denied: %s", e.message);
+
+                    device_error_view.title = _("Camera Access Denied");
+                    device_error_view.description = _("Allow access to your camera from the privacy settings.");
+                    device_error_view.show ();
+                    main_widget.visible_child = device_error_view;
+                }
+            });
+        }
+    }
+
+    private void show_no_device_error () {
+        device_error_view.title = _("No Supported Camera Found");
+        device_error_view.description = _("Connect a webcam or other supported video device to take photos and video.");
+        device_error_view.show ();
+        main_widget.visible_child = device_error_view;
+    }
+
+    private void start_device_init_timeout () {
+        device_init_timeout_id = Timeout.add_seconds (2, () => {
             if (n_cameras == 0) {
-                no_device_view.show ();
-                main_widget.visible_child = no_device_view;
+                show_no_device_error ();
             }
             return Source.REMOVE;
         });
     }
 
-    private void on_camera_added (Gst.Device device) {
-        if (init_device_timeout_id > 0) {
-            Source.remove (init_device_timeout_id);
-            init_device_timeout_id = 0;
+    private void stop_device_init_timeout () {
+        if (device_init_timeout_id > 0) {
+            Source.remove (device_init_timeout_id);
+            device_init_timeout_id = 0;
         }
+    }
+
+    private void on_camera_added (Gst.Device device) {
+        stop_device_init_timeout ();
         camera_added (device);
         change_camera (device);
     }
     private void on_camera_removed (Gst.Device device) {
         camera_removed (device);
         if (n_cameras == 0) {
-            no_device_view.show ();
-            main_widget.visible_child = no_device_view;
+            show_no_device_error ();
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
         }
