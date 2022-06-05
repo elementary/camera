@@ -21,7 +21,7 @@
  */
 
 
-errordomain Camera.Permissions {
+errordomain Camera.Error {
     ACCESS_DENIED
 }
 
@@ -111,11 +111,11 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             var portal = new Xdp.Portal ();
             portal.access_camera.begin (null, Xdp.CameraFlags.NONE, null, (obj, res) => {
                 try {
-                    var accessGranted = portal.access_camera.end (res);
-                    debug ("accessGranted: %s", accessGranted.to_string ());
+                    var access_granted = portal.access_camera.end (res);
+                    debug ("access_granted: %s", access_granted.to_string ());
 
-                    if (!accessGranted) {
-                        throw new Camera.Permissions.ACCESS_DENIED ("Access to camera denied");
+                    if (!access_granted) {
+                        throw new Camera.Error.ACCESS_DENIED ("Access to camera denied");
 
                     } else {
                         start_device_init_timeout ();
