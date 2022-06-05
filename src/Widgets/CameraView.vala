@@ -100,6 +100,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
+        caps.append (new Gst.Caps.empty_simple ("image/jpeg"));
         monitor.add_filter ("Video/Source", caps);
 
         init_device_timeout_id = Timeout.add_seconds (2, () => {
