@@ -118,9 +118,9 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                         throw new Camera.PermissionError.ACCESS_DENIED ("Access to camera denied");
 
                     } else {
-                        start_device_init_timeout ();
                         var camera_fd = portal.open_pipewire_remote_for_camera ();
                         debug ("camera_fd:  %i", camera_fd);
+                        create_pipeline_fd (camera_fd);
                     }
 
                 } catch (Error e) {
@@ -193,6 +193,20 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                 on_camera_removed (device);
 
                 break;
+            case ERROR:
+                Error error;
+                string debug_info;
+                message.parse_error (out error, out debug_info);
+                warning ("Unexpected error from pipeline: %s", error.message);
+
+                break;
+            case EOS:
+                // free resources:
+                if (pipeline != null) {
+                    pipeline.set_state (Gst.State.NULL);
+                }
+
+                break;
             default:
                 break;
         }
@@ -230,6 +244,62 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
         create_pipeline (camera);
         current_device = camera;
+    }
+
+    private void create_pipeline_fd (int camera_fd) {
+        try {
+            pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "pipewiresrc fd=%i ! videoconvert ! ".printf (camera_fd) +
+                "decodebin name=decodebin ! " +
+                "videoflip method=horizontal-flip name=hflip ! " +
+                "videobalance name=balance ! " +
+                "tee name=tee ! " +
+                "videorate name=videorate ! " +
+                "queue leaky=downstream max-size-buffers=10 ! " +
+                "videoscale name=videoscale"
+            );
+
+            tee = pipeline.get_by_name ("tee");
+            hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
+            color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
+
+            if (gst_video_widget != null) {
+                main_widget.remove (gst_video_widget);
+            }
+
+            dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
+            videorate.max_rate = 30;
+            videorate.drop_only = true;
+
+            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
+            if (gtksink != null) {
+                dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
+                glsinkbin.sink = gtksink;
+                pipeline.add (glsinkbin);
+                pipeline.get_by_name ("videoscale").link (glsinkbin);
+            } else {
+                gtksink = Gst.ElementFactory.make ("gtksink", null);
+                pipeline.add (gtksink);
+                pipeline.get_by_name ("videoscale").link (gtksink);
+            }
+
+            gst_video_widget = gtksink.widget;
+
+            main_widget.add (gst_video_widget); // must be add_child for GTK4
+            gst_video_widget.show ();
+
+            main_widget.visible_child = gst_video_widget;
+            pipeline.set_state (Gst.State.PLAYING);
+
+            pipeline.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
+
+        } catch (Error e) {
+            // It is possible that there is another camera present that could selected so do not show
+            // no_device_error
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
+            dialog.run ();
+            dialog.destroy ();
+        }
     }
 
     private void create_pipeline (Gst.Device camera) {
@@ -300,7 +370,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show
-            // no_device_view
+            // no_device_error
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
             dialog.run ();
             dialog.destroy ();
