@@ -108,29 +108,31 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             start_device_init_timeout ();
 
         } else {
-            var portal = new Xdp.Portal ();
-            portal.access_camera.begin (null, Xdp.CameraFlags.NONE, null, (obj, res) => {
-                try {
-                    var access_granted = portal.access_camera.end (res);
-                    debug ("access_granted: %s", access_granted.to_string ());
+            realize.connect (() => {
+                var portal = new Xdp.Portal ();
+                portal.access_camera.begin (null, Xdp.CameraFlags.NONE, null, (obj, res) => {
+                    try {
+                        var access_granted = portal.access_camera.end (res);
+                        debug ("access_granted: %s", access_granted.to_string ());
 
-                    if (!access_granted) {
-                        throw new Camera.PermissionError.ACCESS_DENIED ("Access to camera denied");
+                        if (!access_granted) {
+                            throw new Camera.PermissionError.ACCESS_DENIED ("Access to camera denied");
 
-                    } else {
-                        var camera_fd = portal.open_pipewire_remote_for_camera ();
-                        debug ("camera_fd:  %i", camera_fd);
-                        create_pipeline_fd (camera_fd);
+                        } else {
+                            var camera_fd = portal.open_pipewire_remote_for_camera ();
+                            debug ("camera_fd:  %i", camera_fd);
+                            create_pipeline_fd (camera_fd);
+                        }
+
+                    } catch (Error e) {
+                        warning ("Camera Access Denied: %s", e.message);
+
+                        device_error_view.title = _("Camera Access Denied");
+                        device_error_view.description = _("Allow access to your camera from the privacy settings.");
+                        device_error_view.show ();
+                        main_widget.visible_child = device_error_view;
                     }
-
-                } catch (Error e) {
-                    warning ("Camera Access Denied: %s", e.message);
-
-                    device_error_view.title = _("Camera Access Denied");
-                    device_error_view.description = _("Allow access to your camera from the privacy settings.");
-                    device_error_view.show ();
-                    main_widget.visible_child = device_error_view;
-                }
+                });
             });
         }
     }
