@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-04 16:51+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2020-02-23 09:08+0000\n"
 "Last-Translator: gkkulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/camera/camera/"
@@ -58,7 +58,7 @@ msgstr ""
 "Prziłōncz kamera necowo abo inkszo spiyrano maszina wideo, żeby robić "
 "fotografije i filmy."
 
-#: src/Widgets/CameraView.vala:169
+#: src/Widgets/CameraView.vala:170
 #, fuzzy, c-format
 #| msgid "Connecting to %s…"
 msgid "Connecting to \"%s\"…"
@@ -66,11 +66,11 @@ msgstr "Łōnczynie z %s…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:261
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:430
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Zrobiōno fotografijo"
 
