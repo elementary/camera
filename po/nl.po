@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-04 16:51+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2020-07-16 10:12+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/"
@@ -64,18 +64,18 @@ msgstr ""
 "Verbind een webcam of een ander ondersteund videoapparaat om foto's en "
 "video's te maken."
 
-#: src/Widgets/CameraView.vala:169
+#: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Verbinden met \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:261
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr "Kan Camera niet vinden"
 
-#: src/Widgets/CameraView.vala:430
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Foto gemaakt"
 

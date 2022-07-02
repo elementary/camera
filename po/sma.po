@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-04 16:51+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2015-12-24 11:28+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,18 +55,18 @@ msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 
-#: src/Widgets/CameraView.vala:169
+#: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr ""
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:261
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:430
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr ""
 
