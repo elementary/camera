@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
-"PO-Revision-Date: 2022-06-05 01:48+0000\n"
+"PO-Revision-Date: 2022-07-08 12:21+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
 ">\n"
@@ -40,7 +40,7 @@ msgstr "新機能:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "MJPEG カメラに対応"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:37
