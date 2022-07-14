@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2022-07-14 07:37+0000\n"
-"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/extra/ru/>"
 "\n"
 "Language: ru\n"
@@ -42,7 +42,7 @@ msgstr "Новые возможности:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Поддержка MJPEG камер"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:37
@@ -75,7 +75,7 @@ msgstr "Обновлены переводы"
 
 #: data/io.elementary.camera.appdata.xml.in:35
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Создание снимка или запись видео на щелчок правой кнопкой мыши"
 
 #: data/io.elementary.camera.appdata.xml.in:39
 msgid ""
@@ -84,15 +84,15 @@ msgstr "Обеспечение работы яркости, контраста �
 
 #: data/io.elementary.camera.appdata.xml.in:40
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Большая совместимость оборудования (например, StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:41
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Обеспечение правильного сохранения фотографий"
 
 #: data/io.elementary.camera.appdata.xml.in:45
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Улучшена производительность и надёжность"
 
 #: data/io.elementary.camera.appdata.xml.in:54
 msgid "Update to elementary runtime 6.1"
