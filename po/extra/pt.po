@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
-"PO-Revision-Date: 2022-06-06 02:03+0000\n"
+"PO-Revision-Date: 2022-07-27 19:08+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -40,7 +40,7 @@ msgstr "Novas funcionalidades:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Suporta câmaras MJPEG"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:37
