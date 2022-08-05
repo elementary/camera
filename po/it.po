@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/camera/camera/it/"
@@ -53,29 +53,29 @@ msgstr "Contrasto"
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: src/Widgets/CameraView.vala:88
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "Nessuna camera supportata è stata trovata"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Collega una webcam o un altro dispositivo video supportato per scattare foto "
 "e video."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Connessione a \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr "Impossibile visualizzare la camera"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Foto scattata"
 

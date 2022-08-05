@@ -20,10 +20,11 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
-public class Camera.Widgets.CameraView : Gtk.Stack {
+public class Camera.Widgets.CameraView : Gtk.Box {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
+    private Gtk.Stack main_widget;
     private Gtk.Box status_box;
     private Granite.Widgets.AlertView no_device_view;
     private Gtk.Label status_label;
@@ -35,6 +36,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
+    private uint init_device_timeout_id = 0;
 
     public string camera_name {
         owned get {
@@ -90,6 +92,9 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     public signal void camera_removed (Gst.Device camera);
 
     construct {
+        main_widget = new Gtk.Stack ();
+        add (main_widget); // can be changed to child = main_widget in GTK4;
+
         var spinner = new Gtk.Spinner ();
         spinner.active = true;
 
@@ -108,15 +113,28 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             ""
         );
 
-        add (status_box);
-        add (no_device_view);
+        main_widget.add (status_box); // must be add_child for GTK4
+        main_widget.add (no_device_view); // must be add_child for GTK4
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
+        caps.append (new Gst.Caps.empty_simple ("image/jpeg"));
         monitor.add_filter ("Video/Source", caps);
+
+        init_device_timeout_id = Timeout.add_seconds (2, () => {
+            if (n_cameras == 0) {
+                no_device_view.show ();
+                main_widget.visible_child = no_device_view;
+            }
+            return Source.REMOVE;
+        });
     }
 
     private void on_camera_added (Gst.Device device) {
+        if (init_device_timeout_id > 0) {
+            Source.remove (init_device_timeout_id);
+            init_device_timeout_id = 0;
+        }
         camera_added (device);
         change_camera (device);
         notify_property ("camera-name");
@@ -126,7 +144,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
         camera_removed (device);
         if (n_cameras == 0) {
             no_device_view.show ();
-            visible_child = no_device_view;
+            main_widget.visible_child = no_device_view;
         } else {
             camera_name = null;
         }
@@ -168,7 +186,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
     }
 
     public void change_camera (Gst.Device camera) {
-        visible_child = status_box;
+        main_widget.visible_child = status_box;
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         if (recording) {
@@ -232,7 +250,7 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             if (gst_video_widget != null) {
-                remove (gst_video_widget);
+                main_widget.remove (gst_video_widget);
             }
 
             dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
@@ -253,10 +271,10 @@ public class Camera.Widgets.CameraView : Gtk.Stack {
 
             gst_video_widget = gtksink.widget;
 
-            add (gst_video_widget);
+            main_widget.add (gst_video_widget); // must be add_child for GTK4
             gst_video_widget.show ();
 
-            visible_child = gst_video_widget;
+            main_widget.visible_child = gst_video_widget;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2019-12-13 13:07+0000\n"
 "Last-Translator: Augusto Fornitani <augusto.fornitani@outlook.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/camera/camera/"
@@ -53,17 +53,17 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "Ne troviĝas subtenita fotilo"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Konekti retkameraon aŭ alian subtenitan kameraan aparaton por foti aŭ filmi."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:170
 #, fuzzy, c-format
 #| msgid "Connecting to %s…"
 msgid "Connecting to \"%s\"…"
@@ -71,11 +71,11 @@ msgstr "Konektanta al “%s”…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Foto registrita"
 

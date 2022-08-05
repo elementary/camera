@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2021-08-27 22:42+0000\n"
 "Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
@@ -54,29 +54,29 @@ msgstr "Контраст"
 msgid "Settings"
 msgstr "Параметры"
 
-#: src/Widgets/CameraView.vala:88
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "Поддерживаемая камера не найдена"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Подключите веб-камеру или другое поддерживаемое видеоустройство для создания "
 "фото и видео."
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Подключение к «%s»…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr "Не удалось найти камеру"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Фото сделано"
 

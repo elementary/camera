@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-30 20:14+0000\n"
+"POT-Creation-Date: 2022-07-02 19:14+0000\n"
 "PO-Revision-Date: 2020-08-16 05:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -53,27 +53,27 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:88
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "找不到支援的攝影機"
 
-#: src/Widgets/CameraView.vala:89
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "連接網路攝影機或其他支援的視訊裝置來照相和攝影。"
 
-#: src/Widgets/CameraView.vala:152
+#: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "正在連接到「%s」…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:244
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr "無法顯示相機"
 
-#: src/Widgets/CameraView.vala:413
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "相片已拍攝"
 
