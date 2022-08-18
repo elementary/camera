@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (c) 2011-2019 elementary, inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
@@ -30,12 +30,15 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     private Gtk.Label status_label;
     Gtk.Widget gst_video_widget;
 
-    private Gst.Pipeline pipeline;
-    private Gst.Element tee;
+    private Gst.Pipeline preview_pipeline;
     private Gst.Video.ColorBalance color_balance;
     private Gst.Video.Direction? hflip;
-    private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
+
+    private int default_video_caps_index = -1;
+    public int current_video_caps_index { get; private set; default = -1; }
+    public int current_picture_caps_index { get; private set; default = -1; }
+
     private uint init_device_timeout_id = 0;
 
     public uint n_cameras {
@@ -43,9 +46,6 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             return monitor.get_devices ().length ();
         }
     }
-
-    private int picture_width;
-    private int picture_height;
 
     private Gst.DeviceMonitor monitor = new Gst.DeviceMonitor ();
     public bool recording { get; private set; default = false; }
@@ -112,6 +112,16 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         });
     }
 
+    public void on_mode_changed (bool is_video) {
+        if (current_device == null) {
+            return;
+        } else if (is_video) {
+            set_preview_caps (current_video_caps_index);
+        } else {
+            set_preview_caps (default_video_caps_index);
+        }
+    }
+
     private void on_camera_added (Gst.Device device) {
         if (init_device_timeout_id > 0) {
             Source.remove (init_device_timeout_id);
@@ -120,6 +130,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         camera_added (device);
         change_camera (device);
     }
+
     private void on_camera_removed (Gst.Device device) {
         camera_removed (device);
         if (n_cameras == 0) {
@@ -173,46 +184,52 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             stop_recording ();
         }
 
-        if (record_bin != null) {
-            record_bin.set_state (Gst.State.NULL);
-            record_bin.sync_state_with_parent ();
-            record_bin.sync_children_states ();
+        if (preview_pipeline != null) {
+            preview_pipeline.set_state (Gst.State.NULL);
+            preview_pipeline.sync_children_states ();
+
+            Gst.Debug.BIN_TO_DOT_FILE (preview_pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
         }
 
-        if (pipeline != null) {
-            pipeline.set_state (Gst.State.NULL);
-            pipeline.sync_children_states ();
+        var caps = camera.get_caps ();
+        int largest_picture_index = -1;
+        int largest_video_index = -1;
+        var max_area_picture = 640 * 480;
+        var max_area_video = 320 * 240;
 
-            Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
-        }
-
-        create_pipeline (camera);
-        current_device = camera;
-    }
-
-    private void create_pipeline (Gst.Device camera) {
-        try {
-            var caps = camera.get_caps ();
-            picture_width = 640;
-            picture_height = 480;
-            var max_area = picture_width * picture_height;
-
-            for (uint i = 0; i < caps.get_size (); i++) {
+        if (caps != null) {
+            for (int i = 0; i < caps.get_size (); i++) {
                 unowned var s = caps.get_structure (i);
-                if (s.get_name () == "image/jpeg") {
-                    int w, h;
-                    s.get_int ("width", out w);
-                    s.get_int ("height", out h);
-                    if (w * h > max_area) {
-                        picture_width = w;
-                        picture_height = h;
-                        max_area = w * h;
+                int w, h;
+                double fr = 0.0;
+                if (Camera.Utils.parse_structure (s, out w, out h, out fr)) {
+                    if (s.get_name () == "image/jpeg") {
+                        if (w * h > max_area_picture) {
+                            largest_picture_index = i;
+                            max_area_picture = w * h;
+                        }
+                    } else if (s.get_name () == "video/x-raw") {
+                        if (w * h > max_area_video && fr >= 10.0) {
+                            largest_video_index = i;
+                            max_area_video = w * h;
+                        }
                     }
                 }
             }
+        }
 
-            var device_src = camera.create_element (VIDEO_SRC_NAME);
-            pipeline = (Gst.Pipeline) Gst.parse_launch (
+        current_picture_caps_index = largest_picture_index;
+        current_video_caps_index = largest_video_index;
+        default_video_caps_index = largest_video_index;
+        current_device = camera;
+        create_video_pipeline ();
+    }
+
+    private void create_video_pipeline () {
+        try {
+            var device_src = current_device.create_element (VIDEO_SRC_NAME);
+            preview_pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "capsfilter name=capsfilter ! " +
                 "decodebin name=decodebin ! " +
                 "videoflip method=horizontal-flip name=hflip ! " +
                 "videobalance name=balance ! " +
@@ -223,17 +240,35 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                 "videoscale name=videoscale"
             );
 
-            pipeline.add (device_src);
-            device_src.link (pipeline.get_by_name ("decodebin"));
-            tee = pipeline.get_by_name ("tee");
-            hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
-            color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
+            preview_pipeline.add (device_src);
+            dynamic Gst.Element capsfilter = preview_pipeline.get_by_name ("capsfilter");
+            device_src.link (capsfilter);
+
+            // Ensure action state changes with caps filter
+            capsfilter.get_static_pad ("src").add_probe (Gst.PadProbeType.EVENT_BOTH, (pad, info) => {
+                unowned Gst.Event? event = info.get_event ();
+                if (event.type == Gst.EventType.CAPS) {
+                    //TODO Find correct resolution index and update action state.
+                }
+
+                return Gst.PadProbeReturn.OK;
+            });
+
+            var default_caps = get_caps_from_index (default_video_caps_index);
+            if (default_caps != null) {
+                capsfilter.caps = default_caps;
+            } else {
+                critical ("Could not find default caps from index %u", default_video_caps_index);
+            }
+
+            hflip = (preview_pipeline.get_by_name ("hflip") as Gst.Video.Direction);
+            color_balance = (preview_pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
             if (gst_video_widget != null) {
                 main_widget.remove (gst_video_widget);
             }
 
-            dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
+            dynamic Gst.Element videorate = preview_pipeline.get_by_name ("videorate");
             videorate.max_rate = 30;
             videorate.drop_only = true;
 
@@ -241,21 +276,20 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             if (gtksink != null) {
                 dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
                 glsinkbin.sink = gtksink;
-                pipeline.add (glsinkbin);
-                pipeline.get_by_name ("videoscale").link (glsinkbin);
+                preview_pipeline.add (glsinkbin);
+                preview_pipeline.get_by_name ("videoscale").link (glsinkbin);
             } else {
                 gtksink = Gst.ElementFactory.make ("gtksink", null);
-                pipeline.add (gtksink);
-                pipeline.get_by_name ("videoscale").link (gtksink);
+                preview_pipeline.add (gtksink);
+                preview_pipeline.get_by_name ("videoscale").link (gtksink);
             }
 
             gst_video_widget = gtksink.widget;
-
             main_widget.add (gst_video_widget); // must be add_child for GTK4
             gst_video_widget.show ();
 
             main_widget.visible_child = gst_video_widget;
-            pipeline.set_state (Gst.State.PLAYING);
+            preview_pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show
             // no_device_view
@@ -264,50 +298,91 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             dialog.destroy ();
         }
     }
+    private Gst.Pipeline? create_picture_pipeline () {
+        var brightness_value = GLib.Value (typeof (double));
+        color_balance.get_property ("brightness", ref brightness_value);
+        var contrast_value = GLib.Value (typeof (double));
+        color_balance.get_property ("contrast", ref contrast_value);
+        Gst.Pipeline? picture_pipeline = null;
+
+        var preview_video_src = (Gst.Element) preview_pipeline.get_by_name (VIDEO_SRC_NAME);
+        string device_path;
+        preview_video_src.get ("device", out device_path);
+
+        try {
+            picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
+                VIDEO_SRC_NAME + " device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
+                "capsfilter name=capsfilter ! " +
+                "decodebin name=decodebin ! " +
+                "videoflip method=%s !".printf (horizontal_flip ? "horizontal-flip" : "none") +
+                "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()) +
+                "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
+            );
+
+            dynamic Gst.Element capsfilter = picture_pipeline.get_by_name ("capsfilter");
+            picture_pipeline.get_by_name (VIDEO_SRC_NAME).link (capsfilter);
+            var current_picture_caps = get_caps_from_index (current_picture_caps_index);
+            if (current_picture_caps != null) {
+                capsfilter.caps = current_picture_caps;
+            }
+        } catch (Error e) {
+            // It is possible that there is another camera present that could selected so do not show
+            // no_device_view
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
+            dialog.run ();
+            dialog.destroy ();
+        }
+
+        return picture_pipeline;
+    }
 
     public void change_color_balance (double brightnesss, double contrast) {
         color_balance.set_property ("brightness", brightnesss);
         color_balance.set_property ("contrast", contrast);
     }
 
+    public void change_caps (int index) {
+        var new_caps = get_caps_from_index (index);
+        if (new_caps != null) {
+            unowned var s = new_caps.get_structure (0);
+            if (s.get_name () == "image/jpeg") {
+                current_picture_caps_index = index;
+            } else if (s.get_name () == "video/x-raw") {
+                current_video_caps_index = index;
+                dynamic Gst.Element capsfilter = preview_pipeline.get_by_name ("capsfilter");
+                capsfilter.caps = new_caps;
+            }
+        } else {
+            critical ("Requested caps index not found %u", index);
+        }
+    }
+
+    private void set_preview_caps (int index) {
+        var new_caps = get_caps_from_index (index);
+        if (new_caps != null) {
+            dynamic Gst.Element capsfilter = preview_pipeline.get_by_name ("capsfilter");
+            capsfilter.caps = new_caps;
+        } else {
+            critical ("Failed to set preview caps index %i", index);
+        }
+    }
+
     public void take_photo () {
-        if (recording || pipeline == null) {
+        if (recording || preview_pipeline == null) {
             return;
         }
 
         recording = true;
-        pipeline.set_state (Gst.State.NULL);
-        pipeline.sync_children_states ();
-
-        var preview_video_src = (Gst.Element) pipeline.get_by_name (VIDEO_SRC_NAME);
-        string device_path;
-        preview_video_src.get ("device", out device_path);
-        var brightness_value = GLib.Value (typeof (double));
-        color_balance.get_property ("brightness", ref brightness_value);
-        var contrast_value = GLib.Value (typeof (double));
-        color_balance.get_property ("contrast", ref contrast_value);
-        Gst.Pipeline picture_pipeline;
-        try {
-             picture_pipeline = (Gst.Pipeline) Gst.parse_launch (
-                "v4l2src device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
-                "videoscale ! video/x-raw, width=%d, height=%d !".printf (picture_width, picture_height) +
-                "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
-                "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()) +
-                "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
-            );
-
-        } catch (Error e) {
-            warning ("Could not make picture pipeline for photo - %s", e.message);
-            return;
-        }
-
+        preview_pipeline.set_state (Gst.State.NULL);
+        preview_pipeline.sync_children_states ();
+        var picture_pipeline = create_picture_pipeline ();
         var filesink = picture_pipeline.get_by_name ("filesink");
         filesink.get_static_pad ("sink").add_probe (Gst.PadProbeType.EVENT_DOWNSTREAM, (pad, info) => {
             if (info.get_event ().type == Gst.EventType.EOS) {
                 Idle.add (() => {
                     picture_pipeline.set_state (Gst.State.NULL);
                     play_shutter_sound ();
-                    create_pipeline (current_device);
+                    create_video_pipeline ();
 
                     recording = false;
                     return Source.REMOVE;
@@ -322,7 +397,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         picture_pipeline.set_state (Gst.State.PLAYING);
         picture_pipeline.sync_children_states ();
 
-        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
+        Gst.Debug.BIN_TO_DOT_FILE (picture_pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
     }
 
     public void start_recording () {
@@ -331,7 +406,8 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         }
 
         recording = true;
-        record_bin = new Gst.Bin (null);
+        var record_bin = new Gst.Bin (null);
+        record_bin.set_name ("record_bin");
 
         string[] missing_messages = {};
         var queue = Gst.ElementFactory.make ("queue", null);
@@ -389,12 +465,13 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         var ghostpad = new Gst.GhostPad (null, queue.get_static_pad ("sink"));
         record_bin.add_pad (ghostpad);
 
-        pipeline.set_state (Gst.State.PAUSED);
-        pipeline.add (record_bin);
+        preview_pipeline.set_state (Gst.State.PAUSED);
+        preview_pipeline.add (record_bin);
         record_bin.sync_state_with_parent ();
-        tee.link (record_bin);
-        pipeline.set_state (Gst.State.PLAYING);
-        Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "recording");
+        preview_pipeline.get_by_name ("tee").link (record_bin);
+        preview_pipeline.set_state (Gst.State.PLAYING);
+
+        Gst.Debug.BIN_TO_DOT_FILE (preview_pipeline, Gst.DebugGraphDetails.VERBOSE, "recording");
     }
 
     public void stop_recording () {
@@ -402,10 +479,9 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             return;
         }
 
-        pipeline.set_state (Gst.State.PAUSED);
-        tee.unlink (record_bin);
+        preview_pipeline.set_state (Gst.State.PAUSED);
+        var record_bin = (Gst.Bin?)(preview_pipeline.get_by_name ("record_bin"));
         var filesink = record_bin.get_by_name ("filesink");
-
         if (filesink != null) {
             var locationval = GLib.Value (typeof (string));
             filesink.get_property ("location", ref locationval);
@@ -413,11 +489,24 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             recording_finished (location);
         }
 
-        pipeline.remove (record_bin);
-        pipeline.set_state (Gst.State.PLAYING);
+        preview_pipeline.get_by_name ("tee").unlink (record_bin);
+        preview_pipeline.remove (record_bin);
         record_bin.set_state (Gst.State.NULL);
-        record_bin.dispose ();
+        record_bin.dispose (); // Required for successful saving of video file
         recording = false;
+        preview_pipeline.set_state (Gst.State.PLAYING);
+    }
+
+    private Gst.Caps? get_caps_from_index (int index) {
+        var caps = current_device.get_caps ();
+        if (caps != null && index >= 0 && index < caps.get_size ()) {
+            unowned var s = caps.get_structure (index);
+            var new_caps = new Gst.Caps.empty ();
+            new_caps.append_structure (s.copy ());
+            return new_caps;
+        } else {
+            return null;
+        }
     }
 
     private static void play_shutter_sound () {

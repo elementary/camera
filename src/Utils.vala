@@ -56,4 +56,35 @@ namespace Camera.Utils {
 
         return GLib.Path.build_path (Path.DIR_SEPARATOR_S, media_directory, "Webcam");
     }
+
+    public bool parse_structure (Gst.Structure s, out int width, out int height, out double framerate) {
+        framerate = 0.0;
+        int num = 0, den = 1;
+        if (s.get ("width", typeof (int), out width,
+                   "height", typeof (int), out height)) {
+
+            unowned GLib.Value? fraction = s.get_value ("framerate");
+            if (fraction.holds (typeof (Gst.Fraction))) {
+                num = Gst.Value.get_fraction_numerator (fraction);
+                den = Gst.Value.get_fraction_denominator (fraction);
+            } else if (fraction.holds (typeof (Gst.FractionRange))) {
+                var range_max = Gst.Value.get_fraction_range_max (fraction);
+                num = Gst.Value.get_fraction_numerator (range_max);
+                den = Gst.Value.get_fraction_denominator (range_max);
+            } else if (fraction.holds (typeof (Gst.ValueList))) {
+                unowned GLib.Value? val = Gst.ValueList.get_value (fraction, 0);
+                num = Gst.Value.get_fraction_numerator (val);
+                den = Gst.Value.get_fraction_denominator (val);
+            } else {
+                warning ("Unknown fraction type: %s", fraction.type_name ());
+                return false;
+            }
+        } else {
+            warning ("no resolution in caps");
+            return false;
+        }
+
+        framerate = (double)num / (double)den;
+        return true;
+    }
 }
