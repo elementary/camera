@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
-"PO-Revision-Date: 2022-04-02 17:29+0000\n"
+"PO-Revision-Date: 2022-09-10 09:46+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/camera/"
 "extra/ckb/>\n"
@@ -40,7 +40,7 @@ msgstr "تایبەمەندییە تازەکان:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "پاڵپشتیکردنی کامێراکانی MJPEG"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:37
@@ -51,7 +51,7 @@ msgstr "چاککراوەکان:"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "پشاندانی هەڵە کاتێک هیچ کامێرایەک بەردەست نەبوو"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:43
@@ -88,7 +88,7 @@ msgstr "گونجاندنی لەگەڵ ڕەقەکاڵای زیاتر، وەکو (
 
 #: data/io.elementary.camera.appdata.xml.in:41
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "دڵنیابوونەوە لەوەی وێنەکان بە گونجاوی پاشەکەوت دەبن"
 
 #: data/io.elementary.camera.appdata.xml.in:45
 msgid "Improved performance and reliability"
