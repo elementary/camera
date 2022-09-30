@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
-"PO-Revision-Date: 2021-08-27 22:42+0000\n"
-"Last-Translator: DartDeaDia <dartdeadia@protonmail.com>\n"
+"PO-Revision-Date: 2022-09-30 14:33+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
 ">\n"
 "Language: ru\n"
@@ -82,7 +82,7 @@ msgstr "Фото сделано"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr "Отключен"
+msgstr "Отключён"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
