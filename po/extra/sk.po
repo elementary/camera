@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
-"PO-Revision-Date: 2022-03-03 02:57+0000\n"
+"PO-Revision-Date: 2022-09-30 23:04+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
-"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/extra/sk/"
-">\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/camera/extra/sk/>"
+"\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "Nové funkcie:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Podpora MJPEG kamier"
 
 #: data/io.elementary.camera.appdata.xml.in:21
 #: data/io.elementary.camera.appdata.xml.in:37
@@ -53,7 +53,7 @@ msgstr "Opravy:"
 
 #: data/io.elementary.camera.appdata.xml.in:23
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Zobraziť chybu, ak nie je dostupná žiadna kamera"
 
 #: data/io.elementary.camera.appdata.xml.in:25
 #: data/io.elementary.camera.appdata.xml.in:43
@@ -90,7 +90,7 @@ msgstr "Širšia kompatibilita s hardvérom (napr. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:41
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Zabezpečené, že sa fotografie budú ukladať správne"
 
 #: data/io.elementary.camera.appdata.xml.in:45
 msgid "Improved performance and reliability"
