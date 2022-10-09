@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-02 19:14+0000\n"
-"PO-Revision-Date: 2022-08-15 05:28+0000\n"
+"PO-Revision-Date: 2022-10-10 08:17+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/extra/ru/>"
 "\n"
@@ -165,7 +165,7 @@ msgstr "io.elementary.camera"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr "Фото;Видео;Веб-камера;Камера;Будка;"
+msgstr "Photo;Video;Webcam;Camera;Booth;Фото;Видео;Веб-камера;Камера;Будка;"
 
 #~ msgid "accessories-camera"
 #~ msgstr "accessories-camera"
