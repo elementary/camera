@@ -2,7 +2,7 @@ Source: io.elementary.camera
 Section: x11
 Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: appstream,
-               debhelper (>= 9),
+               debhelper (>= 10.5.1),
                desktop-file-utils,
                gettext,
                libcanberra-dev,
@@ -20,7 +20,7 @@ Homepage: https://github.com/elementary/camera
 Package: io.elementary.camera
 Architecture: any
 Priority: optional
-Depends: gstreamer1.0-gtk3, ${misc:Depends}, ${shlibs:Depends}
+Depends: flatpak, ${misc:Depends}
 Conflicts: pantheon-camera, snap-photobooth
 Replaces: pantheon-camera, snap-photobooth
 Description: Camera app for Pantheon
