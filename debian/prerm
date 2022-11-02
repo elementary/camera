@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+flatpak remove --system --noninteractive io.elementary.camera//stable || true
+
+#DEBHELPER#
+
+exit 0
