@@ -1,3 +1,9 @@
+io.elementary.camera (6.2.0) focal; urgency=medium
+
+  * New upstream release
+
+ -- Danielle Foré <danielle@elementary.io>  Thu, 03 Nov 2022 15:07:57 -0700
+
 io.elementary.camera (1.0.6) bionic; urgency=medium
 
   * Release 1.0.6 (#116)
