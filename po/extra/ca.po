@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-02 19:14+0000\n"
+"POT-Creation-Date: 2022-10-20 17:44+0000\n"
 "PO-Revision-Date: 2022-07-03 15:08+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/camera/extra/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/camera/extra/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,71 +34,73 @@ msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Càmera és una aplicació simple per fer fotografies amb una càmera web."
 
 #: data/io.elementary.camera.appdata.xml.in:17
-#: data/io.elementary.camera.appdata.xml.in:33
-msgid "New features:"
-msgstr "Característiques noves:"
-
-#: data/io.elementary.camera.appdata.xml.in:19
-msgid "Support MJPEG cameras"
-msgstr "Admet càmeres MJPEG"
-
-#: data/io.elementary.camera.appdata.xml.in:21
-#: data/io.elementary.camera.appdata.xml.in:37
-#: data/io.elementary.camera.appdata.xml.in:61
-#: data/io.elementary.camera.appdata.xml.in:78
-msgid "Fixes:"
-msgstr "Correccions:"
-
-#: data/io.elementary.camera.appdata.xml.in:23
-msgid "Show error in case no camera device is available"
-msgstr "Mostra un error quan no hi hagi càmera disponible."
-
-#: data/io.elementary.camera.appdata.xml.in:25
-#: data/io.elementary.camera.appdata.xml.in:43
+#: data/io.elementary.camera.appdata.xml.in:34
 #: data/io.elementary.camera.appdata.xml.in:52
-#: data/io.elementary.camera.appdata.xml.in:66
-#: data/io.elementary.camera.appdata.xml.in:82
+#: data/io.elementary.camera.appdata.xml.in:61
+#: data/io.elementary.camera.appdata.xml.in:75
+#: data/io.elementary.camera.appdata.xml.in:91
 msgid "Minor updates:"
 msgstr "Actualitzacions menors:"
 
-#: data/io.elementary.camera.appdata.xml.in:27
-#: data/io.elementary.camera.appdata.xml.in:46
+#: data/io.elementary.camera.appdata.xml.in:19
+#: data/io.elementary.camera.appdata.xml.in:36
 #: data/io.elementary.camera.appdata.xml.in:55
-#: data/io.elementary.camera.appdata.xml.in:68
-#: data/io.elementary.camera.appdata.xml.in:84
-#: data/io.elementary.camera.appdata.xml.in:98
-#: data/io.elementary.camera.appdata.xml.in:105
+#: data/io.elementary.camera.appdata.xml.in:64
+#: data/io.elementary.camera.appdata.xml.in:77
+#: data/io.elementary.camera.appdata.xml.in:93
+#: data/io.elementary.camera.appdata.xml.in:107
+#: data/io.elementary.camera.appdata.xml.in:114
 msgid "Updated translations"
 msgstr "Traduccions actualitzades"
 
-#: data/io.elementary.camera.appdata.xml.in:35
+#: data/io.elementary.camera.appdata.xml.in:26
+#: data/io.elementary.camera.appdata.xml.in:42
+msgid "New features:"
+msgstr "Característiques noves:"
+
+#: data/io.elementary.camera.appdata.xml.in:28
+msgid "Support MJPEG cameras"
+msgstr "Admet càmeres MJPEG"
+
+#: data/io.elementary.camera.appdata.xml.in:30
+#: data/io.elementary.camera.appdata.xml.in:46
+#: data/io.elementary.camera.appdata.xml.in:70
+#: data/io.elementary.camera.appdata.xml.in:87
+msgid "Fixes:"
+msgstr "Correccions:"
+
+#: data/io.elementary.camera.appdata.xml.in:32
+msgid "Show error in case no camera device is available"
+msgstr "Mostra un error quan no hi hagi càmera disponible."
+
+#: data/io.elementary.camera.appdata.xml.in:44
 msgid "Take a photo or video on secondary-click"
 msgstr "Feu una foto o un vídeo fent clic secundari."
 
-#: data/io.elementary.camera.appdata.xml.in:39
+#: data/io.elementary.camera.appdata.xml.in:48
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "S'assegura que la brillantor, el contrast i el mirall continuïn funcionant "
 "després de fer una foto."
 
-#: data/io.elementary.camera.appdata.xml.in:40
+#: data/io.elementary.camera.appdata.xml.in:49
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "Compatibilitat de maquinari més àmplia (per exemple, StarBook Mk V)"
 
-#: data/io.elementary.camera.appdata.xml.in:41
+#: data/io.elementary.camera.appdata.xml.in:50
 msgid "Ensure photos saved properly"
 msgstr "S'assegura que les fotos es desen correctament."
 
-#: data/io.elementary.camera.appdata.xml.in:45
+#: data/io.elementary.camera.appdata.xml.in:54
 msgid "Improved performance and reliability"
 msgstr "Rendiment i fiabilitat millorats"
 
-#: data/io.elementary.camera.appdata.xml.in:54
+#: data/io.elementary.camera.appdata.xml.in:63
 msgid "Update to elementary runtime 6.1"
 msgstr "Actualització de l'entorn d'execució de l'elementary a 6.1"
 
-#: data/io.elementary.camera.appdata.xml.in:63
+#: data/io.elementary.camera.appdata.xml.in:72
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
@@ -106,7 +108,7 @@ msgstr ""
 "Resol els problemes amb les càmeres que no estan disponibles quan hi ha "
 "diverses càmeres connectades."
 
-#: data/io.elementary.camera.appdata.xml.in:64
+#: data/io.elementary.camera.appdata.xml.in:73
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
@@ -114,49 +116,49 @@ msgstr ""
 "Per defecte, una càmera funciona si hi ha diverses càmeres connectades i una "
 "no està disponible."
 
-#: data/io.elementary.camera.appdata.xml.in:74
+#: data/io.elementary.camera.appdata.xml.in:83
 msgid "Improvements:"
 msgstr "Millores:"
 
-#: data/io.elementary.camera.appdata.xml.in:76
+#: data/io.elementary.camera.appdata.xml.in:85
 msgid "Take full-resolution pictures"
 msgstr "Fotografies amb resolució completa"
 
-#: data/io.elementary.camera.appdata.xml.in:80
+#: data/io.elementary.camera.appdata.xml.in:89
 msgid "Fix restoring window size"
 msgstr "Correcció de la restauració de la mida de la finestra"
 
-#: data/io.elementary.camera.appdata.xml.in:91
+#: data/io.elementary.camera.appdata.xml.in:100
 msgid "Switch between multiple cameras"
 msgstr "Canvi entre diverses càmeres"
 
-#: data/io.elementary.camera.appdata.xml.in:92
+#: data/io.elementary.camera.appdata.xml.in:101
 msgid "Send a notification when recording is finished"
 msgstr "S'envia una notificació quan hagi acabat la gravació."
 
-#: data/io.elementary.camera.appdata.xml.in:93
+#: data/io.elementary.camera.appdata.xml.in:102
 msgid "Add option to mirror the camera"
 msgstr "Addició d'una opció per reflectir la càmera"
 
-#: data/io.elementary.camera.appdata.xml.in:94
+#: data/io.elementary.camera.appdata.xml.in:103
 msgid "Add brightness and contrast adjustment"
 msgstr "Addició de l’ajust del contrast i de la brillantor"
 
-#: data/io.elementary.camera.appdata.xml.in:95
+#: data/io.elementary.camera.appdata.xml.in:104
 msgid "Support the dark style"
 msgstr "Admissió del tema fosc"
 
-#: data/io.elementary.camera.appdata.xml.in:96
+#: data/io.elementary.camera.appdata.xml.in:105
 msgid "Prevent multiple countdown timers from running at the same time"
 msgstr ""
 "S'evita que diversos temporitzadors de compte enrere s'executin al mateix "
 "temps."
 
-#: data/io.elementary.camera.appdata.xml.in:97
+#: data/io.elementary.camera.appdata.xml.in:106
 msgid "Improved support for camera hardware"
 msgstr "Millora de la compatibilitat per al maquinari de la càmera"
 
-#: data/io.elementary.camera.appdata.xml.in:147
+#: data/io.elementary.camera.appdata.xml.in:156
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
