@@ -12,7 +12,7 @@
     <p>Camera is a simple app to take photos with a webcam.</p>
   </description>
   <releases>
-    <release version="6.2.1" date="2022-10-19" urgency="medium">
+    <release version="6.2.1" date="2022-12-05" urgency="medium">
       <description>
         <p>Minor updates:</p>
         <ul>
