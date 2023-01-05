@@ -29,9 +29,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
-        {ACTION_CHANGE_CAMERA, on_change_camera, "s", null, null},
         {ACTION_RECORD, on_record, null, "false", null},
     };
+
+    private SimpleAction change_camera_action;
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
@@ -57,6 +58,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public MainWindow (Application application) {
         Object (application: application);
 
+        change_camera_action = new SimpleAction.stateful (ACTION_CHANGE_CAMERA, new VariantType ("s"), new Variant.string (""));
+        change_camera_action.activate.connect (on_change_camera);
+
+        add_action (change_camera_action);
         add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
@@ -367,9 +372,13 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private void add_camera_option (Gst.Device camera) {
         var menuitem = new MenuItem (camera.display_name, null);
-        menuitem.set_action_and_target (ACTION_PREFIX + ACTION_CHANGE_CAMERA, "s", camera.display_name);
-        camera_options.set_data<Gst.Device> (camera.display_name, camera);
+        menuitem.set_action_and_target (ACTION_PREFIX + ACTION_CHANGE_CAMERA, "s", camera.name);
+        camera_options.set_data<Gst.Device> (camera.name, camera);
         camera_options.append_item (menuitem);
+
+        if (change_camera_action != null ) {
+            change_camera_action.set_state (new Variant.string (camera.name));
+        }
 
         update_take_button ();
         enable_header (true);
@@ -384,7 +393,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         var item_count = camera_options.get_n_items ();
         for (var index = 0; index < item_count; index++) {
             var variant = camera_options.get_item_attribute_value (index, Menu.ATTRIBUTE_TARGET, new VariantType ("s"));
-            if (variant.get_string () == camera.display_name) {
+            if (variant.get_string () == camera.name) {
                 camera_options.remove (index);
             }
         }
