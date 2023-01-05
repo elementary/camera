@@ -24,10 +24,12 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
+    public const string ACTION_CHANGE_CAMERA = "change_camera";
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
+        {ACTION_CHANGE_CAMERA, on_change_camera, "s", null, null},
         {ACTION_RECORD, on_record, null, "false", null},
     };
 
@@ -38,7 +40,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private uint configure_id = 0;
 
     private Widgets.CameraView camera_view;
-    private Gtk.Menu camera_options;
+    private Menu camera_options;
     private Gtk.Button take_button;
     private Gtk.Image take_image;
     private Gtk.Label take_timer_label;
@@ -249,9 +251,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         };
 
         /* Construct menu for multiple cameras */
-        camera_options = new Gtk.Menu ();
+        camera_options = new Menu ();
         var camera_menu_button = new Gtk.MenuButton () {
-            popup = camera_options
+            menu_model = camera_options
         };
         unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
         camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -364,48 +366,36 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void add_camera_option (Gst.Device camera) {
-        var menuitem = new Gtk.RadioMenuItem.with_label (null, camera.display_name);
-        menuitem.set_data<Gst.Device> ("camera", camera);
-        camera_options.append (menuitem);
-
-        int i = (int) camera_options.get_children ().length () - 1;
-        if (i > 0) {
-            var el = camera_options.get_children ().nth_data (0) as Gtk.RadioMenuItem;
-            menuitem.join_group (el);
-        }
-        menuitem.active = true;
-        menuitem.activate.connect (() => {
-            if (menuitem.active) {
-                camera_view.change_camera (menuitem.get_data<Gst.Device> ("camera"));
-            }
-        });
-        menuitem.show ();
+        var menuitem = new MenuItem (camera.display_name, null);
+        menuitem.set_action_and_target (ACTION_PREFIX + ACTION_CHANGE_CAMERA, "s", camera.display_name);
+        camera_options.set_data<Gst.Device> (camera.display_name, camera);
+        camera_options.append_item (menuitem);
 
         update_take_button ();
         enable_header (true);
     }
 
+    private void on_change_camera (GLib.SimpleAction action, GLib.Variant? parameter) {
+        action.set_state (parameter);
+        camera_view.change_camera (camera_options.get_data<Gst.Device> (parameter.get_string ()));
+    }
+
     private void remove_camera_option (Gst.Device camera) {
-        Gtk.Widget to_remove = null;
-        foreach (unowned Gtk.Widget menuitem in camera_options.get_children ()) {
-            var name = ((Gtk.MenuItem) menuitem).get_data<Gst.Device> ("camera").name;
-            if (name == camera.name) {
-                to_remove = menuitem;
-                break;
+        var item_count = camera_options.get_n_items ();
+        for (var index = 0; index < item_count; index++) {
+            var variant = camera_options.get_item_attribute_value (index, Menu.ATTRIBUTE_TARGET, new VariantType ("s"));
+            if (variant.get_string () == camera.display_name) {
+                camera_options.remove (index);
             }
         }
 
-        if (to_remove != null) {
-            camera_options.remove (to_remove);
-        }
-
         update_take_button ();
-        enable_header (camera_options.get_children ().length () > 0);
+        enable_header (camera_options.get_n_items () > 0);
     }
 
     private void update_take_button () {
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
-        if (camera_options.get_children ().length () > 1) {
+        if (camera_options.get_n_items () > 1) {
             camera_menu_revealer.reveal_child = true;
             take_button_style_context.add_class ("multiple");
         } else {
