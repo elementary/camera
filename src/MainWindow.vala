@@ -375,7 +375,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             "%s%s('%s')".printf (ACTION_PREFIX, ACTION_CHANGE_CAMERA, camera.name)
         );
         camera_options.set_data<Gst.Device> (camera.name, camera);
-        camera_options.append_item (menuitem);
 
         change_action_state (ACTION_CHANGE_CAMERA, new Variant.string (camera.name));
 
