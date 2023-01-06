@@ -394,6 +394,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             var variant = camera_options.get_item_attribute_value (index, Menu.ATTRIBUTE_TARGET, VariantType.STRING);
             if (variant.get_string () == camera.name) {
                 camera_options.remove (index);
+                item_count--;
+                break;
             }
         }
 
