@@ -30,9 +30,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
+        {ACTION_CHANGE_CAMERA, on_change_camera, null, null, null}
     };
-
-    private SimpleAction change_camera_action;
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
     private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
@@ -58,10 +57,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public MainWindow (Application application) {
         Object (application: application);
 
-        change_camera_action = new SimpleAction.stateful (ACTION_CHANGE_CAMERA, new VariantType ("s"), new Variant.string (""));
-        change_camera_action.activate.connect (on_change_camera);
+        // change_camera_action = new SimpleAction.stateful (ACTION_CHANGE_CAMERA, new VariantType ("s"), new Variant.string (""));
+        // change_camera_action.activate.connect (on_change_camera);
 
-        add_action (change_camera_action);
+        // add_action (change_camera_action);
         add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
