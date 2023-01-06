@@ -377,9 +377,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         camera_options.set_data<Gst.Device> (camera.name, camera);
         camera_options.append_item (menuitem);
 
-        if (change_camera_action != null ) {
-            change_camera_action.set_state (new Variant.string (camera.name));
-        }
+        change_action_state (ACTION_CHANGE_CAMERA, new Variant.string (camera.name));
 
         update_take_button ();
         enable_header (true);
