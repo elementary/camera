@@ -370,8 +370,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void add_camera_option (Gst.Device camera) {
-        var menuitem = new MenuItem (camera.display_name, null);
-        menuitem.set_action_and_target (ACTION_PREFIX + ACTION_CHANGE_CAMERA, "s", camera.name);
+        camera_options.append (
+            camera.display_name,
+            "%s%s('%s')".printf (ACTION_PREFIX, ACTION_CHANGE_CAMERA, camera.name)
+        );
         camera_options.set_data<Gst.Device> (camera.name, camera);
         camera_options.append_item (menuitem);
 
