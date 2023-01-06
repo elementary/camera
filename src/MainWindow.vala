@@ -391,7 +391,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private void remove_camera_option (Gst.Device camera) {
         var item_count = camera_options.get_n_items ();
         for (var index = 0; index < item_count; index++) {
-            var variant = camera_options.get_item_attribute_value (index, Menu.ATTRIBUTE_TARGET, new VariantType ("s"));
+            var variant = camera_options.get_item_attribute_value (index, Menu.ATTRIBUTE_TARGET, VariantType.STRING);
             if (variant.get_string () == camera.name) {
                 camera_options.remove (index);
             }
