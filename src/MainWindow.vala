@@ -400,7 +400,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         }
 
         update_take_button ();
-        enable_header (camera_options.get_n_items () > 0);
+        enable_header (item_count > 0);
     }
 
     private void update_take_button () {
