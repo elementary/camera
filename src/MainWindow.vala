@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 elementary, Inc. (https://elementary.io)
+ * Copyright (c) 2011-2016 elementary LLC. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -29,8 +29,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
-        {ACTION_RECORD, on_record, null, "false", null},
-        {ACTION_CHANGE_CAMERA, on_change_camera, "s", "''"}
+        {ACTION_RECORD, on_record, null, "false", null}
     };
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
@@ -57,6 +56,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     public MainWindow (Application application) {
         Object (application: application);
 
+        var simple_action = new SimpleAction.stateful (ACTION_CHANGE_CAMERA, VariantType.STRING, new Variant.string (""));
+        simple_action.activate.connect (on_change_camera);
+        add_action (simple_action);
+
         add_action_entries (ACTION_ENTRIES, this);
         get_application ().set_accels_for_action (ACTION_PREFIX + ACTION_FULLSCREEN, {"F11"});
     }
@@ -79,7 +82,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         this.title = _("Camera");
         icon_name = "io.elementary.camera";
 
-        camera_view = new Widgets.CameraView ();
+        camera_view = new Widgets.CameraView (this);
         camera_view.camera_added.connect (add_camera_option);
         camera_view.camera_removed.connect (remove_camera_option);
 
@@ -370,7 +373,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             camera.display_name,
             "%s%s('%s')".printf (ACTION_PREFIX, ACTION_CHANGE_CAMERA, camera.name)
         );
-        camera_options.set_data (camera.name, camera);
+        camera_options.set_data<Gst.Device> (camera.name, camera);
 
         change_action_state (ACTION_CHANGE_CAMERA, new Variant.string (camera.name));
 
@@ -380,7 +383,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     private void on_change_camera (GLib.SimpleAction action, GLib.Variant? parameter) {
         action.set_state (parameter);
-        camera_view.change_camera (camera_options.get_data (parameter.get_string ()));
+        camera_view.change_camera (camera_options.get_data<Gst.Device> (parameter.get_string ()));
     }
 
     private void remove_camera_option (Gst.Device camera) {

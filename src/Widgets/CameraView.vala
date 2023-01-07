@@ -21,6 +21,8 @@
  */
 
 public class Camera.Widgets.CameraView : Gtk.Box {
+    public Camera.MainWindow window { get; construct; }
+
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
@@ -72,6 +74,10 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
     public signal void camera_added (Gst.Device camera);
     public signal void camera_removed (Gst.Device camera);
+
+    public CameraView (Camera.MainWindow window) {
+        Object (window: window);
+    }
 
     construct {
         main_widget = new Gtk.Stack ();
@@ -127,6 +133,10 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             main_widget.visible_child = no_device_view;
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
+            window.change_action_state (
+                window.ACTION_CHANGE_CAMERA,
+                new Variant.string (monitor.get_devices ().nth_data (0).name)
+            );
         }
     }
 
