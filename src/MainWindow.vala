@@ -62,17 +62,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     construct {
-        Hdy.init ();
-
-        var granite_settings = Granite.Settings.get_default ();
-        var gtk_settings = Gtk.Settings.get_default ();
-
-        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-
-        granite_settings.notify["prefers-color-scheme"].connect (() => {
-            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-        });
-
         title = _("Camera");
         icon_name = "io.elementary.camera";
 
@@ -153,10 +142,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             width_request = 54
         };
         take_button.add (take_box);
-        var take_button_style_provider = new Gtk.CssProvider ();
-        take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
-        take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
@@ -255,7 +241,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             menu_model = camera_options
         };
         unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
-        camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button_style_context.add_class ("camera-menu");
 

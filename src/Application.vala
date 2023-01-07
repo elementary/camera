@@ -24,6 +24,11 @@ public class Camera.Application : Gtk.Application {
         Intl.textdomain (GETTEXT_PACKAGE);
 
         add_option_group (Gst.init_get_option_group ());
+    }
+
+    public override void startup () {
+        base.startup ();
+        Hdy.init ();
 
         var quit_action = new SimpleAction ("quit", null);
         quit_action.activate.connect (quit);
@@ -31,6 +36,24 @@ public class Camera.Application : Gtk.Application {
 
         set_accels_for_action ("app.quit", {"<Control>q"});
 
+        var application_provider = new Gtk.CssProvider ();
+        application_provider.load_from_resource (resource_base_path + "/application.css");
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            application_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        gtk_settings.gtk_application_prefer_dark_theme =
+            granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme =
+                granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
     }
 
     protected override void activate () {
