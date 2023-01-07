@@ -134,7 +134,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
             window.change_action_state (
-                window.ACTION_CHANGE_CAMERA,
+                Camera.MainWindow.ACTION_CHANGE_CAMERA,
                 new Variant.string (monitor.get_devices ().nth_data (0).name)
             );
         }
