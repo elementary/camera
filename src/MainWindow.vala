@@ -79,7 +79,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         this.title = _("Camera");
         icon_name = "io.elementary.camera";
 
-        camera_view = new Widgets.CameraView (this);
+        camera_view = new Widgets.CameraView ();
         camera_view.camera_added.connect (add_camera_option);
         camera_view.camera_removed.connect (remove_camera_option);
 
