@@ -71,9 +71,6 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
         });
 
-        weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
-        default_theme.add_resource_path ("/io/elementary/camera");
-
         this.title = _("Camera");
         icon_name = "io.elementary.camera";
 
