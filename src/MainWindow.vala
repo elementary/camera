@@ -71,7 +71,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
         });
 
-        this.title = _("Camera");
+        title = _("Camera");
         icon_name = "io.elementary.camera";
 
         camera_view = new Widgets.CameraView ();
@@ -117,6 +117,8 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
                 recording_finished_toast.send_notification ();
             }
         });
+
+        window_handle.show_all ();
         camera_view.start ();
     }
 

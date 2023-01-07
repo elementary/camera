@@ -6,36 +6,36 @@
  */
 
 public class Camera.Application : Gtk.Application {
-    public static GLib.Settings settings;
-    public MainWindow? main_window = null;
+    public static Settings settings;
 
-    static construct {
-        settings = new Settings ("io.elementary.camera.settings");
+    public Application () {
+        Object (
+            application_id: "io.elementary.camera",
+            flags: ApplicationFlags.FLAGS_NONE
+        );
     }
 
     construct {
-        Intl.setlocale (LocaleCategory.ALL, "");
-        GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-        GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-        GLib.Intl.textdomain (GETTEXT_PACKAGE);
+        settings = new Settings ("io.elementary.camera.settings");
 
-        application_id = "io.elementary.camera";
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
+        add_option_group (Gst.init_get_option_group ());
 
         var quit_action = new SimpleAction ("quit", null);
-
+        quit_action.activate.connect (quit);
         add_action (quit_action);
+
         set_accels_for_action ("app.quit", {"<Control>q"});
 
-        quit_action.activate.connect (() => {
-            if (main_window != null) {
-                main_window.destroy ();
-            }
-        });
     }
 
     protected override void activate () {
-        if (get_windows () == null) {
-            main_window = new MainWindow (this);
+        if (active_window == null) {
+            var main_window = new MainWindow (this);
 
             int width, height;
             settings.get ("window-size", "(ii)", out width, out height);
@@ -54,17 +54,12 @@ public class Camera.Application : Gtk.Application {
             }
 
             main_window.window_position = Gtk.WindowPosition.CENTER;
-            main_window.show_all ();
-        } else {
-            main_window.present ();
         }
+
+        active_window.present ();
     }
 
     public static int main (string[] args) {
-        Gst.init (ref args);
-
-        var application = new Application ();
-
-        return application.run (args);
+        return new Application ().run (args);
     }
 }
