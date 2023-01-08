@@ -379,7 +379,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
     }
 
     private void on_change_camera (GLib.SimpleAction action, GLib.Variant? parameter) {
-        action.set_state (parameter);
+        // action state setting is handled in change_camera ()
         camera_view.change_camera (camera_options.get_data (parameter.get_string ()));
     }
 

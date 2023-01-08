@@ -127,10 +127,6 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             main_widget.visible_child = no_device_view;
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
-            ((Camera.MainWindow) this.get_toplevel ()).change_action_state (
-                Camera.MainWindow.ACTION_CHANGE_CAMERA,
-                new Variant.string (monitor.get_devices ().nth_data (0).name)
-            );
         }
     }
 
@@ -189,6 +185,11 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
             Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "changing");
         }
+
+        ((Camera.MainWindow) this.get_toplevel ()).change_action_state (
+            Camera.MainWindow.ACTION_CHANGE_CAMERA,
+            new Variant.string (camera.name)
+        );
 
         create_pipeline (camera);
         current_device = camera;
