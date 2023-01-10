@@ -36,6 +36,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
+    private uint init_device_timeout_id = 0;
 
     public uint n_cameras {
         get {
@@ -99,10 +100,23 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         append (stack);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
+        caps.append (new Gst.Caps.empty_simple ("image/jpeg"));
         monitor.add_filter ("Video/Source", caps);
+
+        init_device_timeout_id = Timeout.add_seconds (2, () => {
+            if (n_cameras == 0) {
+                no_device_view.show ();
+                main_widget.visible_child = no_device_view;
+            }
+            return Source.REMOVE;
+        });
     }
 
     private void on_camera_added (Gst.Device device) {
+        if (init_device_timeout_id > 0) {
+            Source.remove (init_device_timeout_id);
+            init_device_timeout_id = 0;
+        }
         camera_added (device);
         change_camera (device);
     }

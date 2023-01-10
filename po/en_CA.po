@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 17:33+0000\n"
+"POT-Creation-Date: 2023-01-09 23:31+0000\n"
 "PO-Revision-Date: 2018-06-22 13:00+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/"
@@ -53,28 +53,28 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:92
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "No Supported Camera Found"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Connect a webcam or other supported video device to take photos and video."
 
-#: src/Widgets/CameraView.vala:156
+#: src/Widgets/CameraView.vala:170
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Connecting to \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:248
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:417
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Photo taken"
 

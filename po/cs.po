@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 17:33+0000\n"
+"POT-Creation-Date: 2023-01-09 23:31+0000\n"
 "PO-Revision-Date: 2022-01-10 00:30+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/camera/cs/"
@@ -53,29 +53,29 @@ msgstr "Kontrast"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/Widgets/CameraView.vala:92
+#: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
 msgstr "Nenalezena žádná podporovaná kamera"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Pro pořizování fotek a videí, připojte webkameru nebo jiné podporované "
 "nahrávací zařízení."
 
-#: src/Widgets/CameraView.vala:156
+#: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Připojování k „%s“…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:248
+#: src/Widgets/CameraView.vala:262
 msgid "Unable To View Camera"
 msgstr "Kameru se nedaří zobrazit"
 
-#: src/Widgets/CameraView.vala:417
+#: src/Widgets/CameraView.vala:431
 msgid "Photo taken"
 msgstr "Fotka pořízena"
 
