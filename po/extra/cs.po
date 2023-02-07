@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 17:44+0000\n"
+"POT-Creation-Date: 2023-01-09 23:31+0000\n"
 "PO-Revision-Date: 2022-03-02 12:55+0000\n"
 "Last-Translator: arnemec <arne.nemec01@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/extra/cs/>\n"
@@ -160,15 +160,14 @@ msgstr "elementary, Inc."
 msgid "Photo Booth"
 msgstr "Fotobudka"
 
-#: data/io.elementary.camera.desktop.in:8
-msgid "io.elementary.camera"
-msgstr "io.elementary.camera"
-
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr ""
 "Fotka;Fotky;Video;Webkamera;Kamera;Camera;Budka;Snímek;Záběr;Fotoaparát;"
 "Foťák;Fotografie;Camera;Webcam;"
+
+#~ msgid "io.elementary.camera"
+#~ msgstr "io.elementary.camera"
 
 #~ msgid "accessories-camera"
 #~ msgstr "accessories-camera"

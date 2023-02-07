@@ -188,6 +188,11 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
         create_pipeline (camera);
         current_device = camera;
+
+        ((Camera.MainWindow) this.get_toplevel ()).change_action_state (
+            Camera.MainWindow.ACTION_CHANGE_CAMERA,
+            new Variant.string (camera.name)
+        );
     }
 
     private void create_pipeline (Gst.Device camera) {

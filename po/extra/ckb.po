@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 17:44+0000\n"
+"POT-Creation-Date: 2023-01-09 23:31+0000\n"
 "PO-Revision-Date: 2022-09-10 09:46+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/camera/"
@@ -163,10 +163,6 @@ msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
 msgstr "چوارچێوەی وێنە"
-
-#: data/io.elementary.camera.desktop.in:8
-msgid "io.elementary.camera"
-msgstr ""
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
