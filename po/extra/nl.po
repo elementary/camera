@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 23:31+0000\n"
 "PO-Revision-Date: 2023-02-09 13:54+0000\n"
-"Last-Translator: Thierry Flament <thierry.flament@outlook.com>\n"
+"Last-Translator: Tanja van Hunen <tanja@hunen.nl>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/extra/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -66,15 +66,15 @@ msgstr "Ondersteunt MJPEG camera's"
 #: data/io.elementary.camera.appdata.xml.in:70
 #: data/io.elementary.camera.appdata.xml.in:87
 msgid "Fixes:"
-msgstr ""
+msgstr "Oplossingen:"
 
 #: data/io.elementary.camera.appdata.xml.in:32
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Geeft een error weer in het geval er geen camera beschikbaar is"
 
 #: data/io.elementary.camera.appdata.xml.in:44
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Maak een foto of video met secundaire klik"
 
 #: data/io.elementary.camera.appdata.xml.in:48
 msgid ""
@@ -89,15 +89,15 @@ msgstr "Bredere hardwarecompatibiliteit (bijv. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:50
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Zorg er voor dat foto's correct zijn opgeslagen"
 
 #: data/io.elementary.camera.appdata.xml.in:54
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Verbeterde prestaties en betrouwbaarheid"
 
 #: data/io.elementary.camera.appdata.xml.in:63
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Update naar elementary runtime 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:72
 msgid ""
