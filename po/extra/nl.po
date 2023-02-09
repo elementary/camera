@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 23:31+0000\n"
 "PO-Revision-Date: 2023-02-10 14:25+0000\n"
-"Last-Translator: Tanja van Hunen <tanja@hunen.nl>\n"
+"Last-Translator: Thierry Flament <thierry.flament@outlook.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/extra/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -141,7 +141,7 @@ msgstr "Voeg optie toe om camera te spiegelen"
 
 #: data/io.elementary.camera.appdata.xml.in:103
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Helderheid en contrast aanpassen"
 
 #: data/io.elementary.camera.appdata.xml.in:104
 msgid "Support the dark style"
@@ -149,7 +149,7 @@ msgstr "Ondersteunt de donkere stijl"
 
 #: data/io.elementary.camera.appdata.xml.in:105
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "Voorkomen dat meerdere afteltimers tegelijk lopen"
 
 #: data/io.elementary.camera.appdata.xml.in:106
 msgid "Improved support for camera hardware"
