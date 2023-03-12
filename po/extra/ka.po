@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2023-03-12 12:25+0000\n"
+"PO-Revision-Date: 2023-03-13 22:25+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/camera/extra/ka/"
 ">\n"
@@ -31,7 +31,7 @@ msgstr "გადაიღეთ ფოტოები და ვიდეოე
 
 #: data/io.elementary.camera.appdata.xml.in:12
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr ""
+msgstr "Camera მარტივი აპია ვებკამერით სურათების გადასაღებად."
 
 #: data/io.elementary.camera.appdata.xml.in:17
 #: data/io.elementary.camera.appdata.xml.in:34
@@ -71,24 +71,26 @@ msgstr "შეცდომების გასწორებები:"
 
 #: data/io.elementary.camera.appdata.xml.in:32
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "შეცდომის ჩვენება, თუ კამერის მოწყობილობა ხელმისაწვდომი არაა"
 
 #: data/io.elementary.camera.appdata.xml.in:44
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "სურათის ან ვიდეოს გადაღება მეორადი-წკაპით"
 
 #: data/io.elementary.camera.appdata.xml.in:48
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"დარწმუნდით, რომ სურათის გადაღების შემდეგ სიკაშკაშე, ანარეკლი და კონტრასტი "
+"მუშაობას განაგრძობს"
 
 #: data/io.elementary.camera.appdata.xml.in:49
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "აპარატურის უფრო ფართო მხარდაჭერა (მაგ: StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:50
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "სურათების სწორად შენახვა"
 
 #: data/io.elementary.camera.appdata.xml.in:54
 msgid "Improved performance and reliability"
@@ -96,19 +98,20 @@ msgstr "გაუმჯობესდა წარმადობა და ს
 
 #: data/io.elementary.camera.appdata.xml.in:63
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Elementary 6.1-ზე განახლება"
 
 #: data/io.elementary.camera.appdata.xml.in:72
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
-msgstr ""
+msgstr "ერთზე მეტი კამერის არსებობის შემთხვევაში არსებული პრობლემების გადაჭრა"
 
 #: data/io.elementary.camera.appdata.xml.in:73
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
+"მუშა კამერაზე გადართვა, თუ მიერთებულია ერთზე მეტი კამერა და ერთი არ მუშაობს"
 
 #: data/io.elementary.camera.appdata.xml.in:83
 msgid "Improvements:"
@@ -116,7 +119,7 @@ msgstr "გაუმჯობესებები:"
 
 #: data/io.elementary.camera.appdata.xml.in:85
 msgid "Take full-resolution pictures"
-msgstr ""
+msgstr "სრული გაფართოების მქონე სურათების გადაღება"
 
 #: data/io.elementary.camera.appdata.xml.in:89
 msgid "Fix restoring window size"
@@ -144,7 +147,7 @@ msgstr "ბნელი სტილის მხარდაჭერა"
 
 #: data/io.elementary.camera.appdata.xml.in:105
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "ერთზე მეტი ტაიმერის გაშვების აკრძალვა"
 
 #: data/io.elementary.camera.appdata.xml.in:106
 msgid "Improved support for camera hardware"
