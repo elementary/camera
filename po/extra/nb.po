@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2021-08-21 17:10+0000\n"
+"PO-Revision-Date: 2023-03-02 10:25+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
 "extra/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
@@ -40,7 +40,7 @@ msgstr "Kamera er et enkelt program for å ta bilder med et nettkamera."
 #: data/io.elementary.camera.appdata.xml.in:75
 #: data/io.elementary.camera.appdata.xml.in:91
 msgid "Minor updates:"
-msgstr ""
+msgstr "Småoppdateringer:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 #: data/io.elementary.camera.appdata.xml.in:36
@@ -56,71 +56,77 @@ msgstr "Oppdaterte oversettelser"
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:42
 msgid "New features:"
-msgstr ""
+msgstr "Nye funksjoner:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Støtte for MJPEG-kameraer"
 
 #: data/io.elementary.camera.appdata.xml.in:30
 #: data/io.elementary.camera.appdata.xml.in:46
 #: data/io.elementary.camera.appdata.xml.in:70
 #: data/io.elementary.camera.appdata.xml.in:87
 msgid "Fixes:"
-msgstr ""
+msgstr "Fikser:"
 
 #: data/io.elementary.camera.appdata.xml.in:32
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Vises feil hvis ingen kamera er tilgjengelig"
 
 #: data/io.elementary.camera.appdata.xml.in:44
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Ta bilde eller video med sekundær-klikk"
 
 #: data/io.elementary.camera.appdata.xml.in:48
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Forsikre at lysstyrke, kontrast, og speiling fortsetter å virke etter "
+"knipsing av bilde."
 
 #: data/io.elementary.camera.appdata.xml.in:49
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Bredere maskinvarestøtte (f.eks. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:50
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Forsikre at bilder lagres på riktig vis"
 
 #: data/io.elementary.camera.appdata.xml.in:54
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Forbedret ytelse og pålitelighet"
 
 #: data/io.elementary.camera.appdata.xml.in:63
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Oppdatert til elementary-kjøretidsmiljø 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:72
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
 msgstr ""
+"Løs problemer med kamera som blir utilgjengelige når flere kameraer er "
+"tilkoblet"
 
 #: data/io.elementary.camera.appdata.xml.in:73
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
+"Sett forvalg til brukt kamera hvis flere kameraer er tilkoblet og ett av dem "
+"blir utilgjengelig"
 
 #: data/io.elementary.camera.appdata.xml.in:83
 msgid "Improvements:"
-msgstr ""
+msgstr "Forbedringer:"
 
 #: data/io.elementary.camera.appdata.xml.in:85
 msgid "Take full-resolution pictures"
-msgstr ""
+msgstr "Ta bilder i full oppløsning"
 
 #: data/io.elementary.camera.appdata.xml.in:89
 msgid "Fix restoring window size"
-msgstr ""
+msgstr "Fikset gjenoppretting av vindusstørrelse"
 
 #: data/io.elementary.camera.appdata.xml.in:100
 msgid "Switch between multiple cameras"

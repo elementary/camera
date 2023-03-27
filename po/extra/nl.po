@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: MB <barendregt@fastmail.com>\n"
+"PO-Revision-Date: 2023-02-10 14:25+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/extra/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/io.elementary.camera.appdata.xml.in:9
 #: data/io.elementary.camera.desktop.in:4
@@ -39,7 +39,7 @@ msgstr "Camera is een simpele applicatie om foto's te nemen met de webcam."
 #: data/io.elementary.camera.appdata.xml.in:75
 #: data/io.elementary.camera.appdata.xml.in:91
 msgid "Minor updates:"
-msgstr ""
+msgstr "Kleine updates:"
 
 #: data/io.elementary.camera.appdata.xml.in:19
 #: data/io.elementary.camera.appdata.xml.in:36
@@ -55,105 +55,109 @@ msgstr "Bijgewerkte vertalingen"
 #: data/io.elementary.camera.appdata.xml.in:26
 #: data/io.elementary.camera.appdata.xml.in:42
 msgid "New features:"
-msgstr ""
+msgstr "Nieuwe functies:"
 
 #: data/io.elementary.camera.appdata.xml.in:28
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Ondersteun MJPEG camera's"
 
 #: data/io.elementary.camera.appdata.xml.in:30
 #: data/io.elementary.camera.appdata.xml.in:46
 #: data/io.elementary.camera.appdata.xml.in:70
 #: data/io.elementary.camera.appdata.xml.in:87
 msgid "Fixes:"
-msgstr ""
+msgstr "Oplossingen:"
 
 #: data/io.elementary.camera.appdata.xml.in:32
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Geeft een error weer in het geval er geen camera beschikbaar is"
 
 #: data/io.elementary.camera.appdata.xml.in:44
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Maak een foto of video met secundaire klik"
 
 #: data/io.elementary.camera.appdata.xml.in:48
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Zorg ervoor dat helderheid, contrast en spiegel blijven werken na het nemen "
+"van een foto"
 
 #: data/io.elementary.camera.appdata.xml.in:49
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Bredere hardwarecompatibiliteit (bijv. StarBook Mk V)"
 
 #: data/io.elementary.camera.appdata.xml.in:50
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Zorg er voor dat foto's correct zijn opgeslagen"
 
 #: data/io.elementary.camera.appdata.xml.in:54
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Verbeterde prestaties en betrouwbaarheid"
 
 #: data/io.elementary.camera.appdata.xml.in:63
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Update naar elementary runtime 6.1"
 
 #: data/io.elementary.camera.appdata.xml.in:72
 msgid ""
 "Resolve issues with cameras being unavailable when multiple cameras are "
 "connected"
 msgstr ""
+"Problemen oplossen waarbij camera's niet beschikbaar zijn wanneer meerdere "
+"camera's zijn aangesloten"
 
 #: data/io.elementary.camera.appdata.xml.in:73
 msgid ""
 "Default to a working camera if multiple cameras are connected and one is "
 "unavailable"
 msgstr ""
+"Selecteer standaard een werkende camera als er meerdere camera's zijn "
+"aangesloten en één niet beschikbaar is"
 
 #: data/io.elementary.camera.appdata.xml.in:83
 msgid "Improvements:"
-msgstr ""
+msgstr "Verbeteringen:"
 
 #: data/io.elementary.camera.appdata.xml.in:85
 msgid "Take full-resolution pictures"
-msgstr ""
+msgstr "Neem volledige-resolutie foto's"
 
 #: data/io.elementary.camera.appdata.xml.in:89
 msgid "Fix restoring window size"
-msgstr ""
+msgstr "Fix herstellen van venstergrootte"
 
 #: data/io.elementary.camera.appdata.xml.in:100
 msgid "Switch between multiple cameras"
-msgstr ""
+msgstr "Wissel tussen meerdere camera's"
 
 #: data/io.elementary.camera.appdata.xml.in:101
 msgid "Send a notification when recording is finished"
-msgstr ""
+msgstr "Stuur een melding wanneer de opname is voltooid"
 
 #: data/io.elementary.camera.appdata.xml.in:102
 msgid "Add option to mirror the camera"
-msgstr ""
+msgstr "Voeg optie toe om camera te spiegelen"
 
 #: data/io.elementary.camera.appdata.xml.in:103
 msgid "Add brightness and contrast adjustment"
-msgstr ""
+msgstr "Helderheid en contrast aanpassen"
 
 #: data/io.elementary.camera.appdata.xml.in:104
 msgid "Support the dark style"
-msgstr ""
+msgstr "Ondersteunt de donkere stijl"
 
 #: data/io.elementary.camera.appdata.xml.in:105
 msgid "Prevent multiple countdown timers from running at the same time"
-msgstr ""
+msgstr "Voorkomen dat meerdere afteltimers tegelijk lopen"
 
 #: data/io.elementary.camera.appdata.xml.in:106
 msgid "Improved support for camera hardware"
-msgstr ""
+msgstr "Verbeterde ondersteuning van camera hardware"
 
 #: data/io.elementary.camera.appdata.xml.in:156
-#, fuzzy
-#| msgid "elementary LLC."
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
