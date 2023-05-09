@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
 "PO-Revision-Date: 2022-07-03 09:18+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/camera/extra/he/"
@@ -19,140 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/io.elementary.camera.appdata.xml.in:9
-#: data/io.elementary.camera.desktop.in:4
+#: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
 msgstr "מצלמה"
 
-#: data/io.elementary.camera.appdata.xml.in:10
-#: data/io.elementary.camera.desktop.in:5
+#: data/camera.metainfo.xml.in:11 data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
 msgstr "צילום תמונות וסרטונים עם המצלמה"
 
-#: data/io.elementary.camera.appdata.xml.in:12
+#: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "מצלמה היא יישום פשוט לצלם תמונות עם מצלמת הרשת."
 
-#: data/io.elementary.camera.appdata.xml.in:17
-#: data/io.elementary.camera.appdata.xml.in:34
-#: data/io.elementary.camera.appdata.xml.in:52
-#: data/io.elementary.camera.appdata.xml.in:61
-#: data/io.elementary.camera.appdata.xml.in:75
-#: data/io.elementary.camera.appdata.xml.in:91
+#: data/camera.metainfo.xml.in:34
+msgid "elementary, Inc."
+msgstr "elementary בע״מ."
+
+#: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
+#: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
+#: data/camera.metainfo.xml.in:97
 msgid "Minor updates:"
 msgstr "עדכונים משניים:"
 
-#: data/io.elementary.camera.appdata.xml.in:19
-#: data/io.elementary.camera.appdata.xml.in:36
-#: data/io.elementary.camera.appdata.xml.in:55
-#: data/io.elementary.camera.appdata.xml.in:64
-#: data/io.elementary.camera.appdata.xml.in:77
-#: data/io.elementary.camera.appdata.xml.in:93
-#: data/io.elementary.camera.appdata.xml.in:107
-#: data/io.elementary.camera.appdata.xml.in:114
+#: data/camera.metainfo.xml.in:43
+#, fuzzy
+#| msgid "Update to elementary runtime 6.1"
+msgid "Update to elementary runtime 7.2"
+msgstr "סביבת הריצה של elementary עודכנה ל־6.1"
+
+#: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
+#: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
+#: data/camera.metainfo.xml.in:100
 msgid "Updated translations"
 msgstr "תרגומים עודכנו"
 
-#: data/io.elementary.camera.appdata.xml.in:26
-#: data/io.elementary.camera.appdata.xml.in:42
+#: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
 msgid "New features:"
 msgstr "יכולות חדשות:"
 
-#: data/io.elementary.camera.appdata.xml.in:28
+#: data/camera.metainfo.xml.in:62
 msgid "Support MJPEG cameras"
 msgstr "תמיכה במצלמות MJPEG"
 
-#: data/io.elementary.camera.appdata.xml.in:30
-#: data/io.elementary.camera.appdata.xml.in:46
-#: data/io.elementary.camera.appdata.xml.in:70
-#: data/io.elementary.camera.appdata.xml.in:87
+#: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
 msgid "Fixes:"
 msgstr "תיקונים:"
 
-#: data/io.elementary.camera.appdata.xml.in:32
+#: data/camera.metainfo.xml.in:66
 msgid "Show error in case no camera device is available"
 msgstr "להציג שגיאה אם אין התקן מצלמה זמין"
 
-#: data/io.elementary.camera.appdata.xml.in:44
+#: data/camera.metainfo.xml.in:79
 msgid "Take a photo or video on secondary-click"
 msgstr "צילום תמונות או סרטונים בלחיצה משנית"
 
-#: data/io.elementary.camera.appdata.xml.in:48
+#: data/camera.metainfo.xml.in:83
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr "מתבצע וידוא שהבהירות, הניגודיות והשיקוף ממשיכים לעבוד לאחר צילום תמונה"
 
-#: data/io.elementary.camera.appdata.xml.in:49
+#: data/camera.metainfo.xml.in:84
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "תמיכה במגוון רחב יותר של חומרה (למשל: StarBook Mk V)"
 
-#: data/io.elementary.camera.appdata.xml.in:50
+#: data/camera.metainfo.xml.in:85
 msgid "Ensure photos saved properly"
 msgstr "מתבצע וידוא שהתמונות נשמרות כראוי"
 
-#: data/io.elementary.camera.appdata.xml.in:54
+#: data/camera.metainfo.xml.in:89
 msgid "Improved performance and reliability"
 msgstr "הביצועים והאמינות השתפרו"
 
-#: data/io.elementary.camera.appdata.xml.in:63
+#: data/camera.metainfo.xml.in:99
 msgid "Update to elementary runtime 6.1"
 msgstr "סביבת הריצה של elementary עודכנה ל־6.1"
-
-#: data/io.elementary.camera.appdata.xml.in:72
-msgid ""
-"Resolve issues with cameras being unavailable when multiple cameras are "
-"connected"
-msgstr "נפתרו תקלות שהמצלמות אינן זמינות כשמחוברות כמה כאלה"
-
-#: data/io.elementary.camera.appdata.xml.in:73
-msgid ""
-"Default to a working camera if multiple cameras are connected and one is "
-"unavailable"
-msgstr "בררת המחדל היא מצלמה עובדת אם מחוברות כמה מצלמות ורק אחת זמינה"
-
-#: data/io.elementary.camera.appdata.xml.in:83
-msgid "Improvements:"
-msgstr "שיפורים:"
-
-#: data/io.elementary.camera.appdata.xml.in:85
-msgid "Take full-resolution pictures"
-msgstr "צילום תמונות באיכות גבוהה"
-
-#: data/io.elementary.camera.appdata.xml.in:89
-msgid "Fix restoring window size"
-msgstr "שחזור גודל החלון תוקן"
-
-#: data/io.elementary.camera.appdata.xml.in:100
-msgid "Switch between multiple cameras"
-msgstr "אפשר לעבור בין מספר מצלמות"
-
-#: data/io.elementary.camera.appdata.xml.in:101
-msgid "Send a notification when recording is finished"
-msgstr "לשלוח התראה כאשר ההקלטה מסתיימת"
-
-#: data/io.elementary.camera.appdata.xml.in:102
-msgid "Add option to mirror the camera"
-msgstr "נוספה אפשרות להפוך את הצילום"
-
-#: data/io.elementary.camera.appdata.xml.in:103
-msgid "Add brightness and contrast adjustment"
-msgstr "נוספה אפשרות להתאים את הבהירות והניגודיות"
-
-#: data/io.elementary.camera.appdata.xml.in:104
-msgid "Support the dark style"
-msgstr "תמיכה בסגנון כהה"
-
-#: data/io.elementary.camera.appdata.xml.in:105
-msgid "Prevent multiple countdown timers from running at the same time"
-msgstr "נמנעה אפשרות שמספר שעוני עצר ירוצו בו־זמנית"
-
-#: data/io.elementary.camera.appdata.xml.in:106
-msgid "Improved support for camera hardware"
-msgstr "התמיכה בחומרת המצלמות השתפרה"
-
-#: data/io.elementary.camera.appdata.xml.in:156
-msgid "elementary, Inc."
-msgstr "elementary בע״מ."
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
@@ -161,6 +101,46 @@ msgstr "תא צילום"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "תמונה;צילום;סרט;הסרטה;סרטון;וידאו;מצלמה;תא;מצלמת רשת;"
+
+#~ msgid ""
+#~ "Resolve issues with cameras being unavailable when multiple cameras are "
+#~ "connected"
+#~ msgstr "נפתרו תקלות שהמצלמות אינן זמינות כשמחוברות כמה כאלה"
+
+#~ msgid ""
+#~ "Default to a working camera if multiple cameras are connected and one is "
+#~ "unavailable"
+#~ msgstr "בררת המחדל היא מצלמה עובדת אם מחוברות כמה מצלמות ורק אחת זמינה"
+
+#~ msgid "Improvements:"
+#~ msgstr "שיפורים:"
+
+#~ msgid "Take full-resolution pictures"
+#~ msgstr "צילום תמונות באיכות גבוהה"
+
+#~ msgid "Fix restoring window size"
+#~ msgstr "שחזור גודל החלון תוקן"
+
+#~ msgid "Switch between multiple cameras"
+#~ msgstr "אפשר לעבור בין מספר מצלמות"
+
+#~ msgid "Send a notification when recording is finished"
+#~ msgstr "לשלוח התראה כאשר ההקלטה מסתיימת"
+
+#~ msgid "Add option to mirror the camera"
+#~ msgstr "נוספה אפשרות להפוך את הצילום"
+
+#~ msgid "Add brightness and contrast adjustment"
+#~ msgstr "נוספה אפשרות להתאים את הבהירות והניגודיות"
+
+#~ msgid "Support the dark style"
+#~ msgstr "תמיכה בסגנון כהה"
+
+#~ msgid "Prevent multiple countdown timers from running at the same time"
+#~ msgstr "נמנעה אפשרות שמספר שעוני עצר ירוצו בו־זמנית"
+
+#~ msgid "Improved support for camera hardware"
+#~ msgstr "התמיכה בחומרת המצלמות השתפרה"
 
 #~ msgid "io.elementary.camera"
 #~ msgstr "io.elementary.camera"
