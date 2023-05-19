@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 18:25+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2023-05-20 16:06+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/camera/extra/"
 "id/>\n"
 "Language: id\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -25,7 +26,7 @@ msgstr "Kamera"
 
 #: data/camera.metainfo.xml.in:11 data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr "Ambil gambar dan video dengan menggunakan kamera"
+msgstr "Ambil foto dan video dengan kamera"
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
