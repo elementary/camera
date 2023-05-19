@@ -9,8 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 18:25+0000\n"
 "PO-Revision-Date: 2023-05-19 15:13+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
-"io>\n"
+"Last-Translator: gilanggssantoso <gilanggssantoso@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/camera/camera/"
 "id/>\n"
 "Language: id\n"
@@ -82,7 +81,7 @@ msgstr "Foto diambil"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr "Kamera dinonaktifkan"
+msgstr "Kamera Non-Aktif"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
@@ -93,7 +92,7 @@ msgstr[0] "%d Detik"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr "Jeda waktu sebelum poto diambil"
+msgstr "Jeda sebelum foto diambil"
 
 #, fuzzy
 #~| msgid "Camera"
