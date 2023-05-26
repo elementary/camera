@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 18:25+0000\n"
-"PO-Revision-Date: 2023-05-20 16:06+0000\n"
+"PO-Revision-Date: 2023-05-27 16:06+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/camera/extra/"
@@ -35,19 +35,18 @@ msgstr ""
 "sebuah kamera web."
 
 #: data/camera.metainfo.xml.in:34
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
 #: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
 #: data/camera.metainfo.xml.in:97
 msgid "Minor updates:"
-msgstr ""
+msgstr "Pembaruan kecil:"
 
 #: data/camera.metainfo.xml.in:43
 msgid "Update to elementary runtime 7.2"
-msgstr ""
+msgstr "Pembaruan ke runtime elementary 7.2"
 
 #: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
@@ -57,44 +56,46 @@ msgstr "Perbaharui terjemahan"
 
 #: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
 msgid "New features:"
-msgstr ""
+msgstr "Fitur baru:"
 
 #: data/camera.metainfo.xml.in:62
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Dukungan kamera MJPEG"
 
 #: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
 msgid "Fixes:"
-msgstr ""
+msgstr "Perbaikan:"
 
 #: data/camera.metainfo.xml.in:66
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Menampilkan kesalahan jika tidak ada perangkat kamera yang tersedia"
 
 #: data/camera.metainfo.xml.in:79
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Mengambil foto atau video pada klik sekunder"
 
 #: data/camera.metainfo.xml.in:83
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Memastikan kecerahan, kontras, dan cermin terus bekerja setelah mengambil "
+"foto"
 
 #: data/camera.metainfo.xml.in:84
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Kompatibilitas perangkat keras yang lebih luas (misalnya StarBook Mk V)"
 
 #: data/camera.metainfo.xml.in:85
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Memastikan foto disimpan dengan benar"
 
 #: data/camera.metainfo.xml.in:89
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Meningkatan kinerja dan keandalan"
 
 #: data/camera.metainfo.xml.in:99
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Pembaruan ke runtime elementary 6.1"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
