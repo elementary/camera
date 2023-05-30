@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
 "PO-Revision-Date: 2021-07-07 17:56+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -20,36 +20,36 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:65
 msgid "Camera"
 msgstr "Camera"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:72
 msgid "Saved to Videos"
 msgstr "Saved to Videos"
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:73
 msgid "View File"
 msgstr "View File"
 
-#: src/MainWindow.vala:99
+#: src/MainWindow.vala:87
 msgid "Recording failed"
 msgstr "Recording failed"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:185
+#: src/MainWindow.vala:172
 msgid "Mirror"
 msgstr "Mirror"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:178
 msgid "Brightness"
 msgstr "Brightness"
 
-#: src/MainWindow.vala:204
+#: src/MainWindow.vala:191
 msgid "Contrast"
 msgstr "Contrast"
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:235
 msgid "Settings"
 msgstr "Settings"
 
@@ -70,11 +70,11 @@ msgstr "Connecting to \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:262
+#: src/Widgets/CameraView.vala:267
 msgid "Unable To View Camera"
 msgstr "Unable To View Camera"
 
-#: src/Widgets/CameraView.vala:431
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
 msgstr "Photo taken"
 
