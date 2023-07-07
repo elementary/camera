@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 18:25+0000\n"
 "PO-Revision-Date: 2023-07-08 14:07+0000\n"
-"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
+"Last-Translator: Sabrina Machado Bezerra <sabrinamb@al.insper.edu.br>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "camera/extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -61,7 +61,7 @@ msgstr "Suporta câmeras MJPEG"
 
 #: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
 msgid "Fixes:"
-msgstr ""
+msgstr "Correções:"
 
 #: data/camera.metainfo.xml.in:66
 msgid "Show error in case no camera device is available"
