@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 18:25+0000\n"
-"PO-Revision-Date: 2021-09-29 21:11+0000\n"
-"Last-Translator: Reinaldo <reinaldoplacetas@tutanota.com>\n"
-"Language-Team: Spanish <https://l10n.elementary.io/projects/camera/extra/es/"
-">\n"
+"PO-Revision-Date: 2024-06-04 19:13+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/camera/extra/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.5\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -29,8 +29,7 @@ msgstr "Capture fotos y vídeos con la cámara"
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr ""
-"Cámara es una aplicación sencilla para capturar fotos con una cámara web."
+msgstr "Cámara es una sencilla aplicacion para tomar fotos con una cámara web."
 
 #: data/camera.metainfo.xml.in:34
 msgid "elementary, Inc."
@@ -44,7 +43,7 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:43
 msgid "Update to elementary runtime 7.2"
-msgstr ""
+msgstr "Actualizado para el entorno de ejecución de elementary 7.2"
 
 #: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
@@ -54,7 +53,7 @@ msgstr "Traducciones actualizadas"
 
 #: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
 msgid "New features:"
-msgstr ""
+msgstr "Nuevas características:"
 
 #: data/camera.metainfo.xml.in:62
 msgid "Support MJPEG cameras"
@@ -67,15 +66,18 @@ msgstr ""
 #: data/camera.metainfo.xml.in:66
 msgid "Show error in case no camera device is available"
 msgstr ""
+"Se muestra un error en caso de que no haya dispositivos de cámara disponibles"
 
 #: data/camera.metainfo.xml.in:79
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Se puede tomar una foto o video al hacer clic con el botón secundario"
 
 #: data/camera.metainfo.xml.in:83
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Ahora se garantiza que el brillo, el contraste y el modo espejo continúen "
+"funcionando después de tomar una foto"
 
 #: data/camera.metainfo.xml.in:84
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
@@ -83,23 +85,23 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:85
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "El programa se asegura de que las fotos se guarden correctamente"
 
 #: data/camera.metainfo.xml.in:89
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Mejoras en el rendimiento y confiabilidad"
 
 #: data/camera.metainfo.xml.in:99
 msgid "Update to elementary runtime 6.1"
-msgstr ""
+msgstr "Actualizado al entorno de ejecución de elementary 6.1"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr "Fotomatón"
+msgstr "Cabina de fotos"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr "Foto;Video;Webcam;Cámara;Cabina;Fotomatón;"
+msgstr "Foto;Video;Webcam;Cámara;Cabina;Cabina de fotos;"
 
 #~ msgid "Switch between multiple cameras"
 #~ msgstr "Cambiar entre multiples cámaras"
