@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 18:25+0000\n"
-"PO-Revision-Date: 2024-06-04 19:13+0000\n"
+"PO-Revision-Date: 2024-06-14 02:16+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/camera/camera/es/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:65
@@ -61,8 +61,8 @@ msgstr "No se encontró ninguna cámara compatible"
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
-"Conecte una cámara web o dispositivo de vídeo compatible para capturar "
-"fotografías y vídeos."
+"Conecte una cámara web o dispositivo de video compatible para capturar "
+"fotografías y videos."
 
 #: src/Widgets/CameraView.vala:170
 #, c-format
