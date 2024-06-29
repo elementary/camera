@@ -266,7 +266,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             // no_device_view
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
             dialog.present ();
-            dialog.destroy ();
+            dialog.response.connect (dialog.destroy);
         }
     }
 
