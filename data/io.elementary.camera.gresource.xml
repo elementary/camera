@@ -2,8 +2,6 @@
 <gresources>
   <gresource prefix="/io/elementary/camera">
     <file compressed="true">Application.css</file>
-  </gresource>
-  <gresource prefix="/io/elementary/camera/icons">
     <file alias="/icons/scalable/actions/timer-symbolic.svg">icons/symbolic/timer-symbolic.svg</file>
     <file alias="/icons/scalable/actions/color-contrast-symbolic.svg">icons/symbolic/object-inverse-symbolic.svg</file>
   </gresource>

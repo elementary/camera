@@ -233,11 +233,15 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         var camera_menu_button = new Gtk.MenuButton () {
             menu_model = camera_options
         };
-        camera_menu_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
-        camera_menu_button.add_css_class ("camera-menu");
+
+        var menubutton_child = camera_menu_button.get_first_child ();
+        menubutton_child.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        menubutton_child.add_css_class ("camera-menu");
+        menubutton_child.remove_css_class ("image-button");
 
         camera_menu_revealer = new Gtk.Revealer () {
             child = camera_menu_button,
+            overflow = VISIBLE,
             transition_duration = 250,
             transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
         };

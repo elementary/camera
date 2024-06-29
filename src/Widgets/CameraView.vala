@@ -91,9 +91,16 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             description = _("Connect a webcam or other supported video device to take photos and video.")
         };
 
+        picture = new Gtk.Picture () {
+            content_fit = CONTAIN,
+            hexpand = true,
+            vexpand = true
+        };
+
         stack = new Gtk.Stack ();
         stack.add_child (status_box);
         stack.add_child (no_device_view);
+        stack.add_child (picture);
 
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
@@ -234,28 +241,20 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
-            if (picture != null) {
-                stack.remove (picture);
-            }
-
             dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
             videorate.max_rate = 30;
             videorate.drop_only = true;
 
-            var gtksink = Gst.ElementFactory.make ("gtk4paintablesink", "sink");
-            Gdk.Paintable gst_video_widget;
-            gtksink.get ("paintable", out gst_video_widget);
+            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtk4paintablesink", "sink");
 
             pipeline.add (gtksink);
             pipeline.get_by_name ("videoscale").link (gtksink);
 
-            picture = new Gtk.Picture.for_paintable (gst_video_widget) {
-                content_fit = CONTAIN,
-                hexpand = true,
-                vexpand = true
-            };
+            Gdk.Paintable gst_video_widget;
+            gtksink.get ("paintable", out gst_video_widget);
 
-            stack.add_child (picture);
+            picture.paintable = gst_video_widget;
+
             stack.visible_child = picture;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
