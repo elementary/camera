@@ -1,7 +1,7 @@
 project(
     'io.elementary.camera', 'vala', 'c',
-    meson_version : '>= 0.46',
-    version: '6.2.1'
+    meson_version : '>= 0.57',
+    version: '6.2.2'
 )
 
 gnome = import('gnome')
@@ -47,7 +47,7 @@ executable(
     install : true
 )
 
-meson.add_install_script('meson/post_install.py')
+gnome.post_install(glib_compile_schemas: true)
 
 subdir('data')
 subdir('po')

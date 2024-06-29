@@ -2,89 +2,93 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"PO-Revision-Date: 2023-03-11 11:28+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://l10n.elementary.io/projects/camera/camera/"
+"ka/>\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:65
 msgid "Camera"
-msgstr ""
+msgstr "კამერა"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:72
 msgid "Saved to Videos"
-msgstr ""
+msgstr "შენახულია ვიდეოებში"
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:73
 msgid "View File"
-msgstr ""
+msgstr "ფაილის ნახვა"
 
-#: src/MainWindow.vala:99
+#: src/MainWindow.vala:87
 msgid "Recording failed"
-msgstr ""
+msgstr "ჩაწერის შეცდომა"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:185
+#: src/MainWindow.vala:172
 msgid "Mirror"
-msgstr ""
+msgstr "სარკე"
+
+#: src/MainWindow.vala:178
+msgid "Brightness"
+msgstr "სიკაშკაშე"
 
 #: src/MainWindow.vala:191
-msgid "Brightness"
-msgstr ""
-
-#: src/MainWindow.vala:204
 msgid "Contrast"
-msgstr ""
+msgstr "კონტრასტი"
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:235
 msgid "Settings"
-msgstr ""
+msgstr "მორგება"
 
 #: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "მხარდაჭერილი კამერა ვერ ვიპოვე"
 
 #: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"სურათებისა და ვიდეოების გადასაღებად მიაერთეთ ვებკამერა ან სხვა მხარდაჭერილი "
+"ვიდეომოწყობილობა."
 
 #: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "\"%s\"-სთან მიერთება…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:262
+#: src/Widgets/CameraView.vala:267
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "კამერის მიღების შეცდომა"
 
-#: src/Widgets/CameraView.vala:431
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
-msgstr ""
+msgstr "სურათი გადაღებულია"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "გამორთულია"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d წმ"
+msgstr[1] "%d წმ"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "დაყოვნება სურათის გადაღებამდე"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

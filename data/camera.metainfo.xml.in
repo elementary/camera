@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015-2023 elementary, Inc. <contact@elementary.io> -->
+<component type="desktop-application">
+  <id>io.elementary.camera</id>
+  <launchable type="desktop-id">io.elementary.camera.desktop</launchable>
+  <translation type="gettext">io.elementary.camera</translation>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+
+  <name>Camera</name>
+  <summary>Take photos and videos with the camera</summary>
+  <description>
+    <p>Camera is a simple app to take photos with a webcam.</p>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/camera/6.2.2/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <provides>
+    <binary>io.elementary.camera</binary>
+  </provides>
+
+  <url type="homepage">https://elementary.io/</url>
+  <url type="bugtracker">https://github.com/elementary/camera/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://github.com/elementary/camera/discussions/categories/q-a</url>
+  <url type="translate">https://l10n.elementary.io/projects/music</url>
+
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
+  <project_group>elementary</project_group>
+  <update_contact>contact_at_elementary.io</update_contact>
+
+  <releases>
+    <release version="6.2.2" date="2023-05-30" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Update to elementary runtime 7.2</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="6.2.1" date="2022-12-05" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="6.2.0" date="2022-07-02" urgency="medium">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Support MJPEG cameras</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Show error in case no camera device is available</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="6.1.0" date="2022-06-03" urgency="medium">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Take a photo or video on secondary-click</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Ensure brightness, contrast, and mirror continue working after taking a photo</li>
+          <li>Wider hardware compatibility (e.g. StarBook Mk V)</li>
+          <li>Ensure photos saved properly</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Improved performance and reliability</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="6.0.3" date="2021-12-13" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Update to elementary runtime 6.1</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="6.0.2" date="2021-11-23" urgency="medium" />
+    <release version="6.0.1" date="2021-10-26" urgency="medium" />
+    <release version="6.0.0" date="2021-07-19" urgency="medium" />
+    <release version="1.0.6" date="2020-04-01" urgency="medium" />
+  </releases>
+</component>

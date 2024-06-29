@@ -106,7 +106,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         init_device_timeout_id = Timeout.add_seconds (2, () => {
             if (n_cameras == 0) {
                 no_device_view.show ();
-                main_widget.visible_child = no_device_view;
+                stack.visible_child = no_device_view;
             }
             return Source.REMOVE;
         });
@@ -188,6 +188,11 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
         create_pipeline (camera);
         current_device = camera;
+
+        ((Camera.MainWindow) this.get_root ()).change_action_state (
+            Camera.MainWindow.ACTION_CHANGE_CAMERA,
+            new Variant.string (camera.name)
+        );
     }
 
     private void create_pipeline (Gst.Device camera) {

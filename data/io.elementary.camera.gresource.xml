@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="io/elementary/camera">
-    <file alias="application.css" compressed="true">application.css</file>
-    <file alias="timer-symbolic.svg">icons/symbolic/timer-symbolic.svg</file>
-    <file alias="color-contrast-symbolic.svg">icons/symbolic/object-inverse-symbolic.svg</file>
+  <gresource prefix="/io/elementary/camera">
+    <file compressed="true">application.css</file>
+    <file alias="/icons/scalable/actions/timer-symbolic.svg">icons/symbolic/timer-symbolic.svg</file>
+    <file alias="/icons/scalable/actions/color-contrast-symbolic.svg">icons/symbolic/object-inverse-symbolic.svg</file>
   </gresource>
 </gresources>

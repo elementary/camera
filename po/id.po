@@ -7,9 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2020-11-18 14:15+0000\n"
-"Last-Translator: deovaliandro <mdv16h@student.unhas.ac.id>\n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"PO-Revision-Date: 2023-05-20 16:06+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/camera/camera/"
 "id/>\n"
 "Language: id\n"
@@ -17,45 +18,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:65
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:72
 msgid "Saved to Videos"
-msgstr ""
+msgstr "Disimpan ke Video"
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:73
 msgid "View File"
-msgstr ""
+msgstr "Tampilkan Berkas"
 
-#: src/MainWindow.vala:99
+#: src/MainWindow.vala:87
 msgid "Recording failed"
-msgstr ""
+msgstr "Perekaman gagal"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:185
+#: src/MainWindow.vala:172
 msgid "Mirror"
-msgstr ""
+msgstr "Cermin"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:178
 msgid "Brightness"
 msgstr "Kecerahan"
 
-#: src/MainWindow.vala:204
+#: src/MainWindow.vala:191
 msgid "Contrast"
 msgstr "Kontras"
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:235
 msgid "Settings"
 msgstr "Pengaturan"
 
 #: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
-msgstr "Kamera Tidak Ditemukan"
+msgstr "Tidak Ditemukan Kamera yang Didukung"
 
 #: src/Widgets/CameraView.vala:94
 msgid ""
@@ -65,23 +66,23 @@ msgstr ""
 "foto dan video."
 
 #: src/Widgets/CameraView.vala:170
-#, fuzzy, c-format
+#, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Menghubungkan ke \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:262
+#: src/Widgets/CameraView.vala:267
 msgid "Unable To View Camera"
-msgstr "Tidak Dapat Menampilkan Kamera"
+msgstr "Tidak Dapat Melihat Kamera"
 
-#: src/Widgets/CameraView.vala:431
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
 msgstr "Foto diambil"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr "Kamera dinonaktifkan"
+msgstr "Kamera Non-Aktif"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
@@ -92,7 +93,7 @@ msgstr[0] "%d Detik"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr "Jeda waktu sebelum poto diambil"
+msgstr "Jeda sebelum foto diambil"
 
 #, fuzzy
 #~| msgid "Camera"

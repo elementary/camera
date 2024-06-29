@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
 "PO-Revision-Date: 2022-08-05 23:55+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/camera/camera/ko/"
@@ -20,36 +20,36 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:65
 msgid "Camera"
 msgstr "카메라"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:72
 msgid "Saved to Videos"
 msgstr "비디오에 저장함"
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:73
 msgid "View File"
 msgstr "파일 보기"
 
-#: src/MainWindow.vala:99
+#: src/MainWindow.vala:87
 msgid "Recording failed"
 msgstr "레코딩 실패"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:185
+#: src/MainWindow.vala:172
 msgid "Mirror"
 msgstr "미러"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:178
 msgid "Brightness"
 msgstr "밝기"
 
-#: src/MainWindow.vala:204
+#: src/MainWindow.vala:191
 msgid "Contrast"
 msgstr "대조"
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:235
 msgid "Settings"
 msgstr "설정"
 
@@ -70,11 +70,11 @@ msgstr "\"%s\"에 연결하고 있습니다…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:262
+#: src/Widgets/CameraView.vala:267
 msgid "Unable To View Camera"
 msgstr "지원된 카메라를 찾지 못했습니다"
 
-#: src/Widgets/CameraView.vala:431
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
 msgstr "찍은 사진"
 

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2021-07-18 23:11+0000\n"
-"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"PO-Revision-Date: 2024-06-14 02:16+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/camera/camera/es/"
 ">\n"
 "Language: es\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:65
 msgid "Camera"
 msgstr "Cámara"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:72
 msgid "Saved to Videos"
-msgstr "Guardado en videos"
+msgstr "Guardado en Videos"
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:73
 msgid "View File"
 msgstr "Ver archivo"
 
-#: src/MainWindow.vala:99
+#: src/MainWindow.vala:87
 msgid "Recording failed"
 msgstr "Error de grabación"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:185
+#: src/MainWindow.vala:172
 msgid "Mirror"
-msgstr "Espejar"
+msgstr "Modo espejo"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:178
 msgid "Brightness"
 msgstr "Brillo"
 
-#: src/MainWindow.vala:204
+#: src/MainWindow.vala:191
 msgid "Contrast"
 msgstr "Contraste"
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:235
 msgid "Settings"
 msgstr "Configuración"
 
@@ -61,8 +61,8 @@ msgstr "No se encontró ninguna cámara compatible"
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
-"Conecte una cámara web, u otro dispositivo de vídeo admitido, para capturar "
-"fotografías y vídeos."
+"Conecte una cámara web o dispositivo de video compatible para capturar "
+"fotografías y videos."
 
 #: src/Widgets/CameraView.vala:170
 #, c-format
@@ -71,13 +71,13 @@ msgstr "Conectando con «%s»…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:262
+#: src/Widgets/CameraView.vala:267
 msgid "Unable To View Camera"
-msgstr "No se puede visualizar la cámara"
+msgstr "No se puede visualizar la imagen de la cámara"
 
-#: src/Widgets/CameraView.vala:431
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
-msgstr "Foto capturada"
+msgstr "Foto tomada"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -93,7 +93,7 @@ msgstr[1] "%d s"
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr "Demora antes de capturar una foto"
+msgstr "Tiempo antes de tomar una foto"
 
 #~ msgid "Could not find “%s”"
 #~ msgstr "No se pudo encontrar “%s”"

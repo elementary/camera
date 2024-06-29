@@ -24,11 +24,13 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     public const string ACTION_FULLSCREEN = "fullscreen";
     public const string ACTION_TAKE_PHOTO = "take_photo";
     public const string ACTION_RECORD = "record";
+    public const string ACTION_CHANGE_CAMERA = "change_camera";
 
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         {ACTION_FULLSCREEN, on_fullscreen},
         {ACTION_TAKE_PHOTO, on_take_photo},
         {ACTION_RECORD, on_record, null, "false", null},
+        {ACTION_CHANGE_CAMERA, on_change_camera, "s", "''"}
     };
 
     private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
@@ -36,7 +38,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
     private Widgets.CameraView camera_view;
-    private Gtk.Box camera_options;
+    private Menu camera_options;
     private Gtk.Button take_button;
     private Gtk.Image take_image;
     private Gtk.Label take_timer_label;
@@ -58,18 +60,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        var granite_settings = Granite.Settings.get_default ();
-        var gtk_settings = Gtk.Settings.get_default ();
-
-        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-
-        granite_settings.notify["prefers-color-scheme"].connect (() => {
-            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-        });
-
-        Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).add_resource_path ("/io/elementary/camera");
-
-        this.title = _("Camera");
+        title = _("Camera");
         icon_name = "io.elementary.camera";
 
         camera_view = new Widgets.CameraView ();
@@ -114,6 +105,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
                 recording_finished_toast.send_notification ();
             }
         });
+
         camera_view.start ();
     }
 
@@ -143,12 +135,6 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         };
         take_button.add_css_class ("take-button");
         take_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
-
-        var take_button_style_provider = new Gtk.CssProvider ();
-        take_button_style_provider.load_from_resource ("/io/elementary/camera/application.css");
-
-        unowned var take_button_style_context = take_button.get_style_context ();
-        take_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         /* Construct mode switch */
         mode_switch = new Granite.ModeSwitch.from_icon_name (PHOTO_ICON_SYMBOLIC, VIDEO_ICON_SYMBOLIC) {
@@ -242,21 +228,13 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             tooltip_text = _("Settings")
         };
 
-        camera_options = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
         /* Construct menu for multiple cameras */
-        var options_popover = new Gtk.Popover () {
-            child = camera_options
-        };
-
+        camera_options = new Menu ();
         var camera_menu_button = new Gtk.MenuButton () {
-            popover = options_popover
+            menu_model = camera_options
         };
         camera_menu_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button.add_css_class ("camera-menu");
-
-        unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
-        camera_menu_button_style_context.add_provider (take_button_style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         camera_menu_revealer = new Gtk.Revealer () {
             child = camera_menu_button,
@@ -339,52 +317,45 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
     }
 
     private void add_camera_option (Gst.Device camera) {
-        var menuitem = new Gtk.CheckButton.with_label (camera.display_name);
-        menuitem.set_data<Gst.Device> ("camera", camera);
+        camera_options.append (
+            camera.display_name,
+            "%s%s('%s')".printf (ACTION_PREFIX, ACTION_CHANGE_CAMERA, camera.name)
+        );
+        camera_options.set_data (camera.name, camera);
 
-        var first_option = (Gtk.CheckButton) camera_options.get_first_child ();
-        if (first_option != null) {
-            menuitem.group = first_option;
-        }
-
-        camera_options.append (menuitem);
-
-        menuitem.active = true;
-        menuitem.activate.connect (() => {
-            if (menuitem.active) {
-                camera_view.change_camera (menuitem.get_data<Gst.Device> ("camera"));
-            }
-        });
-        menuitem.show ();
+        change_action_state (ACTION_CHANGE_CAMERA, new Variant.string (camera.name));
 
         update_take_button ();
         enable_header (true);
     }
 
+    private void on_change_camera (GLib.SimpleAction action, GLib.Variant? parameter) {
+        // action state setting is handled in change_camera ()
+        camera_view.change_camera (camera_options.get_data (parameter.get_string ()));
+    }
+
     private void remove_camera_option (Gst.Device camera) {
-        var option_widget = camera_options.get_first_child ();
-        while (option_widget != null) {
-            var name = ((Gtk.CheckButton) option_widget).get_data<Gst.Device> ("camera").name;
-            if (name == camera.name) {
-                camera_options.remove (option_widget);
+        var item_count = camera_options.get_n_items ();
+        for (var index = 0; index < item_count; index++) {
+            var variant = camera_options.get_item_attribute_value (index, Menu.ATTRIBUTE_TARGET, VariantType.STRING);
+            if (variant.get_string () == camera.name) {
+                camera_options.remove (index);
+                item_count--;
                 break;
             }
-
-            option_widget.get_next_sibling ();
         }
 
         update_take_button ();
-        enable_header (camera_options.get_first_child () != null);
+        enable_header (item_count > 0);
     }
 
     private void update_take_button () {
-        unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
-        if (camera_options.get_first_child ().get_next_sibling () != null) {
+        if (camera_options.get_n_items () > 1) {
             camera_menu_revealer.reveal_child = true;
-            take_button_style_context.add_class ("multiple");
+            take_button.add_css_class ("multiple");
         } else {
             camera_menu_revealer.reveal_child = false;
-            take_button_style_context.remove_class ("multiple");
+            take_button.remove_css_class ("multiple");
         }
     }
 

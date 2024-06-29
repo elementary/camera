@@ -7,73 +7,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 23:31+0000\n"
-"PO-Revision-Date: 2016-05-15 13:01+0000\n"
-"Last-Translator: Jeerapat Sripumngoen <jeerapatsepu@gmail.com>\n"
-"Language-Team: Thai <th@li.org>\n"
+"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"PO-Revision-Date: 2024-03-01 19:12+0000\n"
+"Last-Translator: Aefgh Threenine <aefgh39622@gmail.com>\n"
+"Language-Team: Thai <https://l10n.elementary.io/projects/camera/camera/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:65
 msgid "Camera"
-msgstr ""
+msgstr "กล้อง"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:72
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:73
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:99
+#: src/MainWindow.vala:87
 msgid "Recording failed"
 msgstr ""
 
 #. Construct AppMenu
-#: src/MainWindow.vala:185
+#: src/MainWindow.vala:172
 msgid "Mirror"
 msgstr ""
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:178
 msgid "Brightness"
 msgstr ""
 
-#: src/MainWindow.vala:204
+#: src/MainWindow.vala:191
 msgid "Contrast"
 msgstr ""
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:235
 msgid "Settings"
 msgstr ""
 
 #: src/Widgets/CameraView.vala:93
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "ไม่พบกล้องที่รองรับ"
 
 #: src/Widgets/CameraView.vala:94
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
-msgstr ""
+msgstr "เชื่อมต่อเว็บแคมหรืออุปกรณ์วิดีโออื่นที่รองรับเพื่อถ่ายรูปและวิดีโอ"
 
 #: src/Widgets/CameraView.vala:170
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "กำลังเชื่อมต่อกับ \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:262
+#: src/Widgets/CameraView.vala:267
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:431
+#: src/Widgets/CameraView.vala:436
 msgid "Photo taken"
-msgstr ""
+msgstr "ถ่ายรูปแล้ว"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -89,7 +90,7 @@ msgstr[1] ""
 
 #: src/Widgets/TimerButton.vala:64
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "เวลาหน่วงก่อนที่จะถ่ายรูป"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
