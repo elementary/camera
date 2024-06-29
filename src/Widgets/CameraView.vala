@@ -24,11 +24,11 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
-    private Gtk.Stack main_widget;
+    private Gtk.Stack stack;
     private Gtk.Box status_box;
-    private Granite.Widgets.AlertView no_device_view;
+    private Granite.Placeholder no_device_view;
     private Gtk.Label status_label;
-    Gtk.Widget gst_video_widget;
+    private Gtk.Picture picture;
 
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
@@ -74,11 +74,9 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     public signal void camera_removed (Gst.Device camera);
 
     construct {
-        main_widget = new Gtk.Stack ();
-        add (main_widget); // can be changed to child = main_widget in GTK4;
-
-        var spinner = new Gtk.Spinner ();
-        spinner.active = true;
+        var spinner = new Gtk.Spinner () {
+            spinning = true
+        };
 
         status_label = new Gtk.Label (null);
 
@@ -86,18 +84,27 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             halign = Gtk.Align.CENTER,
             valign = Gtk.Align.CENTER
         };
-        status_box.pack_start (spinner);
-        status_box.pack_start (status_label);
+        status_box.append (spinner);
+        status_box.append (status_label);
 
-        no_device_view = new Granite.Widgets.AlertView (
-            _("No Supported Camera Found"),
-            _("Connect a webcam or other supported video device to take photos and video."),
-            ""
-        );
+        no_device_view = new Granite.Placeholder (_("No Supported Camera Found")) {
+            description = _("Connect a webcam or other supported video device to take photos and video.")
+        };
 
-        main_widget.add (status_box); // must be add_child for GTK4
-        main_widget.add (no_device_view); // must be add_child for GTK4
+        picture = new Gtk.Picture () {
+            content_fit = CONTAIN,
+            hexpand = true,
+            vexpand = true
+        };
+
+        stack = new Gtk.Stack ();
+        stack.add_child (status_box);
+        stack.add_child (no_device_view);
+        stack.add_child (picture);
+
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
+
+        append (stack);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
         caps.append (new Gst.Caps.empty_simple ("image/jpeg"));
@@ -106,7 +113,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         init_device_timeout_id = Timeout.add_seconds (2, () => {
             if (n_cameras == 0) {
                 no_device_view.show ();
-                main_widget.visible_child = no_device_view;
+                stack.visible_child = no_device_view;
             }
             return Source.REMOVE;
         });
@@ -124,7 +131,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         camera_removed (device);
         if (n_cameras == 0) {
             no_device_view.show ();
-            main_widget.visible_child = no_device_view;
+            stack.visible_child = no_device_view;
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
         }
@@ -166,7 +173,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     }
 
     public void change_camera (Gst.Device camera) {
-        main_widget.visible_child = status_box;
+        stack.visible_child = status_box;
         status_label.label = _("Connecting to \"%s\"…").printf (camera.display_name);
 
         if (recording) {
@@ -189,7 +196,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         create_pipeline (camera);
         current_device = camera;
 
-        ((Camera.MainWindow) this.get_toplevel ()).change_action_state (
+        ((Camera.MainWindow) this.get_root ()).change_action_state (
             Camera.MainWindow.ACTION_CHANGE_CAMERA,
             new Variant.string (camera.name)
         );
@@ -234,39 +241,28 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
-            if (gst_video_widget != null) {
-                main_widget.remove (gst_video_widget);
-            }
-
             dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
             videorate.max_rate = 30;
             videorate.drop_only = true;
 
-            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
-            if (gtksink != null) {
-                dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
-                glsinkbin.sink = gtksink;
-                pipeline.add (glsinkbin);
-                pipeline.get_by_name ("videoscale").link (glsinkbin);
-            } else {
-                gtksink = Gst.ElementFactory.make ("gtksink", null);
-                pipeline.add (gtksink);
-                pipeline.get_by_name ("videoscale").link (gtksink);
-            }
+            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtk4paintablesink", "sink");
 
-            gst_video_widget = gtksink.widget;
+            pipeline.add (gtksink);
+            pipeline.get_by_name ("videoscale").link (gtksink);
 
-            main_widget.add (gst_video_widget); // must be add_child for GTK4
-            gst_video_widget.show ();
+            Gdk.Paintable gst_video_widget;
+            gtksink.get ("paintable", out gst_video_widget);
 
-            main_widget.visible_child = gst_video_widget;
+            picture.paintable = gst_video_widget;
+
+            stack.visible_child = picture;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show
             // no_device_view
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
-            dialog.run ();
-            dialog.destroy ();
+            dialog.present ();
+            dialog.response.connect (dialog.destroy);
         }
     }
 
