@@ -69,7 +69,7 @@ public class Camera.Application : Gtk.Application {
                 main_window.maximize ();
             }
 
-            settings.bind ("window-maximized", main_window, "maximized", SET);
+            settings.bind ("window-maximized", main_window, "is-maximized", SET);
         }
 
         active_window.present ();
