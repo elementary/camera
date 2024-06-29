@@ -37,7 +37,7 @@ public class Camera.Application : Gtk.Application {
         set_accels_for_action ("app.quit", {"<Control>q"});
 
         var application_provider = new Gtk.CssProvider ();
-        application_provider.load_from_resource (resource_base_path + "/application.css");
+        application_provider.load_from_resource (resource_base_path + "/Application.css");
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
             application_provider,
@@ -63,20 +63,13 @@ public class Camera.Application : Gtk.Application {
             int width, height;
             settings.get ("window-size", "(ii)", out width, out height);
 
-            var hints = Gdk.Geometry ();
-            hints.min_aspect = 1.0;
-            hints.max_aspect = -1.0;
-            hints.min_width = 436;
-            hints.min_height = 352;
-
-            main_window.set_geometry_hints (null, hints, Gdk.WindowHints.ASPECT | Gdk.WindowHints.MIN_SIZE);
             main_window.resize (width, height);
 
             if (settings.get_boolean ("window-maximized")) {
                 main_window.maximize ();
             }
 
-            main_window.window_position = Gtk.WindowPosition.CENTER;
+            settings.bind ("window-maximized", main_window, "maximized", SET);
         }
 
         active_window.present ();
