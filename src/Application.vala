@@ -57,7 +57,6 @@ public class Camera.Application : Gtk.Application {
             * Set maximize after height/width else window is min size on unmaximize
             * Bind maximize as SET else get get bad sizes
             */
-            var settings = new Settings ("io.elementary.music");
             settings.bind ("window-height", main_window, "default-height", DEFAULT);
             settings.bind ("window-width", main_window, "default-width", DEFAULT);
 

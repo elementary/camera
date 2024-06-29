@@ -28,7 +28,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     private Gtk.Box status_box;
     private Granite.Placeholder no_device_view;
     private Gtk.Label status_label;
-    Gtk.Widget gst_video_widget;
+    private Gtk.Picture picture;
 
     private Gst.Pipeline pipeline;
     private Gst.Element tee;
@@ -234,32 +234,29 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
             color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
 
-            if (gst_video_widget != null) {
-                stack.remove (gst_video_widget);
+            if (picture != null) {
+                stack.remove (picture);
             }
 
             dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
             videorate.max_rate = 30;
             videorate.drop_only = true;
 
-            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
-            if (gtksink != null) {
-                dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
-                glsinkbin.sink = gtksink;
-                pipeline.add (glsinkbin);
-                pipeline.get_by_name ("videoscale").link (glsinkbin);
-            } else {
-                gtksink = Gst.ElementFactory.make ("gtksink", null);
-                pipeline.add (gtksink);
-                pipeline.get_by_name ("videoscale").link (gtksink);
-            }
+            var gtksink = Gst.ElementFactory.make ("gtk4paintablesink", "sink");
+            Gdk.Paintable gst_video_widget;
+            gtksink.get ("paintable", out gst_video_widget);
 
-            gst_video_widget = gtksink.widget;
+            pipeline.add (gtksink);
+            pipeline.get_by_name ("videoscale").link (gtksink);
 
-            stack.add_child (gst_video_widget);
-            gst_video_widget.show ();
+            picture = new Gtk.Picture.for_paintable (gst_video_widget) {
+                content_fit = CONTAIN,
+                hexpand = true,
+                vexpand = true
+            };
 
-            stack.visible_child = gst_video_widget;
+            stack.add_child (picture);
+            stack.visible_child = picture;
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show
