@@ -20,13 +20,18 @@
  *              Corentin Noël <corentin@elementary.io>
  */
 
+
+errordomain Camera.PermissionError {
+    ACCESS_DENIED
+}
+
 public class Camera.Widgets.CameraView : Gtk.Box {
     private const string VIDEO_SRC_NAME = "v4l2src";
     public signal void recording_finished (string file_path);
 
     private Gtk.Stack main_widget;
     private Gtk.Box status_box;
-    private Granite.Widgets.AlertView no_device_view;
+    private Granite.Widgets.AlertView device_error_view;
     private Gtk.Label status_label;
     Gtk.Widget gst_video_widget;
 
@@ -36,7 +41,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
     private Gst.Video.Direction? hflip;
     private Gst.Bin? record_bin;
     private Gst.Device? current_device = null;
-    private uint init_device_timeout_id = 0;
+    private uint device_init_timeout_id = 0;
 
     public uint n_cameras {
         get {
@@ -89,42 +94,81 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         status_box.pack_start (spinner);
         status_box.pack_start (status_label);
 
-        no_device_view = new Granite.Widgets.AlertView (
-            _("No Supported Camera Found"),
-            _("Connect a webcam or other supported video device to take photos and video."),
-            ""
-        );
+        device_error_view = new Granite.Widgets.AlertView ("", "","");
 
         main_widget.add (status_box); // must be add_child for GTK4
-        main_widget.add (no_device_view); // must be add_child for GTK4
+        main_widget.add (device_error_view); // must be add_child for GTK4
         monitor.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
 
         var caps = new Gst.Caps.empty_simple ("video/x-raw");
         caps.append (new Gst.Caps.empty_simple ("image/jpeg"));
         monitor.add_filter ("Video/Source", caps);
 
-        init_device_timeout_id = Timeout.add_seconds (2, () => {
+        if (!Xdp.Portal.running_under_sandbox ()) {
+            start_device_init_timeout ();
+
+        } else {
+            realize.connect (() => {
+                var portal = new Xdp.Portal ();
+                portal.access_camera.begin (null, Xdp.CameraFlags.NONE, null, (obj, res) => {
+                    try {
+                        var access_granted = portal.access_camera.end (res);
+                        debug ("access_granted: %s", access_granted.to_string ());
+
+                        if (!access_granted) {
+                            throw new Camera.PermissionError.ACCESS_DENIED ("Access to camera denied");
+
+                        } else {
+                            var camera_fd = portal.open_pipewire_remote_for_camera ();
+                            debug ("camera_fd:  %i", camera_fd);
+                            create_pipeline_fd (camera_fd);
+                        }
+
+                    } catch (Error e) {
+                        warning ("Camera Access Denied: %s", e.message);
+
+                        device_error_view.title = _("Camera Access Denied");
+                        device_error_view.description = _("Allow access to your camera from the privacy settings.");
+                        device_error_view.show ();
+                        main_widget.visible_child = device_error_view;
+                    }
+                });
+            });
+        }
+    }
+
+    private void show_no_device_error () {
+        device_error_view.title = _("No Supported Camera Found");
+        device_error_view.description = _("Connect a webcam or other supported video device to take photos and video.");
+        device_error_view.show ();
+        main_widget.visible_child = device_error_view;
+    }
+
+    private void start_device_init_timeout () {
+        device_init_timeout_id = Timeout.add_seconds (2, () => {
             if (n_cameras == 0) {
-                no_device_view.show ();
-                main_widget.visible_child = no_device_view;
+                show_no_device_error ();
             }
             return Source.REMOVE;
         });
     }
 
-    private void on_camera_added (Gst.Device device) {
-        if (init_device_timeout_id > 0) {
-            Source.remove (init_device_timeout_id);
-            init_device_timeout_id = 0;
+    private void stop_device_init_timeout () {
+        if (device_init_timeout_id > 0) {
+            Source.remove (device_init_timeout_id);
+            device_init_timeout_id = 0;
         }
+    }
+
+    private void on_camera_added (Gst.Device device) {
+        stop_device_init_timeout ();
         camera_added (device);
         change_camera (device);
     }
     private void on_camera_removed (Gst.Device device) {
         camera_removed (device);
         if (n_cameras == 0) {
-            no_device_view.show ();
-            main_widget.visible_child = no_device_view;
+            show_no_device_error ();
         } else {
             change_camera (monitor.get_devices ().nth_data (0));
         }
@@ -149,6 +193,20 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                 Gst.Device device;
                 message.parse_device_removed (out device);
                 on_camera_removed (device);
+
+                break;
+            case ERROR:
+                Error error;
+                string debug_info;
+                message.parse_error (out error, out debug_info);
+                warning ("Unexpected error from pipeline: %s", error.message);
+
+                break;
+            case EOS:
+                // free resources:
+                if (pipeline != null) {
+                    pipeline.set_state (Gst.State.NULL);
+                }
 
                 break;
             default:
@@ -193,6 +251,62 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             Camera.MainWindow.ACTION_CHANGE_CAMERA,
             new Variant.string (camera.name)
         );
+    }
+
+    private void create_pipeline_fd (int camera_fd) {
+        try {
+            pipeline = (Gst.Pipeline) Gst.parse_launch (
+                "pipewiresrc fd=%i ! videoconvert ! ".printf (camera_fd) +
+                "decodebin name=decodebin ! " +
+                "videoflip method=horizontal-flip name=hflip ! " +
+                "videobalance name=balance ! " +
+                "tee name=tee ! " +
+                "videorate name=videorate ! " +
+                "queue leaky=downstream max-size-buffers=10 ! " +
+                "videoscale name=videoscale"
+            );
+
+            tee = pipeline.get_by_name ("tee");
+            hflip = (pipeline.get_by_name ("hflip") as Gst.Video.Direction);
+            color_balance = (pipeline.get_by_name ("balance") as Gst.Video.ColorBalance);
+
+            if (gst_video_widget != null) {
+                main_widget.remove (gst_video_widget);
+            }
+
+            dynamic Gst.Element videorate = pipeline.get_by_name ("videorate");
+            videorate.max_rate = 30;
+            videorate.drop_only = true;
+
+            dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtkglsink", null);
+            if (gtksink != null) {
+                dynamic Gst.Element glsinkbin = Gst.ElementFactory.make ("glsinkbin", null);
+                glsinkbin.sink = gtksink;
+                pipeline.add (glsinkbin);
+                pipeline.get_by_name ("videoscale").link (glsinkbin);
+            } else {
+                gtksink = Gst.ElementFactory.make ("gtksink", null);
+                pipeline.add (gtksink);
+                pipeline.get_by_name ("videoscale").link (gtksink);
+            }
+
+            gst_video_widget = gtksink.widget;
+
+            main_widget.add (gst_video_widget); // must be add_child for GTK4
+            gst_video_widget.show ();
+
+            main_widget.visible_child = gst_video_widget;
+            pipeline.set_state (Gst.State.PLAYING);
+
+            pipeline.get_bus ().add_watch (GLib.Priority.DEFAULT, on_bus_message);
+
+        } catch (Error e) {
+            // It is possible that there is another camera present that could selected so do not show
+            // no_device_error
+            var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
+            dialog.run ();
+            dialog.destroy ();
+        }
     }
 
     private void create_pipeline (Gst.Device camera) {
@@ -263,7 +377,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             pipeline.set_state (Gst.State.PLAYING);
         } catch (Error e) {
             // It is possible that there is another camera present that could selected so do not show
-            // no_device_view
+            // no_device_error
             var dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable To View Camera"), e.message, "dialog-error");
             dialog.run ();
             dialog.destroy ();
