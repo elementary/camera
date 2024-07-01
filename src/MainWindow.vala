@@ -77,7 +77,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
             var file = GLib.File.new_for_path (file_path);
             try {
                 var context = get_display ().get_app_launch_context ();
-                context.set_timestamp (Gtk.get_current_event_time ());
+                context.set_timestamp (Gdk.CURRENT_TIME);
                 AppInfo.launch_default_for_uri (file.get_parent ().get_uri (), context);
             } catch (Error e) {
                 warning ("Error launching file manager: %s", e.message);
@@ -86,8 +86,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
         var recording_finished_fail_toast = new Granite.Widgets.Toast (_("Recording failed"));
 
-        var overlay = new Gtk.Overlay ();
-        overlay.add (camera_view);
+        var overlay = new Gtk.Overlay () {
+            child = camera_view
+        };
         overlay.add_overlay (recording_finished_toast);
         overlay.add_overlay (recording_finished_fail_toast);
 
@@ -95,10 +96,11 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         grid.attach (construct_headerbar (), 0, 0);
         grid.attach (overlay, 0, 1);
 
-        var window_handle = new Hdy.WindowHandle ();
-        window_handle.add (grid);
+        var window_handle = new Hdy.WindowHandle () {
+            child = grid
+        };
 
-        add (window_handle);
+        child = window_handle;
 
         camera_view.recording_finished.connect ((file_path) => {
             if (file_path == "") {
@@ -115,21 +117,16 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
     /* This function copies (with some reordering/reformating) the construct clause of Camera.Widgets.HeaderBar */
     private Gtk.HeaderBar construct_headerbar () {
-        timer_button = new Widgets.TimerButton () {
-            image = new Gtk.Image.from_icon_name ("timer-symbolic", Gtk.IconSize.SMALL_TOOLBAR)
-        };
+        timer_button = new Widgets.TimerButton ();
 
         /* Construct take photo/video tool */
-        take_image = new Gtk.Image () {
-            icon_name = PHOTO_ICON_SYMBOLIC,
-            icon_size = Gtk.IconSize.BUTTON
-        };
+        take_image = new Gtk.Image.from_icon_name (PHOTO_ICON_SYMBOLIC, BUTTON);
         take_timer_label = new Gtk.Label (null);
 
         video_timer_revealer = new Gtk.Revealer () {
-            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+            child = take_timer_label,
+            transition_type = SLIDE_RIGHT
         };
-        video_timer_revealer.add (take_timer_label);
 
         var take_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             halign = Gtk.Align.CENTER
@@ -139,9 +136,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
 
         take_button = new Gtk.Button () {
             action_name = Camera.MainWindow.ACTION_PREFIX + Camera.MainWindow.ACTION_TAKE_PHOTO,
+            child = take_box,
             width_request = 54
         };
-        take_button.add (take_box);
         unowned Gtk.StyleContext take_button_style_context = take_button.get_style_context ();
         take_button_style_context.add_class ("take-button");
         take_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
@@ -209,7 +206,10 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         var image_settings = new Gtk.Grid () {
             column_spacing = 6,
             row_spacing = 3,
-            margin = 12
+            margin_top = 12,
+            margin_end = 12,
+            margin_bottom = 12,
+            margin_start = 12
         };
         image_settings.attach (brightness_image, 0, 0);
         image_settings.attach (brightness_label, 1, 0);
@@ -226,8 +226,9 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         menu_popover_grid.attach (mirror_switch, 0, 1);
         menu_popover_grid.show_all ();
 
-        var popover = new Gtk.Popover (null);
-        popover.add (menu_popover_grid);
+        var popover = new Gtk.Popover (null) {
+            child = menu_popover_grid
+        };
 
         menu_button = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.MENU),
@@ -238,17 +239,18 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         /* Construct menu for multiple cameras */
         camera_options = new Menu ();
         var camera_menu_button = new Gtk.MenuButton () {
-            menu_model = camera_options
+            menu_model = camera_options,
+            use_popover = false
         };
         unowned Gtk.StyleContext camera_menu_button_style_context = camera_menu_button.get_style_context ();
         camera_menu_button_style_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         camera_menu_button_style_context.add_class ("camera-menu");
 
         camera_menu_revealer = new Gtk.Revealer () {
+            child = camera_menu_button,
             transition_duration = 250,
-            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+            transition_type = SLIDE_RIGHT
         };
-        camera_menu_revealer.add (camera_menu_button);
 
         linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         linked_box.pack_start (take_button);
@@ -325,10 +327,7 @@ public class Camera.MainWindow : Hdy.ApplicationWindow {
         configure_id = Timeout.add (100, () => {
             configure_id = 0;
 
-            if (is_maximized) {
-                Application.settings.set_boolean ("window-maximized", true);
-            } else {
-                Application.settings.set_boolean ("window-maximized", false);
+            if (!is_maximized) {
                 int width, height;
                 get_size (out width, out height);
                 Application.settings.set ("window-size", "(ii)", width, height);
