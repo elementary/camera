@@ -19,6 +19,7 @@ finish-args:
   - '--socket=pulseaudio'
   - '--device=dri'
   - '--device=all'
+  - '--env=GST_PLUGIN_PATH_1_0=/app/lib64/gstreamer-1.0'
 
   - '--metadata=X-DConf=migrate-path=/io/elementary/camera/'
 cleanup:
