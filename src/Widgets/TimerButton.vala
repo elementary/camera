@@ -20,8 +20,6 @@
  */
 
 public class Camera.Widgets.TimerButton : Gtk.Button {
-    public new string label { get; set; } // Hide base.label or icon disappears
-
     public enum Delay {
         DISABLED = 0,
         3_SEC = 3,
