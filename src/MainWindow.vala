@@ -119,7 +119,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
 
         video_timer_revealer = new Gtk.Revealer () {
             child = take_timer_label,
-            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+            transition_type = SLIDE_RIGHT
         };
 
         var take_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
@@ -233,6 +233,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         var camera_menu_button = new Gtk.MenuButton () {
             menu_model = camera_options
         };
+        camera_menu_button.popover.has_arrow = false;
 
         var menubutton_child = camera_menu_button.get_first_child ();
         menubutton_child.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
@@ -243,7 +244,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             child = camera_menu_button,
             overflow = VISIBLE,
             transition_duration = 250,
-            transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT
+            transition_type = SLIDE_RIGHT
         };
 
         linked_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);

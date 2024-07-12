@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2018 elementary LLC. (https://github.com/elementary/camera)
+ * Copyright 2011-2024 elementary, Inc. (https://github.com/elementary/camera)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -54,25 +54,22 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
     construct {
         delay = (Delay) Camera.Application.settings.get_enum ("delay");
 
-        this.clicked.connect (() => {
-            delay = delay.next ();
-            Camera.Application.settings.set_enum ("delay", delay);
-            label = delay.to_string ();
-        });
-
         var label_widget = new Gtk.Label (delay.to_string ()) {
             margin_end = 3
         };
 
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3);
+        var box = new Gtk.Box (HORIZONTAL, 3);
         box.append (new Gtk.Image.from_icon_name ("timer-symbolic"));
         box.append (label_widget);
 
         child = box;
-
+        has_frame = false;
         tooltip_text = _("Delay before photo is taken");
-        add_css_class ("image-button");
 
-        bind_property ("label", label_widget, "label");
+        clicked.connect (() => {
+            delay = delay.next ();
+            Camera.Application.settings.set_enum ("delay", delay);
+            label_widget.label = delay.to_string ();
+        });
     }
 }
