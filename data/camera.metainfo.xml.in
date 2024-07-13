@@ -38,6 +38,16 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="8.0.0" date="2024-07-12" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Update to elementary runtime 8</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="6.2.2" date="2023-05-30" urgency="medium">
       <description>
         <p>Minor updates:</p>
@@ -94,16 +104,7 @@
       </description>
     </release>
 
-    <release version="6.0.3" date="2021-12-13" urgency="medium">
-      <description>
-        <p>Minor updates:</p>
-        <ul>
-          <li>Update to elementary runtime 6.1</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-
+    <release version="6.0.3" date="2021-12-13" urgency="medium" />
     <release version="6.0.2" date="2021-11-23" urgency="medium" />
     <release version="6.0.1" date="2021-10-26" urgency="medium" />
     <release version="6.0.0" date="2021-07-19" urgency="medium" />
