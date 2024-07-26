@@ -39,7 +39,7 @@ executable(
         dependency('gee-0.8'),
         dependency('gio-2.0'),
         dependency('glib-2.0'),
-        dependency('granite-7', version: '>=7.0.0'),
+        dependency('granite-7', version: '>=7.2.0'),
         dependency('gtk4'),
         dependency('libcanberra'),
         meson.get_compiler('vala').find_library('posix')
