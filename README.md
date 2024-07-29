@@ -7,7 +7,7 @@ The camera app designed for elementary OS
 
 ## Building, Testing, and Installation
 
-Run `flatpak-builder` to configure the build environment, build, and install
+Run `flatpak-builder` to configure the build environment, download dependencies, build, and install
 
 ```bash
     flatpak-builder build io.elementary.camera.yml --user --install --force-clean --install-deps-from=appcenter
