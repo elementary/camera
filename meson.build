@@ -39,10 +39,9 @@ executable(
         dependency('gee-0.8'),
         dependency('gio-2.0'),
         dependency('glib-2.0'),
-        dependency('granite', version: '>=6.0.0'),
-        dependency('gtk+-3.0'),
+        dependency('granite-7', version: '>=7.2.0'),
+        dependency('gtk4'),
         dependency('libcanberra'),
-        dependency('libhandy-1', version: '>=0.90.0'),
         meson.get_compiler('vala').find_library('posix')
     ],
     install : true
