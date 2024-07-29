@@ -28,7 +28,7 @@ public class Camera.Application : Gtk.Application {
 
     public override void startup () {
         base.startup ();
-        Hdy.init ();
+        Granite.init ();
 
         var quit_action = new SimpleAction ("quit", null);
         quit_action.activate.connect (quit);
@@ -36,23 +36,15 @@ public class Camera.Application : Gtk.Application {
 
         set_accels_for_action ("app.quit", {"<Control>q"});
 
-        var application_provider = new Gtk.CssProvider ();
-        application_provider.load_from_resource (resource_base_path + "/Application.css");
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
-            application_provider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        );
-
         var granite_settings = Granite.Settings.get_default ();
         var gtk_settings = Gtk.Settings.get_default ();
 
         gtk_settings.gtk_application_prefer_dark_theme =
-            granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            granite_settings.prefers_color_scheme == DARK;
 
         granite_settings.notify["prefers-color-scheme"].connect (() => {
             gtk_settings.gtk_application_prefer_dark_theme =
-                granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                granite_settings.prefers_color_scheme == DARK;
         });
     }
 
@@ -60,16 +52,19 @@ public class Camera.Application : Gtk.Application {
         if (active_window == null) {
             var main_window = new MainWindow (this);
 
-            int width, height;
-            settings.get ("window-size", "(ii)", out width, out height);
-
-            main_window.resize (width, height);
+            /*
+            * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
+            * Set maximize after height/width else window is min size on unmaximize
+            * Bind maximize as SET else get get bad sizes
+            */
+            settings.bind ("window-height", main_window, "default-height", DEFAULT);
+            settings.bind ("window-width", main_window, "default-width", DEFAULT);
 
             if (settings.get_boolean ("window-maximized")) {
                 main_window.maximize ();
             }
 
-            settings.bind ("window-maximized", main_window, "is-maximized", SET);
+            settings.bind ("window-maximized", main_window, "maximized", SET);
         }
 
         active_window.present ();
