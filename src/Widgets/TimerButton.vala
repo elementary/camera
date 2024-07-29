@@ -57,12 +57,12 @@ public class Camera.Widgets.TimerButton : Gtk.Button {
         };
 
         var box = new Gtk.Box (HORIZONTAL, 3);
-        box.add (new Gtk.Image.from_icon_name ("timer-symbolic", BUTTON));
-        box.add (label_widget);
+        box.append (new Gtk.Image.from_icon_name ("timer-symbolic"));
+        box.append (label_widget);
 
         child = box;
+        has_frame = false;
         tooltip_text = _("Delay before photo is taken");
-        get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         clicked.connect (() => {
             delay = delay.next ();

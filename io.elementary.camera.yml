@@ -3,6 +3,12 @@ runtime: io.elementary.Platform
 runtime-version: '8'
 sdk: io.elementary.Sdk
 command: io.elementary.camera
+sdk-extensions:
+  - "org.freedesktop.Sdk.Extension.rust-stable"
+build-options:
+  env:
+    CARGO_HOME: /run/build/cargo-c/cargo
+  append-path: /usr/lib/sdk/rust-stable/bin
 finish-args:
   - '--filesystem=xdg-pictures'
   - '--filesystem=xdg-videos'
@@ -11,13 +17,37 @@ finish-args:
   - '--socket=fallback-x11'
   - '--socket=wayland'
   - '--socket=pulseaudio'
+  - '--device=dri'
   - '--device=all'
+  - '--env=GST_PLUGIN_PATH_1_0=/app/lib64/gstreamer-1.0'
 
   - '--metadata=X-DConf=migrate-path=/io/elementary/camera/'
 cleanup:
   - '*.a'
   - '*.la'
 modules:
+  - name: cargo-c
+    buildsystem: simple
+    build-commands:
+      - "cargo install cargo-c --root /app"
+    build-options:
+      build-args:
+        - "--share=network"
+    cleanup:
+      - "*"
+
+  - name: gst-plugins-rs
+    buildsystem: simple
+    sources:
+    - type: git
+      url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
+      branch: '0.12'
+    build-options:
+      build-args:
+        - "--share=network"
+    build-commands:
+      - "cargo cinstall -p gst-plugin-gtk4 --prefix=/app"
+
   - name: canberra
     config-opts:
       - '--enable-gstreamer'
