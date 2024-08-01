@@ -272,7 +272,7 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
             }
         });
 
-        enable_header (true);
+        enable_header (false);
         return header_widget;
     }
 
