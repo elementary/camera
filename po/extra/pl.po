@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2023-05-11 16:06+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/camera/extra/pl/>"
-"\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/camera/extra/pl/"
+">\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,68 +34,66 @@ msgstr ""
 "Aparat jest prostym programem do robienia zdjęć za pomocą kamery "
 "internetowej."
 
-#: data/camera.metainfo.xml.in:34
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
-#: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
-#: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
+#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
+#: data/camera.metainfo.xml.in:99
 msgid "Minor updates:"
 msgstr "Mniejsze aktualizacje:"
 
-#: data/camera.metainfo.xml.in:43
-msgid "Update to elementary runtime 7.2"
+#: data/camera.metainfo.xml.in:45
+#, fuzzy
+#| msgid "Update to elementary runtime 7.2"
+msgid "Update to elementary runtime 8"
 msgstr "Zaktualizowano do wersji elementary 7.2"
 
-#: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
-#: data/camera.metainfo.xml.in:100
+#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
+#: data/camera.metainfo.xml.in:102
 msgid "Updated translations"
 msgstr "Zaktualizowane tłumaczenia"
 
-#: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
+#: data/camera.metainfo.xml.in:55
+msgid "Update to elementary runtime 7.2"
+msgstr "Zaktualizowano do wersji elementary 7.2"
+
+#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
 msgstr "Nowe funkcje:"
 
-#: data/camera.metainfo.xml.in:62
+#: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
 msgstr "Wsparcie dla kamer MJPEG"
 
-#: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
+#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr "Poprawki:"
 
-#: data/camera.metainfo.xml.in:66
+#: data/camera.metainfo.xml.in:78
 msgid "Show error in case no camera device is available"
 msgstr "Wyświetlanie błędu w przypadku gdy żadne urządzenie nie jest dostępne"
 
-#: data/camera.metainfo.xml.in:79
+#: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
 msgstr "Zrób zdjęcie lub nagraj film przy użyciu drugorzędnego przycisku myszy"
 
-#: data/camera.metainfo.xml.in:83
+#: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "Upewniono się, że jasność kontrast oraz odbicie lustrzane działają po "
 "zrobieniu zdjęcia"
 
-#: data/camera.metainfo.xml.in:84
+#: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "Większa kompatybilność sprzętowa (n.p. StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:85
+#: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
 msgstr "Upewniono się, że zdjęcia są zapisywane poprawnie"
 
-#: data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
 msgstr "Zwiększona wydajność i niezawodność"
-
-#: data/camera.metainfo.xml.in:99
-msgid "Update to elementary runtime 6.1"
-msgstr "Zaktualizowano do wersji elementary 6.1"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
@@ -104,6 +102,12 @@ msgstr "Automat fotograficzny"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Zdjęcia;filmy;wideo;kamera;kamerka;automat;aparat;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
+
+#~ msgid "Update to elementary runtime 6.1"
+#~ msgstr "Zaktualizowano do wersji elementary 6.1"
 
 #~ msgid ""
 #~ "Resolve issues with cameras being unavailable when multiple cameras are "

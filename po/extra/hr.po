@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2019-09-07 18:23+0000\n"
 "Last-Translator: Aleksandar Kovač <alex.open.design@gmail.com>\n"
 "Language-Team: Croatian <https://l10n.elementary.io/projects/camera/extra/hr/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.7.1\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
@@ -32,65 +32,61 @@ msgstr "Fotografiraj i snimaj video kamerom"
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Kamera je jednostavan alat za fotografiranje web kamerom."
 
-#: data/camera.metainfo.xml.in:34
-msgid "elementary, Inc."
-msgstr ""
-
-#: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
-#: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
+#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
+#: data/camera.metainfo.xml.in:99
 msgid "Minor updates:"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:43
-msgid "Update to elementary runtime 7.2"
+#: data/camera.metainfo.xml.in:45
+msgid "Update to elementary runtime 8"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
-#: data/camera.metainfo.xml.in:100
+#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
+#: data/camera.metainfo.xml.in:102
 msgid "Updated translations"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
+#: data/camera.metainfo.xml.in:55
+msgid "Update to elementary runtime 7.2"
+msgstr ""
+
+#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:62
+#: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
+#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:66
+#: data/camera.metainfo.xml.in:78
 msgid "Show error in case no camera device is available"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:79
+#: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:83
+#: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:84
+#: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:85
+#: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
 msgstr ""
 
-#: data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
-msgstr ""
-
-#: data/camera.metainfo.xml.in:99
-msgid "Update to elementary runtime 6.1"
 msgstr ""
 
 #: data/io.elementary.camera.desktop.in:6

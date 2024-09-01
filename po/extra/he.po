@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2023-05-11 16:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementary.io/projects/camera/extra/he/>"
-"\n"
+"Language-Team: Hebrew <https://l10n.elementary.io/projects/camera/extra/he/"
+">\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,66 +31,64 @@ msgstr "צילום תמונות וסרטונים עם המצלמה"
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "מצלמה היא יישום פשוט לצלם תמונות עם מצלמת הרשת."
 
-#: data/camera.metainfo.xml.in:34
-msgid "elementary, Inc."
-msgstr "elementary בע״מ."
-
-#: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
-#: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
+#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
+#: data/camera.metainfo.xml.in:99
 msgid "Minor updates:"
 msgstr "עדכונים משניים:"
 
-#: data/camera.metainfo.xml.in:43
-msgid "Update to elementary runtime 7.2"
+#: data/camera.metainfo.xml.in:45
+#, fuzzy
+#| msgid "Update to elementary runtime 7.2"
+msgid "Update to elementary runtime 8"
 msgstr "סביבת הריצה של elementary עודכנה ל־7.2"
 
-#: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
-#: data/camera.metainfo.xml.in:100
+#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
+#: data/camera.metainfo.xml.in:102
 msgid "Updated translations"
 msgstr "תרגומים עודכנו"
 
-#: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
+#: data/camera.metainfo.xml.in:55
+msgid "Update to elementary runtime 7.2"
+msgstr "סביבת הריצה של elementary עודכנה ל־7.2"
+
+#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
 msgstr "יכולות חדשות:"
 
-#: data/camera.metainfo.xml.in:62
+#: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
 msgstr "תמיכה במצלמות MJPEG"
 
-#: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
+#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr "תיקונים:"
 
-#: data/camera.metainfo.xml.in:66
+#: data/camera.metainfo.xml.in:78
 msgid "Show error in case no camera device is available"
 msgstr "להציג שגיאה אם אין התקן מצלמה זמין"
 
-#: data/camera.metainfo.xml.in:79
+#: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
 msgstr "צילום תמונות או סרטונים בלחיצה משנית"
 
-#: data/camera.metainfo.xml.in:83
+#: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr "מתבצע וידוא שהבהירות, הניגודיות והשיקוף ממשיכים לעבוד לאחר צילום תמונה"
 
-#: data/camera.metainfo.xml.in:84
+#: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "תמיכה במגוון רחב יותר של חומרה (למשל: StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:85
+#: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
 msgstr "מתבצע וידוא שהתמונות נשמרות כראוי"
 
-#: data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
 msgstr "הביצועים והאמינות השתפרו"
-
-#: data/camera.metainfo.xml.in:99
-msgid "Update to elementary runtime 6.1"
-msgstr "סביבת הריצה של elementary עודכנה ל־6.1"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
@@ -99,6 +97,12 @@ msgstr "תא צילום"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "תמונה;צילום;סרט;הסרטה;סרטון;וידאו;מצלמה;תא;מצלמת רשת;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary בע״מ."
+
+#~ msgid "Update to elementary runtime 6.1"
+#~ msgstr "סביבת הריצה של elementary עודכנה ל־6.1"
 
 #~ msgid ""
 #~ "Resolve issues with cameras being unavailable when multiple cameras are "

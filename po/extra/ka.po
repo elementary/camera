@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2023-05-14 05:06+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/camera/extra/ka/"
@@ -31,68 +31,66 @@ msgstr "გადაიღეთ ფოტოები და ვიდეოე
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Camera მარტივი აპია ვებკამერით სურათების გადასაღებად."
 
-#: data/camera.metainfo.xml.in:34
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
-#: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
-#: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
+#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
+#: data/camera.metainfo.xml.in:99
 msgid "Minor updates:"
 msgstr "უმნიშვნელო განახლებები:"
 
-#: data/camera.metainfo.xml.in:43
-msgid "Update to elementary runtime 7.2"
+#: data/camera.metainfo.xml.in:45
+#, fuzzy
+#| msgid "Update to elementary runtime 7.2"
+msgid "Update to elementary runtime 8"
 msgstr "Elementary 7.2-ზე განახლება"
 
-#: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
-#: data/camera.metainfo.xml.in:100
+#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
+#: data/camera.metainfo.xml.in:102
 msgid "Updated translations"
 msgstr "განახლებული თარგმანები"
 
-#: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
+#: data/camera.metainfo.xml.in:55
+msgid "Update to elementary runtime 7.2"
+msgstr "Elementary 7.2-ზე განახლება"
+
+#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
 msgstr "ახალი ფუნქციები:"
 
-#: data/camera.metainfo.xml.in:62
+#: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
 msgstr "MJPEG კამერების მხარდაჭერა"
 
-#: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
+#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr "შეცდომების გასწორებები:"
 
-#: data/camera.metainfo.xml.in:66
+#: data/camera.metainfo.xml.in:78
 msgid "Show error in case no camera device is available"
 msgstr "შეცდომის ჩვენება, თუ კამერის მოწყობილობა ხელმისაწვდომი არაა"
 
-#: data/camera.metainfo.xml.in:79
+#: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
 msgstr "სურათის ან ვიდეოს გადაღება მეორადი-წკაპით"
 
-#: data/camera.metainfo.xml.in:83
+#: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "დარწმუნდით, რომ სურათის გადაღების შემდეგ სიკაშკაშე, ანარეკლი და კონტრასტი "
 "მუშაობას განაგრძობს"
 
-#: data/camera.metainfo.xml.in:84
+#: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "აპარატურის უფრო ფართო მხარდაჭერა (მაგ: StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:85
+#: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
 msgstr "სურათების სწორად შენახვა"
 
-#: data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
 msgstr "გაუმჯობესდა წარმადობა და საიმედოობა"
-
-#: data/camera.metainfo.xml.in:99
-msgid "Update to elementary runtime 6.1"
-msgstr "Elementary 6.1-ზე განახლება"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
@@ -101,6 +99,12 @@ msgstr "ფოტო ბუტიკი"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "კამერა;ვიდეო;სურათი;ვებკამერა;ბუტიკი;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
+
+#~ msgid "Update to elementary runtime 6.1"
+#~ msgstr "Elementary 6.1-ზე განახლება"
 
 #~ msgid ""
 #~ "Resolve issues with cameras being unavailable when multiple cameras are "

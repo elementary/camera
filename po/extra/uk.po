@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2023-05-11 16:06+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/camera/extra/"
@@ -32,67 +32,65 @@ msgstr "Фотографуйте та знімайте відео за допо�
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Камера — простий застосунок для фотографування вебкамерою."
 
-#: data/camera.metainfo.xml.in:34
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
-#: data/camera.metainfo.xml.in:41 data/camera.metainfo.xml.in:51
-#: data/camera.metainfo.xml.in:68 data/camera.metainfo.xml.in:87
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
+#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
+#: data/camera.metainfo.xml.in:99
 msgid "Minor updates:"
 msgstr "Незначні оновлення:"
 
-#: data/camera.metainfo.xml.in:43
-msgid "Update to elementary runtime 7.2"
+#: data/camera.metainfo.xml.in:45
+#, fuzzy
+#| msgid "Update to elementary runtime 7.2"
+msgid "Update to elementary runtime 8"
 msgstr "Оновлення середовища виконання elementary до версії 7.2"
 
-#: data/camera.metainfo.xml.in:44 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:70 data/camera.metainfo.xml.in:90
-#: data/camera.metainfo.xml.in:100
+#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
+#: data/camera.metainfo.xml.in:102
 msgid "Updated translations"
 msgstr "Оновлено переклади"
 
-#: data/camera.metainfo.xml.in:60 data/camera.metainfo.xml.in:77
+#: data/camera.metainfo.xml.in:55
+msgid "Update to elementary runtime 7.2"
+msgstr "Оновлення середовища виконання elementary до версії 7.2"
+
+#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
 msgstr "Нові функції:"
 
-#: data/camera.metainfo.xml.in:62
+#: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
 msgstr "Підтримка камер MJPEG"
 
-#: data/camera.metainfo.xml.in:64 data/camera.metainfo.xml.in:81
+#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
 msgstr "Виправлення:"
 
-#: data/camera.metainfo.xml.in:66
+#: data/camera.metainfo.xml.in:78
 msgid "Show error in case no camera device is available"
 msgstr "Показ помилки, якщо камера пристрою недоступна"
 
-#: data/camera.metainfo.xml.in:79
+#: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
 msgstr "Запис відео й фото натисканням правої кнопки миші"
 
-#: data/camera.metainfo.xml.in:83
+#: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "Яскравість, контраст і віддзеркалення продовжують працювати після знімання"
 
-#: data/camera.metainfo.xml.in:84
+#: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "Розширено апаратну сумісність (наприклад, StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:85
+#: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
 msgstr "Світлини відтепер зберігаються правильно"
 
-#: data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
 msgstr "Удосконалено швидкодію та надійність"
-
-#: data/camera.metainfo.xml.in:99
-msgid "Update to elementary runtime 6.1"
-msgstr "Оновлення середовища виконання elementary до версії 6.1"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
@@ -103,6 +101,12 @@ msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr ""
 "Фото;Відео;Вебкамера;Камера;Фотобудка;Фотокабінка;Photo;Video;Webcam;Camera;"
 "Booth;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
+
+#~ msgid "Update to elementary runtime 6.1"
+#~ msgstr "Оновлення середовища виконання elementary до версії 6.1"
 
 #~ msgid ""
 #~ "Resolve issues with cameras being unavailable when multiple cameras are "
