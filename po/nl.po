@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2022-08-14 01:23+0000\n"
 "Last-Translator: Rinze Faber <rinzefaber@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/"
@@ -20,58 +20,58 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "Camera"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr "Opgeslagen in Video's"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr "Bestand weergeven"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr "Opname mislukt"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr "Spiegelen"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr "Helderheid"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr "Contrast"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr "Instellingen"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
 msgstr "Geen ondersteunde camera gevonden"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Verbind een webcam of een ander ondersteund videoapparaat om foto's en "
 "video's te maken."
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Verbinden met \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "Kan Camera niet vinden"
 
@@ -91,7 +91,7 @@ msgid_plural "%d Sec"
 msgstr[0] "%d seconde"
 msgstr[1] "%d secondes"
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
 msgstr "Tijd voordat foto wordt genomen"
 

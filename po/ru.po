@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2024-02-03 09:11+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
@@ -21,58 +21,58 @@ msgstr ""
 "X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "Камера"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr "Сохранено в папку Видео"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr "Посмотреть файл"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr "Не удалось записать"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr "Зеркальное изображение"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr "Яркость"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr "Контраст"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr "Параметры"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
 msgstr "Поддерживаемая камера не найдена"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Подключите веб-камеру или другое поддерживаемое видеоустройство для создания "
 "фото и видео."
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Подключение к «%s»…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "Не удалось найти камеру"
 
@@ -93,7 +93,7 @@ msgstr[0] "%d секунда"
 msgstr[1] "%d секунды"
 msgstr[2] "%d секунд"
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
 msgstr "Задержка перед снятием фото"
 

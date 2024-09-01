@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2021-07-11 07:17+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@pm.me>\n"
 "Language-Team: Sinhala <https://l10n.elementary.io/projects/camera/camera/si/"
@@ -15,60 +15,60 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 #, fuzzy
 msgid "Camera"
 msgstr "කැමරා"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr ""
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr ""
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr ""
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr ""
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 #, fuzzy
 msgid "No Supported Camera Found"
 msgstr "ආධාරක කැමරාවක් සොයාගත නොහැකි විය"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 #, fuzzy
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "ඡායාරූප සහ වීඩියෝ ලබා ගැනීමට වෙබ් කැමරාවක් හෝ වෙනත් ආධාරක වීඩියෝ උපාංගයක් සම්බන්ධ කරන්න."
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, fuzzy, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\" සම්බන්ධ කරමින්…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgid_plural "%d Sec"
 msgstr[0] "තත් %d"
 msgstr[1] "තත් %d"
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 #, fuzzy
 msgid "Delay before photo is taken"
 msgstr "ඡායාරූපයක් ගැනීමට පෙර කාලය ප්රමාද කරන්න"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2021-08-28 08:16+0000\n"
 "Last-Translator: aalhaif <aalhaif@hotmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/camera/camera/ar/"
@@ -21,57 +21,57 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "الكاميرا"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr "تم الحفظ إلى Videos"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr "عرض الملف"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr "فشل التسجيل"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr "عكس الصورة"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr "الإضاءة"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr "التباين"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
 msgstr "لم يتم ايجاد كاميرا مدعومة"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "قم بتوصيل كاميرا الويب أو أي جهاز فيديو آخر مدعوم لالتقاط الصور والفيديو."
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "جاري الاتصال ب \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "لا يمكن عرض الكاميرا"
 
@@ -95,7 +95,7 @@ msgstr[3] "%d ثواني"
 msgstr[4] "%d ثانية"
 msgstr[5] "%d ثانية"
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
 msgstr "سيتأخر قبل إلتقاط الصورة"
 

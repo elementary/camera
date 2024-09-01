@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2020-12-19 10:16+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/camera/camera/sr/"
@@ -16,63 +16,63 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "Камера"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr ""
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr ""
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr ""
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr "Огледало"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr "Осветљеност"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr "Контраст"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr "Поставке"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
 msgstr "Нисам нашао подршану камерицу"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "Повежите веб камерицу или други подржани видео уређај да снимите фотографије "
 "и видео записе."
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "Повезујем се са „%s“…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "Не могу да видим Камеру"
 
@@ -93,7 +93,7 @@ msgstr[0] "%d сек."
 msgstr[1] "%d сек."
 msgstr[2] "%d сек."
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
 msgstr "Тајмер"
 

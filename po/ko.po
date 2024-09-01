@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2022-08-05 23:55+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/camera/camera/ko/"
@@ -20,57 +20,57 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "카메라"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr "비디오에 저장함"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr "파일 보기"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr "레코딩 실패"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr "미러"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr "밝기"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr "대조"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr "설정"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
 msgstr "지원되는 카메라가 없습니다"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
 "웹 캠에 연결하거나, 사진이나 비디오를 촬영할 수 있는 장치를 연결하세요."
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "\"%s\"에 연결하고 있습니다…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "지원된 카메라를 찾지 못했습니다"
 
@@ -89,7 +89,7 @@ msgid "%d Sec"
 msgid_plural "%d Sec"
 msgstr[0] "%d 초"
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
 msgstr "찍고 찰칵 할 때까지의 시간"
 

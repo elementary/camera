@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 18:25+0000\n"
+"POT-Creation-Date: 2024-09-01 10:49+0000\n"
 "PO-Revision-Date: 2021-08-03 15:09+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/camera/camera/pa/"
@@ -19,56 +19,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: src/MainWindow.vala:65
+#: src/MainWindow.vala:63
 msgid "Camera"
 msgstr "ਕੈਮਰਾ"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:70
 msgid "Saved to Videos"
 msgstr "ਵਿਡੀਓਜ਼ ਵਿੱਚ ਸਾਂਭੋ"
 
-#: src/MainWindow.vala:73
+#: src/MainWindow.vala:71
 msgid "View File"
 msgstr "ਫ਼ਾਇਲ ਵੇਖੋ"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:85
 msgid "Recording failed"
 msgstr "ਰਿਕਾਰਡਿੰਗ ਨਾਕਾਮ ਰਹੀ"
 
 #. Construct AppMenu
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:162
 msgid "Mirror"
 msgstr "ਸ਼ੀਸ਼ਾ"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:168
 msgid "Brightness"
 msgstr "ਚਮਕ"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:181
 msgid "Contrast"
 msgstr "ਰੰਗਾਂ ਦਾ ਉੱਘੜਵਾਂਪਣ"
 
-#: src/MainWindow.vala:235
+#: src/MainWindow.vala:228
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/Widgets/CameraView.vala:93
+#: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
 msgstr "ਕੋਈ ਸਮਰੱਥ ਕੈਮਰਾ ਨਹੀਂ ਮਿਲਿਆ"
 
-#: src/Widgets/CameraView.vala:94
+#: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr "ਤਸਵੀਰਾਂ ਜਾਂ ਵਿਡੀਓਜ਼ ਲੈਣ ਲਈ ਵੈੱਬਕੈਮ ਜਾਂ ਕੋਈ ਹੋਰ ਸਮਰੱਥ ਵਿਡੀਓ ਡਿਵਾਈਸ ਜੋੜੋ।"
 
-#: src/Widgets/CameraView.vala:170
+#: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
 msgstr "“%s” ਨਾਲ਼ ਜੁੜਿਆ ਜਾ ਰਿਹੈ…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
-#: src/Widgets/CameraView.vala:267
+#: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
 msgstr "ਕੈਮਰਾ ਵੇਖਣ ਵਿੱਚ ਅਸਮਰੱਥ"
 
@@ -88,7 +88,7 @@ msgid_plural "%d Sec"
 msgstr[0] "%d ਸਕਿੰਟ"
 msgstr[1] "%d ਸਕਿੰਟ"
 
-#: src/Widgets/TimerButton.vala:64
+#: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
 msgstr "ਤਸਵੀਰ ਖਿੱਚਣ ਤੋਂ ਪਹਿਲਾਂ ਦੇਰੀ"
 
