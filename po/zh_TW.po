@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-01 10:49+0000\n"
-"PO-Revision-Date: 2020-08-16 05:13+0000\n"
-"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"PO-Revision-Date: 2024-09-02 22:33+0000\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "camera/camera/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -17,45 +17,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:63
 msgid "Camera"
-msgstr "攝影機"
+msgstr "相機"
 
 #: src/MainWindow.vala:70
 msgid "Saved to Videos"
-msgstr ""
+msgstr "已儲存到影片"
 
 #: src/MainWindow.vala:71
 msgid "View File"
-msgstr ""
+msgstr "檢視檔案"
 
 #: src/MainWindow.vala:85
 msgid "Recording failed"
-msgstr ""
+msgstr "錄製失敗"
 
 #. Construct AppMenu
 #: src/MainWindow.vala:162
 msgid "Mirror"
-msgstr ""
+msgstr "鏡射"
 
 #: src/MainWindow.vala:168
 msgid "Brightness"
-msgstr ""
+msgstr "亮度"
 
 #: src/MainWindow.vala:181
 msgid "Contrast"
-msgstr ""
+msgstr "對比"
 
 #: src/MainWindow.vala:228
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
-msgstr "找不到支援的攝影機"
+msgstr "找不到支援的相機"
 
 #: src/Widgets/CameraView.vala:91
 msgid ""
