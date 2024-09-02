@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-01 10:49+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2024-09-02 22:33+0000\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "camera/extra/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr "攝影機"
+msgstr "相機"
 
 #: data/camera.metainfo.xml.in:11 data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
@@ -29,17 +29,17 @@ msgstr "使用相機拍攝照片和影片"
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr "「相機」是一個以網路攝影機拍照的簡單應用程式。"
+msgstr "《相機》是一個以網路攝影機拍照的簡單應用程式。"
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
 #: data/camera.metainfo.xml.in:99
 msgid "Minor updates:"
-msgstr ""
+msgstr "小型更新："
 
 #: data/camera.metainfo.xml.in:45
 msgid "Update to elementary runtime 8"
-msgstr ""
+msgstr "將 elementary 執行環境更新至第 8 版"
 
 #: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
@@ -49,44 +49,44 @@ msgstr "更新翻譯"
 
 #: data/camera.metainfo.xml.in:55
 msgid "Update to elementary runtime 7.2"
-msgstr ""
+msgstr "將 elementary 執行環境更新至第 7.2 版"
 
 #: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
-msgstr ""
+msgstr "新功能："
 
 #: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "支援 MJPEG 相機"
 
 #: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
-msgstr ""
+msgstr "修正："
 
 #: data/camera.metainfo.xml.in:78
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "沒有可用的相機裝置時顯示錯誤"
 
 #: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "次要點擊時拍照或攝影"
 
 #: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
-msgstr ""
+msgstr "確保亮度、對比和鏡射在拍照之後仍然能夠正常運作"
 
 #: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "支援更多機種（例如 StarBook Mk V）"
 
 #: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "確保相片正確儲存"
 
 #: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "改善效能和可靠性"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
