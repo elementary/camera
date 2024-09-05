@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-01 10:49+0000\n"
-"PO-Revision-Date: 2023-05-11 16:06+0000\n"
-"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/camera/extra/pl/"
-">\n"
+"PO-Revision-Date: 2024-09-05 16:46+0000\n"
+"Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/camera/extra/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -41,10 +41,8 @@ msgid "Minor updates:"
 msgstr "Mniejsze aktualizacje:"
 
 #: data/camera.metainfo.xml.in:45
-#, fuzzy
-#| msgid "Update to elementary runtime 7.2"
 msgid "Update to elementary runtime 8"
-msgstr "Zaktualizowano do wersji elementary 7.2"
+msgstr "Zaktualizowano do wersji elementary 8"
 
 #: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
