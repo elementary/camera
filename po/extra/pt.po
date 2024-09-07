@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-01 10:49+0000\n"
-"PO-Revision-Date: 2023-06-06 10:07+0000\n"
+"PO-Revision-Date: 2024-09-07 14:28+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/camera/extra/"
 "pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -38,10 +38,8 @@ msgid "Minor updates:"
 msgstr "Pequenas atualizações:"
 
 #: data/camera.metainfo.xml.in:45
-#, fuzzy
-#| msgid "Update to elementary runtime 7.2"
 msgid "Update to elementary runtime 8"
-msgstr "Atualizar para o elementary runtime 7.2"
+msgstr "Atualizar para o elementary runtime 8"
 
 #: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
