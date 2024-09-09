@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-01 10:49+0000\n"
-"PO-Revision-Date: 2024-09-02 22:33+0000\n"
+"PO-Revision-Date: 2024-09-09 12:16+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "camera/extra/zh_Hant/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr "相機"
+msgstr "攝影機"
 
 #: data/camera.metainfo.xml.in:11 data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
@@ -29,7 +29,7 @@ msgstr "使用相機拍攝照片和影片"
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr "《相機》是一個以網路攝影機拍照的簡單應用程式。"
+msgstr "《攝影機》是一個以網路攝影機拍照的簡單應用程式。"
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
