@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-01 10:49+0000\n"
-"PO-Revision-Date: 2022-06-06 02:03+0000\n"
-"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
-"Language-Team: Turkish <https://l10n.elementary.io/projects/camera/extra/tr/"
-">\n"
+"PO-Revision-Date: 2024-09-20 09:43+0000\n"
+"Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/camera/extra/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -39,10 +39,8 @@ msgid "Minor updates:"
 msgstr " "
 
 #: data/camera.metainfo.xml.in:45
-#, fuzzy
-#| msgid "Update to elementary runtime 6.1"
 msgid "Update to elementary runtime 8"
-msgstr "elementary çalışma zamanı 6.1 sürümüne güncellendi"
+msgstr "elementary runtime 8'e güncelle"
 
 #: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
@@ -51,18 +49,16 @@ msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
 #: data/camera.metainfo.xml.in:55
-#, fuzzy
-#| msgid "Update to elementary runtime 6.1"
 msgid "Update to elementary runtime 7.2"
-msgstr "elementary çalışma zamanı 6.1 sürümüne güncellendi"
+msgstr "elementary runtime 7.2'e güncelle"
 
 #: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
 msgid "New features:"
-msgstr ""
+msgstr "Yeni özellikler:"
 
 #: data/camera.metainfo.xml.in:74
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "MJPEG kameraları destekler"
 
 #: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
 msgid "Fixes:"
@@ -74,24 +70,26 @@ msgstr "Uygulamalar eski çalışma zamanlarına göre oluşturulduğunda uyar"
 
 #: data/camera.metainfo.xml.in:91
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "İkincil tıklamayla fotoğraf veya video çek"
 
 #: data/camera.metainfo.xml.in:95
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Fotoğraf çekildikten sonra parlaklığın, kontrastın ve aynanın çalışmaya "
+"devam ettiğinden emin ol"
 
 #: data/camera.metainfo.xml.in:96
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Daha geniş donanım uyumluluğu (örn. StarBook Mk V)"
 
 #: data/camera.metainfo.xml.in:97
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Fotoğrafların düzgün bir şekilde kaydedildiğinden emin ol"
 
 #: data/camera.metainfo.xml.in:101
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Geliştirilmiş performans ve güvenilirlik"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
