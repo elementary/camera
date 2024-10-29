@@ -297,10 +297,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                 "v4l2src device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
                 "videoscale ! video/x-raw, width=%d, height=%d !".printf (picture_width, picture_height) +
                 "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
-                "videobalance brightness=%s contrast=%s !".printf (
-                    convert_comma_to_dot (brightness_value.get_double ()),
-                    convert_comma_to_dot (contrast_value.get_double ())
-                ) +
+                "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()).delimit (null, '.') +
                 "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
             );
         } catch (Error e) {
@@ -330,10 +327,6 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         picture_pipeline.sync_children_states ();
 
         Gst.Debug.BIN_TO_DOT_FILE (pipeline, Gst.DebugGraphDetails.VERBOSE, "snapshot");
-    }
-
-    private string convert_comma_to_dot (double value) {
-        return value.to_string ().replace (",", ".");
     }
 
     public void start_recording () {
