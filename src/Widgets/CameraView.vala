@@ -297,7 +297,7 @@ public class Camera.Widgets.CameraView : Gtk.Box {
                 "v4l2src device=%s name=%s num-buffers=1 !".printf (device_path, VIDEO_SRC_NAME) +
                 "videoscale ! video/x-raw, width=%d, height=%d !".printf (picture_width, picture_height) +
                 "videoflip method=%s !".printf ((horizontal_flip)?"horizontal-flip":"none") +
-                "videobalance brightness=%f contrast=%f !".printf (brightness_value.get_double (), contrast_value.get_double ()).delimit (null, '.') +
+                "videobalance brightness=%s contrast=%s !".printf (brightness_value.get_double ().to_string (), contrast_value.get_double ().to_string ()) +
                 "jpegenc ! filesink location=%s name=filesink".printf (Camera.Utils.get_new_media_filename (Camera.Utils.ActionType.PHOTO))
             );
         } catch (Error e) {
