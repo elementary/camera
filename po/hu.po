@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2021-08-24 09:21+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/camera/"
@@ -75,7 +75,7 @@ msgstr "Csatlakozás ehhez: \"%s\"…"
 msgid "Unable To View Camera"
 msgstr "Kamera megjelenítése sikertelen"
 
-#: src/Widgets/CameraView.vala:436
+#: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
 msgstr "A fotó elkészült"
 

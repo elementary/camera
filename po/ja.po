@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2024-06-19 17:18+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/camera/"
@@ -75,7 +75,7 @@ msgstr "\"%s\" に接続試行中…"
 msgid "Unable To View Camera"
 msgstr "カメラを表示できません"
 
-#: src/Widgets/CameraView.vala:436
+#: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
 msgstr "写真が撮影されました"
 

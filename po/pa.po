@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2021-08-03 15:09+0000\n"
 "Last-Translator: elSolus <tumbleweed@tuta.io>\n"
 "Language-Team: Punjabi <https://l10n.elementary.io/projects/camera/camera/pa/"
@@ -72,7 +72,7 @@ msgstr "“%s” ਨਾਲ਼ ਜੁੜਿਆ ਜਾ ਰਿਹੈ…"
 msgid "Unable To View Camera"
 msgstr "ਕੈਮਰਾ ਵੇਖਣ ਵਿੱਚ ਅਸਮਰੱਥ"
 
-#: src/Widgets/CameraView.vala:436
+#: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
 msgstr "ਤਸਵੀਰ ਖਿੱਚੀ ਗਈ"
 

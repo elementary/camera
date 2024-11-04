@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2017-04-29 13:15+0000\n"
 "Last-Translator: Zahidul Hossain <choyan.009@gmail.com>\n"
 "Language-Team: bn (generated) <https://l10n.elementary.io/projects/camera/"
@@ -70,7 +70,7 @@ msgstr "সংযোগ করা হচ্ছে \"%s\"…"
 msgid "Unable To View Camera"
 msgstr ""
 
-#: src/Widgets/CameraView.vala:436
+#: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
 msgstr ""
 

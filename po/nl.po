@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2022-08-14 01:23+0000\n"
 "Last-Translator: Rinze Faber <rinzefaber@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/camera/nl/"
@@ -75,7 +75,7 @@ msgstr "Verbinden met \"%s\"…"
 msgid "Unable To View Camera"
 msgstr "Kan Camera niet vinden"
 
-#: src/Widgets/CameraView.vala:436
+#: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
 msgstr "Foto gemaakt"
 
