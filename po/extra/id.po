@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2023-05-27 16:06+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
@@ -33,6 +33,10 @@ msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "Kamera adalah aplikasi sederhana untuk mengambil foto dengan menggunakan "
 "sebuah kamera web."
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
@@ -103,9 +107,6 @@ msgstr "Stan Foto"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Foto;Video;Kamera web;Kamera;Stan;"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "Pembaruan ke runtime elementary 6.1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 10:49+0000\n"
+"POT-Creation-Date: 2024-11-04 10:32+0000\n"
 "PO-Revision-Date: 2022-08-06 18:27+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/camera/extra/mr/"
@@ -30,6 +30,10 @@ msgstr "कॅमेरा वापरून फोटो आणि व्ह�
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "कॅमेरा हे वेबकॅम वापरून फोटो काढण्यासाठी एक साधे अॅप आहे."
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "एलिमेंटरी, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
@@ -99,9 +103,6 @@ msgstr "फोटो बूथ"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "फोटो;व्हिडीओ;वेबकॅम;कॅमेरा;बूथ;"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "एलिमेंटरी, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "elementary रनटाइम 6.1 वर अपडेट करा"
