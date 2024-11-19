@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 10:32+0000\n"
+"POT-Creation-Date: 2024-11-19 23:20+0000\n"
 "PO-Revision-Date: 2024-09-02 20:05+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/camera/extra/ca/"
@@ -35,62 +35,62 @@ msgstr "Càmera és una aplicació simple per fer fotografies amb una càmera we
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
-#: data/camera.metainfo.xml.in:99
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
+#: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
 msgid "Minor updates:"
 msgstr "Actualitzacions menors:"
 
-#: data/camera.metainfo.xml.in:45
-msgid "Update to elementary runtime 8"
-msgstr "Actualització a l'entorn d'execució de l'elementary 8"
-
-#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
-#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
-#: data/camera.metainfo.xml.in:102
+#: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
+#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
 msgid "Updated translations"
 msgstr "Traduccions actualitzades"
 
-#: data/camera.metainfo.xml.in:55
+#: data/camera.metainfo.xml.in:58
+msgid "Update to elementary runtime 8"
+msgstr "Actualització a l'entorn d'execució de l'elementary 8"
+
+#: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 7.2"
 msgstr "Actualització a l'entorn d'execució de l'elementary 7.2"
 
-#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
 msgstr "Característiques noves:"
 
-#: data/camera.metainfo.xml.in:74
+#: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
 msgstr "Admet càmeres MJPEG"
 
-#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
+#: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "Correccions:"
 
-#: data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
 msgstr "Mostra un error quan no hi hagi càmera disponible."
 
-#: data/camera.metainfo.xml.in:91
+#: data/camera.metainfo.xml.in:104
 msgid "Take a photo or video on secondary-click"
 msgstr "Feu una foto o un vídeo fent clic secundari."
 
-#: data/camera.metainfo.xml.in:95
+#: data/camera.metainfo.xml.in:108
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "S'assegura que la brillantor, el contrast i el mirall continuïn funcionant "
 "després de fer una foto."
 
-#: data/camera.metainfo.xml.in:96
+#: data/camera.metainfo.xml.in:109
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "Compatibilitat de maquinari més àmplia (per exemple, StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:110
 msgid "Ensure photos saved properly"
 msgstr "S'assegura que les fotos es desen correctament."
 
-#: data/camera.metainfo.xml.in:101
+#: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
 msgstr "Rendiment i fiabilitat millorats"
 

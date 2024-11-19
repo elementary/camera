@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 10:32+0000\n"
+"POT-Creation-Date: 2024-11-19 23:20+0000\n"
 "PO-Revision-Date: 2024-09-25 10:14+0000\n"
 "Last-Translator: Hossein <hossein17@duck.com>\n"
 "Language-Team: Persian <https://l10n.elementary.io/projects/camera/extra/fa/"
@@ -35,62 +35,62 @@ msgstr "دوربین یک برنامه ساده برای عکس گرفتن با 
 msgid "elementary, Inc."
 msgstr ""
 
-#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
-#: data/camera.metainfo.xml.in:99
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
+#: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
 msgid "Minor updates:"
 msgstr "به روزرسانی های جزئی:"
 
-#: data/camera.metainfo.xml.in:45
-msgid "Update to elementary runtime 8"
-msgstr "بروزرسانی به المنتری زمان اجرا 8"
-
-#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
-#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
-#: data/camera.metainfo.xml.in:102
+#: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
+#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
 msgid "Updated translations"
 msgstr "ترجمه های به روز شده"
 
-#: data/camera.metainfo.xml.in:55
+#: data/camera.metainfo.xml.in:58
+msgid "Update to elementary runtime 8"
+msgstr "بروزرسانی به المنتری زمان اجرا 8"
+
+#: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 7.2"
 msgstr "بروزرسانی به المنتری زمان اجرا 7.2"
 
-#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
 msgstr "ویژگی های جدید:"
 
-#: data/camera.metainfo.xml.in:74
+#: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
 msgstr "پشتیبانی از دوربین های MJPEG"
 
-#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
+#: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "رفع:"
 
-#: data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
 msgstr "در صورتی که دستگاه دوربین در دسترس نباشد، خطا را نشان دهید"
 
-#: data/camera.metainfo.xml.in:91
+#: data/camera.metainfo.xml.in:104
 msgid "Take a photo or video on secondary-click"
 msgstr "با کلیک ثانویه عکس یا ویدیو بگیرید"
 
-#: data/camera.metainfo.xml.in:95
+#: data/camera.metainfo.xml.in:108
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "مطمئن شوید که روشنایی، کنتراست و آینه پس از گرفتن عکس همچنان به کار خود "
 "ادامه می دهند"
 
-#: data/camera.metainfo.xml.in:96
+#: data/camera.metainfo.xml.in:109
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "سازگاری سخت افزاری گسترده تر (به عنوان مثال StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:110
 msgid "Ensure photos saved properly"
 msgstr "‍اطمینان حاصل کنید که عکس ها به درستی ذخیره شده اند"
 
-#: data/camera.metainfo.xml.in:101
+#: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
 msgstr "عملکرد و رضایت بهبود یافته است"
 

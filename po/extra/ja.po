@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 10:32+0000\n"
+"POT-Creation-Date: 2024-11-19 23:20+0000\n"
 "PO-Revision-Date: 2024-09-03 23:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
@@ -35,60 +35,60 @@ msgstr "“カメラ”は Web カメラで写真を撮影するためのシン�
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
-#: data/camera.metainfo.xml.in:99
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
+#: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
 msgid "Minor updates:"
 msgstr "そのほかのアップデート:"
 
-#: data/camera.metainfo.xml.in:45
-msgid "Update to elementary runtime 8"
-msgstr "elementary ランタイムのバージョンを 8 にアップデート"
-
-#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
-#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
-#: data/camera.metainfo.xml.in:102
+#: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
+#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/camera.metainfo.xml.in:55
+#: data/camera.metainfo.xml.in:58
+msgid "Update to elementary runtime 8"
+msgstr "elementary ランタイムのバージョンを 8 にアップデート"
+
+#: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 7.2"
 msgstr "elementary ランタイムのバージョンを 7.2 にアップデート"
 
-#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
 msgstr "新機能:"
 
-#: data/camera.metainfo.xml.in:74
+#: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
 msgstr "MJPEG カメラに対応"
 
-#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
+#: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
 msgstr "利用できるカメラデバイスが存在しない場合はエラーを表示するように修正"
 
-#: data/camera.metainfo.xml.in:91
+#: data/camera.metainfo.xml.in:104
 msgid "Take a photo or video on secondary-click"
 msgstr "副クリックでも写真や動画を撮影できる機能を追加"
 
-#: data/camera.metainfo.xml.in:95
+#: data/camera.metainfo.xml.in:108
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr "写真撮影後も輝度、コントラスト、ミラーの設定を変更できるように修正"
 
-#: data/camera.metainfo.xml.in:96
+#: data/camera.metainfo.xml.in:109
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "対応機種の増加 (StarBook Mk V など)"
 
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:110
 msgid "Ensure photos saved properly"
 msgstr "写真が適切に保存されるように修正"
 
-#: data/camera.metainfo.xml.in:101
+#: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
 msgstr "パフォーマンスと信頼性を改善"
 
