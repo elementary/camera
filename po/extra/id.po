@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 10:32+0000\n"
+"POT-Creation-Date: 2024-11-19 23:20+0000\n"
 "PO-Revision-Date: 2023-05-27 16:06+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
@@ -38,65 +38,65 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
-#: data/camera.metainfo.xml.in:99
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
+#: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
 msgid "Minor updates:"
 msgstr "Pembaruan kecil:"
 
-#: data/camera.metainfo.xml.in:45
+#: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
+#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
+msgid "Updated translations"
+msgstr "Perbaharui terjemahan"
+
+#: data/camera.metainfo.xml.in:58
 #, fuzzy
 #| msgid "Update to elementary runtime 7.2"
 msgid "Update to elementary runtime 8"
 msgstr "Pembaruan ke runtime elementary 7.2"
 
-#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
-#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
-#: data/camera.metainfo.xml.in:102
-msgid "Updated translations"
-msgstr "Perbaharui terjemahan"
-
-#: data/camera.metainfo.xml.in:55
+#: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 7.2"
 msgstr "Pembaruan ke runtime elementary 7.2"
 
-#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
 msgstr "Fitur baru:"
 
-#: data/camera.metainfo.xml.in:74
+#: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
 msgstr "Dukungan kamera MJPEG"
 
-#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
+#: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "Perbaikan:"
 
-#: data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
 msgstr "Menampilkan kesalahan jika tidak ada perangkat kamera yang tersedia"
 
-#: data/camera.metainfo.xml.in:91
+#: data/camera.metainfo.xml.in:104
 msgid "Take a photo or video on secondary-click"
 msgstr "Mengambil foto atau video pada klik sekunder"
 
-#: data/camera.metainfo.xml.in:95
+#: data/camera.metainfo.xml.in:108
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "Memastikan kecerahan, kontras, dan cermin terus bekerja setelah mengambil "
 "foto"
 
-#: data/camera.metainfo.xml.in:96
+#: data/camera.metainfo.xml.in:109
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr ""
 "Kompatibilitas perangkat keras yang lebih luas (misalnya StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:110
 msgid "Ensure photos saved properly"
 msgstr "Memastikan foto disimpan dengan benar"
 
-#: data/camera.metainfo.xml.in:101
+#: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
 msgstr "Meningkatan kinerja dan keandalan"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 10:32+0000\n"
+"POT-Creation-Date: 2024-11-19 23:20+0000\n"
 "PO-Revision-Date: 2023-02-10 14:25+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/camera/extra/nl/>\n"
@@ -34,66 +34,66 @@ msgstr "Camera is een simpele applicatie om foto's te nemen met de webcam."
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
-#: data/camera.metainfo.xml.in:63 data/camera.metainfo.xml.in:80
-#: data/camera.metainfo.xml.in:99
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
+#: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
 msgid "Minor updates:"
 msgstr "Kleine updates:"
 
-#: data/camera.metainfo.xml.in:45
+#: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
+#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
+msgid "Updated translations"
+msgstr "Bijgewerkte vertalingen"
+
+#: data/camera.metainfo.xml.in:58
 #, fuzzy
 #| msgid "Update to elementary runtime 6.1"
 msgid "Update to elementary runtime 8"
 msgstr "Update naar elementary runtime 6.1"
 
-#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:56
-#: data/camera.metainfo.xml.in:65 data/camera.metainfo.xml.in:82
-#: data/camera.metainfo.xml.in:102
-msgid "Updated translations"
-msgstr "Bijgewerkte vertalingen"
-
-#: data/camera.metainfo.xml.in:55
+#: data/camera.metainfo.xml.in:68
 #, fuzzy
 #| msgid "Update to elementary runtime 6.1"
 msgid "Update to elementary runtime 7.2"
 msgstr "Update naar elementary runtime 6.1"
 
-#: data/camera.metainfo.xml.in:72 data/camera.metainfo.xml.in:89
+#: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
 msgstr "Nieuwe functies:"
 
-#: data/camera.metainfo.xml.in:74
+#: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
 msgstr "Ondersteun MJPEG camera's"
 
-#: data/camera.metainfo.xml.in:76 data/camera.metainfo.xml.in:93
+#: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
 msgstr "Oplossingen:"
 
-#: data/camera.metainfo.xml.in:78
+#: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
 msgstr "Geeft een error weer in het geval er geen camera beschikbaar is"
 
-#: data/camera.metainfo.xml.in:91
+#: data/camera.metainfo.xml.in:104
 msgid "Take a photo or video on secondary-click"
 msgstr "Maak een foto of video met secundaire klik"
 
-#: data/camera.metainfo.xml.in:95
+#: data/camera.metainfo.xml.in:108
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "Zorg ervoor dat helderheid, contrast en spiegel blijven werken na het nemen "
 "van een foto"
 
-#: data/camera.metainfo.xml.in:96
+#: data/camera.metainfo.xml.in:109
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "Bredere hardwarecompatibiliteit (bijv. StarBook Mk V)"
 
-#: data/camera.metainfo.xml.in:97
+#: data/camera.metainfo.xml.in:110
 msgid "Ensure photos saved properly"
 msgstr "Zorg er voor dat foto's correct zijn opgeslagen"
 
-#: data/camera.metainfo.xml.in:101
+#: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
 msgstr "Verbeterde prestaties en betrouwbaarheid"
 
