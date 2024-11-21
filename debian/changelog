@@ -1,3 +1,9 @@
+io.elementary.camera (8.0.1) focal; urgency=medium
+
+  * Release 8.0.1 (#282)
+
+ -- Cody Garver <cody@elementary.io>  Thu, 21 Nov 2024 16:06:14 +0000
+
 io.elementary.camera (6.2.0) focal; urgency=medium
 
   * New upstream release
