@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-19 23:20+0000\n"
-"PO-Revision-Date: 2021-07-22 11:25+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Finnish <https://l10n.elementary.io/projects/camera/extra/fi/"
-">\n"
+"PO-Revision-Date: 2024-12-02 05:45+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/camera/extra/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -57,7 +57,7 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
-msgstr ""
+msgstr "Uudet ominaisuudet:"
 
 #: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
-msgstr ""
+msgstr "Korjaukset:"
 
 #: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
