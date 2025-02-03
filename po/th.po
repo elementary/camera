@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-19 23:20+0000\n"
-"PO-Revision-Date: 2024-03-01 19:12+0000\n"
+"PO-Revision-Date: 2025-02-04 01:16+0000\n"
 "Last-Translator: Aefgh Threenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://l10n.elementary.io/projects/camera/camera/th/>\n"
 "Language: th\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
 
 #: src/MainWindow.vala:63
@@ -78,15 +78,14 @@ msgstr "ถ่ายรูปแล้ว"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "ปิดใช้งาน"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d วินาที"
 
 #: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
