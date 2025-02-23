@@ -29,7 +29,8 @@ modules:
   - name: cargo-c
     buildsystem: simple
     build-commands:
-      - "cargo install cargo-c --root /app"
+      # This version is locked to a version that can build with Rust 1.81 which is what's in the SDK
+      - "cargo install --locked cargo-c@0.10.7+cargo-0.84.0 --root /app"
     build-options:
       build-args:
         - "--share=network"
