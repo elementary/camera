@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"POT-Creation-Date: 2025-04-15 14:10+0000\n"
 "PO-Revision-Date: 2024-09-29 02:16+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -30,6 +30,10 @@ msgstr "Take photos and videos with the camera"
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Camera is a simple app to take photos with a webcam."
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -96,9 +100,6 @@ msgstr "Photo Booth"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Photo;Video;Webcam;Camera;Booth;"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "Update to elementary runtime 6.1"

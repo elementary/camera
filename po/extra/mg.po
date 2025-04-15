@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"POT-Creation-Date: 2025-04-15 14:10+0000\n"
 "PO-Revision-Date: 2018-05-27 16:59-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -26,6 +26,10 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
+msgstr ""
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
 msgstr ""
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56

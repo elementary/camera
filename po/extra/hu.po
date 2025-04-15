@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"POT-Creation-Date: 2025-04-15 14:10+0000\n"
 "PO-Revision-Date: 2024-09-03 23:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/camera/extra/"
@@ -32,6 +32,10 @@ msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "A Kamera egy egyszerű alkalmazás, ami a webkamerával való képkészítést teszi "
 "lehetővé."
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -98,9 +102,6 @@ msgstr "Fotófülke"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Fénykép;Fotó;Videó;Webkamera;Kamera;Booth;;Fényképezőgép;Fülke;"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "Frissítés az elementary 6.1-es futtatókörnyezetre"

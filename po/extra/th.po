@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"POT-Creation-Date: 2025-04-15 14:10+0000\n"
 "PO-Revision-Date: 2025-02-04 01:16+0000\n"
 "Last-Translator: Aefgh Threenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://l10n.elementary.io/projects/camera/extra/th/>\n"
@@ -29,6 +29,10 @@ msgstr "ถ่ายภาพและวิดีโอด้วยกล้อ
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "“กล้อง” เป็นแอปอย่างง่ายสำหรับถ่ายภาพด้วยเว็บแคม"
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -94,6 +98,3 @@ msgstr "บูธถ่ายรูป"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "รูปถ่าย;วิดีโอ;เว็บแคม;กล้อง;บูธ;"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."

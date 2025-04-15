@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"POT-Creation-Date: 2025-04-15 14:10+0000\n"
 "PO-Revision-Date: 2021-07-22 11:25+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/camera/extra/"
@@ -30,6 +30,12 @@ msgstr "Foti kaj filmi per kamerao"
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Fotilo estas simpla fotografa aplikaĵo uzanta retkameraon."
+
+#: data/camera.metainfo.xml.in:35
+#, fuzzy
+#| msgid "elementary LLC."
+msgid "elementary, Inc."
+msgstr "elementary LLC."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -95,11 +101,6 @@ msgstr "Fotobudo"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Foto;Filmo;Retkamerao;Fotilo;Budo;"
-
-#, fuzzy
-#~| msgid "elementary LLC."
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary LLC."
 
 #~ msgid "io.elementary.camera"
 #~ msgstr "io.elementary.camera"
