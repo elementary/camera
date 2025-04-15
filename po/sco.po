@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.elementary.camera package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: io.elementary.camera\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sco\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: src/MainWindow.vala:63
+msgid "Camera"
+msgstr ""
+
+#: src/MainWindow.vala:70
+msgid "Saved to Videos"
+msgstr ""
+
+#: src/MainWindow.vala:71
+msgid "View File"
+msgstr ""
+
+#: src/MainWindow.vala:85
+msgid "Recording failed"
+msgstr ""
+
+#. Construct AppMenu
+#: src/MainWindow.vala:162
+msgid "Mirror"
+msgstr ""
+
+#: src/MainWindow.vala:168
+msgid "Brightness"
+msgstr ""
+
+#: src/MainWindow.vala:181
+msgid "Contrast"
+msgstr ""
+
+#: src/MainWindow.vala:228
+msgid "Settings"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:90
+msgid "No Supported Camera Found"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:91
+msgid ""
+"Connect a webcam or other supported video device to take photos and video."
+msgstr ""
+
+#: src/Widgets/CameraView.vala:177
+#, c-format
+msgid "Connecting to \"%s\"…"
+msgstr ""
+
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:264
+msgid "Unable To View Camera"
+msgstr ""
+
+#: src/Widgets/CameraView.vala:435
+msgid "Photo taken"
+msgstr ""
+
+#: src/Widgets/TimerButton.vala:42
+msgid "Disabled"
+msgstr ""
+
+#. /TRANSLATORS: Seconds in a timer
+#: src/Widgets/TimerButton.vala:45
+#, c-format
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Widgets/TimerButton.vala:65
+msgid "Delay before photo is taken"
+msgstr ""
