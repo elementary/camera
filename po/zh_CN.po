@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 14:10+0000\n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
 "PO-Revision-Date: 2021-11-01 05:24+0000\n"
 "Last-Translator: Yuchen Deng <loaden@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -49,7 +49,8 @@ msgstr "亮度"
 msgid "Contrast"
 msgstr "对比度"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:230
+#, c-format
 msgid "Settings"
 msgstr "设置"
 

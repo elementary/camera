@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 14:10+0000\n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
 "PO-Revision-Date: 2021-08-21 17:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/camera/"
@@ -49,7 +49,8 @@ msgstr "Lysstyrke"
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:230
+#, c-format
 msgid "Settings"
 msgstr "Innstillinger"
 

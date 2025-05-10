@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 14:10+0000\n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
@@ -34,7 +34,8 @@ msgstr ""
 msgid "Contrast"
 msgstr ""
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:230
+#, c-format
 msgid "Settings"
 msgstr ""
 
