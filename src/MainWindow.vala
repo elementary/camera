@@ -33,8 +33,8 @@ public class Camera.MainWindow : Gtk.ApplicationWindow {
         {ACTION_CHANGE_CAMERA, on_change_camera, "s", "''"}
     };
 
-    private const string PHOTO_ICON_SYMBOLIC = "view-list-images-symbolic";
-    private const string VIDEO_ICON_SYMBOLIC = "view-list-video-symbolic";
+    private const string PHOTO_ICON_SYMBOLIC = "view-photo-symbolic";
+    private const string VIDEO_ICON_SYMBOLIC = "view-video-symbolic";
     private const string STOP_ICON_SYMBOLIC = "media-playback-stop-symbolic";
 
     private Widgets.CameraView camera_view;
