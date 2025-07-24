@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
 "PO-Revision-Date: 2024-02-03 09:11+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/camera/camera/ru/"
@@ -50,7 +50,8 @@ msgstr "Яркость"
 msgid "Contrast"
 msgstr "Контраст"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:230
+#, c-format
 msgid "Settings"
 msgstr "Параметры"
 

@@ -7,90 +7,97 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
-"PO-Revision-Date: 2018-05-27 16:59-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"PO-Revision-Date: 2025-06-05 11:55+0000\n"
+"Last-Translator: lenify <lenify@tutanota.com>\n"
+"Language-Team: Belarusian <https://l10n.elementaryos.org/projects/camera/"
+"extra/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
-msgstr ""
+msgstr "Камера"
 
 #: data/camera.metainfo.xml.in:11 data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr ""
+msgstr "Фатаграфуйце і запісвайце відэа з камеры"
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr ""
+msgstr "Камера — гэта простая праграма для фатаграфавання з вэб-камеры."
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
 #: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
 msgid "Minor updates:"
-msgstr ""
+msgstr "Нязначныя абнаўленні:"
 
 #: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
 #: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
 #: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
 msgid "Updated translations"
-msgstr ""
+msgstr "Абноўлены пераклады"
 
 #: data/camera.metainfo.xml.in:58
 msgid "Update to elementary runtime 8"
-msgstr ""
+msgstr "Абнаўленне да elementary runtime 8"
 
 #: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 7.2"
-msgstr ""
+msgstr "Абнаўленне да elementary runtime 7.2"
 
 #: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
 msgid "New features:"
-msgstr ""
+msgstr "Новыя функцыі:"
 
 #: data/camera.metainfo.xml.in:87
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Падтрымка камер MJPEG"
 
 #: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
 msgid "Fixes:"
-msgstr ""
+msgstr "Выпраўленні:"
 
 #: data/camera.metainfo.xml.in:91
 msgid "Show error in case no camera device is available"
-msgstr ""
+msgstr "Паказ памылкі, калі няма даступных камер"
 
 #: data/camera.metainfo.xml.in:104
 msgid "Take a photo or video on secondary-click"
-msgstr ""
+msgstr "Здымак на правую кнопку мышы ці двайны націск па сэнсарнай пляцоўцы"
 
 #: data/camera.metainfo.xml.in:108
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
+"Забеспячэнне працы яркасці, кантрасту і адлюстравання пасля фатаграфавання"
 
 #: data/camera.metainfo.xml.in:109
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Большая сумяшчальнасць абсталявання (напрыклад StarBook Mk V)"
 
 #: data/camera.metainfo.xml.in:110
 msgid "Ensure photos saved properly"
-msgstr ""
+msgstr "Забеспячэнне правільнага захавання фотаздымкаў"
 
 #: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Паляпшэнне прадуктыўнасці і надзейнасці"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Фота будка"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Фота;Відэа;Вэб-камера;Вэбкамера;Камера;Будка;"

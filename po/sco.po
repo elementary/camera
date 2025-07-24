@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.elementary.camera package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: io.elementary.camera\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"PO-Revision-Date: 2025-04-18 10:22+0000\n"
+"Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
+"Language-Team: Scots <https://l10n.elementaryos.org/projects/camera/camera/"
+"sco/>\n"
+"Language: sco\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#: src/MainWindow.vala:63
+msgid "Camera"
+msgstr "Camera"
+
+#: src/MainWindow.vala:70
+msgid "Saved to Videos"
+msgstr "Saved tae Videos"
+
+#: src/MainWindow.vala:71
+msgid "View File"
+msgstr "View File"
+
+#: src/MainWindow.vala:85
+msgid "Recording failed"
+msgstr "Recordin mist"
+
+#. Construct AppMenu
+#: src/MainWindow.vala:162
+msgid "Mirror"
+msgstr "Mirror"
+
+#: src/MainWindow.vala:168
+msgid "Brightness"
+msgstr "Brichtniss"
+
+#: src/MainWindow.vala:181
+msgid "Contrast"
+msgstr "Contrast"
+
+#: src/MainWindow.vala:230
+#, c-format
+msgid "Settings"
+msgstr "Settins"
+
+#: src/Widgets/CameraView.vala:90
+msgid "No Supported Camera Found"
+msgstr "Nae Supported Camera Fuind"
+
+#: src/Widgets/CameraView.vala:91
+msgid ""
+"Connect a webcam or other supported video device to take photos and video."
+msgstr ""
+"Connect a webcam or ither supported video device tae tay fotos and video."
+
+#: src/Widgets/CameraView.vala:177
+#, c-format
+msgid "Connecting to \"%s\"…"
+msgstr "Connectin tae \"%s\"…"
+
+#. It is possible that there is another camera present that could selected so do not show
+#. no_device_view
+#: src/Widgets/CameraView.vala:264
+msgid "Unable To View Camera"
+msgstr "Canna View Camera"
+
+#: src/Widgets/CameraView.vala:435
+msgid "Photo taken"
+msgstr "Foto tain"
+
+#: src/Widgets/TimerButton.vala:42
+msgid "Disabled"
+msgstr "De-activated"
+
+#. /TRANSLATORS: Seconds in a timer
+#: src/Widgets/TimerButton.vala:45
+#, c-format
+msgid "%d Sec"
+msgid_plural "%d Sec"
+msgstr[0] "%d Sec."
+msgstr[1] "%d Sec."
+
+#: src/Widgets/TimerButton.vala:65
+msgid "Delay before photo is taken"
+msgstr "Delay before foto is tain"

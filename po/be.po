@@ -2,89 +2,96 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 00:45+0000\n"
-"PO-Revision-Date: 2015-12-21 14:30+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"PO-Revision-Date: 2025-06-05 11:55+0000\n"
+"Last-Translator: lenify <lenify@tutanota.com>\n"
+"Language-Team: Belarusian <https://l10n.elementaryos.org/projects/camera/"
+"camera/be/>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2016-09-22 08:32+0000\n"
-"X-Generator: Launchpad (build 18204)\n"
 
 #: src/MainWindow.vala:63
 msgid "Camera"
-msgstr ""
+msgstr "Камера"
 
 #: src/MainWindow.vala:70
 msgid "Saved to Videos"
-msgstr ""
+msgstr "Захавана ў папку Відэа"
 
 #: src/MainWindow.vala:71
 msgid "View File"
-msgstr ""
+msgstr "Праглядзець файл"
 
 #: src/MainWindow.vala:85
 msgid "Recording failed"
-msgstr ""
+msgstr "Не ўдалося запісаць"
 
 #. Construct AppMenu
 #: src/MainWindow.vala:162
 msgid "Mirror"
-msgstr ""
+msgstr "Адлюстроўка"
 
 #: src/MainWindow.vala:168
 msgid "Brightness"
-msgstr ""
+msgstr "Яркасць"
 
 #: src/MainWindow.vala:181
 msgid "Contrast"
-msgstr ""
+msgstr "Кантраст"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:230
+#, c-format
 msgid "Settings"
-msgstr ""
+msgstr "Налады"
 
 #: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Не знойдзена камеры, якая падтрымліваецца"
 
 #: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
+"Падлучыце вэб-камеру або іншую прылады, якая падтрымліваецца для запісу, каб "
+"здымаць фота і відэа."
 
 #: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Далучэнне да \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
 #: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Не ўдалося знайсці камеру"
 
 #: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
-msgstr ""
+msgstr "Фота зроблена"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr ""
+msgstr "Адключана"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d секунда"
+msgstr[1] "%d секунды"
+msgstr[2] "%d секунд"
 
 #: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Затрымка перад фатаграфіяй"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

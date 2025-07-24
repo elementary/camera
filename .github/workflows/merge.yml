@@ -35,7 +35,7 @@ jobs:
           flatpak install -y --arch=${{ matrix.configuration.arch }} org.freedesktop.Sdk.Extension.rust-stable//23.08
 
       - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.4
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.5
         with:
           bundle: camera.flatpak
           manifest-path: io.elementary.camera.yml
@@ -47,7 +47,7 @@ jobs:
           arch: ${{ matrix.configuration.arch }}
 
       - name: Deploy
-        uses: flatpak/flatpak-github-actions/flat-manager@v6.4
+        uses: flatpak/flatpak-github-actions/flat-manager@v6.5
         with:
           repository: appcenter
           flat-manager-url: https://flatpak-api.elementary.io

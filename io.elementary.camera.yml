@@ -41,7 +41,7 @@ modules:
     buildsystem: simple
     sources:
     - type: git
-      url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
+      url: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git
       branch: '0.12'
     build-options:
       build-args:
