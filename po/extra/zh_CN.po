@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-02 00:47+0000\n"
-"PO-Revision-Date: 2023-06-12 14:07+0000\n"
-"Last-Translator: Vincent Yu <coolplayyhj@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
-"camera/extra/zh_Hans/>\n"
+"PO-Revision-Date: 2025-08-03 02:43+0000\n"
+"Last-Translator: JieXu <xujie0739@qq.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://"
+"l10n.elementaryos.org/projects/camera/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -44,10 +44,8 @@ msgid "Updated translations"
 msgstr "更新翻译"
 
 #: data/camera.metainfo.xml.in:58
-#, fuzzy
-#| msgid "Update to elementary runtime 7.2"
 msgid "Update to elementary runtime 8"
-msgstr "更新至 elementary 7.2运行时"
+msgstr "将 elementary 运行环境更新至 8"
 
 #: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 7.2"
@@ -88,7 +86,7 @@ msgstr "确保照片正确保存"
 
 #: data/camera.metainfo.xml.in:114
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "改善性能和可靠性"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
