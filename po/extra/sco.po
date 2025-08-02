@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"POT-Creation-Date: 2025-08-02 00:47+0000\n"
 "PO-Revision-Date: 2025-04-18 10:22+0000\n"
 "Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
 "Language-Team: Scots <https://l10n.elementaryos.org/projects/camera/extra/"
@@ -30,10 +30,6 @@ msgstr "tay fotos an videos wi the camera"
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "Camera is a simple app tae tay fotos wi a webcam."
-
-#: data/camera.metainfo.xml.in:35
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -100,3 +96,6 @@ msgstr "Foto Booth"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Foto;Video;Webcam;Camera;Booth;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"POT-Creation-Date: 2025-08-02 00:47+0000\n"
 "PO-Revision-Date: 2024-09-20 09:43+0000\n"
 "Last-Translator: Sinan Decron <sinanveyasinan@gmail.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/camera/extra/tr/"
@@ -31,10 +31,6 @@ msgstr "Kamera ile fotoğraf ve video çekin"
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "Kamera bir web kamerası ile fotoğraf çekmek için basit bir uygulamadır."
-
-#: data/camera.metainfo.xml.in:35
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -102,6 +98,9 @@ msgstr "Fotoğraf Kabini"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Fotoğraf;Video;Webcam;Kamera;Kabin;Foto;Photo;Camera;Booth;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "elementary çalışma zamanı 6.1 sürümüne güncellendi"

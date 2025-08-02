@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"POT-Creation-Date: 2025-08-02 00:47+0000\n"
 "PO-Revision-Date: 2024-11-06 11:17+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -30,10 +30,6 @@ msgstr "使用相機拍攝照片和影片"
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "《攝影機》是一個以網路攝影機拍照的簡單應用程式。"
-
-#: data/camera.metainfo.xml.in:35
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -99,6 +95,9 @@ msgstr "相館"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Photo;Video;Webcam;Camera;Booth;拍照;影片;網路攝影機;相機;相館;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "io.elementary.camera"
 #~ msgstr "io.elementary.camera"

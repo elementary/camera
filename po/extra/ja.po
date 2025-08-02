@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 17:25+0000\n"
+"POT-Creation-Date: 2025-08-02 00:47+0000\n"
 "PO-Revision-Date: 2024-12-12 05:36+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/camera/extra/ja/"
@@ -30,10 +30,6 @@ msgstr "カメラで写真と動画を撮影します"
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr "“カメラ”は Web カメラで写真を撮影するためのシンプルなアプリです。"
-
-#: data/camera.metainfo.xml.in:35
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -99,6 +95,9 @@ msgstr "写真撮影機"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Photo;Video;Webcam;Camera;Booth;写真;動画;Web カメラ;カメラ;ブース;"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "elementary ランタイムのバージョンを 6.1 にアップデート"
