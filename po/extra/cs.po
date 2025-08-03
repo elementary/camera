@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-02 00:47+0000\n"
+"POT-Creation-Date: 2025-08-03 02:43+0000\n"
 "PO-Revision-Date: 2022-03-02 12:55+0000\n"
 "Last-Translator: arnemec <arne.nemec01@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/camera/extra/cs/>\n"
@@ -30,6 +30,10 @@ msgstr "Snímejte fotky a videa pomocí kamery"
 msgid "Camera is a simple app to take photos with a webcam."
 msgstr ""
 "Kamera je jednoduchá aplikace pro snímání fotek a videí pomocí webkamery."
+
+#: data/camera.metainfo.xml.in:35
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
@@ -99,9 +103,6 @@ msgstr "Fotobudka"
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
 msgstr "Fotka;Fotky;Video;Webkamera;Kamera;Camera;Budka;Snímek;Záběr;Fotoaparát;Foťák;Fotografie;Camera;Webcam;"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
 
 #~ msgid "Update to elementary runtime 6.1"
 #~ msgstr "Běhové prostředí elementary aktualizováno na verzi 6.1"
