@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-02 00:47+0000\n"
+"POT-Creation-Date: 2025-08-03 02:43+0000\n"
 "PO-Revision-Date: 2018-01-20 19:39+0000\n"
 "Last-Translator: Laurence Bahiirwa <laurence@mediauganda.com>\n"
 "Language-Team: Ganda <https://weblate.elementary.io/projects/camera/camera/"
@@ -43,7 +43,6 @@ msgid "Contrast"
 msgstr ""
 
 #: src/MainWindow.vala:230
-#, c-format
 msgid "Settings"
 msgstr ""
 
