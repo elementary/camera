@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-03 02:43+0000\n"
+"POT-Creation-Date: 2025-08-12 20:25+0000\n"
 "PO-Revision-Date: 2025-08-03 02:43+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -35,60 +35,66 @@ msgstr "相机是一个简约的拍照应用。"
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:56
+#: data/camera.metainfo.xml.in:43 data/camera.metainfo.xml.in:53
 #: data/camera.metainfo.xml.in:66 data/camera.metainfo.xml.in:76
-#: data/camera.metainfo.xml.in:93 data/camera.metainfo.xml.in:112
+#: data/camera.metainfo.xml.in:86 data/camera.metainfo.xml.in:103
+#: data/camera.metainfo.xml.in:122
 msgid "Minor updates:"
 msgstr "次要更新："
 
-#: data/camera.metainfo.xml.in:45 data/camera.metainfo.xml.in:59
-#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:78
-#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:115
+#: data/camera.metainfo.xml.in:45
+msgid "Open main menu with the keyboard shortcut F10"
+msgstr ""
+
+#: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:55
+#: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:79
+#: data/camera.metainfo.xml.in:88 data/camera.metainfo.xml.in:105
+#: data/camera.metainfo.xml.in:125
 msgid "Updated translations"
 msgstr "更新翻译"
 
-#: data/camera.metainfo.xml.in:58
+#: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 8"
 msgstr "将 elementary 运行环境更新至 8"
 
-#: data/camera.metainfo.xml.in:68
+#: data/camera.metainfo.xml.in:78
 msgid "Update to elementary runtime 7.2"
 msgstr "更新至 elementary 7.2运行时"
 
-#: data/camera.metainfo.xml.in:85 data/camera.metainfo.xml.in:102
+#: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:112
 msgid "New features:"
 msgstr "新功能:"
 
-#: data/camera.metainfo.xml.in:87
+#: data/camera.metainfo.xml.in:97
 msgid "Support MJPEG cameras"
 msgstr "支持 MJPEG 相机"
 
-#: data/camera.metainfo.xml.in:89 data/camera.metainfo.xml.in:106
+#: data/camera.metainfo.xml.in:99 data/camera.metainfo.xml.in:116
 msgid "Fixes:"
 msgstr "修复:"
 
-#: data/camera.metainfo.xml.in:91
+#: data/camera.metainfo.xml.in:101
 msgid "Show error in case no camera device is available"
 msgstr "在无可用相机设备的情况下将显示错误"
 
-#: data/camera.metainfo.xml.in:104
+#: data/camera.metainfo.xml.in:114
 msgid "Take a photo or video on secondary-click"
 msgstr "在右击鼠标时拍摄照片或视频"
 
-#: data/camera.metainfo.xml.in:108
+#: data/camera.metainfo.xml.in:118
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr "在拍摄照片后不改变亮度、对比度和镜像设置"
 
-#: data/camera.metainfo.xml.in:109
+#: data/camera.metainfo.xml.in:119
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
 msgstr "广泛硬件兼容性（例如 StarBook Mk V）"
 
-#: data/camera.metainfo.xml.in:110
+#: data/camera.metainfo.xml.in:120
 msgid "Ensure photos saved properly"
 msgstr "确保照片正确保存"
 
-#: data/camera.metainfo.xml.in:114
+#: data/camera.metainfo.xml.in:124
 msgid "Improved performance and reliability"
 msgstr "改善性能和可靠性"
 
