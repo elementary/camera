@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2025-06-05 11:55+0000\n"
+"PO-Revision-Date: 2025-08-19 07:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/camera/"
 "extra/be/>\n"
@@ -45,7 +45,7 @@ msgstr "Нязначныя абнаўленні:"
 
 #: data/camera.metainfo.xml.in:45
 msgid "Open main menu with the keyboard shortcut F10"
-msgstr ""
+msgstr "Адкрыццё меню клавішай F10"
 
 #: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:55
 #: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:79
