@@ -1,3 +1,9 @@
+io.elementary.camera (8.0.2) noble; urgency=medium
+
+  * Release 8.0.2
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Wed, 20 Aug 2025 22:27:41 +0900
+
 io.elementary.camera (8.0.1) focal; urgency=medium
 
   * Release 8.0.1 (#282)
