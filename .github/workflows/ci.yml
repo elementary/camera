@@ -38,7 +38,7 @@ jobs:
           flatpak install -y --arch=${{ matrix.configuration.arch }} org.freedesktop.Sdk.Extension.rust-stable//24.08
 
       - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.5
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6.6
         with:
           bundle: camera.flatpak
           manifest-path: io.elementary.camera.yml
