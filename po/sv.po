@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pantheon-camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2025-10-22 08:07+0000\n"
+"PO-Revision-Date: 2025-10-31 18:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/camera/camera/"
 "sv/>\n"
@@ -26,7 +26,7 @@ msgstr "Kamera"
 
 #: src/MainWindow.vala:70
 msgid "Saved to Videos"
-msgstr "Sparad till videor"
+msgstr "Sparad till Videor"
 
 #: src/MainWindow.vala:71
 msgid "View File"
@@ -39,7 +39,7 @@ msgstr "Inspelningen misslyckades"
 #. Construct AppMenu
 #: src/MainWindow.vala:162
 msgid "Mirror"
-msgstr "Spegel"
+msgstr "Spegla"
 
 #: src/MainWindow.vala:168
 msgid "Brightness"
@@ -72,11 +72,11 @@ msgstr "Ansluter till \"%s\"…"
 #. no_device_view
 #: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
-msgstr "Det går inte att se kameran"
+msgstr "Det går inte att visa kameran"
 
 #: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
-msgstr "Foto taget"
+msgstr "Bild tagen"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
@@ -92,7 +92,7 @@ msgstr[1] "%d s"
 
 #: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
-msgstr "Tidsfördröjning innan foto tas"
+msgstr "Tidsfördröjning innan bilden tas"
 
 #, fuzzy
 #~| msgid "Camera"
