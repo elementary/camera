@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2025-10-22 08:07+0000\n"
+"PO-Revision-Date: 2025-10-31 18:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/camera/extra/"
 "sv/>\n"
@@ -25,11 +25,11 @@ msgstr "Kamera"
 
 #: data/camera.metainfo.xml.in:11 data/io.elementary.camera.desktop.in:5
 msgid "Take photos and videos with the camera"
-msgstr "Ta foton och spela in video med kameran"
+msgstr "Ta bilder och spela in videor med kameran"
 
 #: data/camera.metainfo.xml.in:13
 msgid "Camera is a simple app to take photos with a webcam."
-msgstr "Kamera är ett enkelt program för att ta foton med en webbkamera."
+msgstr "Kamera är ett enkelt program för att ta bilder med en webbkamera."
 
 #: data/camera.metainfo.xml.in:35
 msgid "elementary, Inc."
@@ -79,14 +79,14 @@ msgstr "Visa fel om ingen kameraenhet är tillgänglig"
 
 #: data/camera.metainfo.xml.in:114
 msgid "Take a photo or video on secondary-click"
-msgstr "Ta ett foto eller en video med sekundärklick"
+msgstr "Ta en bild eller video med sekundärklick"
 
 #: data/camera.metainfo.xml.in:118
 msgid ""
 "Ensure brightness, contrast, and mirror continue working after taking a photo"
 msgstr ""
 "Säkerställ att ljusstyrka, kontrast och spegel fortsätter att fungera efter "
-"att du tagit ett foto"
+"att du tagit en bild"
 
 #: data/camera.metainfo.xml.in:119
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
@@ -106,7 +106,7 @@ msgstr "Fotobås"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr "Foto;Video;Webbkamera;Kamera;Bås;"
+msgstr "Foto;Video;Webbkamera;Kamera;Bås;Bild;"
 
 #~ msgid "io.elementary.camera"
 #~ msgstr "io.elementary.camera"
