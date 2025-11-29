@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2023-02-10 14:25+0000\n"
-"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/camera/extra/nl/>\n"
+"PO-Revision-Date: 2025-11-30 07:55+0000\n"
+"Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
+"Language-Team: Dutch <https://l10n.elementaryos.org/projects/camera/extra/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/camera.metainfo.xml.in:10 data/io.elementary.camera.desktop.in:4
 msgid "Camera"
@@ -43,7 +44,7 @@ msgstr "Kleine updates:"
 
 #: data/camera.metainfo.xml.in:45
 msgid "Open main menu with the keyboard shortcut F10"
-msgstr ""
+msgstr "Open het hoofdmenu met sneltoets F10"
 
 #: data/camera.metainfo.xml.in:46 data/camera.metainfo.xml.in:55
 #: data/camera.metainfo.xml.in:69 data/camera.metainfo.xml.in:79
@@ -53,16 +54,12 @@ msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
 #: data/camera.metainfo.xml.in:68
-#, fuzzy
-#| msgid "Update to elementary runtime 6.1"
 msgid "Update to elementary runtime 8"
-msgstr "Update naar elementary runtime 6.1"
+msgstr "Update naar elementary runtime 8"
 
 #: data/camera.metainfo.xml.in:78
-#, fuzzy
-#| msgid "Update to elementary runtime 6.1"
 msgid "Update to elementary runtime 7.2"
-msgstr "Update naar elementary runtime 6.1"
+msgstr "Update naar elementary runtime 7.2"
 
 #: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:112
 msgid "New features:"
