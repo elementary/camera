@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2025-04-18 10:22+0000\n"
-"Last-Translator: Ben Gordon Agnew <ben.gordon@posteo.de>\n"
+"PO-Revision-Date: 2026-04-05 01:55+0000\n"
+"Last-Translator: Buni <ben.gordon@posteo.de>\n"
 "Language-Team: Scots <https://l10n.elementaryos.org/projects/camera/camera/"
 "sco/>\n"
 "Language: sco\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/MainWindow.vala:63
 msgid "Camera"
@@ -71,7 +71,7 @@ msgstr "Connectin tae \"%s\"…"
 #. no_device_view
 #: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
-msgstr "Canna View Camera"
+msgstr "Canna get Viewin Camera"
 
 #: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
@@ -86,8 +86,8 @@ msgstr "De-activated"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] "%d Sec."
-msgstr[1] "%d Sec."
+msgstr[0] "%d s."
+msgstr[1] "%d s."
 
 #: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
