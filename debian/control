@@ -1,6 +1,6 @@
 Source: io.elementary.camera
 Section: x11
-Maintainer: Cody Garver <cody@elementary.io>
+Maintainer: elementary <builds@elementary.io>
 Build-Depends: appstream,
                debhelper (>= 10.5.1),
                desktop-file-utils,
