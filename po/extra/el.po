@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2026-06-29 08:56+0000\n"
+"PO-Revision-Date: 2026-06-30 13:56+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/camera/extra/"
 "el/>\n"
@@ -56,19 +56,19 @@ msgstr "Ενημερωμένες μεταφράσεις"
 
 #: data/camera.metainfo.xml.in:68
 msgid "Update to elementary runtime 8"
-msgstr ""
+msgstr "Ενημέρωση του elementary runtime στην έκδοση 8"
 
 #: data/camera.metainfo.xml.in:78
 msgid "Update to elementary runtime 7.2"
-msgstr ""
+msgstr "Ενημέρωση του elementary runtime στην έκδοση 7.2"
 
 #: data/camera.metainfo.xml.in:95 data/camera.metainfo.xml.in:112
 msgid "New features:"
-msgstr ""
+msgstr "Νέες λειτουργίες:"
 
 #: data/camera.metainfo.xml.in:97
 msgid "Support MJPEG cameras"
-msgstr ""
+msgstr "Υποστήριξη καμερών MJPEG"
 
 #: data/camera.metainfo.xml.in:99 data/camera.metainfo.xml.in:116
 msgid "Fixes:"
