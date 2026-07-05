@@ -211,7 +211,10 @@ public class Camera.Widgets.CameraView : Gtk.Box {
 
             for (uint i = 0; i < caps.get_size (); i++) {
                 unowned var s = caps.get_structure (i);
-                if (s.get_name () == "image/jpeg") {
+                // Consider raw modes too: some cameras (e.g. the PCIe FaceTime
+                // HD on 2015 MacBook Pros) offer no JPEG caps at all, and the
+                // 640×480 fallback distorts photos from 16:9-only sensors
+                if (s.get_name () == "image/jpeg" || s.get_name () == "video/x-raw") {
                     int w, h;
                     s.get_int ("width", out w);
                     s.get_int ("height", out h);
