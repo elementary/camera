@@ -249,6 +249,14 @@ public class Camera.Widgets.CameraView : Gtk.Box {
             videorate.drop_only = true;
 
             dynamic Gst.Element gtksink = Gst.ElementFactory.make ("gtk4paintablesink", "sink");
+            if (gtksink == null) {
+                // Without this check the preview silently stays black while
+                // capture keeps working, since the preview branch dead-ends
+                // behind the leaky queue
+                string[] messages = { Gst.PbUtils.missing_element_installer_detail_new ("gtk4paintablesink") };
+                Gst.PbUtils.install_plugins_async (messages, null, (result) => {});
+                throw new IOError.NOT_FOUND ("Missing GStreamer element \"gtk4paintablesink\"");
+            }
 
             pipeline.add (gtksink);
             pipeline.get_by_name ("videoscale").link (gtksink);
