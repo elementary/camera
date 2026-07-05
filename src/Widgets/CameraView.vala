@@ -350,6 +350,14 @@ public class Camera.Widgets.CameraView : Gtk.Box {
         var encoder = Gst.ElementFactory.make ("vp8enc", null);
         if (encoder == null) {
             missing_messages += Gst.PbUtils.missing_element_installer_detail_new ("vp8enc");
+        } else {
+            // vp8enc defaults (256 kbps target, exhaustive-quality deadline)
+            // cannot encode HD in real time: frames drop and quality collapses
+            encoder["deadline"] = (int64) 1;
+            encoder["cpu-used"] = 4;
+            encoder["threads"] = (int) GLib.get_num_processors ();
+            encoder["keyframe-max-dist"] = 60;
+            encoder["target-bitrate"] = picture_width * picture_height * 4;
         }
 
         var muxer = Gst.ElementFactory.make ("webmmux", null);
