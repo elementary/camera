@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2026-06-30 13:56+0000\n"
+"PO-Revision-Date: 2026-07-09 19:31+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/camera/extra/"
 "el/>\n"
@@ -103,8 +103,8 @@ msgstr ""
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
-msgstr ""
+msgstr "Φωτογραφικός θάλαμος"
 
 #: data/io.elementary.camera.desktop.in:11
 msgid "Photo;Video;Webcam;Camera;Booth;"
-msgstr ""
+msgstr "Κάμερα;Φωτογραφία;Βίντεο;Θάλαμος;Photo;Video;Webcam;Camera;Booth;"
