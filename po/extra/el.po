@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2026-07-09 19:31+0000\n"
+"PO-Revision-Date: 2026-07-29 12:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/camera/extra/"
 "el/>\n"
@@ -91,7 +91,7 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:119
 msgid "Wider hardware compatibility (e.g. StarBook Mk V)"
-msgstr ""
+msgstr "Ευρύτερη συμβατότητα υλικού (π.χ. StarBook Mk V)"
 
 #: data/camera.metainfo.xml.in:120
 msgid "Ensure photos saved properly"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: data/camera.metainfo.xml.in:124
 msgid "Improved performance and reliability"
-msgstr ""
+msgstr "Βελτιωμένες επιδόσεις και αξιοπιστία"
 
 #: data/io.elementary.camera.desktop.in:6
 msgid "Photo Booth"
