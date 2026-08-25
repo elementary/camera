@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2026-08-17 10:01+0000\n"
+"PO-Revision-Date: 2026-08-26 10:01+0000\n"
 "Last-Translator: Cyax <fakecyax@gmail.com>\n"
 "Language-Team: Kurdish <https://l10n.elementaryos.org/projects/camera/camera/"
 "ku/>\n"
@@ -23,32 +23,32 @@ msgstr "Hate tomarkrin bo vîdyo"
 
 #: src/MainWindow.vala:71
 msgid "View File"
-msgstr ""
+msgstr "Pelê nîşan bide"
 
 #: src/MainWindow.vala:85
 msgid "Recording failed"
-msgstr ""
+msgstr "Tomarkirin têk çû"
 
 #. Construct AppMenu
 #: src/MainWindow.vala:162
 msgid "Mirror"
-msgstr ""
+msgstr "Eynik"
 
 #: src/MainWindow.vala:168
 msgid "Brightness"
-msgstr ""
+msgstr "Ronahî"
 
 #: src/MainWindow.vala:181
 msgid "Contrast"
-msgstr ""
+msgstr "Dijberî"
 
 #: src/MainWindow.vala:230
 msgid "Settings"
-msgstr ""
+msgstr "Sazkarî"
 
 #: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
-msgstr ""
+msgstr "Wênekêşa piştgirîkirî nehate dîtin"
 
 #: src/Widgets/CameraView.vala:91
 msgid ""
@@ -60,13 +60,13 @@ msgstr ""
 #: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr ""
+msgstr "Bi \"%s\" re girê dide…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
 #: src/Widgets/CameraView.vala:264
 msgid "Unable To View Camera"
-msgstr ""
+msgstr "Nikare wênekêşî nîşan bide"
 
 #: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
@@ -81,12 +81,12 @@ msgstr "Neçalakkirî"
 #, c-format
 msgid "%d Sec"
 msgid_plural "%d Sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d çir"
+msgstr[1] "%d çir"
 
 #: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
-msgstr ""
+msgstr "Derengbûna berî kişandina wêneyê"
 
 #, fuzzy
 #~| msgid "Camera"
