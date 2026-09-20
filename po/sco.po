@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.camera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-12 20:25+0000\n"
-"PO-Revision-Date: 2026-04-05 01:55+0000\n"
+"PO-Revision-Date: 2026-09-20 09:44+0000\n"
 "Last-Translator: Buni <ben.gordon@posteo.de>\n"
 "Language-Team: Scots <https://l10n.elementaryos.org/projects/camera/camera/"
 "sco/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:63
 msgid "Camera"
@@ -54,18 +54,18 @@ msgstr "Settins"
 
 #: src/Widgets/CameraView.vala:90
 msgid "No Supported Camera Found"
-msgstr "Nae Supported Camera Fuind"
+msgstr "Nae Supportit Camera Fund"
 
 #: src/Widgets/CameraView.vala:91
 msgid ""
 "Connect a webcam or other supported video device to take photos and video."
 msgstr ""
-"Connect a webcam or ither supported video device tae tay fotos and video."
+"Conneck a webcam or ither supportit video device tae tak picters and videos."
 
 #: src/Widgets/CameraView.vala:177
 #, c-format
 msgid "Connecting to \"%s\"…"
-msgstr "Connectin tae \"%s\"…"
+msgstr "Conneckin tae \"%s\"…"
 
 #. It is possible that there is another camera present that could selected so do not show
 #. no_device_view
@@ -75,11 +75,11 @@ msgstr "Canna get Viewin Camera"
 
 #: src/Widgets/CameraView.vala:435
 msgid "Photo taken"
-msgstr "Foto tain"
+msgstr "Picter taen"
 
 #: src/Widgets/TimerButton.vala:42
 msgid "Disabled"
-msgstr "De-activated"
+msgstr "De-activatit"
 
 #. /TRANSLATORS: Seconds in a timer
 #: src/Widgets/TimerButton.vala:45
@@ -91,4 +91,4 @@ msgstr[1] "%d s."
 
 #: src/Widgets/TimerButton.vala:65
 msgid "Delay before photo is taken"
-msgstr "Delay before foto is tain"
+msgstr "Delay before picter gets taen"
