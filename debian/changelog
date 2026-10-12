@@ -1,3 +1,9 @@
+io.elementary.camera (9.0.0) noble; urgency=medium
+
+  * Release 9.0.0 (#311)
+
+ -- elementary <builds@elementary.io>  Mon, 12 Oct 2026 09:42:45 +0000
+
 io.elementary.camera (8.0.2) noble; urgency=medium
 
   * Release 8.0.2
